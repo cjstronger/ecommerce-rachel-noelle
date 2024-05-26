@@ -6,11 +6,15 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      accent: "#D6DBB2",
-      primary: "#F9FAF3",
-    },
     extend: {
+      colors: {
+        accent: "#D6DBB2",
+        primary: "#F9FAF3",
+      },
+      fontFamily: {
+        dm: ["DM Sans", "sans-serif"],
+        rubik: ["Rubik"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

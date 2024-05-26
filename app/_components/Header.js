@@ -4,7 +4,7 @@ import Cart from "./Cart";
 
 export default function Header() {
   return (
-    <header className="p-5 bg-primary border-b border-b-1 shadow-lg z-10">
+    <header className="p-5 bg-primary border-b border-slate-400 shadow-lg z-20 sticky top-0">
       <div className="flex justify-between items-center">
         <Navigation />
         <div className="absolute inset-x-1/2 whitespace-nowrap flex justify-center z-10">
