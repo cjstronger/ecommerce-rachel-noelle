@@ -1,10 +1,16 @@
+.menuButton:hover {
+  border-color: black;
+}
+
 .menuButton {
+  border: solid;
+  border-width: 2px;
+  border-color: #f9faf3;
   z-index: 15;
   height: 40px;
   width: 100px;
   font-family: "Rubik";
   font-size: 1.5rem;
-  border-radius: 25px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -19,7 +25,7 @@
       height: 100%;
       width: 100%;
       &:nth-child(2) {
-        background-color: #d6dbb2;
+        background-color: #b2b19f;
         position: absolute;
         top: 100%;
       }
@@ -28,10 +34,9 @@
 }
 
 .menu {
-  border-radius: 25px;
   position: absolute;
   height: 500px;
   width: 350px;
   top: 4.5rem;
-  background-color: #d6dbb2;
+  background-color: #b2b19f;
 }

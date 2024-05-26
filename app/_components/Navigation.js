@@ -16,7 +16,7 @@ const variants = {
   },
   close: {
     width: 100,
-    height: 40,
+    height: 38,
     top: "1.75rem",
     opacity: 0,
     transition: { delay: 0.3, duration: 0.3, opacity: { delay: 0.8 } },

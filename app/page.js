@@ -10,7 +10,17 @@ export default function Page() {
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new LocomotiveScroll();
+      const locomotiveScroll = new LocomotiveScroll({
+        smooth: true,
+        smartphone: {
+          smooth: true,
+          getDirection: true,
+        },
+        tablet: {
+          smooth: true,
+          getDirection: true,
+        },
+      });
     })();
   }, []);
 
@@ -18,7 +28,7 @@ export default function Page() {
     <>
       <div className="p-12 flex justify-center relative 2xl:aspect-[2/1] md:aspect-square aspect-[2/3]">
         <Image
-          className="object-none 2xl:object-cover shadow-lg rounded-[3rem] brightness-90"
+          className="object-none 2xl:object-cover shadow-lg brightness-90"
           src={test}
           width="2000"
           height="2000"
@@ -39,7 +49,7 @@ export default function Page() {
       <div className="m-12 relative bottom-[-5rem]">
         <Link
           href="/coaching"
-          className="absolute right-0 font-rubik border rounded-full p-3 border-slate-400 hover:bg-accent transition-all"
+          className="absolute right-0 font-rubik border -full p-3 border-slate-400 hover:bg-accent transition-all"
         >
           Need coaching?{" "}
           <span className="scale-x-0 hover:scale-x-100">&rarr;</span>
@@ -47,7 +57,7 @@ export default function Page() {
         <h1 className="z-10 text-6xl 2xl:mx-[15rem] my-5">About</h1>
         <p
           id="about"
-          className="max-w-[90rem] mx-auto md:text-3xl text-lg bg-accent rounded-xl p-5 mb-[9rem]"
+          className="max-w-[90rem] mx-auto md:text-3xl text-lg bg-accent p-5 mb-[9rem]"
         >
           As a dedicated mother, I have seamlessly integrated my nurturing
           spirit into my role as a coach, inspiring others with my commitment
@@ -61,7 +71,7 @@ export default function Page() {
       </div>
       <div className="flex 2xl:aspect-[2/1] md:aspect-square aspect-[2/3] p-12 justify-center">
         <Image
-          className="object-none 2xl:object-cover rounded-[3rem] brightness-75"
+          className="object-none 2xl:object-cover brightness-75"
           src={test2}
           height="2000"
           width="2000"
