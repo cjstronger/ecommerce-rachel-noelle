@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       colors: {
         accent: "#b2b19f;",
-        primary: "#F9FAF3",
+        primary: "#f9f8f3",
+        fadedBlack: "#373633",
       },
       fontFamily: {
         dm: ["DM Sans", "sans-serif"],

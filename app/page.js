@@ -1,9 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import test from "@/public/images/test.jpg";
 import Link from "next/link";
-import test2 from "@/public/images/test2.jpg";
 import { useEffect } from "react";
 
 export default function Page() {
@@ -11,14 +8,17 @@ export default function Page() {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll({
+        el: document.querySelector(["data-scroll-container"]),
         smooth: true,
         smartphone: {
-          smooth: true,
+          smooth: false,
           getDirection: true,
+          breakpoint: 0,
         },
         tablet: {
-          smooth: true,
+          smooth: false,
           getDirection: true,
+          breakpoint: 0,
         },
       });
     })();
@@ -26,13 +26,10 @@ export default function Page() {
 
   return (
     <>
-      <div className="p-12 flex justify-center relative 2xl:aspect-[2/1] md:aspect-square aspect-[2/3]">
-        <Image
-          className="object-none 2xl:object-cover shadow-lg brightness-90"
-          src={test}
-          width="2000"
-          height="2000"
-          quality={100}
+      <div className="flex 2xl:aspect-[2/1] md:aspect-[3/4] aspect-[5/9] lg:aspect-[5/5] m-12 justify-center relative">
+        <img
+          className=" object-none 2xl:object-cover shadow-lg brightness-90"
+          src="/images/test.jpg"
           placeholder="blur"
           alt="Rachel-Noelle"
         />
@@ -46,18 +43,19 @@ export default function Page() {
           <h1>Mother</h1>
         </div>
       </div>
-      <div className="m-12 relative bottom-[-5rem]">
-        <Link
-          href="/coaching"
-          className="absolute right-0 font-rubik border -full p-3 border-slate-400 hover:bg-accent transition-all"
-        >
-          Need coaching?{" "}
-          <span className="scale-x-0 hover:scale-x-100">&rarr;</span>
-        </Link>
-        <h1 className="z-10 text-6xl 2xl:mx-[15rem] my-5">About</h1>
+      <div className="px-12 relative bottom-[-5rem] flex flex-col max-w-[90rem] mx-auto">
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="z-10 text-6xl">About</h1>
+          <Link
+            href="/coaching"
+            className="font-rubik border p-3 border-slate-400 hover:bg-accent transition-all"
+          >
+            Need coaching? &rarr;
+          </Link>
+        </div>
         <p
           id="about"
-          className="max-w-[90rem] mx-auto md:text-3xl text-lg bg-accent p-5 mb-[9rem]"
+          className="mx-auto md:text-3xl text-lg bg-accent p-5 mb-[9rem]"
         >
           As a dedicated mother, I have seamlessly integrated my nurturing
           spirit into my role as a coach, inspiring others with my commitment
@@ -69,13 +67,10 @@ export default function Page() {
           dedication that truly sets me apart.
         </p>
       </div>
-      <div className="flex 2xl:aspect-[2/1] md:aspect-square aspect-[2/3] p-12 justify-center">
-        <Image
-          className="object-none 2xl:object-cover brightness-75"
-          src={test2}
-          height="2000"
-          width="2000"
-          quality={100}
+      <div className="flex 2xl:aspect-[2/1] md:aspect-[3/4] aspect-[5/9] lg:aspect-[5/5] m-8 justify-center relative">
+        <img
+          className=" object-none md:object-cover brightness-75 h-[auto]"
+          src="/images/test2.jpg"
           placeholder="blur"
           alt="life-coaching"
         />

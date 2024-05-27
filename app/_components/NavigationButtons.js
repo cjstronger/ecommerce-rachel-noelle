@@ -8,7 +8,7 @@ export default function NavigationButtons({ burger, openMenu, setOpenMenu }) {
         <li>
           <Link
             href="/#about"
-            className="hover:bg-accent p-3 transition-all duration-400 font-rubik lowercase"
+            className="hover:bg-accent hover:border-fadedBlack border border-primary p-3 transition-all duration-400 font-rubik lowercase"
           >
             About
           </Link>
@@ -16,7 +16,7 @@ export default function NavigationButtons({ burger, openMenu, setOpenMenu }) {
         <li>
           <Link
             href="/coaching"
-            className="hover:bg-accent p-3 transition-all duration-400 font-rubik lowercase"
+            className="hover:bg-accent p-3 transition-all duration-400 font-rubik lowercase hover:border-fadedBlack border border-primary"
           >
             Coaching
           </Link>
@@ -24,7 +24,7 @@ export default function NavigationButtons({ burger, openMenu, setOpenMenu }) {
         <li>
           <Link
             href="/artwork"
-            className="hover:bg-accent p-3 transition-all duration-400 font-rubik lowercase"
+            className="hover:bg-accent p-3 transition-all duration-400 font-rubik lowercase hover:border-fadedBlack border border-primary"
           >
             Artwork
           </Link>

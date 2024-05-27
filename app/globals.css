@@ -8,17 +8,21 @@
   src: url("../public/fonts/Rubik-VariableFont_wght.ttf");
 }
 
-#__next {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  min-width: 100vh;
-}
-
 @media screen and (max-width: 320px) {
   #__next {
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vh;
   }
+}
+
+#__next {
+  display: flex;
+}
+
+body {
+  @apply min-w-[550px] text-fadedBlack;
 }
 
 p {
@@ -26,5 +30,5 @@ p {
 }
 
 html {
-  @apply scroll-pt-[15rem];
+  @apply scroll-pt-[15rem] w-[100%] h-[100vh];
 }
