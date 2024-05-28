@@ -18,7 +18,7 @@ export default function CoachingIntro() {
         </p>
         <ApplyLink buttonText="Apply Now" hoverColor="primary" />
       </GridCol>
-      <GridImage colSpan="1" src="/images/home.jpg" />
+      <GridImage colSpan="1" src="/images/home.jpg" alt="home"/>
     </GridHolder>
   );
 }

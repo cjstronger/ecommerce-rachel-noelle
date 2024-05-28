@@ -46,7 +46,7 @@ export default function ReviewsAll() {
       className="flex gap-10 justify-center my-10 overflow-hidden"
     >
       {exampleReviews.map((review) => (
-        <Review review={review} />
+        <Review review={review} key={review.fullName} />
       ))}
     </div>
   );

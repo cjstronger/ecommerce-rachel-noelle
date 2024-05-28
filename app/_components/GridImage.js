@@ -1,9 +1,10 @@
 import Image from "next/image";
 
-export default function GridImage({ src, colSpan }) {
+export default function GridImage({ src, colSpan, alt }) {
   return (
     <div className="z-10 md:aspect-square aspect-[2/3] shadow-2xl">
       <Image
+        alt={alt}
         height="1000"
         width="1000"
         quality={100}
