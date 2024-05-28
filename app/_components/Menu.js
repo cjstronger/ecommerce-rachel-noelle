@@ -7,7 +7,7 @@ const menuItems = [
   },
   {
     title: "Coaching",
-    href: "/coaching",
+    href: "/#coaching",
   },
   {
     title: "Artwork",

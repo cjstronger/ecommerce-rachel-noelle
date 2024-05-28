@@ -15,7 +15,7 @@ export default function NavigationButtons({ burger, openMenu, setOpenMenu }) {
         </li>
         <li>
           <Link
-            href="/coaching"
+            href="/#coaching"
             className="hover:bg-accent p-3 transition-all duration-400 font-rubik lowercase hover:border-fadedBlack border border-primary"
           >
             Coaching
