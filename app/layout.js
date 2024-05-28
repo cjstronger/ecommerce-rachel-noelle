@@ -18,9 +18,7 @@ export default function RootLayout({ children }) {
         className={`${candlefish.className} bg-primary min-h-screen flex flex-col`}
       >
         <Header />
-        <div data-scroll-container className="flex-1">
-          {children}
-        </div>
+        <div className="flex-1">{children}</div>
       </body>
     </html>
   );
