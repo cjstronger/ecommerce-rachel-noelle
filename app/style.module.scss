@@ -1,11 +1,7 @@
-.menuButton:hover {
-  border-color: black;
-}
-
 .menuButton {
   border: solid;
   border-width: 2px;
-  border-color: #f9faf3;
+  border-color: #373633;
   z-index: 15;
   height: 40px;
   width: 100px;
@@ -35,8 +31,34 @@
 
 .menu {
   position: absolute;
+  z-index: 20;
   height: 500px;
   width: 350px;
   top: 4.5rem;
-  background-color: #b2b19f;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background: linear-gradient(
+    135deg,
+    rgba(178, 179, 159, 0.8),
+    rgba(178, 179, 159, 0.8)
+  );
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/*p-5 shadow-lg z-20 fixed top-0 w-full backdrop-blur-xl bg-gradient-to-b from-white to-slate-200*/
+.header {
+  padding: 25px;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
 }

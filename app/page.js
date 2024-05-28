@@ -10,7 +10,7 @@ export default function Page() {
     <>
       <div
         data-scroll-container
-        className="flex 2xl:aspect-[2/1] md:aspect-[3/4] lg:aspect-[5/5] aspect-[5/9] m-12 h-[1000] justify-center"
+        className="flex 2xl:aspect-[2/1] md:aspect-[3/4] lg:aspect-[5/5] aspect-[5/9] m-12 mt-[9rem] h-[1000] justify-center"
       >
         <img
           className=" object-cover 2xl:object-cover shadow-lg brightness-90"
@@ -22,7 +22,7 @@ export default function Page() {
       <div className="px-12 relative bottom-[-5rem] flex flex-col max-w-[90rem] mx-auto">
         <div className="flex justify-between items-center mb-4">
           <h1 className="z-10 text-6xl">About</h1>
-          <ApplyLink buttonText="Need coaching?" hoverColor="accent" />
+          <ApplyLink buttonText="Need coaching?" hoverColor="accentFaded" />
         </div>
         <p
           id="about"

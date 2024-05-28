@@ -8,18 +8,21 @@ import { useLayoutEffect, useRef } from "react";
 export default function ReviewsAll() {
   const reviews = useRef(null);
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: document.querySelectorAll("#reviews"),
-        start: "top bottom",
-        end: "+200px center",
-        scrub: true,
-        markers: true,
-      },
+    let context = gsap.context(() => {
+      gsap.registerPlugin(ScrollTrigger);
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: document.querySelectorAll("#reviews"),
+          start: "+350px center",
+          end: `${reviews.current.offsetHeight + 2000} bottom`,
+          scrub: 2,
+          pin: true,
+          markers: true,
+        },
+      });
+      timeline.from(reviews.current, { translateX: "-1500px" });
     });
-
-    timeline.from(reviews.current, { translateX: "-500px" });
+    return () => context.revert();
   }, []);
   const exampleReviews = [
     {

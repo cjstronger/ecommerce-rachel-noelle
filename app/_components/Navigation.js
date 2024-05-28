@@ -12,7 +12,7 @@ const variants = {
     height: 500,
     top: "4.5rem",
     opacity: 1,
-    transition: { duration: 0.3, opacity: { duration: 0.02 } },
+    transition: { duration: 0.3, opacity: { duration: 0.5 } },
   },
   close: {
     width: 100,
@@ -43,7 +43,7 @@ export default function Navigation() {
   useEffect(() => {
     function handleWidth() {
       const windowWidth = window.innerWidth;
-      setBurger(windowWidth >= 1150);
+      windowWidth <= 1150 ? setBurger(true) : setBurger(false);
     }
 
     handleWidth();
@@ -61,7 +61,7 @@ export default function Navigation() {
         setOpenMenu={setOpenMenu}
         openMenu={openMenu}
       />
-      {!burger ? (
+      {openMenu && (
         <motion.div
           id="menu"
           ref={ref}
@@ -73,7 +73,7 @@ export default function Navigation() {
         >
           <Menu openMenu={openMenu} />
         </motion.div>
-      ) : null}
+      )}
     </div>
   );
 }

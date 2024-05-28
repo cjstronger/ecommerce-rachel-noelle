@@ -16,9 +16,9 @@ export default function CoachingIntro() {
           guidance that nurtures both your financial growth and mental
           well-being.
         </p>
-        <ApplyLink buttonText="Apply Now" hoverColor="primary" />
+        <ApplyLink buttonText="Apply Now" hoverColor="primaryFaded" />
       </GridCol>
-      <GridImage colSpan="1" src="/images/home.jpg" alt="home"/>
+      <GridImage colSpan="1" src="/images/home.jpg" alt="home" />
     </GridHolder>
   );
 }

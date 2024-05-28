@@ -30,7 +30,11 @@ export default function CoachingDetails() {
           <h2 className="text-5xl">Title to details of section 2</h2>
           <p className="text-2xl">Details of section 2</p>
           <div className="flex flex-end">
-            <ApplyLink buttonText="Apply Now" hoverColor="primary" />
+            <ApplyLink
+              buttonText="Apply Now"
+              hoverColor="primaryFaded"
+              color="accent"
+            />
           </div>
         </GridCol>
       </GridHolder>

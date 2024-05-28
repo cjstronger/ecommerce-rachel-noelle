@@ -2,13 +2,13 @@ import Link from "next/link";
 import MenuNav from "./MenuNav";
 
 export default function NavigationButtons({ burger, openMenu, setOpenMenu }) {
-  return burger ? (
+  return !burger ? (
     <nav className="flex z-10">
       <ul className="flex gap-8 text-2xl">
         <li>
           <Link
             href="/#about"
-            className="hover:bg-accent hover:border-fadedBlack border border-primary p-3 transition-all duration-400 font-rubik lowercase"
+            className="hover:bg-accentFaded border-fadedBlack border  p-3 transition-all duration-400 font-rubik lowercase"
           >
             About
           </Link>
@@ -16,7 +16,7 @@ export default function NavigationButtons({ burger, openMenu, setOpenMenu }) {
         <li>
           <Link
             href="/#coaching"
-            className="hover:bg-accent p-3 transition-all duration-400 font-rubik lowercase hover:border-fadedBlack border border-primary"
+            className="hover:bg-accentFaded p-3 transition-all duration-400 font-rubik lowercase border-fadedBlack border"
           >
             Coaching
           </Link>
@@ -24,7 +24,7 @@ export default function NavigationButtons({ burger, openMenu, setOpenMenu }) {
         <li>
           <Link
             href="/artwork"
-            className="hover:bg-accent p-3 transition-all duration-400 font-rubik lowercase hover:border-fadedBlack border border-primary"
+            className="hover:bg-accentFaded p-3 transition-all duration-400 font-rubik lowercase border-fadedBlack border"
           >
             Artwork
           </Link>
