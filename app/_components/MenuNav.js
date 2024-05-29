@@ -11,7 +11,7 @@ export default function MenuNav({ setOpenMenu, openMenu }) {
       onClick={() => {
         setOpenMenu(!openMenu);
       }}
-      className={`${styles.menuButton} hover:bg-accent transition-all duration-[400]`}
+      className={`${styles.menuButton} hover:bg-accentFaded transition-all duration-[400]`}
     >
       <motion.div
         animate={{ top: openMenu ? "-100%" : "0" }}

@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import NavigationButtons from "./NavigationButtons";
 import styles from "../style.module.scss";
 import { motion } from "framer-motion";
 import Menu from "./Menu";
+import Modal from "./Modal";
 
 const variants = {
   open: {
     width: 350,
     height: 500,
-    top: "4.5rem",
+    top: "5rem",
     opacity: 1,
     transition: { duration: 0.3, opacity: { duration: 0.5 } },
   },
@@ -24,21 +25,8 @@ const variants = {
 };
 
 export default function Navigation() {
-  const ref = useRef(null);
   const [burger, setBurger] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-
-  useEffect(() => {
-    let closeMenu = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setOpenMenu(false);
-      }
-    };
-
-    document.addEventListener("click", closeMenu, true);
-
-    return () => document.removeEventListener("click", closeMenu, true);
-  }, []);
 
   useEffect(() => {
     function handleWidth() {
@@ -55,25 +43,26 @@ export default function Navigation() {
     };
   }, []);
   return (
-    <div>
+    <>
       <NavigationButtons
         burger={burger}
         setOpenMenu={setOpenMenu}
         openMenu={openMenu}
       />
       {openMenu && (
-        <motion.div
-          id="menu"
-          ref={ref}
-          animate={openMenu ? "open" : "close"}
-          exit={"close"}
-          initial={"close"}
-          variants={variants}
-          className={styles.menu}
-        >
-          <Menu openMenu={openMenu} />
-        </motion.div>
+        <Modal openMenu={openMenu} setOpenMenu={setOpenMenu}>
+          <motion.div
+            id="menu"
+            animate={openMenu ? "open" : "close"}
+            exit={"close"}
+            initial={"close"}
+            variants={variants}
+            className={styles.menu}
+          >
+            <Menu openMenu={openMenu} />
+          </motion.div>
+        </Modal>
       )}
-    </div>
+    </>
   );
 }
