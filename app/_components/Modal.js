@@ -17,7 +17,7 @@ export default function Modal({ children, openMenu, setOpenMenu }) {
     document.addEventListener("click", closeMenu, true);
 
     return () => document.removeEventListener("click", closeMenu, true);
-  }, []);
+  }, [setOpenMenu]);
   return (
     <>
       {openModal || openMenu ? (

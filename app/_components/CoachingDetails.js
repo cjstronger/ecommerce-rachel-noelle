@@ -13,8 +13,8 @@ export default function CoachingDetails() {
         <GridCol colSpan="1" bg="fadedBlack" textColor="primary">
           <p className="text-2xl">
             I will help you understand your purpose and bring awareness to the
-            unseen power within you. Together we gain clarity around
-            yourdesires, goals, and dreams
+            unseen power within you. Together we gain clarity around your
+            desires, goals, and dreams
           </p>
         </GridCol>
       </GridHolder>
@@ -31,9 +31,9 @@ export default function CoachingDetails() {
           z="10"
         >
           <p className="text-2xl">
-            Your subconscious won't let you get to your goals because it is
-            scared. Let's uncover blocks and rewire your brain by integrating
-            childhood fears and new beliefs that can set you free.
+            Your subconscious won&apos;t let you get to your goals because it is
+            scared. Let&apos;s uncover blocks and rewire your brain by
+            integrating childhood fears and new beliefs that can set you free.
           </p>
           <div className="flex place-content-end ">
             <ApplyLink
@@ -58,9 +58,9 @@ export default function CoachingDetails() {
         >
           <p className="text-2xl">
             Together we will find discover why you resist your dreams and then
-            renavigate your internal compass.Up Leveling can be scary because a
+            renavigate your internal compass. Up Leveling can be scary because a
             part of you has to die. I am here to walk you through this with
-            ease.{" "}
+            ease.
           </p>
         </GridCol>
       </GridHolder>
