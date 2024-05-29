@@ -3,9 +3,8 @@ import Input from "./Input";
 import { useModal } from "../_contexts/ModalProvider";
 
 export function ApplyForm() {
-  const { ref, openModal, setOpenModal } = useModal();
   return (
-    <div ref={ref}>
+    <div>
       <div className={styles.form}>
         <h1 className="text-6xl md:text-7xl">Subscribe</h1>
         <h1 className="text-4xl md:text-5xl">to the Noelle Letter</h1>

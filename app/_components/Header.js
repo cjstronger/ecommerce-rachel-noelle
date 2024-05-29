@@ -5,7 +5,7 @@ import styles from "../style.module.scss";
 
 export default function Header() {
   return (
-    <header class={styles.header}>
+    <header className={styles.header}>
       <div className="flex justify-between items-center">
         <Navigation />
         <div className="absolute inset-x-1/2 whitespace-nowrap flex justify-center z-10">
