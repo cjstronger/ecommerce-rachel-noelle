@@ -8,6 +8,13 @@ export const metadata = {
   description: "Rachel Noelle, your feminine energy and inner work coach",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 const candlefish = localFont({
   src: [{ path: "../public/fonts/Candlefish.ttf", weight: "500" }],
   subsets: ["latin"],

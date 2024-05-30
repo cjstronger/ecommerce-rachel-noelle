@@ -53,6 +53,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  min-width: 550px;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   background: linear-gradient(

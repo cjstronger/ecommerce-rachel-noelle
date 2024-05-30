@@ -20,7 +20,7 @@ export default function Page() {
         />
         <LocoParalax>
           <LocoParalaxItem>Balance your Energy</LocoParalaxItem>
-          <LocoParalaxItem>Manifest your dreams</LocoParalaxItem>
+          <LocoParalaxItem>Manifest your Dreams</LocoParalaxItem>
         </LocoParalax>
       </div>
       <div className="px-12 relative bottom-[-5rem] flex flex-col max-w-[90rem] mx-auto">
@@ -46,19 +46,6 @@ export default function Page() {
           them. Im so excited to work with you and share with you on this
           abundant journey you are about to partake in.
         </p>
-      </div>
-      <div className="flex 2xl:aspect-[2/1] md:aspect-[3/4] aspect-[5/9] lg:aspect-[5/5] m-8 justify-center relative">
-        <img
-          className=" object-none md:object-cover brightness-75 h-[auto]"
-          src="/images/test2-min.jpg"
-          placeholder="blur"
-          alt="life-coaching"
-        />
-        <LocoParalax>
-          <LocoParalaxItem>
-            Well what the hell do you want here?
-          </LocoParalaxItem>
-        </LocoParalax>
       </div>
 
       {/*Second section - coaching */}

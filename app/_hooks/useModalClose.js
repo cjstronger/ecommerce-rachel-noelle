@@ -13,6 +13,6 @@ export default function useModalClose(handler) {
     document.addEventListener("click", closeMenu, true);
 
     return () => document.removeEventListener("click", closeMenu, true);
-  }, []);
+  }, [handler]);
   return ref;
 }

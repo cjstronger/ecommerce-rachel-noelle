@@ -6,6 +6,7 @@
   font-family: "Rubik";
   font-weight: 200;
   src: url("../public/fonts/Rubik-VariableFont_wght.ttf");
+  font-display: swap;
 }
 
 body {
