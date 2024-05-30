@@ -3,6 +3,7 @@
 import submitEmail from "@/app/_lib/submitEmail";
 import Input from "./Input";
 import Modal from "./Modal";
+import Button from "./Button";
 
 export function ApplyForm() {
   return (
@@ -29,9 +30,7 @@ export function ApplyForm() {
               id="email"
             />
           </div>
-          <button className="font-rubik p-2 absolute bottom-4 right-6 border border-fadedBlack text-3xl hover:bg-accentFaded transition-all duration-[.4s]">
-            subscribe
-          </button>
+          <Button>subscribe</Button>
         </form>
       </Modal.Window>
       <Modal.Button label="Noelle Letter!" open="form" />

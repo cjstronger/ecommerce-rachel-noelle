@@ -21,11 +21,11 @@ const baseUrl = process.env.VERCEL_URL
 export const NoelleWelcome = () => (
   <Html>
     <Head />
-    <Preview>You're now ready to make live transactions with Stripe!</Preview>
+    <Preview>You're now subscribed to the Noelle Letter!</Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={box}>
-          <Img src={`/static/RN.png`} fill alt="RN" />
+          <Img src={`/static/RN.png`} fill="true" alt="RN" />
           <Hr style={hr} />
           <Heading style={h1} as="h1">
             Welcome, Beautiful Soul!
