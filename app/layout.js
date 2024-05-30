@@ -2,7 +2,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./_components/Header";
 import { ApplyForm } from "./_components/ApplyForm";
-import { ModalProvider } from "./_contexts/ModalProvider";
 
 export const metadata = {
   title: { template: "%s / Rachel Noelle", default: "Rachel Noelle" },
@@ -20,11 +19,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${candlefish.className} bg-primary min-h-screen flex flex-col`}
       >
-        <ModalProvider>
-          <Header />
-          <ApplyForm />
-          <div className="flex-1">{children}</div>
-        </ModalProvider>
+        <Header />
+        <ApplyForm />
+        <div className="flex-1">{children}</div>
       </body>
     </html>
   );

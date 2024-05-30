@@ -1,30 +1,62 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import useModalClose from "../_hooks/useModalClose";
+import styles from "../style.module.scss";
 
-export default function Modal({ children, openMenu, setOpenMenu }) {
-  const [openModal, setOpenModal] = useState(false);
-  const ref = useRef(null);
+export const ModalContext = createContext();
 
-  useEffect(() => {
-    let closeMenu = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setOpenModal(false);
-        setOpenMenu(false);
-      }
-    };
+export default function Modal({ children }) {
+  const [showName, setShowName] = useState("");
 
-    document.addEventListener("click", closeMenu, true);
+  const opens = setShowName;
+  const close = () => setShowName("");
 
-    return () => document.removeEventListener("click", closeMenu, true);
-  }, [setOpenMenu]);
   return (
-    <>
-      {openModal || openMenu ? (
-        <div style={{ display: "contents" }} ref={ref}>
-          {children}
-        </div>
-      ) : null}
-    </>
+    <ModalContext.Provider value={{ close, opens, showName }}>
+      {children}
+    </ModalContext.Provider>
   );
 }
+
+function Button({ open, label }) {
+  function handleOpen() {
+    if (!open) return null;
+    opens(open);
+  }
+  const { opens } = useContext(ModalContext);
+  return (
+    <button className={styles.formButton} onClick={handleOpen}>
+      {label}
+    </button>
+  );
+}
+
+function Window({ id, children }) {
+  const { close, showName } = useContext(ModalContext);
+  const ref = useModalClose(close);
+  if (id !== showName) return null;
+  return (
+    <div
+      className={`${styles.form} md:w-[60%] md:h-[40vh] w-full h-[60vh]`}
+      ref={ref}
+    >
+      <div className="flex justify-between">
+        <div className="flex-col flex">
+          <h1 className="text-6xl md:text-7xl">Subscribe</h1>
+          <h1 className="text-4xl md:text-5xl">to the Noelle Letter</h1>
+        </div>
+        <button
+          onClick={close}
+          className="font-rubik absolute border border-fadedBlack p-2 text-2xl right-5 hover:bg-[#d69999] transition-all duration-[.2s]"
+        >
+          X
+        </button>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+Modal.Window = Window;
+Modal.Button = Button;

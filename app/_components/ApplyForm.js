@@ -1,21 +1,40 @@
-import styles from "../style.module.scss";
+"use client";
+
+import submitEmail from "@/app/_lib/submitEmail";
 import Input from "./Input";
-import { useModal } from "../_contexts/ModalProvider";
+import Modal from "./Modal";
 
 export function ApplyForm() {
   return (
-    <div>
-      <div className={styles.form}>
-        <h1 className="text-6xl md:text-7xl">Subscribe</h1>
-        <h1 className="text-4xl md:text-5xl">to the Noelle Letter</h1>
-        <form>
+    <Modal>
+      <Modal.Window id="form">
+        <form action={submitEmail}>
           <div className="mt-8 flex flex-col gap-5">
-            <Input placeholder="Your first name" label="First Name" />
-            <Input placeholder="Your last name" label="Last Name" />
-            <Input placeholder="Your email" label="Email" />
+            <Input
+              placeholder="Your first name"
+              label="First Name"
+              name="firstName"
+              id="firstName"
+            />
+            <Input
+              placeholder="Your last name"
+              label="Last Name"
+              name="lastName"
+              id="lastName"
+            />
+            <Input
+              placeholder="Your email"
+              label="Email"
+              name="email"
+              id="email"
+            />
           </div>
+          <button className="font-rubik p-2 absolute bottom-4 right-6 border border-fadedBlack text-3xl hover:bg-accentFaded transition-all duration-[.4s]">
+            subscribe
+          </button>
         </form>
-      </div>
-    </div>
+      </Modal.Window>
+      <Modal.Button label="Noelle Letter!" open="form" />
+    </Modal>
   );
 }
