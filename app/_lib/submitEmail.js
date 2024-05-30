@@ -10,7 +10,7 @@ export default async function submitEmail(formData) {
   const firstName = formData.get("firstName");
   const lastName = formData.get("lastName");
   const subEmail = formData.get("email");
-  const { data } = await checkSubByEmail(subEmail);
+  const { data } = await checkSubByEmail(subEmail, resend);
   if (data.length) {
     return;
   }
@@ -18,7 +18,7 @@ export default async function submitEmail(formData) {
   const user = { subFullName, subEmail };
   const { error } = await addSub(user);
   if (error) throw new Error("The submit failed");
-  sendInitialSub(subEmail);
+  await sendInitialSub(subEmail);
 }
 
 async function sendInitialSub(subEmail) {
