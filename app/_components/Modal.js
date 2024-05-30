@@ -37,10 +37,7 @@ function Window({ id, children }) {
   const ref = useModalClose(close);
   if (id !== showName) return null;
   return (
-    <div
-      className={`${styles.form} md:w-[60%] md:h-[40vh] w-full h-[60vh]`}
-      ref={ref}
-    >
+    <div className={`${styles.form} md:h-[50vh] w-full h-[60vh]`} ref={ref}>
       <div className="flex justify-between">
         <div className="flex-col flex">
           <h1 className="text-6xl md:text-7xl">Subscribe</h1>
