@@ -106,7 +106,7 @@ export default NoelleWelcome;
 const main = {
   backgroundColor: "#f6f9fc",
   fontFamily:
-    'rubik,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+    'satoshi,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
 };
 
 const container = {

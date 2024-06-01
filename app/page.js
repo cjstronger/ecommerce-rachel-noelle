@@ -5,6 +5,7 @@ import ApplyLink from "./_components/ApplyLink";
 import TitleSeparator from "./_components/TitleSeparator";
 import ReviewsAll from "./_components/ReviewsAll";
 import LocoParalaxItem from "./_components/LocoParalaxItem";
+import { SubForm } from "./_components/SubForm";
 
 export default function Page() {
   return (
@@ -57,6 +58,7 @@ export default function Page() {
       <CoachingDetails />
       <TitleSeparator titleText="Reviews" />
       <ReviewsAll />
+      <SubForm />
     </>
   );
 }

@@ -5,7 +5,6 @@ import NavigationButtons from "./NavigationButtons";
 import styles from "../style.module.scss";
 import { motion } from "framer-motion";
 import Menu from "./Menu";
-import Modal from "./Modal";
 
 const variants = {
   open: {
@@ -27,6 +26,11 @@ const variants = {
 export default function Navigation() {
   const [burger, setBurger] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+
+  function handleCloseClick(e) {
+    e.stopPropagation();
+    setOpenMenu(false);
+  }
 
   useEffect(() => {
     function handleWidth() {
@@ -50,18 +54,16 @@ export default function Navigation() {
         openMenu={openMenu}
       />
       {openMenu && (
-        <Modal openMenu={openMenu} setOpenMenu={setOpenMenu}>
-          <motion.div
-            id="menu"
-            animate={openMenu ? "open" : "close"}
-            exit={"close"}
-            initial={"close"}
-            variants={variants}
-            className={styles.menu}
-          >
-            <Menu openMenu={openMenu} />
-          </motion.div>
-        </Modal>
+        <motion.div
+          id="menu"
+          animate={openMenu ? "open" : "close"}
+          exit={"close"}
+          initial={"close"}
+          variants={variants}
+          className={styles.menu}
+        >
+          <Menu openMenu={openMenu} />
+        </motion.div>
       )}
     </>
   );

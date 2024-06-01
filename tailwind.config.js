@@ -13,10 +13,13 @@ module.exports = {
         primary: "#f9f8f3",
         primaryFaded: "rgba(249, 248, 243, 0.5)",
         fadedBlack: "#373633",
+        blackTrans: "rgba(55, 54, 51, 0.5)",
+        brunswick: "#444d44",
       },
       fontFamily: {
         dm: ["DM Sans", "sans-serif"],
-        rubik: ["Rubik"],
+        satoshi: ["Satoshi"],
+        satoshiB: ["Satoshi-Bold"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -19,7 +19,7 @@ export default function Modal({ children }) {
   );
 }
 
-function Button({ open, label }) {
+function Open({ open, label }) {
   function handleOpen() {
     if (!open) return null;
     opens(open);
@@ -45,7 +45,7 @@ function Window({ id, children }) {
         </div>
         <button
           onClick={close}
-          className="font-rubik absolute border border-fadedBlack p-2 text-2xl right-5 hover:bg-[#d69999] transition-all duration-[.2s]"
+          className="font-satoshi absolute border border-fadedBlack p-2 text-2xl right-5 hover:bg-[#d69999] transition-all duration-[.2s]"
         >
           X
         </button>
@@ -56,4 +56,4 @@ function Window({ id, children }) {
 }
 
 Modal.Window = Window;
-Modal.Button = Button;
+Modal.Open = Open;

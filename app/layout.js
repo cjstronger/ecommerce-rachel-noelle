@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./_components/Header";
-import { ApplyForm } from "./_components/ApplyForm";
+import { SubForm } from "./_components/SubForm";
 
 export const metadata = {
   title: { template: "%s / Rachel Noelle", default: "Rachel Noelle" },
@@ -27,7 +27,6 @@ export default function RootLayout({ children }) {
         className={`${candlefish.className} bg-primary min-h-screen flex flex-col`}
       >
         <Header />
-        <ApplyForm />
         <div className="flex-1">{children}</div>
       </body>
     </html>

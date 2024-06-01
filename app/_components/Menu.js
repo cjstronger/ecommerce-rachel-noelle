@@ -45,7 +45,7 @@ export default function Menu({ openMenu }) {
           className="flex flex-col text-5xl gap-5 p-2 justify-center items-center mt-5"
         >
           <Link
-            className=" p-2 px-4 hover:bg-primaryFaded  hover:border-fadedBlack hover:scale-110 transition-all duration-[200]"
+            className="font-satoshi p-2 px-4 hover:bg-primaryFaded  hover:border-fadedBlack hover:scale-110 transition-all duration-[200]"
             href={item.href}
           >
             {item.title}
