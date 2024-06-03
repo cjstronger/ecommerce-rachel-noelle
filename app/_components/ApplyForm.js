@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import submitApplication from "../_lib/submitApplication";
 import { formData } from "@/app/_lib/constants";
+import { motion } from "framer-motion";
+import useResize from "../_hooks/useResize";
 
 export default function ApplyForm() {
   const [index, setIndex] = useState(0);
+  const { ref, width } = useResize();
+
   function handleBack() {
     if (index > 0) setIndex((index) => index - 1);
   }
@@ -40,34 +44,106 @@ export default function ApplyForm() {
           <li className="text-5xl lg:text-lg font-bold mt-[2.2rem]">4</li>
         </ul>
       </div>
-      <hr className="w-[2px] h-full bg-brunswick border-brunswick absolute left-[25%] " />
-      <div className="bg-accent py-5 col-span-3">
-        <form className="flex gap-2 flex-col mx-12" action={submitApplication}>
-          <h1 className="text-4xl">{formData[index].title}</h1>
-          <p>{formData[index].description}</p>
+      <hr className="w-[2px] h-full bg-brunswick border-brunswick absolute left-[25%]" />
+      <div className="bg-accent py-5 col-span-3 overflow-x-hidden" ref={ref}>
+        <form
+          className="flex gap-2 flex-col mx-12 relative"
+          action={submitApplication}
+        >
           <hr className="min-w-[60%] max-w-[50rem] h-[2px] bg-brunswick border-brunswick" />
-          {formData[index]?.textAreas?.map((textArea) => (
-            <TextArea
-              key={textArea.label}
-              placeholder={textArea.placeholder}
-              label={textArea.label}
-              name={textArea.name}
-            />
-          ))}
-          {formData[index]?.inputs?.map((input) => (
-            <Input
-              placeholder={input.placeholder}
-              label={input.label}
-              key={input.label}
-              name={input.name}
-            />
-          ))}
-          <button>submit</button>
+          <div className="relative w-full">
+            <motion.div
+              className="absolute w-full"
+              animate={{
+                translateX:
+                  index === 1 ? 0 : index < 1 ? width : -width * index,
+              }}
+            >
+              <TextArea
+                label={formData[1].textAreas[0].label}
+                placeholder={formData[1].textAreas[0].placeholder}
+                name="first"
+              />
+              <TextArea
+                label={formData[1].textAreas[1].label}
+                placeholder={formData[1].textAreas[1].placeholder}
+                name="first"
+              />
+            </motion.div>
+            <motion.div
+              className="absolute w-full"
+              animate={{
+                translateX: index === 0 ? 0 : index > 0 ? -width * index : null,
+              }}
+            >
+              <Input
+                label={formData[0].inputs[0].label}
+                placeholder={formData[0].inputs[0].placeholder}
+                name="first"
+              />
+              <Input
+                label={formData[0].inputs[1].label}
+                placeholder={formData[0].inputs[1].placeholder}
+                name="first"
+              />
+              <Input
+                label={formData[0].inputs[2].label}
+                placeholder={formData[0].inputs[2].placeholder}
+                name="first"
+              />
+            </motion.div>
+            <motion.div
+              className="absolute w-full"
+              animate={{
+                translateX:
+                  index === 2 ? 0 : index < 2 ? width : -width * index,
+              }}
+            >
+              <TextArea
+                label={formData[2].textAreas[0].label}
+                placeholder={formData[2].textAreas[0].placeholder}
+                name="first"
+              />
+              <TextArea
+                label={formData[2].textAreas[1].label}
+                placeholder={formData[2].textAreas[1].placeholder}
+                name="first"
+              />
+            </motion.div>
+            <motion.div
+              className="absolute w-full"
+              animate={{
+                translateX:
+                  index === 3 ? 0 : index < 3 ? width : -width * index,
+              }}
+            >
+              <TextArea
+                label={formData[3].textAreas[0].label}
+                placeholder={formData[3].textAreas[0].placeholder}
+                name="first"
+              />
+              <TextArea
+                label={formData[3].textAreas[1].label}
+                placeholder={formData[3].textAreas[1].placeholder}
+                name="first"
+              />
+            </motion.div>
+            <div className="absolute right-0 top-[30rem] flex gap-5">
+              {index > 0 && (
+                <button onClick={handleBack} type="button">
+                  Back
+                </button>
+              )}
+              {index !== formData.length - 1 ? (
+                <button onClick={handleNext} type="button">
+                  Next
+                </button>
+              ) : (
+                <button type="submit">Submit</button>
+              )}
+            </div>
+          </div>
         </form>
-        <div className="flex gap-5 absolute 2xl:right-[22%] right-[8%] bottom-5">
-          <button onClick={handleBack}>Back</button>
-          <button onClick={handleNext}>Next</button>
-        </div>
       </div>
     </div>
   );

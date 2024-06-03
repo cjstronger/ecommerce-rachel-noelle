@@ -28,4 +28,33 @@ export const formData = [
       },
     ],
   },
+  {
+    title: "my peen",
+    textAreas: [
+      {
+        label: "What are your goals?",
+        placeholder: "Do the thing.",
+      },
+      {
+        label:
+          "Have you ever had a coach in the past? If so what was your experience?",
+        placeholder: "Do the thing.",
+      },
+    ],
+  },
+  {
+    title: "my yae",
+    textAreas: [
+      {
+        label:
+          "How soon would you like to get started with Rachel being your coach?",
+        placeholder: "Do the thing.",
+      },
+      {
+        label:
+          "Next step is a zoom call. So let us know three good dates and times that you are available within a week.",
+        placeholder: "Do the thing.",
+      },
+    ],
+  },
 ];

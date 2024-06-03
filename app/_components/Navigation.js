@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import NavigationButtons from "./NavigationButtons";
 import styles from "../style.module.scss";
 import { motion } from "framer-motion";
@@ -32,7 +32,7 @@ export default function Navigation() {
     setOpenMenu(false);
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     function handleWidth() {
       const windowWidth = window.innerWidth;
       windowWidth <= 1150 ? setBurger(true) : setBurger(false);

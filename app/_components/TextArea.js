@@ -7,9 +7,10 @@ export default function TextArea({ placeholder, label, name }) {
         {label}:{" "}
       </h1>
       <textarea
+        required
         name={name}
         placeholder={placeholder}
-        className="h-[20%] min-w-[60%] max-w-[50rem] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
+        className="min-w-[60%] max-w-[50rem] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
       />
     </div>
   );
