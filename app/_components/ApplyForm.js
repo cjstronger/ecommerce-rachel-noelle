@@ -7,8 +7,11 @@ import submitApplication from "../_lib/submitApplication";
 import { formData } from "@/app/_lib/constants";
 import { motion } from "framer-motion";
 import useResize from "../_hooks/useResize";
+import { useForm } from "react-hook-form";
 
 export default function ApplyForm() {
+  const { formState, register, handleSubmit } = useForm();
+  const { errors } = formState;
   const [index, setIndex] = useState(0);
   const { ref, width } = useResize();
 
@@ -16,6 +19,7 @@ export default function ApplyForm() {
     if (index > 0) setIndex((index) => index - 1);
   }
   function handleNext() {
+    if (errors.textArea) return;
     if (index < formData.length - 1) setIndex((index) => index + 1);
   }
   return (
@@ -63,11 +67,16 @@ export default function ApplyForm() {
                 label={formData[1].textAreas[0].label}
                 placeholder={formData[1].textAreas[0].placeholder}
                 name="first"
+                register={register}
+                errors={errors.textArea}
               />
+              {errors.required && <span>This field is required</span>}
               <TextArea
                 label={formData[1].textAreas[1].label}
                 placeholder={formData[1].textAreas[1].placeholder}
                 name="first"
+                register={register}
+                errors={errors.textArea}
               />
             </motion.div>
             <motion.div
@@ -103,11 +112,15 @@ export default function ApplyForm() {
                 label={formData[2].textAreas[0].label}
                 placeholder={formData[2].textAreas[0].placeholder}
                 name="first"
+                register={register}
+                errors={errors.textArea}
               />
               <TextArea
                 label={formData[2].textAreas[1].label}
                 placeholder={formData[2].textAreas[1].placeholder}
                 name="first"
+                register={register}
+                errors={errors.textArea}
               />
             </motion.div>
             <motion.div
@@ -121,11 +134,15 @@ export default function ApplyForm() {
                 label={formData[3].textAreas[0].label}
                 placeholder={formData[3].textAreas[0].placeholder}
                 name="first"
+                register={register}
+                errors={errors.textArea}
               />
               <TextArea
                 label={formData[3].textAreas[1].label}
                 placeholder={formData[3].textAreas[1].placeholder}
                 name="first"
+                register={register}
+                errors={errors.textArea}
               />
             </motion.div>
             <div className="absolute right-0 top-[30rem] flex gap-5">
