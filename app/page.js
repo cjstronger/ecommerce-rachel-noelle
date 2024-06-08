@@ -50,9 +50,6 @@ export default function Page() {
       </div>
 
       {/*Second section - coaching */}
-      <span id="coaching" hidden>
-        hello
-      </span>
       <CoachingIntro />
       <TitleSeparator titleText="details" />
       <CoachingDetails />
