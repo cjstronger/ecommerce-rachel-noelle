@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import submitApplication from "../_lib/submitApplication";
@@ -8,13 +8,17 @@ import { formData } from "@/app/_lib/constants";
 import { motion } from "framer-motion";
 import useResize from "../_hooks/useResize";
 import { useForm } from "react-hook-form";
+import Form from "./Form";
 
 export default function ApplyForm() {
-  const { formState, register, handleSubmit } = useForm();
+  const { formState } = useForm();
   const { errors } = formState;
   const [index, setIndex] = useState(0);
   const { ref, width } = useResize();
 
+  function onSubmit(formData) {
+    console.log(formData);
+  }
   function handleBack() {
     if (index > 0) setIndex((index) => index - 1);
   }
@@ -50,9 +54,9 @@ export default function ApplyForm() {
       </div>
       <hr className="w-[2px] h-full bg-brunswick border-brunswick absolute left-[25%]" />
       <div className="bg-accent py-5 col-span-3 overflow-x-hidden" ref={ref}>
-        <form
+        <Form
+          onSubmit={onSubmit}
           className="flex gap-2 flex-col mx-12 relative"
-          action={submitApplication}
         >
           <hr className="min-w-[60%] max-w-[50rem] h-[2px] bg-brunswick border-brunswick" />
           <div className="relative w-full">
@@ -66,17 +70,13 @@ export default function ApplyForm() {
               <TextArea
                 label={formData[1].textAreas[0].label}
                 placeholder={formData[1].textAreas[0].placeholder}
-                name="first"
-                register={register}
-                errors={errors.textArea}
+                name="value"
               />
               {errors.required && <span>This field is required</span>}
               <TextArea
                 label={formData[1].textAreas[1].label}
                 placeholder={formData[1].textAreas[1].placeholder}
-                name="first"
-                register={register}
-                errors={errors.textArea}
+                name="goals"
               />
             </motion.div>
             <motion.div
@@ -93,12 +93,12 @@ export default function ApplyForm() {
               <Input
                 label={formData[0].inputs[1].label}
                 placeholder={formData[0].inputs[1].placeholder}
-                name="first"
+                name="last"
               />
               <Input
                 label={formData[0].inputs[2].label}
                 placeholder={formData[0].inputs[2].placeholder}
-                name="first"
+                name="email"
               />
             </motion.div>
             <motion.div
@@ -111,16 +111,12 @@ export default function ApplyForm() {
               <TextArea
                 label={formData[2].textAreas[0].label}
                 placeholder={formData[2].textAreas[0].placeholder}
-                name="first"
-                register={register}
-                errors={errors.textArea}
+                name="live"
               />
               <TextArea
                 label={formData[2].textAreas[1].label}
                 placeholder={formData[2].textAreas[1].placeholder}
-                name="first"
-                register={register}
-                errors={errors.textArea}
+                name="let"
               />
             </motion.div>
             <motion.div
@@ -133,16 +129,12 @@ export default function ApplyForm() {
               <TextArea
                 label={formData[3].textAreas[0].label}
                 placeholder={formData[3].textAreas[0].placeholder}
-                name="first"
-                register={register}
-                errors={errors.textArea}
+                name="love"
               />
               <TextArea
                 label={formData[3].textAreas[1].label}
                 placeholder={formData[3].textAreas[1].placeholder}
-                name="first"
-                register={register}
-                errors={errors.textArea}
+                name="laugh"
               />
             </motion.div>
             <div className="absolute right-0 top-[30rem] flex gap-5">
@@ -160,7 +152,7 @@ export default function ApplyForm() {
               )}
             </div>
           </div>
-        </form>
+        </Form>
       </div>
     </div>
   );
