@@ -3,15 +3,13 @@
 import { useState } from "react";
 import Input from "./Input";
 import TextArea from "./TextArea";
-import submitApplication from "../_lib/submitApplication";
 import { formData } from "@/app/_lib/constants";
 import { motion } from "framer-motion";
 import useResize from "../_hooks/useResize";
 import { useForm } from "react-hook-form";
-import Form from "./Form";
 
 export default function ApplyForm() {
-  const { formState } = useForm();
+  const { formState, register, handleSubmit } = useForm();
   const { errors } = formState;
   const [index, setIndex] = useState(0);
   const { ref, width } = useResize();
@@ -23,7 +21,7 @@ export default function ApplyForm() {
     if (index > 0) setIndex((index) => index - 1);
   }
   function handleNext() {
-    if (errors.textArea) return;
+    if (Object.keys(errors).length > 0) return;
     if (index < formData.length - 1) setIndex((index) => index + 1);
   }
   return (
@@ -54,8 +52,8 @@ export default function ApplyForm() {
       </div>
       <hr className="w-[2px] h-full bg-brunswick border-brunswick absolute left-[25%]" />
       <div className="bg-accent py-5 col-span-3 overflow-x-hidden" ref={ref}>
-        <Form
-          onSubmit={onSubmit}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
           className="flex gap-2 flex-col mx-12 relative"
         >
           <hr className="min-w-[60%] max-w-[50rem] h-[2px] bg-brunswick border-brunswick" />
@@ -89,16 +87,22 @@ export default function ApplyForm() {
                 label={formData[0].inputs[0].label}
                 placeholder={formData[0].inputs[0].placeholder}
                 name="first"
+                register={register}
+                errors={errors}
               />
               <Input
                 label={formData[0].inputs[1].label}
                 placeholder={formData[0].inputs[1].placeholder}
                 name="last"
+                register={register}
+                errors={errors}
               />
               <Input
                 label={formData[0].inputs[2].label}
                 placeholder={formData[0].inputs[2].placeholder}
                 name="email"
+                register={register}
+                errors={errors}
               />
             </motion.div>
             <motion.div
@@ -144,15 +148,13 @@ export default function ApplyForm() {
                 </button>
               )}
               {index !== formData.length - 1 ? (
-                <button onClick={handleNext} type="button">
-                  Next
-                </button>
+                <button onClick={handleNext}>Next</button>
               ) : (
                 <button type="submit">Submit</button>
               )}
             </div>
           </div>
-        </Form>
+        </form>
       </div>
     </div>
   );
