@@ -9,19 +9,21 @@ import useResize from "../_hooks/useResize";
 import { useForm } from "react-hook-form";
 
 export default function ApplyForm() {
-  const { formState, register, handleSubmit } = useForm();
-  const { errors } = formState;
+  const { formState, register, handleSubmit, trigger, form } = useForm();
+  const { dirtyFields, errors } = formState;
   const [index, setIndex] = useState(0);
   const { ref, width } = useResize();
 
-  function onSubmit(formData) {
-    console.log(formData);
+  function onSubmit(data) {
+    if (index === formData.length - 1) console.log(data);
   }
   function handleBack() {
     if (index > 0) setIndex((index) => index - 1);
   }
-  function handleNext() {
-    if (Object.keys(errors).length > 0) return;
+  async function handleNext() {
+    await trigger(["first", "last", "email"]);
+    const isFirstDirty = dirtyFields.first;
+    if (!isFirstDirty || Object.keys(errors).length > 0) return;
     if (index < formData.length - 1) setIndex((index) => index + 1);
   }
   return (
@@ -61,25 +63,6 @@ export default function ApplyForm() {
             <motion.div
               className="absolute w-full"
               animate={{
-                translateX:
-                  index === 1 ? 0 : index < 1 ? width : -width * index,
-              }}
-            >
-              <TextArea
-                label={formData[1].textAreas[0].label}
-                placeholder={formData[1].textAreas[0].placeholder}
-                name="value"
-              />
-              {errors.required && <span>This field is required</span>}
-              <TextArea
-                label={formData[1].textAreas[1].label}
-                placeholder={formData[1].textAreas[1].placeholder}
-                name="goals"
-              />
-            </motion.div>
-            <motion.div
-              className="absolute w-full"
-              animate={{
                 translateX: index === 0 ? 0 : index > 0 ? -width * index : null,
               }}
             >
@@ -89,6 +72,7 @@ export default function ApplyForm() {
                 name="first"
                 register={register}
                 errors={errors}
+                errorType={"name"}
               />
               <Input
                 label={formData[0].inputs[1].label}
@@ -96,6 +80,7 @@ export default function ApplyForm() {
                 name="last"
                 register={register}
                 errors={errors}
+                errorType={"name"}
               />
               <Input
                 label={formData[0].inputs[2].label}
@@ -103,39 +88,68 @@ export default function ApplyForm() {
                 name="email"
                 register={register}
                 errors={errors}
+                errorType={"email"}
               />
             </motion.div>
             <motion.div
-              className="absolute w-full"
+              style={{ translateX: `${200 - index * 100}% ` }}
+              className={`absolute w-full`}
+              animate={{
+                translateX:
+                  index === 1 ? 0 : index < 1 ? width : -width * index,
+              }}
+            >
+              <TextArea
+                register={register}
+                label={formData[1].textAreas[0].label}
+                placeholder={formData[1].textAreas[0].placeholder}
+                name="value"
+              />
+              {errors.required && <span>This field is required</span>}
+              <TextArea
+                register={register}
+                label={formData[1].textAreas[1].label}
+                placeholder={formData[1].textAreas[1].placeholder}
+                name="goals"
+              />
+            </motion.div>
+            <motion.div
+              className={`absolute w-full`}
+              style={{ translateX: `${200 - index * 100}%` }}
               animate={{
                 translateX:
                   index === 2 ? 0 : index < 2 ? width : -width * index,
               }}
             >
               <TextArea
+                register={register}
                 label={formData[2].textAreas[0].label}
                 placeholder={formData[2].textAreas[0].placeholder}
                 name="live"
               />
               <TextArea
+                register={register}
                 label={formData[2].textAreas[1].label}
                 placeholder={formData[2].textAreas[1].placeholder}
                 name="let"
               />
             </motion.div>
             <motion.div
-              className="absolute w-full"
+              className={`absolute w-full`}
+              style={{ translateX: `${200 - index * 100}% ` }}
               animate={{
                 translateX:
                   index === 3 ? 0 : index < 3 ? width : -width * index,
               }}
             >
               <TextArea
+                register={register}
                 label={formData[3].textAreas[0].label}
                 placeholder={formData[3].textAreas[0].placeholder}
                 name="love"
               />
               <TextArea
+                register={register}
                 label={formData[3].textAreas[1].label}
                 placeholder={formData[3].textAreas[1].placeholder}
                 name="laugh"
@@ -148,7 +162,9 @@ export default function ApplyForm() {
                 </button>
               )}
               {index !== formData.length - 1 ? (
-                <button onClick={handleNext}>Next</button>
+                <button type="button" onClick={handleNext}>
+                  Next
+                </button>
               ) : (
                 <button type="submit">Submit</button>
               )}

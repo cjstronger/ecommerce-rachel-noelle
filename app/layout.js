@@ -1,7 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./_components/Header";
-import { SubForm } from "./_components/SubForm";
 
 export const metadata = {
   title: { template: "%s / Rachel Noelle", default: "Rachel Noelle" },
