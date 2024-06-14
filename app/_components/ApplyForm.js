@@ -4,24 +4,32 @@ import { useState } from "react";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import { formData } from "@/app/_lib/constants";
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 import useResize from "../_hooks/useResize";
 import { useForm } from "react-hook-form";
 
 export default function ApplyForm() {
-  const { formState, register, handleSubmit, trigger, form } = useForm();
+  const { formState, register, handleSubmit, trigger, watch } = useForm();
   const { dirtyFields, errors } = formState;
   const [index, setIndex] = useState(0);
   const { ref, width } = useResize();
 
-  function onSubmit(data) {
-    if (index === formData.length - 1) console.log(data);
+  function onSubmit(formData) {
+    console.log(formData);
   }
-  function handleBack() {
+  async function handleBack() {
+    if (index === 0) await trigger(["first", "last", "email"]);
+    if (index === 1) await trigger(["textArea1", "textArea2"]);
+    if (index === 2) await trigger(["textArea3", "textArea4"]);
+    if (index === 3) await trigger(["textArea5", "textArea6"]);
+    if (Object.keys(errors).length > 0) return;
     if (index > 0) setIndex((index) => index - 1);
   }
   async function handleNext() {
-    await trigger(["first", "last", "email"]);
+    if (index === 0) await trigger(["first", "last", "email"]);
+    if (index === 1) await trigger(["textArea1", "textArea2"]);
+    if (index === 2) await trigger(["textArea3", "textArea4"]);
+    if (index === 3) await trigger(["textArea5", "textArea6"]);
     const isFirstDirty = dirtyFields.first;
     if (!isFirstDirty || Object.keys(errors).length > 0) return;
     if (index < formData.length - 1) setIndex((index) => index + 1);
@@ -65,6 +73,7 @@ export default function ApplyForm() {
               animate={{
                 translateX: index === 0 ? 0 : index > 0 ? -width * index : null,
               }}
+              transition={{ easeIn: easeInOut }}
             >
               <Input
                 label={formData[0].inputs[0].label}
@@ -98,19 +107,24 @@ export default function ApplyForm() {
                 translateX:
                   index === 1 ? 0 : index < 1 ? width : -width * index,
               }}
+              transition={{ easeIn: easeInOut }}
             >
               <TextArea
                 register={register}
+                errors={errors}
                 label={formData[1].textAreas[0].label}
                 placeholder={formData[1].textAreas[0].placeholder}
-                name="value"
+                name="textArea1"
+                watch={watch}
               />
               {errors.required && <span>This field is required</span>}
               <TextArea
                 register={register}
+                errors={errors}
                 label={formData[1].textAreas[1].label}
                 placeholder={formData[1].textAreas[1].placeholder}
-                name="goals"
+                name="textArea2"
+                watch={watch}
               />
             </motion.div>
             <motion.div
@@ -120,18 +134,23 @@ export default function ApplyForm() {
                 translateX:
                   index === 2 ? 0 : index < 2 ? width : -width * index,
               }}
+              transition={{ easeIn: easeInOut }}
             >
               <TextArea
                 register={register}
+                errors={errors}
                 label={formData[2].textAreas[0].label}
                 placeholder={formData[2].textAreas[0].placeholder}
-                name="live"
+                name="textArea3"
+                watch={watch}
               />
               <TextArea
                 register={register}
+                errors={errors}
                 label={formData[2].textAreas[1].label}
                 placeholder={formData[2].textAreas[1].placeholder}
-                name="let"
+                name="textArea4"
+                watch={watch}
               />
             </motion.div>
             <motion.div
@@ -141,34 +160,57 @@ export default function ApplyForm() {
                 translateX:
                   index === 3 ? 0 : index < 3 ? width : -width * index,
               }}
+              transition={{ easeIn: easeInOut }}
             >
               <TextArea
                 register={register}
+                errors={errors}
                 label={formData[3].textAreas[0].label}
                 placeholder={formData[3].textAreas[0].placeholder}
-                name="love"
+                name="textArea5"
+                watch={watch}
               />
               <TextArea
                 register={register}
+                errors={errors}
                 label={formData[3].textAreas[1].label}
                 placeholder={formData[3].textAreas[1].placeholder}
-                name="laugh"
+                name="textArea6"
+                watch={watch}
               />
             </motion.div>
             <div className="absolute right-0 top-[30rem] flex gap-5">
               {index > 0 && (
-                <button onClick={handleBack} type="button">
+                <button
+                  className="font-satoshi lowercase border-fadedBlack border hover:bg-primaryFaded p-2 transition-all duration-400 text-2xl"
+                  onClick={handleBack}
+                  type="button"
+                >
                   Back
                 </button>
               )}
-              {index !== formData.length - 1 ? (
-                <button type="button" onClick={handleNext}>
+              {index !== formData.length - 1 && (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="font-satoshi lowercase border-fadedBlack border
+                  hover:bg-primaryFaded p-2 transition-all duration-400
+                  text-2xl"
+                >
                   Next
                 </button>
-              ) : (
-                <button type="submit">Submit</button>
               )}
             </div>
+            {index === formData.length - 1 && (
+              <button
+                className="left-0 top-[30rem] absolute font-satoshi lowercase border-fadedBlack border
+              hover:bg-primaryFaded p-2 transition-all duration-400
+              text-2xl"
+                type="submit"
+              >
+                Submit
+              </button>
+            )}
           </div>
         </form>
       </div>
