@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 
 export default function useResize() {
   const ref = useRef(null);
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(1000);
   useLayoutEffect(() => {
     function handleResize() {
       setWidth(ref.current.clientWidth);

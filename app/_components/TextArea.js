@@ -7,12 +7,13 @@ export default function TextArea({
   register,
   errors,
   watch,
+  hidden,
 }) {
   const values = watch(name);
   return (
     <div className="flex flex-col mx-2">
       <h1 className="text-lg font-satoshi" name={name}>
-        {label}:{" "}
+        {label}
       </h1>
       <textarea
         {...register(name, {
@@ -21,6 +22,7 @@ export default function TextArea({
         })}
         placeholder={placeholder}
         className="min-w-[60%] max-w-[50rem] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
+        hidden={hidden}
       />
       <div className="flex justify-between">
         <p>{values?.length}/800</p>

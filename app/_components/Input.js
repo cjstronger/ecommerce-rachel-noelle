@@ -10,6 +10,7 @@ export default function Input({
   register,
   errors,
   errorType,
+  hidden,
 }) {
   let errorPattern;
   if (errorType === "name")
@@ -21,7 +22,7 @@ export default function Input({
       { value: 254, message: "email cannot be over 254 characters" },
       {
         pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-        message: "email must be valid",
+        message: "email must be valid (contains a . and an @)",
       },
     ];
   const { pending } = useFormStatus();
@@ -42,6 +43,7 @@ export default function Input({
         className="min-w-[60%] max-w-[50rem] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
         placeholder={placeholder}
         disabled={pending}
+        hidden={hidden}
       />
       {errors[name] && (
         <span className="text-red-500 text-sm font-satoshi">

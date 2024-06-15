@@ -23,7 +23,7 @@ export default async function submitEmail(formData) {
 
 async function sendInitialSub(subEmail) {
   const { data, error } = await resend.emails.send({
-    from: "Test <rachel@rachelnoelle.net>",
+    from: "Rachel Noelle <rachel@rachelnoelle.net>",
     to: [`${subEmail}`],
     subject: "Welcome to the Noelle Letter",
     react: <NoelleWelcome />,
