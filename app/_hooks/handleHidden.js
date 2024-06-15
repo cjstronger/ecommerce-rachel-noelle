@@ -1,4 +1,4 @@
-export default function useHidden(value, names) {
+export default function handleHidden(value, names) {
   names.forEach((name) => {
     const fields = document.getElementsByName(name);
     fields.forEach((field) => {

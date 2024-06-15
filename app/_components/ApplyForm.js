@@ -7,7 +7,7 @@ import { formData } from "@/app/_lib/constants";
 import { easeInOut, motion } from "framer-motion";
 import useResize from "../_hooks/useResize";
 import { useForm } from "react-hook-form";
-import useHidden from "../_hooks/useHidden";
+import handleHidden from "../_hooks/handleHidden";
 import ApplyFormHeaders from "./ApplyFormHeaders";
 import submitApplication from "../_lib/submitApplication";
 
@@ -57,9 +57,9 @@ export default function ApplyForm() {
       setIndex((index) => index - 1);
     }
     handleNames("back");
-    useHidden(false, newNames[0]);
+    handleHidden(false, newNames[0]);
     handleNames("current");
-    useHidden(true, newNames[0]);
+    handleHidden(true, newNames[0]);
   }
 
   async function handleNext() {
@@ -68,9 +68,9 @@ export default function ApplyForm() {
     if (!isFirstDirty || Object.keys(errors).length > 0) return;
     if (index < formData.length - 1) setIndex((index) => index + 1);
     handleNames("next");
-    useHidden(false, newNames[0]);
+    handleHidden(false, newNames[0]);
     handleNames("current");
-    useHidden(true, newNames[0]);
+    handleHidden(true, newNames[0]);
   }
   return (
     <div className="grid grid-cols-4 w-full xl:h-[65vh] h-[70vh] mx-auto relative">
