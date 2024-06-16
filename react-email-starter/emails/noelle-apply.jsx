@@ -44,7 +44,7 @@ export default NoelleApply;
 const main = {
   backgroundColor: "#f6f9fc",
   fontFamily:
-    'satoshi,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
 };
 
 const container = {
