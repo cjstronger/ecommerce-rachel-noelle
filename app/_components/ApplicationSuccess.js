@@ -17,7 +17,7 @@ export default function ApplicationSuccess() {
         We will get back to you as soon as possible to let you know if we are a
         good fit!
       </p>
-      <p>While you're here check out my artwork</p>
+      <p>While you&apos;re here check out my artwork</p>
       <Link
         href="/artwork"
         className="font-satoshi lowercase border-fadedBlack border hover:bg-primaryFaded p-2 transition-all duration-400 text-2xl"

@@ -63,7 +63,7 @@ export function SubForm() {
               {!alreadySub ? (
                 <div>
                   <h1 className="text-5xl">Thank you!</h1>
-                  <p>we've sent you an email with the latest newsletter</p>
+                  <p>we&apos;ve sent you an email with the latest newsletter</p>
                 </div>
               ) : (
                 <div>
