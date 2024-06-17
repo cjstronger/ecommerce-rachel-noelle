@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import Input from "../_components/Input";
 import Image from "next/image";
-import rn from "@/react-email-starter/emails/static/rn.png";
+import rn from "@/app/icon.png";
 
 export default function Page() {
   const { register, formState } = useForm();
