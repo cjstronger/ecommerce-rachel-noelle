@@ -1,5 +1,7 @@
 import ApplyForm from "../_components/ApplyForm";
 
+export const metadata = { title: "Apply" };
+
 export default function Page() {
   return (
     <div className="m-[2rem]">

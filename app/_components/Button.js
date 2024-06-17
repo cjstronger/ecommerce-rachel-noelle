@@ -1,12 +1,12 @@
 "use client";
 
-import { useFormStatus } from "react-dom";
-
-export default function Button({ children }) {
-  const { pending } = useFormStatus();
+export default function Button({ children, onClick }) {
   return (
-    <button className="font-satoshi lowercase border-fadedBlack border hover:bg-primaryFaded p-2 transition-all duration-400 text-2xl">
-      {pending ? "subscribing" : children}
+    <button
+      onClick={onClick}
+      className="font-satoshi lowercase border-fadedBlack border hover:bg-primaryFaded p-2 transition-all duration-400 text-2xl min-h-[50px] min-w-[125px] flex justify-center items-center"
+    >
+      {children}
     </button>
   );
 }

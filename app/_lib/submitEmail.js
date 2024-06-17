@@ -7,18 +7,21 @@ import { addSub, checkSubByEmail } from "./data-services";
 const resend = new Resend(process.env.RESEND_KEY);
 
 export default async function submitEmail(formData) {
-  const firstName = formData.get("firstName");
-  const lastName = formData.get("lastName");
-  const subEmail = formData.get("email");
+  let subscribed = false;
+  const firstName = formData.firstName;
+  const lastName = formData.lastName;
+  const subEmail = formData.email;
   const { data } = await checkSubByEmail(subEmail, resend);
   if (data.length) {
-    return;
+    subscribed = true;
+    return { subscribed };
   }
   const subFullName = `${firstName} ${lastName}`;
   const user = { subFullName, subEmail };
   const { error } = await addSub(user);
   if (error) throw new Error("The submit failed");
   await sendInitialSub(subEmail);
+  return { subscribed };
 }
 
 async function sendInitialSub(subEmail) {
@@ -28,7 +31,6 @@ async function sendInitialSub(subEmail) {
     subject: "Welcome to the Noelle Letter",
     react: <NoelleWelcome />,
   });
-  console.log(data);
   if (error) throw new Error("There was an error sending the email.", error);
   return data;
 }

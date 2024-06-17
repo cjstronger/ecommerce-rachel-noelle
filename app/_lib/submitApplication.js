@@ -6,6 +6,7 @@ import NoelleApply from "@/react-email-starter/emails/noelle-apply";
 import NoelleApplication from "@/react-email-starter/emails/noelle-application";
 
 const resend = new Resend(process.env.RESEND_KEY);
+let applied = false;
 
 export default async function submitApplication(formData) {
   const firstName = formData.first;
@@ -13,7 +14,8 @@ export default async function submitApplication(formData) {
   const appEmail = formData.email;
   const { data } = await checkApplicantByEmail(appEmail);
   if (data.length) {
-    return;
+    applied = true;
+    return { applied };
   }
   const appFullName = `${firstName} ${lastName}`;
   const user = { appFullName, appEmail };
@@ -21,6 +23,7 @@ export default async function submitApplication(formData) {
   if (error) throw new Error("The submit failed");
   await sendApplication(formData);
   await sendApplyNotif(appEmail, appFullName);
+  return { applied };
 }
 
 async function sendApplyNotif(appEmail, appFullName) {

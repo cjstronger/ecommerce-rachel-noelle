@@ -7,6 +7,8 @@ import ReviewsAll from "./_components/ReviewsAll";
 import LocoParalaxItem from "./_components/LocoParalaxItem";
 import { SubForm } from "./_components/SubForm";
 
+export const metadata = { title: "Rachel Noelle - Coaching" };
+
 export default function Page() {
   return (
     <>

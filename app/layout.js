@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "./_components/Header";
 
 export const metadata = {
-  title: { template: "%s / Rachel Noelle", default: "Rachel Noelle" },
+  title: { template: "%s - Rachel Noelle", default: "Rachel Noelle" },
   description: "Rachel Noelle, your feminine energy and inner work coach",
 };
 

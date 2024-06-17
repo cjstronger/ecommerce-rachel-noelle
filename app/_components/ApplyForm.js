@@ -12,6 +12,7 @@ import ApplyFormHeaders from "./ApplyFormHeaders";
 import submitApplication from "../_lib/submitApplication";
 import SpinnerMini from "./SpinnerMini";
 import ApplicationSuccess from "./ApplicationSuccess";
+import ApplicationReceived from "./ApplicationReceived";
 
 const indexedNames = [
   ["first", "last", "email"],
@@ -24,6 +25,7 @@ export default function ApplyForm() {
   const { formState, register, handleSubmit, trigger, watch } = useForm();
   const { dirtyFields, errors, isSubmitting, isSubmitSuccessful } = formState;
   const [index, setIndex] = useState(0);
+  const [alreadyApplied, setAlreadyApplied] = useState(false);
   const { ref, width } = useResize();
   const isFirstDirty = dirtyFields.first;
   let newNames;
@@ -48,7 +50,10 @@ export default function ApplyForm() {
   }
 
   async function onSubmit(formData) {
-    await submitApplication(formData);
+    const { applied } = await submitApplication(formData);
+    console.log(applied);
+    if (!applied) return;
+    setAlreadyApplied(true);
   }
 
   async function handleBack() {
@@ -77,7 +82,11 @@ export default function ApplyForm() {
   return (
     <>
       {isSubmitSuccessful ? (
-        <ApplicationSuccess />
+        alreadyApplied ? (
+          <ApplicationReceived />
+        ) : (
+          <ApplicationSuccess />
+        )
       ) : (
         <>
           <div className="w-full bg-accent h-[8rem] p-2">
