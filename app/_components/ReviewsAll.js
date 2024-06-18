@@ -13,14 +13,13 @@ export default function ReviewsAll() {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: document.querySelectorAll("#reviews"),
-          start: "+350px center",
-          end: `${reviews.current.offsetHeight + 2000} bottom`,
+          start: "top bottom",
+          end: "+650px bottom",
           scrub: 2,
-          pin: true,
           // markers: true,
         },
       });
-      timeline.from(reviews.current, { translateX: "-1500px" });
+      timeline.from(reviews.current, { translateX: "-1000px" });
     });
     return () => context.revert();
   }, []);
@@ -46,7 +45,7 @@ export default function ReviewsAll() {
     <div
       ref={reviews}
       id="reviews"
-      className="flex gap-10 justify-center my-10 overflow-hidden"
+      className="flex lg:flex-row flex-col gap-10 justify-center my-10 overflow-hidden pb-[15rem] items-center"
     >
       {exampleReviews.map((review) => (
         <Review review={review} key={review.fullName} />

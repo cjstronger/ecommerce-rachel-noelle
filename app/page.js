@@ -5,13 +5,14 @@ import ApplyLink from "./_components/ApplyLink";
 import TitleSeparator from "./_components/TitleSeparator";
 import ReviewsAll from "./_components/ReviewsAll";
 import LocoParalaxItem from "./_components/LocoParalaxItem";
-import { SubForm } from "./_components/SubForm";
+import Header from "./_components/Header";
 
 export const metadata = { title: "Rachel Noelle - Coaching" };
 
 export default function Page() {
   return (
     <>
+      <Header />
       <div
         data-scroll-container
         className="flex 2xl:aspect-[2/1] md:aspect-[3/4] lg:aspect-[5/5] aspect-[5/9] m-12 mt-[9rem] h-[1000] justify-center"
@@ -57,7 +58,6 @@ export default function Page() {
       <CoachingDetails />
       <TitleSeparator titleText="Reviews" />
       <ReviewsAll />
-      <SubForm />
     </>
   );
 }

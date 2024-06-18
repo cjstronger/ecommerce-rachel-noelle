@@ -62,7 +62,7 @@ export default function Navigation() {
           variants={variants}
           className={styles.menu}
         >
-          <Menu openMenu={openMenu} />
+          <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </motion.div>
       )}
     </>

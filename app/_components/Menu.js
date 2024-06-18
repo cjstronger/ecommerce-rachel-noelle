@@ -32,7 +32,7 @@ const variants = {
   },
 };
 
-export default function Menu({ openMenu }) {
+export default function Menu({ openMenu, setOpenMenu }) {
   return (
     <div>
       {menuItems.map((item, i) => (
@@ -47,6 +47,7 @@ export default function Menu({ openMenu }) {
           <Link
             className="font-satoshi p-2 px-4 hover:bg-primaryFaded  hover:border-fadedBlack hover:scale-110 transition-all duration-[200]"
             href={item.href}
+            onClick={() => setOpenMenu(false)}
           >
             {item.title}
           </Link>

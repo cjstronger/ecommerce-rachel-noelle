@@ -11,8 +11,9 @@ export default function Input({
   errors,
   errorType,
   hidden,
+  type,
 }) {
-  let errorPattern;
+  let errorPattern = "none";
   if (errorType === "name")
     errorPattern = [
       { value: 50, message: "Name cannot be over 50 characters" },
@@ -30,6 +31,7 @@ export default function Input({
     <div className="flex flex-col mx-2">
       <h1 className="text-lg font-satoshi">{label}:</h1>
       <input
+        type={type}
         name={name}
         id={id}
         {...register(name, {
@@ -40,7 +42,7 @@ export default function Input({
             message: errorPattern[1]?.message,
           },
         })}
-        className="min-w-[60%] max-w-[50rem] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
+        className="min-w-[40%] max-w-[30rem] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
         placeholder={placeholder}
         disabled={pending}
         hidden={hidden}

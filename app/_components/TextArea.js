@@ -7,7 +7,6 @@ export default function TextArea({
   register,
   errors,
   watch,
-  hidden,
 }) {
   const values = watch(name);
   return (
@@ -21,8 +20,7 @@ export default function TextArea({
           maxLength: { value: 800, message: "800 characters is the max" },
         })}
         placeholder={placeholder}
-        className="min-w-[60%] max-w-[50rem] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
-        hidden={hidden}
+        className="min-w-[60%] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
       />
       <div className="flex justify-between">
         <p>{values?.length}/800</p>
