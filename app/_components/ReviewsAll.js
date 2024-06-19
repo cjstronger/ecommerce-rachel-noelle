@@ -14,9 +14,9 @@ export default function ReviewsAll() {
         scrollTrigger: {
           trigger: document.querySelectorAll("#reviews"),
           start: "top bottom",
-          end: "+650px bottom",
+          end: "+300px bottom",
           scrub: 2,
-          // markers: true,
+          markers: true,
         },
       });
       timeline.from(reviews.current, { translateX: "-1000px" });

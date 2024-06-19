@@ -8,9 +8,9 @@ export default function GridCol({
 }) {
   return (
     <div
-      className={`min-h-[40rem] flex items-center justify-center col-span-${colSpan} bg-${bg} text-${textColor} shadow-${shadow} z-${z}`}
+      className={`min-h-[45vh] flex items-center justify-center col-span-${colSpan} bg-${bg} text-${textColor} shadow-${shadow} z-${z}`}
     >
-      <div className="xl:m-[7rem] md:m-[4rem] m-[2rem]">{children}</div>
+      <div className="xl:mx-[7rem] mx-2">{children}</div>
     </div>
   );
 }

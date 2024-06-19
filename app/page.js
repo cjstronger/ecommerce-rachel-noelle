@@ -30,16 +30,16 @@ export default function Page() {
       <div className="px-12 relative bottom-[-5rem] flex flex-col max-w-[90rem] mx-auto">
         <div className="flex justify-between items-center mb-4">
           <div>
-            <h1 className="z-10 md:text-6xl text-5xl">I&apos;M RACHEL,</h1>
-            <h1 className="z-10 text-4xl md:text-5xl">
+            <h1 className="z-10 md:text-4xl text-2xl">I&apos;M RACHEL,</h1>
+            <h1 className="z-10 text-sm lg:text-3xl">
               YOUR FEMININE ENERGY AND INNER WORK COACH
             </h1>
           </div>
-          <ApplyLink buttonText="Apply now" hoverColor="accentFaded" />
+          <ApplyLink buttonText="Apply" hoverColor="accentFaded" />
         </div>
         <p
           id="about"
-          className="mx-auto md:text-3xl text-2xl bg-accent p-5 mb-[9rem]"
+          className="mx-auto lg:text-lg text-sm bg-accent p-5 mb-[9rem]"
         >
           I empower you to live authentically in alignment with your desires
           through the balance of strength and softness. You are Divine Feminine

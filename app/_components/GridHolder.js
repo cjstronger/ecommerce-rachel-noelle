@@ -1,5 +1,3 @@
-export default function GridHolder({ children }) {
-  return (
-    <div className={`lg:grid grid-cols-2 mx-5 lg:my-0 my-5`}>{children}</div>
-  );
+export default function GridHolder({ children, cols }) {
+  return <div className={`grid grid-cols-${cols} mx-5`}>{children}</div>;
 }
