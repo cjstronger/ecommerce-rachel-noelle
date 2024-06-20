@@ -21,4 +21,6 @@ const InstagramIcon = React.forwardRef((props, ref) => (
   </svg>
 ));
 
+InstagramIcon.displayName = "InstagramIcon";
+
 export default InstagramIcon;

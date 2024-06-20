@@ -21,4 +21,6 @@ const YoutubeIcon = React.forwardRef((props, ref) => (
   </svg>
 ));
 
+YoutubeIcon.displayName = "YoutubeIcon";
+
 export default YoutubeIcon;
