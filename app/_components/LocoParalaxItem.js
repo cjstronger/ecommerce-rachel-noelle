@@ -13,7 +13,7 @@ export default function LocoParalaxItem({ children }) {
     <div
       data-scroll
       data-scroll-speed="0.3"
-      className="place-self-center z-10 2xl:text-9xl md:text-7xl text-5xl text-primary"
+      className="place-self-center z-10 2xl:text-4xl lg:text-3xl text-2xl text-primary"
     >
       <h1>{children}</h1>
     </div>

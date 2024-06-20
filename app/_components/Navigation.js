@@ -1,25 +1,21 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import NavigationButtons from "./NavigationButtons";
 import styles from "../style.module.scss";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Menu from "./Menu";
 
 const variants = {
   open: {
-    width: 350,
-    height: 500,
-    top: "5rem",
     opacity: 1,
-    transition: { duration: 0.3, opacity: { duration: 0.5 } },
+    y: 0,
+    transition: { duration: 0.2 },
   },
   close: {
-    width: 100,
-    height: 38,
-    top: "1.75rem",
     opacity: 0,
-    transition: { delay: 0.3, duration: 0.3, opacity: { delay: 0.8 } },
+    y: "5%",
+    transition: { duration: 0.2 },
   },
 };
 
@@ -35,7 +31,7 @@ export default function Navigation() {
   useLayoutEffect(() => {
     function handleWidth() {
       const windowWidth = window.innerWidth;
-      windowWidth <= 1150 ? setBurger(true) : setBurger(false);
+      windowWidth <= 1000 ? setBurger(true) : setBurger(false);
     }
 
     handleWidth();
@@ -53,18 +49,20 @@ export default function Navigation() {
         setOpenMenu={setOpenMenu}
         openMenu={openMenu}
       />
-      {openMenu && (
-        <motion.div
-          id="menu"
-          animate={openMenu ? "open" : "close"}
-          exit={"close"}
-          initial={"close"}
-          variants={variants}
-          className={styles.menu}
-        >
-          <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {openMenu && (
+          <motion.div
+            id="menu"
+            animate={openMenu ? "open" : "close"}
+            exit={"close"}
+            initial={"close"}
+            variants={variants}
+            className={styles.menu}
+          >
+            <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

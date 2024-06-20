@@ -42,7 +42,7 @@
 }
 
 body {
-  @apply min-w-[500px] text-fadedBlack;
+  @apply text-fadedBlack;
 }
 
 p {

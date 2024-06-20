@@ -6,6 +6,7 @@ import TitleSeparator from "./_components/TitleSeparator";
 import ReviewsAll from "./_components/ReviewsAll";
 import LocoParalaxItem from "./_components/LocoParalaxItem";
 import Header from "./_components/Header";
+import Image from "next/image";
 
 export const metadata = { title: "Rachel Noelle - Coaching" };
 
@@ -15,10 +16,11 @@ export default function Page() {
       <Header />
       <div
         data-scroll-container
-        className="flex 2xl:aspect-[2/1] md:aspect-[3/4] lg:aspect-[5/5] aspect-[5/9] m-12 mt-[9rem] h-[1000] justify-center"
+        className="flex lg:aspect-[2/1] md:aspect-[1/1] aspect-[6/11] mt-[3.8rem] relative justify-center"
       >
-        <img
-          className=" object-cover 2xl:object-cover shadow-lg brightness-90"
+        <Image
+          fill
+          className=" object-cover 2xl:object-none shadow-lg brightness-90"
           src="/images/test-min.jpg"
           alt="Rachel-Noelle"
         />
@@ -28,12 +30,11 @@ export default function Page() {
         </LocoParalax>
       </div>
       <div className="px-12 relative bottom-[-5rem] flex flex-col max-w-[90rem] mx-auto">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex items-center justify-between mb-4">
           <div>
-            <h1 className="z-10 md:text-4xl text-2xl">I&apos;M RACHEL,</h1>
-            <h1 className="z-10 text-sm lg:text-3xl">
-              YOUR FEMININE ENERGY AND INNER WORK COACH
-            </h1>
+            <h1 className="z-10 lg:text-5xl text-3xl">I&apos;M RACHEL,</h1>
+            <h1 className="z-10 text-md lg:text-3xl">YOUR FEMININE ENERGY</h1>
+            <h1 className="z-10 text-md lg:text-3xl">AND INNER WORK COACH</h1>
           </div>
           <ApplyLink buttonText="Apply" hoverColor="accentFaded" />
         </div>
@@ -54,7 +55,7 @@ export default function Page() {
 
       {/*Second section - coaching */}
       <CoachingIntro />
-      <TitleSeparator titleText="details" />
+      <TitleSeparator titleText="" />
       <CoachingDetails />
       <TitleSeparator titleText="Reviews" />
       <ReviewsAll />
