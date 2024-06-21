@@ -16,7 +16,6 @@ export default function ReviewsAll() {
           start: "top bottom",
           end: "+300px bottom",
           scrub: 2,
-          markers: true,
         },
       });
       timeline.from(reviews.current, { translateX: "-1000px" });

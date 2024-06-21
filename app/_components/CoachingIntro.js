@@ -4,7 +4,7 @@ import ApplyLink from "./ApplyLink";
 
 export default function CoachingIntro() {
   return (
-    <div className="grid grid-cols-2 lg:mx-[10rem] lg:min-h-[60vh]">
+    <div className="grid grid-cols-2 lg:mx-[10rem] lg:min-h-[60vh] shadow-2xl">
       <GridCol colSpan="1" bg="accent">
         <h1 className="mt-6 uppercase text-xl lg:text-4xl mx-5">
           Life Coaching

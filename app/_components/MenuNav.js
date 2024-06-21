@@ -1,6 +1,6 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import styles from "../style.module.scss";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function MenuNav({ setOpenMenu, openMenu }) {
   function handleCloseClick(e) {
@@ -37,14 +37,24 @@ export default function MenuNav({ setOpenMenu, openMenu }) {
           <XMarkIcon height="29" />
         </div>
       </motion.div>
-      <motion.div
-        animate={{
-          y: openMenu ? "0%" : "100%",
-          opacity: openMenu ? 1 : 0,
-        }}
-        transition={{ y: { duration: 0.1 }, opacity: { duration: 0.00001 } }}
-        className="w-full h-full top-0 left-0 absolute bg-accent z-10"
-      ></motion.div>
+      <AnimatePresence>
+        {openMenu && (
+          <motion.div
+            key="menu"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{
+              y: "0%",
+              opacity: openMenu ? 1 : 0,
+            }}
+            exit={{ y: "100%" }}
+            transition={{
+              y: { duration: 0.1 },
+              opacity: { duration: 0.00001 },
+            }}
+            className="w-full h-full top-0 left-0 absolute bg-accent z-10"
+          ></motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import InstagramIcon from "./InstagramIcon";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import YoutubeIcon from "./YoutubeIcon";

@@ -53,13 +53,6 @@ html {
   @apply scroll-pt-[15rem] w-[100%] h-[100vh];
 }
 
-@media screen and (max-width: 600px) {
-  body,
-  html {
-    overflow-x: hidden;
-  }
-}
-
 body {
   input:-webkit-autofill,
   input:-webkit-autofill:hover,

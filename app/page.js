@@ -20,6 +20,7 @@ export default function Page() {
       >
         <Image
           fill
+          quality={100}
           className=" object-cover 2xl:object-none shadow-lg brightness-90"
           src="/images/test-min.jpg"
           alt="Rachel-Noelle"

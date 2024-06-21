@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function GridImage({ src, colSpan, alt }) {
   return (
-    <div className="z-10 shadow-2xl relative">
+    <div className="z-10 relative">
       <Image
         alt={alt}
         fill

@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         accent: "#b2b19f",
         accentFaded: "rgba(178, 177, 159, 0.5)",
-        primary: "#f9f8f3",
+        primary: "#E6E2CF",
         primaryFaded: "rgba(249, 248, 243, 0.5)",
         fadedBlack: "#373633",
         blackTrans: "rgba(55, 54, 51, 0.5)",
