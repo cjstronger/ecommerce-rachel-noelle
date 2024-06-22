@@ -5,53 +5,10 @@
 }
 
 .menu {
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
   z-index: 20;
   position: absolute;
   height: 100vh;
   width: 100vw;
   top: 3.1rem;
   background: #b2b19f;
-}
-
-.header {
-  height: 50px;
-  box-shadow: 0 2px 2px -1px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  z-index: 20;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.1)
-  );
-}
-
-.formButton:hover {
-  background-color: rgba(178, 177, 159, 0.5);
-  transition: all;
-  transition-duration: 0.5s;
-}
-.formButton {
-  max-width: 150px;
-  position: fixed;
-  padding: 5px;
-  bottom: 5%;
-  right: 5%;
-  z-index: 20;
-  font-weight: 500;
-  border: solid;
-  border-width: 2px;
-  font-size: 30px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0.1)
-  );
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
 }

@@ -14,7 +14,7 @@ module.exports = {
         primaryFaded: "rgba(249, 248, 243, 0.5)",
         fadedBlack: "#373633",
         blackTrans: "rgba(55, 54, 51, 0.5)",
-        brunswick: "#444d44",
+        bg: "#e7e1d7",
       },
       fontFamily: {
         dm: ["DM Sans", "sans-serif"],

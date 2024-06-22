@@ -7,6 +7,7 @@ import ReviewsAll from "./_components/ReviewsAll";
 import LocoParalaxItem from "./_components/LocoParalaxItem";
 import Header from "./_components/Header";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = { title: "Rachel Noelle - Coaching" };
 
@@ -16,7 +17,7 @@ export default function Page() {
       <Header />
       <div
         data-scroll-container
-        className="flex lg:aspect-[3/1] aspect-[3/2] mt-[3.8rem] relative justify-center"
+        className="flex lg:aspect-[3/1] aspect-[3/2] relative justify-center"
       >
         <Image
           fill
@@ -26,28 +27,32 @@ export default function Page() {
           alt="Rachel-Noelle-Waterfall"
         />
         <LocoParalax>
-          <LocoParalaxItem text="2xl" lg="4xl" twoXl="6xl">
-            Ready to start choosing your best life?
+          <LocoParalaxItem text="3xl" lg="4xl" twoXl="6xl">
+            Ready to start choosing
           </LocoParalaxItem>
-          <LocoParalaxItem text="xs" lg="lg" twoXl="lg">
-            Apply to work with Rachel expand yourself and manifest your desires
-            with ease
+          <LocoParalaxItem text="3xl" lg="4xl" twoXl="6xl">
+            your best life?
+          </LocoParalaxItem>
+          <LocoParalaxItem text="sm" lg="xl" twoXl="2xl" font="satoshi">
+            Apply to work with Rachel
+          </LocoParalaxItem>
+          <LocoParalaxItem text="sm" lg="xl" twoXl="2xl" font="satoshi">
+            expand yourself and manifest
+          </LocoParalaxItem>
+          <LocoParalaxItem text="sm" lg="xl" twoXl="2xl" font="satoshi">
+            your desires with ease
           </LocoParalaxItem>
         </LocoParalax>
       </div>
-      <div className="px-12 relative bottom-[-5rem] flex flex-col max-w-[90rem] mx-auto">
-        <div className="flex items-center justify-between mb-4">
+      <div className="mt-[5rem] px-12 flex flex-col mx-auto max-w-[90rem]">
+        <div className="flex items-center mb-4">
           <div>
             <h1 className="z-10 lg:text-5xl text-3xl">I&apos;M RACHEL,</h1>
             <h1 className="z-10 text-md lg:text-3xl">YOUR FEMININE ENERGY</h1>
             <h1 className="z-10 text-md lg:text-3xl">AND INNER WORK COACH</h1>
           </div>
-          <ApplyLink buttonText="Apply" hoverColor="accentFaded" />
         </div>
-        <p
-          id="about"
-          className="mx-auto lg:text-lg text-sm bg-accent p-5 mb-[9rem]"
-        >
+        <p id="about" className="mx-auto lg:text-lg text-sm bg-accent p-5 mb-5">
           I empower you to live authentically in alignment with your desires
           through the balance of strength and softness. You are Divine Feminine
           and I am here to remind you of this. My job is to create a
@@ -57,6 +62,12 @@ export default function Page() {
           them. Im so excited to work with you and share with you on this
           abundant journey you are about to partake in.
         </p>
+        <Link
+          className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
+          href="/apply"
+        >
+          Apply
+        </Link>
       </div>
 
       {/*Second section - coaching */}

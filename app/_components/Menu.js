@@ -58,7 +58,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
       ))}
       <hr className="w-[80%] border-fadedBlack mx-auto mt-[40%]"></hr>
       <motion.div className="flex justify-center mt-5 gap-4">
-        <a href="https://www.instagram.com/rachel.n.peters" target="_blank">
+        <a href="https://www.instagram.com/rachelnoellesart" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
