@@ -3,7 +3,7 @@ import MenuNav from "./MenuNav";
 
 export default function NavigationButtons({ burger, openMenu, setOpenMenu }) {
   return !burger ? (
-    <ul className="flex text-lg p-3">
+    <ul className="flex text-lg py-3">
       <li>
         <Link
           href="/#about"

@@ -21,13 +21,18 @@ export default function Page() {
         <Image
           fill
           quality={100}
-          className=" object-cover 2xl:object-none shadow-lg brightness-90"
-          src="/images/test-min.jpg"
-          alt="Rachel-Noelle"
+          className=" object-cover shadow-lg brightness-90"
+          src="/images/waterfallpaint..jpeg"
+          alt="Rachel-Noelle-Waterfall"
         />
         <LocoParalax>
-          <LocoParalaxItem>Balance your Energy</LocoParalaxItem>
-          <LocoParalaxItem>Manifest your Dreams</LocoParalaxItem>
+          <LocoParalaxItem text="2xl" lg="4xl" twoXl="6xl">
+            Ready to start choosing your best life?
+          </LocoParalaxItem>
+          <LocoParalaxItem text="xs" lg="lg" twoXl="lg">
+            Apply to work with Rachel expand yourself and manifest your desires
+            with ease
+          </LocoParalaxItem>
         </LocoParalax>
       </div>
       <div className="px-12 relative bottom-[-5rem] flex flex-col max-w-[90rem] mx-auto">

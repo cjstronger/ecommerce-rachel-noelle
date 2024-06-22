@@ -1,14 +1,15 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import CoachingPhase from "./CoachingPhase";
 
 export default function CoachingDetails() {
   const [pageX, setPageX] = useState(null);
-  const [pageXX, setPageXX] = useState(null);
   const [clicked, setClicked] = useState(false);
-  const [walk, setWalk] = useState(null);
-  const [scrollLeft, setScrollLeft] = useState(null);
+  const scrollLeft = useRef(null);
+  const walk = useRef(null);
+  const pageXX = useRef(null);
+
   useLayoutEffect(() => {
     const horizontal = document.querySelector("#horizontal");
     const phaseTitle = document.querySelector("#phases");
@@ -22,14 +23,27 @@ export default function CoachingDetails() {
       e.preventDefault();
       setPageX(e.pageX - horizontal.offsetLeft);
       setClicked(true);
-      setScrollLeft(horizontal.scrollLeft);
+      scrollLeft.current = horizontal.scrollLeft;
     }
     function handleMouseMove(e) {
       if (!clicked) return;
-      setPageXX(e.pageX - horizontal.offsetLeft);
-      setWalk(pageXX - pageX);
-      horizontal.scrollLeft = scrollLeft - walk;
-      phaseTitle.style.transform = `translateX(${scrollLeft - walk}px)`;
+      pageXX.current = e.pageX - horizontal.offsetLeft;
+      walk.current = pageXX.current - pageX;
+      horizontal.scrollLeft = scrollLeft.current - walk.current;
+      const newScrollLeft = scrollLeft.current - walk.current;
+
+      if (newScrollLeft < 0) {
+        phaseTitle.style.transform = `translateX(0px)`;
+      } else if (
+        newScrollLeft >
+        horizontal.scrollWidth - horizontal.clientWidth
+      ) {
+        phaseTitle.style.transform = `translateX(${
+          horizontal.scrollWidth - horizontal.clientWidth
+        }px)`;
+      } else {
+        phaseTitle.style.transform = `translateX(${newScrollLeft}px)`;
+      }
     }
 
     horizontal.addEventListener("mouseup", handleMouseUp);
@@ -43,7 +57,8 @@ export default function CoachingDetails() {
       horizontal.removeEventListener("mousedown", handleMouseDown);
       horizontal.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [pageX, clicked, pageXX, walk]);
+  }, [pageX, clicked, pageXX, walk, scrollLeft]);
+
   return (
     <>
       <div

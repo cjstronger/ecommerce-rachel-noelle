@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function LocoParalaxItem({ children }) {
+export default function LocoParalaxItem({ children, text, lg, twoXl }) {
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
@@ -13,9 +13,11 @@ export default function LocoParalaxItem({ children }) {
     <div
       data-scroll
       data-scroll-speed="0.3"
-      className="place-self-center z-10 2xl:text-4xl lg:text-3xl text-2xl text-primary"
+      className={`place-self-center z-10 text-white`}
     >
-      <h1>{children}</h1>
+      <h1 className={`2xl:text-${twoXl} lg:text-${lg} text-${text}`}>
+        {children}
+      </h1>
     </div>
   );
 }
