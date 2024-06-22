@@ -17,7 +17,7 @@ export default function Page() {
       <Header />
       <div
         data-scroll-container
-        className="flex lg:aspect-[3/1] aspect-[3/2] relative justify-center"
+        className="flex lg:aspect-[3/1] aspect-[200/201] relative justify-center"
       >
         <Image
           fill
@@ -44,15 +44,15 @@ export default function Page() {
           </LocoParalaxItem>
         </LocoParalax>
       </div>
-      <div className="mt-[5rem] px-12 flex flex-col mx-auto max-w-[90rem]">
-        <div className="flex items-center mb-4">
+      <div className="mt-[5rem] flex flex-col">
+        <div className="flex items-center mb-4 px-12">
           <div>
             <h1 className="z-10 lg:text-5xl text-3xl">I&apos;M RACHEL,</h1>
             <h1 className="z-10 text-md lg:text-3xl">YOUR FEMININE ENERGY</h1>
             <h1 className="z-10 text-md lg:text-3xl">AND INNER WORK COACH</h1>
           </div>
         </div>
-        <p id="about" className="mx-auto lg:text-lg text-sm bg-accent p-5 mb-5">
+        <p id="about" className="mx-auto lg:text-lg text-sm bg-bg p-5 mb-5">
           I empower you to live authentically in alignment with your desires
           through the balance of strength and softness. You are Divine Feminine
           and I am here to remind you of this. My job is to create a
