@@ -16,7 +16,7 @@ export default function Page() {
       <Header />
       <div
         data-scroll-container
-        className="flex lg:aspect-[3/1] sm:aspect-[2/1] aspect-[3/4] mt-[3.8rem] relative justify-center"
+        className="flex lg:aspect-[3/1] aspect-[3/2] mt-[3.8rem] relative justify-center"
       >
         <Image
           fill
