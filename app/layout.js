@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${candlefish.className} bg-bg min-h-screen flex flex-col`}
       >
+        <Header />
         <div className="flex-1">{children}</div>
       </body>
     </html>

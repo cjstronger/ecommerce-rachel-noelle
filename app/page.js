@@ -1,11 +1,9 @@
 import LocoParalax from "./_components/LocoParalax";
 import CoachingDetails from "./_components/CoachingDetails";
 import CoachingIntro from "./_components/CoachingIntro";
-import ApplyLink from "./_components/ApplyLink";
 import TitleSeparator from "./_components/TitleSeparator";
 import ReviewsAll from "./_components/ReviewsAll";
 import LocoParalaxItem from "./_components/LocoParalaxItem";
-import Header from "./_components/Header";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +12,6 @@ export const metadata = { title: "Rachel Noelle - Coaching" };
 export default function Page() {
   return (
     <>
-      <Header />
       <div
         data-scroll-container
         className="flex lg:aspect-[3/1] aspect-[200/201] relative justify-center"

@@ -23,6 +23,23 @@
     animation: rotate 1s infinite linear;
   }
 
+  ::selection {
+    background: #949e7b;
+  }
+
+  .cls-1 {
+    fill: white;
+  }
+  .cls-2 {
+    fill: #e7e1d7;
+  }
+  .cls-3 {
+    fill: #949e7b;
+  }
+  .cls-4 {
+    fill: #373633;
+  }
+
   @keyframes rotate {
     to {
       transform: rotate(1turn);
@@ -45,7 +62,8 @@ body {
   @apply text-fadedBlack;
 }
 
-p {
+p,
+label {
   @apply font-satoshi;
 }
 

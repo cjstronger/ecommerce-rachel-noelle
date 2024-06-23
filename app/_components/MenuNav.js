@@ -1,6 +1,5 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import styles from "../style.module.scss";
-import { AnimatePresence, easeIn, easeInOut, motion } from "framer-motion";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 
 export default function MenuNav({ setOpenMenu, openMenu }) {
   function handleCloseClick(e) {
@@ -10,10 +9,11 @@ export default function MenuNav({ setOpenMenu, openMenu }) {
   return (
     <motion.div
       animate={{ borderBlockColor: openMenu ? "#b2b19f" : "" }}
-      onClick={() => {
+      onClick={(e) => {
+        e.preventDefault();
         setOpenMenu(!openMenu);
       }}
-      className={`${styles.menuButton} hover:border-b-accent border-b-2 border-r-2 border-b-transparent border-r-blackTrans transition-all duration-[400] relative`}
+      className="px-[15px] py-[9.5px] cursor-pointer hover:border-b-accent border-b-2 border-r-2 border-b-transparent border-r-blackTrans transition-all duration-[400] relative"
     >
       <motion.div
         animate={{

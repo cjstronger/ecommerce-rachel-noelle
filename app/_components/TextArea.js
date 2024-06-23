@@ -7,13 +7,14 @@ export default function TextArea({
   register,
   errors,
   watch,
+  id,
 }) {
   const values = watch(name);
   return (
     <div className="flex flex-col mx-2">
-      <h1 className="text-lg font-satoshi" name={name}>
+      <label className="text-lg font-satoshi" name={name} htmlFor={id}>
         {label}
-      </h1>
+      </label>
       <textarea
         {...register(name, {
           required: { value: true, message: "This field is required" },
@@ -21,6 +22,7 @@ export default function TextArea({
         })}
         placeholder={placeholder}
         className="min-w-[60%] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
+        id={id}
       />
       <div className="flex justify-between">
         <p>{values?.length}/800</p>

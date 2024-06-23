@@ -54,6 +54,7 @@ export default function ApplyForm() {
                   register={register}
                   errors={errors}
                   errorType={"name"}
+                  id="first"
                 />
                 <Input
                   label={formData[0].inputs[1].label}
@@ -62,6 +63,7 @@ export default function ApplyForm() {
                   register={register}
                   errors={errors}
                   errorType={"name"}
+                  id="last"
                 />
                 <Input
                   label={formData[0].inputs[2].label}
@@ -70,6 +72,7 @@ export default function ApplyForm() {
                   register={register}
                   errors={errors}
                   errorType={"email"}
+                  id="email"
                 />
                 <div className="mt-6 flex flex-col gap-2">
                   <TextArea
@@ -80,6 +83,7 @@ export default function ApplyForm() {
                     name="textArea1"
                     watch={watch}
                     hidden
+                    id="textArea1"
                   />
                   <TextArea
                     register={register}
@@ -89,6 +93,7 @@ export default function ApplyForm() {
                     name="textArea2"
                     watch={watch}
                     hidden
+                    id="textArea2"
                   />
                   <TextArea
                     register={register}
@@ -98,6 +103,7 @@ export default function ApplyForm() {
                     name="textArea3"
                     watch={watch}
                     hidden
+                    id="textArea3"
                   />
                   <TextArea
                     register={register}
@@ -107,6 +113,7 @@ export default function ApplyForm() {
                     name="textArea4"
                     watch={watch}
                     hidden
+                    id="textArea4"
                   />
                   <TextArea
                     register={register}
@@ -116,6 +123,7 @@ export default function ApplyForm() {
                     name="textArea5"
                     watch={watch}
                     hidden
+                    id="textArea5"
                   />
                   <TextArea
                     register={register}
@@ -125,6 +133,7 @@ export default function ApplyForm() {
                     name="textArea6"
                     watch={watch}
                     hidden
+                    id="textArea6"
                   />
                 </div>
                 <div className="flex justify-end p-2">

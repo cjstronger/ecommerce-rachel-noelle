@@ -29,7 +29,9 @@ export default function Input({
   const { pending } = useFormStatus();
   return (
     <div className="flex flex-col mx-2">
-      <h1 className="text-lg font-satoshi">{label}:</h1>
+      <label htmlFor={id} className="text-lg font-satoshi">
+        {label}:
+      </label>
       <input
         type={type}
         name={name}

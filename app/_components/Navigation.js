@@ -2,9 +2,9 @@
 
 import { useLayoutEffect, useState } from "react";
 import NavigationButtons from "./NavigationButtons";
-import styles from "../style.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import Menu from "./Menu";
+import useModalClose from "../_hooks/useModalClose";
 
 const variants = {
   open: {
@@ -19,14 +19,15 @@ const variants = {
   },
 };
 
-export default function Navigation() {
+export default function Navigation({ session }) {
   const [burger, setBurger] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
 
-  function handleCloseClick(e) {
-    e.stopPropagation();
+  function handleClose() {
     setOpenMenu(false);
   }
+
+  const ref = useModalClose(handleClose);
 
   useLayoutEffect(() => {
     function handleWidth() {
@@ -48,18 +49,24 @@ export default function Navigation() {
         burger={burger}
         setOpenMenu={setOpenMenu}
         openMenu={openMenu}
+        session={session}
       />
       <AnimatePresence>
         {openMenu && (
           <motion.div
+            ref={ref}
             id="menu"
             animate={openMenu ? "open" : "close"}
             exit={"close"}
             initial={"close"}
             variants={variants}
-            className={styles.menu}
+            className="z-20 absolute h-[100vh] w-[100vw] top-[3.1rem] bg-accent"
           >
-            <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+            <Menu
+              openMenu={openMenu}
+              setOpenMenu={setOpenMenu}
+              session={session}
+            />
           </motion.div>
         )}
       </AnimatePresence>
