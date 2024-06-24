@@ -6,9 +6,10 @@ export default function NavigationButtons({
   openMenu,
   setOpenMenu,
   session,
+  ref2,
 }) {
   return !burger ? (
-    <ul className="flex text-lg py-3 text-white">
+    <ul className="flex text-lg py-3 text-fadedBlack">
       <li>
         <Link
           href="/#about"
@@ -43,6 +44,6 @@ export default function NavigationButtons({
       </li>
     </ul>
   ) : (
-    <MenuNav openMenu={openMenu} setOpenMenu={setOpenMenu} />
+    <MenuNav openMenu={openMenu} setOpenMenu={setOpenMenu} ref2={ref2} />
   );
 }

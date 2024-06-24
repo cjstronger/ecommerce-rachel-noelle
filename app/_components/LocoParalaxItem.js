@@ -10,11 +10,7 @@ export default function LocoParalaxItem({ children, text, lg, twoXl, font }) {
     })();
   }, []);
   return (
-    <div
-      data-scroll
-      data-scroll-speed="0.3"
-      className={`place-self-center z-10 text-bg`}
-    >
+    <div data-scroll data-scroll-speed="0.3" className={`z-10 text-bg`}>
       <h1
         className={`2xl:text-${twoXl} lg:text-${lg} text-${text} font-${font}`}
       >

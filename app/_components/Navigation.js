@@ -27,7 +27,7 @@ export default function Navigation({ session }) {
     setOpenMenu(false);
   }
 
-  const ref = useModalClose(handleClose);
+  const { ref, ref2 } = useModalClose(handleClose);
 
   useLayoutEffect(() => {
     function handleWidth() {
@@ -46,6 +46,7 @@ export default function Navigation({ session }) {
   return (
     <>
       <NavigationButtons
+        ref2={ref2}
         burger={burger}
         setOpenMenu={setOpenMenu}
         openMenu={openMenu}

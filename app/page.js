@@ -23,7 +23,7 @@ export default function Page() {
           src="/images/waterfallpaint..jpeg"
           alt="Rachel-Noelle-Waterfall"
         />
-        <LocoParalax>
+        <LocoParalax textPosition="center">
           <LocoParalaxItem text="3xl" lg="4xl" twoXl="6xl">
             Ready to start choosing
           </LocoParalaxItem>
