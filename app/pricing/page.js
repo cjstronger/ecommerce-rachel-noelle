@@ -72,12 +72,12 @@ export default function Page() {
               guidance with affordable pricing to make profound transformation
               accessible to everyone. Each session is meticulously designed to
               build upon the last, ensuring a seamless and impactful experience.
-              With personalized attention and practical tools, you'll cultivate
-              inner peace, clarity, and a deep connection to your higher self.
-              Join our supportive community of like-minded individuals and
-              invest in a well-structured program that empowers you to live your
-              truth and unlock your full potential. Start your journey to a more
-              fulfilled and enlightened life today!
+              With personalized attention and practical tools, you&apos;ll
+              cultivate inner peace, clarity, and a deep connection to your
+              higher self. Join our supportive community of like-minded
+              individuals and invest in a well-structured program that empowers
+              you to live your truth and unlock your full potential. Start your
+              journey to a more fulfilled and enlightened life today!
             </p>
           </div>
         </div>
