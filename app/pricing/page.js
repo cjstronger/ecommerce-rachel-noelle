@@ -3,8 +3,21 @@ import LocoParalax from "../_components/LocoParalax";
 import LocoParalaxItem from "../_components/LocoParalaxItem";
 import Benefit from "../_components/Benefit";
 import Button from "../_components/Button";
+import Stripe from "stripe";
 
-export default function Page() {
+async function getStripeProducts() {
+  //   const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
+  //     apiVersion: "2020-08-27",
+  //   });
+  //   const res = await stripe.prices.list({
+  //     expand: ["data.product"],
+  //   });
+  //   const data = res.data;
+  //   return data;
+}
+
+export default async function Page() {
+  const products = await getStripeProducts();
   return (
     <>
       <div className="aspect-[4/3] md:aspect-[2/1] xl:aspect-[3/1] relative flex justify-end p-5">
@@ -30,14 +43,14 @@ export default function Page() {
           Benefits examples and things
         </p>
         <div className="flex justify-center">
-          <Benefit src="creditcard.png" alt="credit">
-            Low Cost
+          <Benefit src="footprint.png" alt="steps">
+            Practical Steps
           </Benefit>
-          <Benefit src="hand.png" alt="hand">
-            Easy Access
+          <Benefit src="child.png" alt="child">
+            Inner Child Work
           </Benefit>
-          <Benefit src="brain.png" alt="brain">
-            Best Knowledge
+          <Benefit src="female.png" alt="female">
+            Feminine Energy
           </Benefit>
           <Benefit src="sun.png" alt="sun">
             Spiritually Based
@@ -83,7 +96,7 @@ export default function Page() {
         </div>
         <div className="flex justify-center items-center flex-col text-center my-2">
           <p className="mb-2">Price: $2400</p>
-          <Button>Purchase</Button>
+          <Button>Lets Get Started</Button>
         </div>
       </div>
     </>

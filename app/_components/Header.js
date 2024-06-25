@@ -14,7 +14,7 @@ export default async function Header() {
             Rachel Noelle
           </Link>
         </div>
-        <Cart />
+        <Cart session={session} />
       </div>
     </header>
   );
