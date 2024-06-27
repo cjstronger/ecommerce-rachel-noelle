@@ -7,7 +7,7 @@ export default async function Header() {
   const session = await auth();
   return (
     <header className="h-[50px] shadow-md z-20 fixed top-0 w-full bg-bg">
-      <div className="flex justify-between items-center overflow-hidden">
+      <div className="flex justify-between items-center overflow-hidden h-full">
         <Navigation session={session} />
         <div className="absolute inset-x-1/2 whitespace-nowrap flex justify-center z-10 text-fadedBlack">
           <Link href="/" className="text-3xl">

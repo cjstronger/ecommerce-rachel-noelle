@@ -9,38 +9,18 @@ export default function NavigationButtons({
   ref2,
 }) {
   return !burger ? (
-    <ul className="flex text-lg py-3 text-fadedBlack">
-      <li>
-        <Link
-          href="/#about"
-          className="hover:bg-accentFaded p-[14px] px-6 transition-all duration-200 font-satoshi lowercase border-r-2 border-blackTrans"
-        >
-          About
-        </Link>
+    <ul className="flex text-lg text-fadedBlack h-full font-satoshi lowercase">
+      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
+        <Link href="/#about">About</Link>
       </li>
-      <li>
-        <Link
-          href="/#coaching"
-          className="hover:bg-accentFaded p-[14px] px-6 transition-all duration-200 font-satoshi lowercase border-blackTrans border-r-2"
-        >
-          Coaching
-        </Link>
+      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
+        <Link href="/#coaching">Coaching</Link>
       </li>
-      <li>
-        <Link
-          href="/artwork"
-          className="hover:bg-accentFaded p-[14px] px-6 transition-all duration-200 font-satoshi lowercase border-blackTrans border-r-2"
-        >
-          Artwork
-        </Link>
+      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
+        <Link href="/artwork">Artwork</Link>
       </li>
-      <li>
-        <Link
-          href="/login"
-          className="hover:bg-accentFaded p-[14px] px-6 transition-all duration-200 font-satoshi lowercase border-blackTrans border-r-2"
-        >
-          {session?.user?.name.split(" ")[0] || "user"}
-        </Link>
+      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
+        <Link href="/login">{session?.user?.name.split(" ")[0] || "user"}</Link>
       </li>
     </ul>
   ) : (

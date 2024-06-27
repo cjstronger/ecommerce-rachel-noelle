@@ -1,16 +1,26 @@
 import Link from "next/link";
+import { useCart } from "../_contexts/CartContext";
+import Spinner from "./Spinner";
+import CartItem from "./CartItem";
 
 export default function CartItems({ session, setOpenCart }) {
-  if (!session)
-    return (
-      <>
-        <p>
-          You&apos;re not currently signed in, sign in to see the items in your
-          cart
-        </p>
-        <Link onClick={() => setOpenCart(false)} href="/login">
+  const { cartItems, isLoading } = useCart();
+  return (
+    <div className="m-5">
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        cartItems.map((item, index) => <CartItem item={item} key={index} />)
+      )}
+      {!session && (
+        <Link
+          onClick={() => setOpenCart(false)}
+          href="/login"
+          className="border-[1px] border-fadedBlack font-satoshi p-2 text-xl"
+        >
           sign in
         </Link>
-      </>
-    );
+      )}
+    </div>
+  );
 }

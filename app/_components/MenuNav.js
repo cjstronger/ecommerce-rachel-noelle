@@ -10,6 +10,7 @@ export default function MenuNav({ setOpenMenu, openMenu, ref2 }) {
         setOpenMenu((openMenu) => !openMenu);
       }}
       ref={ref2}
+      aria-label="menu"
     >
       <motion.div
         animate={{

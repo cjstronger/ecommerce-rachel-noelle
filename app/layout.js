@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./_components/Header";
+import { CartProvider } from "./_contexts/CartContext";
 
 export const metadata = {
   title: { template: "%s - Rachel Noelle", default: "Rachel Noelle" },
@@ -25,8 +26,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${candlefish.className} bg-bg min-h-screen flex flex-col`}
       >
-        <Header />
-        <div className="flex-1">{children}</div>
+        <CartProvider>
+          <Header />
+          <div className="flex-1">{children}</div>
+        </CartProvider>
       </body>
     </html>
   );

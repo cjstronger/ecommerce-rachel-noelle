@@ -6,14 +6,15 @@ import Button from "../_components/Button";
 import Stripe from "stripe";
 
 async function getStripeProducts() {
-  //   const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
-  //     apiVersion: "2020-08-27",
-  //   });
-  //   const res = await stripe.prices.list({
-  //     expand: ["data.product"],
-  //   });
-  //   const data = res.data;
-  //   return data;
+  const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
+    apiVersion: "2020-08-27",
+  });
+  const res = await stripe.prices.list({
+    expand: ["data.product"],
+  });
+  const data = res.data;
+  console.log(data);
+  return data;
 }
 
 export default async function Page() {
@@ -75,7 +76,7 @@ export default async function Page() {
               <LocoParalaxItem text="xl">Life Coaching</LocoParalaxItem>
             </LocoParalax>
           </div>
-          <div className="col-span-1 text-xl mt-3 lg:mt-0">
+          <div className="col-span-1 text-xl mt-3 lg:mt-0 ml-0 lg:ml-5">
             <h1 className="uppercase text-4xl lg:6xl">life coaching</h1>
             <h1 className="text-3xl lg:3xl">Program</h1>
             <p className="text-sm lg:text-lg">

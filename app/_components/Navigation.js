@@ -61,7 +61,7 @@ export default function Navigation({ session }) {
             exit={"close"}
             initial={"close"}
             variants={variants}
-            className="z-20 absolute h-[100vh] w-[100vw] top-[3.1rem] bg-accent"
+            className="z-20 absolute h-[100vh] w-[100vw] md:w-[400px] top-[3.1rem] bg-accent"
           >
             <Menu
               openMenu={openMenu}
