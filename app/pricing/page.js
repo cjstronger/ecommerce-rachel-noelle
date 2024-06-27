@@ -4,6 +4,7 @@ import LocoParalaxItem from "../_components/LocoParalaxItem";
 import Benefit from "../_components/Benefit";
 import Button from "../_components/Button";
 import Stripe from "stripe";
+import { handleAddToCart } from "../_lib/actions";
 
 async function getStripeProducts() {
   const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
@@ -13,12 +14,12 @@ async function getStripeProducts() {
     expand: ["data.product"],
   });
   const data = res.data;
-  console.log(data);
   return data;
 }
 
 export default async function Page() {
   const products = await getStripeProducts();
+  console.log(products);
   return (
     <>
       <div className="aspect-[4/3] md:aspect-[2/1] xl:aspect-[3/1] relative flex justify-end p-5">
@@ -95,10 +96,18 @@ export default async function Page() {
             </p>
           </div>
         </div>
-        <div className="flex justify-center items-center flex-col text-center my-2">
+        <form
+          action={handleAddToCart}
+          className="flex justify-center items-center flex-col text-center my-2"
+        >
           <p className="mb-2">Price: $2400</p>
+          <input
+            name="id"
+            hidden
+            defaultValue="price_1PWCXFEcxLgVB18azqOlB3DQ"
+          ></input>
           <Button>Lets Get Started</Button>
-        </div>
+        </form>
       </div>
     </>
   );
