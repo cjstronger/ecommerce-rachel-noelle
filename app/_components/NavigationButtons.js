@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MenuNav from "./MenuNav";
+import { useRouter } from "next/router";
 
 export default function NavigationButtons({
   burger,
@@ -8,10 +9,13 @@ export default function NavigationButtons({
   session,
   ref2,
 }) {
+  const router = useRouter();
   return !burger ? (
     <ul className="flex text-lg text-fadedBlack h-full font-satoshi lowercase">
       <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
-        <Link href="/#about">About</Link>
+        <Link className={``} href="/#about">
+          About
+        </Link>
       </li>
       <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
         <Link href="/#coaching">Coaching</Link>
