@@ -1,6 +1,5 @@
-import Link from "next/link";
 import MenuNav from "./MenuNav";
-import { useRouter } from "next/router";
+import ActiveLink from "./ActiveLink";
 
 export default function NavigationButtons({
   burger,
@@ -9,22 +8,21 @@ export default function NavigationButtons({
   session,
   ref2,
 }) {
-  const router = useRouter();
   return !burger ? (
     <ul className="flex text-lg text-fadedBlack h-full font-satoshi lowercase">
-      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
-        <Link className={``} href="/#about">
-          About
-        </Link>
+      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded transition-all duration-100">
+        <ActiveLink href="/#about">About</ActiveLink>
       </li>
-      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
-        <Link href="/#coaching">Coaching</Link>
+      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded transition-all duration-100">
+        <ActiveLink href="/#coaching">Coaching</ActiveLink>
       </li>
-      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
-        <Link href="/artwork">Artwork</Link>
+      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded transition-all duration-100">
+        <ActiveLink href="/artwork">Artwork</ActiveLink>
       </li>
-      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded">
-        <Link href="/login">{session?.user?.name.split(" ")[0] || "user"}</Link>
+      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded transition-all duration-100">
+        <ActiveLink href="/login">
+          {session?.user?.name.split(" ")[0] || "user"}
+        </ActiveLink>
       </li>
     </ul>
   ) : (

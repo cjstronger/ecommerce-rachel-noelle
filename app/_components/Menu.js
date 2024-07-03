@@ -2,6 +2,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import SignOutButton from "./SignOutButton";
+import ActiveLink from "./ActiveLink";
 
 const variants = {
   initial: {
@@ -48,15 +49,13 @@ export default function Menu({ openMenu, setOpenMenu, session }) {
             key={i}
             className="flex flex-col text-5xl gap-5"
           >
-            <Link
-              className="font-satoshi p-2 px-8 hover:text-bg transition-all duration-200"
+            <ActiveLink
+              type="mobile"
               href={item.href}
-              onClick={() => {
-                setOpenMenu(false);
-              }}
+              setOpenMenu={setOpenMenu}
             >
               {item.title}
-            </Link>
+            </ActiveLink>
           </motion.div>
         ))}
       </div>

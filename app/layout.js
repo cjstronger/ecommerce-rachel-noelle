@@ -1,5 +1,5 @@
-import localFont from "next/font/local";
 import "./globals.css";
+import localFont from "next/font/local";
 import Header from "./_components/Header";
 import { CartProvider } from "./_contexts/CartContext";
 

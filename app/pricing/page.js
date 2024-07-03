@@ -19,7 +19,6 @@ async function getStripeProducts() {
 
 export default async function Page() {
   const products = await getStripeProducts();
-  console.log(products);
   return (
     <>
       <div className="aspect-[4/3] md:aspect-[2/1] xl:aspect-[3/1] relative flex justify-end p-5">
