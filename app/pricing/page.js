@@ -2,23 +2,10 @@ import Image from "next/image";
 import LocoParalax from "../_components/LocoParalax";
 import LocoParalaxItem from "../_components/LocoParalaxItem";
 import Benefit from "../_components/Benefit";
-import Button from "../_components/Button";
 import Stripe from "stripe";
-import { handleAddToCart } from "../_lib/actions";
+import AddToCart from "../_components/AddToCart";
 
-async function getStripeProducts() {
-  const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
-    apiVersion: "2020-08-27",
-  });
-  const res = await stripe.prices.list({
-    expand: ["data.product"],
-  });
-  const data = res.data;
-  return data;
-}
-
-export default async function Page() {
-  const products = await getStripeProducts();
+export default function Page() {
   return (
     <>
       <div className="aspect-[4/3] md:aspect-[2/1] xl:aspect-[3/1] relative flex justify-end p-5">
@@ -95,18 +82,12 @@ export default async function Page() {
             </p>
           </div>
         </div>
-        <form
-          action={handleAddToCart}
-          className="flex justify-center items-center flex-col text-center my-2"
-        >
-          <p className="mb-2">Price: $2400</p>
-          <input
-            name="id"
-            hidden
-            defaultValue="price_1PWCXFEcxLgVB18azqOlB3DQ"
-          ></input>
-          <Button>Lets Get Started</Button>
-        </form>
+        <div className="flex justify-center items-center flex-col text-center my-2">
+          <p className="mb-2">Price: $2,400</p>
+          <AddToCart id={"price_1PWCXFEcxLgVB18azqOlB3DQ"}>
+            Lets Get Started
+          </AddToCart>
+        </div>
       </div>
     </>
   );

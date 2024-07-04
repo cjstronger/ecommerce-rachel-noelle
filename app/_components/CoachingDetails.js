@@ -20,6 +20,7 @@ export default function CoachingDetails() {
       setClicked(false);
     }
     function handleMouseDown(e) {
+      console.log("yse");
       e.preventDefault();
       setPageX(e.pageX - horizontal.offsetLeft);
       setClicked(true);

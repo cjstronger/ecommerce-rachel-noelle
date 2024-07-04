@@ -10,8 +10,3 @@ export async function signInAction() {
 export async function signOutAction() {
   await signOut({ redirectTo: "/" });
 }
-
-export async function handleAddToCart(formData) {
-  const id = formData.get("id");
-  console.log(formData);
-}

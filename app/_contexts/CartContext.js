@@ -1,11 +1,12 @@
 "use client";
 
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
 const CartContext = createContext();
 
 const initialState = {
   isLoading: false,
+  itemAdding: false,
   cartItems: [],
   error: "",
 };
@@ -14,6 +15,14 @@ function reducer(state, action) {
   switch (action.type) {
     case "loading":
       return { ...state, isLoading: true };
+    case "adding":
+      return {
+        ...state,
+        itemAdding: true,
+        cartItems: [...state.cartItems, action.payload],
+        isLoading: false,
+      };
+
     case "cart/loaded":
       return {
         ...state,
@@ -23,16 +32,15 @@ function reducer(state, action) {
     case "item/added":
       return {
         ...state,
-        isLoading: false,
-        cartItems: [...cartItems, action.payload],
+        itemAdding: false,
       };
     case "item/removed":
       return {
         ...state,
         isLoading: false,
-        cartItems: state.cartItems.filter(
-          (cartItem) => cartItem !== action.payload
-        ),
+        cartItems: state.cartItems[0].filter((cartItem) => {
+          cartItem.id !== action.payload;
+        }),
       };
     case "errored":
       return { ...state, error: action.payload };
@@ -41,8 +49,9 @@ function reducer(state, action) {
   }
 }
 
-function CartProvider({ children }) {
-  const [{ isLoading, cartItems }, dispatch] = useReducer(
+function CartProvider({ children, products }) {
+  const [openCart, setOpenCart] = useState(false);
+  const [{ isLoading, cartItems, itemAdding }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -62,11 +71,14 @@ function CartProvider({ children }) {
   function addCartItem(id) {
     dispatch({ type: "loading" });
     try {
+      const item = products.filter((e) => e.id === id);
       const res = localStorage.getItem("cartItems");
       const data = res ? JSON.parse(res) : [];
-      const updatedItems = [...data, id];
+      const updatedItems = [...data, item];
       localStorage.setItem("cartItems", JSON.stringify(updatedItems));
-      dispatch({ type: "item/added", payload: id });
+      dispatch({ type: "adding", payload: item[0].product.name });
+      setTimeout(() => dispatch({ type: "item/added" }), 5000);
+      return item;
     } catch {
       dispatch({
         type: "errored",
@@ -79,8 +91,10 @@ function CartProvider({ children }) {
     try {
       const res = localStorage.getItem("cartItems");
       const data = res ? JSON.parse(res) : [];
-      const updatedItems = data.filter((item) => item !== id);
-      localStorage.setItem(cartItems, JSON.stringify(updatedItems));
+      const updatedItems = data.filter((item) => {
+        item[0].id !== id;
+      });
+      localStorage.setItem("cartItems", JSON.stringify(updatedItems));
       dispatch({ type: "item/removed", payload: id });
     } catch {
       dispatch({
@@ -97,6 +111,9 @@ function CartProvider({ children }) {
         getCartItems,
         deleteCartItem,
         addCartItem,
+        setOpenCart,
+        openCart,
+        itemAdding,
       }}
     >
       {children}

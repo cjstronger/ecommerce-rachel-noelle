@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, easeInOut } from "framer-motion";
 import CartItems from "./CartItems";
-import useResize from "../_hooks/useResize";
+import { useCart } from "../_contexts/CartContext";
 
 const variants = {
   open: {
@@ -15,25 +15,28 @@ const variants = {
   },
 };
 
-export default function CartModal({ openCart, ref2, session, setOpenCart }) {
+export default function CartModal({ ref2, session }) {
+  const { openCart } = useCart();
   return (
     <AnimatePresence>
-      <motion.div
-        ref={ref2}
-        key="cart"
-        initial={"close"}
-        animate={openCart ? "open" : "close"}
-        variants={variants}
-        exit={"close"}
-        transition={{
-          y: { duration: 0.2 },
-          opacity: { duration: 0.2 },
-          ease: easeInOut,
-        }}
-        className="w-full h-[100vh] top-[3.1rem] absolute bg-accent z-10 right-0 md:w-[400px]"
-      >
-        <CartItems session={session} setOpenCart={setOpenCart} />
-      </motion.div>
+      {openCart && (
+        <motion.div
+          ref={ref2}
+          key="cart"
+          initial={"close"}
+          animate={"open"}
+          variants={variants}
+          exit={"close"}
+          transition={{
+            y: { duration: 0.2 },
+            opacity: { duration: 0.2 },
+            ease: easeInOut,
+          }}
+          className="overflow-scroll w-full h-[100vh] top-[3.1rem] absolute bg-accent z-10 right-0 md:w-[400px]"
+        >
+          <CartItems session={session} />
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }

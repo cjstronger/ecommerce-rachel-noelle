@@ -3,12 +3,16 @@ import { useCart } from "../_contexts/CartContext";
 import Spinner from "./Spinner";
 import CartItem from "./CartItem";
 
-export default function CartItems({ session, setOpenCart }) {
-  const { cartItems, isLoading } = useCart();
+export default function CartItems({ session }) {
+  const { cartItems, isLoading, setOpenCart } = useCart();
   return (
-    <div className="m-5">
+    <div className="m-5 mb-[5rem]">
       {isLoading ? (
         <Spinner />
+      ) : !cartItems.length ? (
+        <p className="mb-3">
+          Your cart is empty, sign in if you have a cart established.
+        </p>
       ) : (
         cartItems.map((item, index) => <CartItem item={item} key={index} />)
       )}
