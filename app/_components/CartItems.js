@@ -40,12 +40,21 @@ export default function CartItems({ session }) {
         <Link
           onClick={() => setOpenCart(false)}
           href="/login"
-          className="border-[1px] border-fadedBlack font-satoshi p-2 text-xl"
+          className="border-[1px] border-fadedBlack font-satoshi p-2 text-xl hover:bg-bg transition-all duration-200"
         >
           sign in
         </Link>
       )}
-      {cartItems.length ? <button onClick={checkout}>Checkout</button> : ""}
+      {cartItems.length ? (
+        <button
+          className="font-satoshi border-[1px] border-fadedBlack hover:bg-bg transition-all duration-200 lowercase p-[6px] text-xl ml-8"
+          onClick={checkout}
+        >
+          Checkout
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
