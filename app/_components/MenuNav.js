@@ -6,11 +6,11 @@ export default function MenuNav({ setOpenMenu, openMenu, ref2 }) {
     <div
       style={{ borderBlockColor: openMenu ? "#b2b19f" : "" }}
       className="px-[15px] py-[9.5px] cursor-pointer hover:border-b-accent border-b-2 border-r-2 border-b-transparent border-r-blackTrans transition-all duration-[400] relative"
+      aria-label="menu"
       onClick={() => {
         setOpenMenu((openMenu) => !openMenu);
       }}
       ref={ref2}
-      aria-label="menu"
     >
       <motion.div
         animate={{

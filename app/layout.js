@@ -12,12 +12,10 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
-const spanlight = localFont({
-  src: [{ path: "../public/fonts/spanlight.otf", weight: "500" }],
+const luxiachy = localFont({
+  src: [{ path: "../public/fonts/Luxiachy.ttf", weight: "500" }],
   subsets: ["latin"],
 });
 
@@ -37,7 +35,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${spanlight.className} bg-bg min-h-screen flex flex-col`}
+        className={`${luxiachy.className} bg-bg min-h-screen flex flex-col`}
       >
         <CartProvider products={products}>
           <Header />

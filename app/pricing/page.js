@@ -2,7 +2,6 @@ import Image from "next/image";
 import LocoParalax from "../_components/LocoParalax";
 import LocoParalaxItem from "../_components/LocoParalaxItem";
 import Benefit from "../_components/Benefit";
-import Stripe from "stripe";
 import AddToCart from "../_components/AddToCart";
 
 export default function Page() {
