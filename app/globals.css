@@ -49,12 +49,7 @@
 
 @font-face {
   font-family: "Satoshi";
-  src: url("../public/fonts/Satoshi-Medium.otf");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Satoshi-Bold";
-  src: url("../public/fonts/Satoshi-Bold.otf");
+  src: url("../public/fonts/modernsanslight.otf");
   font-display: swap;
 }
 

@@ -16,8 +16,8 @@ export const viewport = {
   userScalable: false,
 };
 
-const candlefish = localFont({
-  src: [{ path: "../public/fonts/Candlefish.ttf", weight: "500" }],
+const spanlight = localFont({
+  src: [{ path: "../public/fonts/spanlight.otf", weight: "500" }],
   subsets: ["latin"],
 });
 
@@ -37,7 +37,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${candlefish.className} bg-bg min-h-screen flex flex-col`}
+        className={`${spanlight.className} bg-bg min-h-screen flex flex-col`}
       >
         <CartProvider products={products}>
           <Header />
