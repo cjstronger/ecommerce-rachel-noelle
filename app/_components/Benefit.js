@@ -6,7 +6,9 @@ export default function Benefit({ src, alt, children }) {
       <div className="relative w-[70%] h-[30%] lg:h-[45%]  place-self-center">
         <Image src={`/images/${src}`} quality={100} fill alt={alt} />
       </div>
-      <p className="text-center text-[12px] lg:text-lg">{children}</p>
+      <p className="text-center sm:text-[12px] text-[10px] lg:text-lg">
+        {children}
+      </p>
     </div>
   );
 }

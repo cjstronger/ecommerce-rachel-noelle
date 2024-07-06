@@ -10,16 +10,16 @@ export default function NavigationButtons({
 }) {
   return !burger ? (
     <ul className="flex text-lg text-fadedBlack h-full font-satoshi lowercase">
-      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded transition-all duration-100">
+      <li className="border-r-2 border-blackTrans hover:bg-accentFaded transition-all duration-100">
         <ActiveLink href="/#about">About</ActiveLink>
       </li>
-      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded transition-all duration-100">
+      <li className="border-r-2 border-blackTrans hover:bg-accentFaded transition-all duration-100">
         <ActiveLink href="/#coaching">Coaching</ActiveLink>
       </li>
-      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded transition-all duration-100">
+      <li className="border-r-2 border-blackTrans hover:bg-accentFaded transition-all duration-100">
         <ActiveLink href="/artwork">Artwork</ActiveLink>
       </li>
-      <li className="border-r-2 border-blackTrans flex items-center px-6 hover:bg-accentFaded transition-all duration-100">
+      <li className="border-r-2 border-blackTrans hover:bg-accentFaded transition-all duration-100">
         <ActiveLink href="/login">
           {session?.user?.name.split(" ")[0] || "user"}
         </ActiveLink>

@@ -24,20 +24,14 @@ export default function Page() {
           alt="Rachel-Noelle-Waterfall"
         />
         <LocoParalax textPosition="center">
-          <LocoParalaxItem text="3xl" lg="4xl" twoXl="6xl">
-            Ready to start choosing
+          <LocoParalaxItem>
+            Ready to start choosing your best life?
           </LocoParalaxItem>
-          <LocoParalaxItem text="3xl" lg="4xl" twoXl="6xl">
-            your best life?
+          <LocoParalaxItem type="small">
+            Apply to work with Rachel, expand yourself
           </LocoParalaxItem>
-          <LocoParalaxItem text="sm" lg="xl" twoXl="2xl" font="satoshi">
-            Apply to work with Rachel
-          </LocoParalaxItem>
-          <LocoParalaxItem text="sm" lg="xl" twoXl="2xl" font="satoshi">
-            expand yourself and manifest
-          </LocoParalaxItem>
-          <LocoParalaxItem text="sm" lg="xl" twoXl="2xl" font="satoshi">
-            your desires with ease
+          <LocoParalaxItem type="small">
+            and manifest your desires with ease
           </LocoParalaxItem>
         </LocoParalax>
       </div>

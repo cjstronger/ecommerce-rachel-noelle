@@ -14,7 +14,9 @@ export default function ActiveLink({ href, children, type, setOpenMenu }) {
       <Link
         href={href}
         className={
-          pathname === href || urlFragment === href ? "text-white" : ""
+          pathname === href || urlFragment === href
+            ? "text-white w-full h-full"
+            : "px-6 h-full items-center flex"
         }
       >
         {children}

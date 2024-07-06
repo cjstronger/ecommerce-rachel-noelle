@@ -47,7 +47,6 @@ export default function Page() {
       </div>
       <h1 className="ml-5 flex items-center">
         <span className="bg-fadedBlack px-2 text-[.6px] mr-2">-</span>
-        <span className="text-lg lg:text2xl">Pricing</span>
       </h1>
       <div className="m-4">
         <div className="grid lg:grid-cols-2 max-w-[1000px] mx-auto">
@@ -59,9 +58,6 @@ export default function Page() {
               alt="pricing"
               className="object-cover"
             />
-            <LocoParalax textPosition="left">
-              <LocoParalaxItem text="xl">Life Coaching</LocoParalaxItem>
-            </LocoParalax>
           </div>
           <div className="col-span-1 text-xl mt-3 lg:mt-0 ml-0 lg:ml-5">
             <h1 className="uppercase text-4xl lg:6xl">life coaching</h1>
