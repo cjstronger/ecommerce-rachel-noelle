@@ -4,7 +4,7 @@ import { AnimatePresence, easeInOut, motion } from "framer-motion";
 export default function MenuNav({ setOpenMenu, openMenu, ref2 }) {
   return (
     <div
-      style={{ borderBlockColor: openMenu ? "#676c58" : "" }}
+      style={{ borderBlockColor: openMenu ? "#313423" : "" }}
       className="px-[15px] py-[9.5px] cursor-pointer hover:border-b-accent border-b-2 border-b-transparent transition-all duration-[400] relative"
       aria-label="menu"
       onClick={() => {
@@ -34,7 +34,7 @@ export default function MenuNav({ setOpenMenu, openMenu, ref2 }) {
         className="z-20 relative"
       >
         <div>
-          <XMarkIcon height="29" />
+          <XMarkIcon height="29" className="text-bg" />
         </div>
       </motion.div>
       <AnimatePresence>

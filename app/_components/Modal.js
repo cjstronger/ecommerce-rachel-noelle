@@ -2,7 +2,6 @@
 
 import { createContext, useContext, useState } from "react";
 import useModalClose from "../_hooks/useModalClose";
-import styles from "../style.module.scss";
 
 export const ModalContext = createContext();
 
@@ -25,11 +24,7 @@ function Open({ open, label }) {
     opens(open);
   }
   const { opens } = useContext(ModalContext);
-  return (
-    <button className={styles.formButton} onClick={handleOpen}>
-      {label}
-    </button>
-  );
+  return <button onClick={handleOpen}>{label}</button>;
 }
 
 function Window({ id, children }) {
@@ -37,7 +32,7 @@ function Window({ id, children }) {
   const ref = useModalClose(close);
   if (id !== showName) return null;
   return (
-    <div className={`${styles.form}`} ref={ref}>
+    <div ref={ref}>
       <button
         onClick={close}
         className="font-satoshi absolute border border-fadedBlack px-2 text-md lg:text-xl right-2 hover:bg-[#d69999] transition-all duration-[.2s]"

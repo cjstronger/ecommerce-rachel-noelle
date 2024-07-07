@@ -30,7 +30,7 @@ export default function CartItems({ session }) {
       {isLoading ? (
         <Spinner />
       ) : !cartItems.length ? (
-        <p className="mb-3 text-lg">
+        <p className="mb-3 text-lg text-bg">
           Your cart is empty, sign in if you have a cart established.
         </p>
       ) : (
@@ -40,14 +40,14 @@ export default function CartItems({ session }) {
         <Link
           onClick={() => setOpenCart(false)}
           href="/login"
-          className="border-[1px] border-fadedBlack font-satoshi p-2 text-xl hover:bg-bg transition-all duration-200"
+          className="border-[1px] border-bg text-bg font-satoshi p-2 text-xl hover:bg-bg hover:text-fadedBlack transition-all duration-200"
         >
           sign in
         </Link>
       )}
       {cartItems.length ? (
         <button
-          className="font-satoshi border-[1px] border-fadedBlack hover:bg-bg transition-all duration-200 lowercase p-[6px] text-xl ml-8"
+          className="font-satoshi border-[1px] text-bg border-bg hover:bg-bg transition-all duration-200 lowercase p-[6px] text-xl ml-8"
           onClick={checkout}
         >
           Checkout

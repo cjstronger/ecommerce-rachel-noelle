@@ -13,7 +13,6 @@ export default function CoachingDetails() {
 
   useLayoutEffect(() => {
     const horizontal = document.querySelector("#horizontal");
-    const phaseTitle = document.querySelector("#phases");
     function handleMouseUp() {
       setClicked(false);
     }
@@ -31,20 +30,6 @@ export default function CoachingDetails() {
       pageXX.current = e.pageX - horizontal.offsetLeft;
       walk.current = pageXX.current - pageX;
       horizontal.scrollLeft = scrollLeft.current - walk.current;
-      const newScrollLeft = scrollLeft.current - walk.current;
-
-      if (newScrollLeft < 0) {
-        phaseTitle.style.transform = `translateX(0px)`;
-      } else if (
-        newScrollLeft >
-        horizontal.scrollWidth - horizontal.clientWidth
-      ) {
-        phaseTitle.style.transform = `translateX(${
-          horizontal.scrollWidth - horizontal.clientWidth
-        }px)`;
-      } else {
-        phaseTitle.style.transform = `translateX(${newScrollLeft}px)`;
-      }
     }
 
     horizontal.addEventListener("mouseup", handleMouseUp);
@@ -64,13 +49,10 @@ export default function CoachingDetails() {
     <div className="flex flex-col gap-8">
       <div
         id="horizontal"
-        className="shadow-xl md:mx-[10rem] bg-[url(/images/elephantearleaves.jpg)] md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden "
+        className="shadow-xl md:mx-[10rem] bg-[url(/images/elephantearleaves.jpg)] md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden"
         style={{ backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
       >
-        <div id="phases" className="flex justify-center text-3xl">
-          <h1 className="mt-5 text-bg">PHASES</h1>
-        </div>
-        <div className="flex gap-6 lg:gap-10 items-center mt-[1rem] md:mx-[5rem] mx-[2rem]">
+        <div className="flex gap-6 lg:gap-10 items-center mt-[10vw] lg:mt-[4vw] md:mx-[5rem] mx-[2rem]">
           <CoachingPhase phase="1" title="Clarity">
             I will help you understand your purpose and bring awareness to the
             unseen power within you. Together we gain clarity around your

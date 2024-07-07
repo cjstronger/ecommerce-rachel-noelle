@@ -1,11 +1,12 @@
-import LocoParalax from "./_components/LocoParalax";
 import CoachingDetails from "./_components/CoachingDetails";
 import CoachingIntro from "./_components/CoachingIntro";
 import TitleSeparator from "./_components/TitleSeparator";
 import ReviewsAll from "./_components/ReviewsAll";
-import LocoParalaxItem from "./_components/LocoParalaxItem";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import LocoParalax from "./_components/LocoParalax";
+import LocoParalaxItem from "./_components/LocoParalaxItem";
 
 export const metadata = { title: "Rachel Noelle - Coaching" };
 
@@ -24,20 +25,50 @@ export default function Page() {
           src="/images/life.jpg"
           alt="Rachel-Noelle-Waterfall"
         />
-        <LocoParalax textPosition="center">
-          <LocoParalaxItem>
-            Ready to start choosing your best life?
-          </LocoParalaxItem>
-          <LocoParalaxItem>
-            Apply to work with Rachel, expand yourself
-          </LocoParalaxItem>
-          <LocoParalaxItem>
-            and manifest your desires with ease.
-          </LocoParalaxItem>
+        <LocoParalax>
+          <LocoParalaxItem>.</LocoParalaxItem>
         </LocoParalax>
       </div>
-      <div className="mt-[5rem] flex flex-col">
-        <div className="flex items-center mb-4 px-12">
+      <div className="mt-6 flex items-center justify-center mx-auto max-w-[1000px] px-4 gap-5 lg:gap-11">
+        <div className="flex flex-col">
+          <h1 className="text-3xl lg:text-5xl md:text-4xl uppercase">
+            Ready to start
+          </h1>
+          <h1 className="text-3xl lg:text-5xl md:text-4xl uppercase">
+            choosing your
+          </h1>
+          <h1 className="text-3xl lg:text-5xl md:text-4xl uppercase">
+            best life?
+          </h1>
+        </div>
+        <div className="flex flex-col md:max-w-[400px] max-w-[200px]">
+          <div className="flex relative">
+            <ChevronLeftIcon className="size-5 mt-0 md:mt-2 absolute" />
+            <p className="ml-5 text-sm md:text-lg lg:text-xl">
+              everyday we get a choice. We all get to choose what our life looks
+              and feels.
+            </p>
+          </div>
+          <div className="flex relative">
+            <ChevronLeftIcon className="size-5 mt-0 md:mt-1 absolute" />
+            <p className="ml-5 text-sm md:text-lg lg:text-xl">
+              If you let me help you expand yourself you will start shifting
+              your reality to then manifest your deepest desires.
+            </p>
+          </div>
+          <div className="flex relative">
+            <ChevronLeftIcon className="size-5 mt-0 md:mt-1 absolute" />
+            <p className="ml-5 text-sm md:text-lg lg:text-xl">
+              I help you do this through inner child work, raising your
+              vibration, getting you aware of your blocks and clearing them, and
+              then creating a plan to start living your best life.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50"></hr>
+      <div className="mt-5 flex flex-col">
+        <div className="flex items-center mx-5">
           <div>
             <h1 className="z-10 lg:text-5xl text-3xl">I&apos;M RACHEL,</h1>
             <h1 className="z-10 text-md lg:text-3xl">YOUR FEMININE ENERGY</h1>
@@ -64,7 +95,7 @@ export default function Page() {
 
       {/*Second section - coaching */}
       <CoachingIntro />
-      <TitleSeparator titleText="" />
+      <TitleSeparator titleText="Phases" />
       <CoachingDetails />
       <TitleSeparator titleText="Reviews" />
       <ReviewsAll />

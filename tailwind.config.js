@@ -7,8 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      textColor: ["autofill"],
       colors: {
-        accent: "#676c58",
+        accent: "#313423",
         accentFaded: "rgba(178, 177, 159, 0.5)",
         accentLower: "#c7c6b5",
         primary: "#E6E2CF",

@@ -60,12 +60,12 @@ export default function Menu({ openMenu, setOpenMenu, session }) {
         ))}
       </div>
       <SignOutButton setOpenMenu={setOpenMenu} />
-      <hr className="w-[80%] border-fadedBlack mx-auto mt-4"></hr>
+      <hr className="w-[80%] border-bg mx-auto mt-4 opacity-50"></hr>
       <motion.div className="flex justify-center mt-5 gap-4">
         <a
           href="https://www.instagram.com/rachelnoellesart"
           target="_blank"
-          className="fill-fadedBlack hover:fill-bg transition-all duration-200"
+          className="fill-bg hover:border-bg border-b-2 border-b-transparent transition-all duration-150"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,14 +78,14 @@ export default function Menu({ openMenu, setOpenMenu, session }) {
         </a>
         <a
           href="mailto:rachelnoellesart@gmail.com"
-          className="hover:text-bg transition-all duration-200"
+          className="text-bg hover:border-bg border-b-2 border-b-transparent transition-all duration-150"
         >
           <EnvelopeIcon height="50" />
         </a>
         <a
           href="https://www.youtube.com/@rachelnoelleschannel"
           target="_blank"
-          className="fill-fadedBlack hover:fill-bg transition-all duration-300"
+          className="fill-bg hover:border-bg border-b-2 border-b-transparent transition-all duration-150"
         >
           <svg
             height="50"

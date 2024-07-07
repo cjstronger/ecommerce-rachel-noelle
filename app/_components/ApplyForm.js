@@ -32,7 +32,7 @@ export default function ApplyForm() {
         )
       ) : (
         <>
-          <div className="w-full bg-accent h-[8rem] p-2 text-black">
+          <div className="w-full bg-accent h-[8rem] p-2 text-bg">
             <h1 className="z-10 text-5xl">Apply now</h1>
             <p className="text-md font-satoshi">
               Please take a moment to fill out the application below and we will
@@ -138,8 +138,8 @@ export default function ApplyForm() {
                 </div>
                 <div className="flex justify-end p-2">
                   <button
-                    className="font-satoshi lowercase border-black text-black border
-                  hover:bg-primaryFaded p-2 transition-all duration-400
+                    className="font-satoshi lowercase border-bg text-bg border
+                  hover:bg-accentFaded p-2 transition-all duration-400
                   text-2xl min-w-[90px] min-h-[50px] flex items-center justify-center"
                     type="submit"
                   >

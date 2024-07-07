@@ -28,8 +28,8 @@ export default function ActiveLink({ href, children, type, setOpenMenu }) {
         href={href}
         className={
           pathname === href || urlFragment === href
-            ? "text-bg font-satoshi p-2 px-8 hover:text-bg transition-all duration-200"
-            : "font-satoshi p-2 px-8 hover:text-bg transition-all duration-200"
+            ? "border-bg border-b-2 font-satoshi p-2 px-8 transition-all duration-200 text-bg"
+            : "text-bg font-satoshi p-2 px-8 hover:border-bg border-b-2 border-b-transparent transition-all duration-200"
         }
         onClick={() => {
           setOpenMenu(false);

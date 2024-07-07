@@ -28,7 +28,7 @@ export default function Input({
     ];
   const { pending } = useFormStatus();
   return (
-    <div className="flex flex-col mx-2 text-black">
+    <div className="flex flex-col mx-2 text-bg">
       <label htmlFor={id} className="text-xl font-satoshi">
         {label}:
       </label>
@@ -44,13 +44,13 @@ export default function Input({
             message: errorPattern[1]?.message,
           },
         })}
-        className="min-w-[40%] max-w-[30rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-fadedBlack focus:outline-none"
+        className="min-w-[40%] max-w-[30rem] text-lg p-2 font-satoshi bg-transparent border border-bg text-bg focus:outline-none placeholder-accentFaded autofill:text-bg"
         placeholder={placeholder}
         disabled={pending}
         hidden={hidden}
       />
       {errors[name] && (
-        <span className="text-red-800 text-md font-satoshi">
+        <span className="text-red-600 text-md font-satoshi">
           {errors[name].message}
         </span>
       )}
