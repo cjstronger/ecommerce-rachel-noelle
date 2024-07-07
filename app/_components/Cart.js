@@ -20,7 +20,7 @@ export default function Cart({ session }) {
           setOpenCart((openCart) => !openCart);
           getCartItems();
         }}
-        className="flex font-satoshi px-5 h-full items-center lowercase hover:border-b-accent border-b-transparent border-b-2 transition-all duration-400 text-2xl border-l-2 border-blackTrans relative"
+        className="flex font-satoshi px-5 h-full items-center lowercase hover:border-b-accent border-b-transparent border-b-2 transition-all duration-400 text-2xl relative"
       >
         <ShoppingCartIcon className="size-[30px] text-fadedBlack" />
         {!cartItems.length ? (

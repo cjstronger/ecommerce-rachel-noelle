@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 import CoachingPhase from "./CoachingPhase";
+import Link from "next/link";
 
 export default function CoachingDetails() {
   const [pageX, setPageX] = useState(null);
@@ -60,16 +61,16 @@ export default function CoachingDetails() {
   }, [pageX, clicked, pageXX, walk, scrollLeft]);
 
   return (
-    <>
+    <div className="flex flex-col gap-8">
       <div
         id="horizontal"
         className="shadow-xl md:mx-[10rem] bg-[url(/images/painting.jpeg)] md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden "
         style={{ backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
       >
-        <div id="phases" className="flex justify-center text-lg">
+        <div id="phases" className="flex justify-center text-3xl">
           <h1 className="mt-5">PHASES</h1>
         </div>
-        <div className="flex gap-6 lg:gap-10 items-center mt-[4rem] md:mx-[5rem] mx-[2rem]">
+        <div className="flex gap-6 lg:gap-10 items-center mt-[1rem] md:mx-[5rem] mx-[2rem]">
           <CoachingPhase phase="1" title="Clarity">
             I will help you understand your purpose and bring awareness to the
             unseen power within you. Together we gain clarity around your
@@ -100,6 +101,12 @@ export default function CoachingDetails() {
           </CoachingPhase>
         </div>
       </div>
-    </>
+      <Link
+        className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
+        href="/apply"
+      >
+        Apply
+      </Link>
+    </div>
   );
 }

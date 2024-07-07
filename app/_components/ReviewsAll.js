@@ -28,13 +28,21 @@ export default function ReviewsAll() {
     setReviewIndex(reviewIndex + 1);
   }
   return (
-    <div className="flex mb-[5rem] mt-10 overflow-hidden lg:max-w-[80vw] mx-auto items-center justify-center relative">
-      <button
-        onClick={handleBack}
-        className="px-3 md:px-4 h-[50vh] bg-accent hover:bg-accentLower transition-all duration-150 border-2 border-bg z-10 absolute left-0"
-      >
-        <ArrowLeftIcon className="size-5" />
-      </button>
+    <div className="mb-[5rem] mt-10 overflow-hidden lg:max-w-[80vw] mx-auto items-center justify-center relative h-[60vh]">
+      <div className="flex justify-end">
+        <button
+          onClick={handleBack}
+          className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150 z-10 md:static absolute bottom-0 left-[8rem]"
+        >
+          <ArrowLeftIcon className="lg:size-10 size-7" />
+        </button>
+        <button
+          onClick={handleNext}
+          className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150 z-10 md:static absolute bottom-0 right-[8rem]"
+        >
+          <ArrowRightIcon className="lg:size-10 size-7" />
+        </button>
+      </div>
       <motion.div
         id="reviews"
         className="flex justify-center items-center w-full"
@@ -47,12 +55,6 @@ export default function ReviewsAll() {
           return <Review review={review} key={i} />;
         })}
       </motion.div>
-      <button
-        onClick={handleNext}
-        className="px-3 md:px-4 h-[50vh] bg-accent hover:bg-accentLower transition-all duration-150 border-2 border-bg z-10 absolute right-0"
-      >
-        <ArrowRightIcon className="size-5" />
-      </button>
     </div>
   );
 }
