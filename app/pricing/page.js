@@ -9,10 +9,11 @@ export default function Page() {
     <>
       <div className="aspect-[4/3] md:aspect-[2/1] xl:aspect-[3/1] relative flex justify-end p-5">
         <Image
-          src="/images/treepainting.jpg"
+          src="/images/painting.jpg"
           fill
-          alt="treepainting"
-          className="object-cover"
+          blur
+          alt="theactofpainting"
+          className="object-cover object-top"
           quality={100}
         />
         <LocoParalax textPosition="right">

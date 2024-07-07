@@ -20,18 +20,19 @@ export default function Page() {
           fill
           quality={100}
           className=" object-cover shadow-lg brightness-90"
-          src="/images/waterfallpaint..jpeg"
+          blur
+          src="/images/life.jpg"
           alt="Rachel-Noelle-Waterfall"
         />
         <LocoParalax textPosition="center">
           <LocoParalaxItem>
             Ready to start choosing your best life?
           </LocoParalaxItem>
-          <LocoParalaxItem type="small">
+          <LocoParalaxItem>
             Apply to work with Rachel, expand yourself
           </LocoParalaxItem>
-          <LocoParalaxItem type="small">
-            and manifest your desires with ease
+          <LocoParalaxItem>
+            and manifest your desires with ease.
           </LocoParalaxItem>
         </LocoParalax>
       </div>

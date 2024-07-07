@@ -64,11 +64,11 @@ export default function CoachingDetails() {
     <div className="flex flex-col gap-8">
       <div
         id="horizontal"
-        className="shadow-xl md:mx-[10rem] bg-[url(/images/painting.jpeg)] md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden "
+        className="shadow-xl md:mx-[10rem] bg-[url(/images/elephantearleaves.jpg)] md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden "
         style={{ backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
       >
         <div id="phases" className="flex justify-center text-3xl">
-          <h1 className="mt-5">PHASES</h1>
+          <h1 className="mt-5 text-bg">PHASES</h1>
         </div>
         <div className="flex gap-6 lg:gap-10 items-center mt-[1rem] md:mx-[5rem] mx-[2rem]">
           <CoachingPhase phase="1" title="Clarity">

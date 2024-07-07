@@ -30,7 +30,7 @@ export default function CartItems({ session }) {
       {isLoading ? (
         <Spinner />
       ) : !cartItems.length ? (
-        <p className="mb-3">
+        <p className="mb-3 text-lg">
           Your cart is empty, sign in if you have a cart established.
         </p>
       ) : (

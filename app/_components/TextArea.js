@@ -11,8 +11,8 @@ export default function TextArea({
 }) {
   const values = watch(name);
   return (
-    <div className="flex flex-col mx-2">
-      <label className="text-lg font-satoshi" name={name} htmlFor={id}>
+    <div className="flex flex-col mx-2 text-black">
+      <label className="text-xl font-satoshi" name={name} htmlFor={id}>
         {label}
       </label>
       <textarea
@@ -21,13 +21,13 @@ export default function TextArea({
           maxLength: { value: 800, message: "800 characters is the max" },
         })}
         placeholder={placeholder}
-        className="min-w-[60%] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-blackTrans focus:outline-none"
+        className="min-w-[60%] p-2 font-satoshi bg-transparent border border-fadedBlack placeholder-fadedBlack focus:outline-none"
         id={id}
       />
       <div className="flex justify-between">
         <p>{values?.length}/800</p>
         {errors[name] && (
-          <p className={"text-red-500 font-satoshi"}>{errors[name].message}</p>
+          <p className={"text-red-800 font-satoshi"}>{errors[name].message}</p>
         )}
       </div>
     </div>
