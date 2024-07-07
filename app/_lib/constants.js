@@ -56,3 +56,22 @@ export const formData = [
     ],
   },
 ];
+
+export const exampleReviews = [
+  {
+    fullName: "Sandy Strong",
+    stars: 2,
+    reviewText: "Best coaching I've never experienced!",
+  },
+  {
+    fullName: "Carolyn Grossman",
+    stars: 5,
+    reviewText:
+      "My own daughter is starting this so I had to give her a free 5 fuh 5!",
+  },
+  {
+    fullName: "Bob Marley",
+    stars: 4,
+    reviewText: "What the fuck is he doin here?",
+  },
+];
