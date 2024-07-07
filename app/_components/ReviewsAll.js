@@ -4,6 +4,7 @@ import Review from "./Review";
 import { exampleReviews } from "../_lib/constants";
 import { easeInOut, motion } from "framer-motion";
 import { useState } from "react";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export default function ReviewsAll() {
   const [reviewIndex, setReviewIndex] = useState(0);
@@ -32,7 +33,7 @@ export default function ReviewsAll() {
         onClick={handleBack}
         className="px-3 md:px-4 h-[50vh] bg-accent hover:bg-accentLower transition-all duration-150 border-2 border-bg z-10 absolute left-0"
       >
-        &lt;
+        <ArrowLeftIcon className="size-5" />
       </button>
       <motion.div
         id="reviews"
@@ -50,7 +51,7 @@ export default function ReviewsAll() {
         onClick={handleNext}
         className="px-3 md:px-4 h-[50vh] bg-accent hover:bg-accentLower transition-all duration-150 border-2 border-bg z-10 absolute right-0"
       >
-        &gt;
+        <ArrowRightIcon className="size-5" />
       </button>
     </div>
   );
