@@ -15,6 +15,10 @@ export default function CoachingIntro() {
         <h1 className="text-sm lg:text-2xl mx-2">
           guidance through your own blocks?
         </h1>
+        <h1 className="text-sm lg:text-2xl mx-2 mt-2">
+          If you let me help you expand yourself you will start shifting your
+          reality to then manifest your deepest desires.
+        </h1>
       </GridCol>
       <GridImage colSpan="1" src="/images/home.jpg" alt="home" />
     </div>

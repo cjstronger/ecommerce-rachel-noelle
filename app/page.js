@@ -29,7 +29,7 @@ export default function Page() {
           <LocoParalaxItem>.</LocoParalaxItem>
         </LocoParalax>
       </div>
-      <div className="mt-6 flex items-center justify-center mx-auto max-w-[1000px] px-4 gap-5 lg:gap-11">
+      <div className="mt-6 flex flex-col items-center justify-center mx-auto max-w-[1000px] px-4 gap-5 lg:gap-11">
         <div className="flex flex-col">
           <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none">
             Ready to start
@@ -43,17 +43,10 @@ export default function Page() {
         </div>
         <div className="flex flex-col md:max-w-[400px] max-w-[200px]">
           <div className="flex relative">
-            <ChevronLeftIcon className="size-5 mt-0 md:mt-2 absolute" />
+            <ChevronLeftIcon className="size-5 mt-0 md:mt-1 absolute" />
             <p className="ml-5 text-sm md:text-lg lg:text-xl">
               everyday we get a choice. We all get to choose what our life looks
               and feels.
-            </p>
-          </div>
-          <div className="flex relative">
-            <ChevronLeftIcon className="size-5 mt-0 md:mt-1 absolute" />
-            <p className="ml-5 text-sm md:text-lg lg:text-xl">
-              If you let me help you expand yourself you will start shifting
-              your reality to then manifest your deepest desires.
             </p>
           </div>
         </div>

@@ -38,8 +38,12 @@ function reducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        cartItems: state.cartItems[0].filter((cartItem) => {
-          cartItem.id !== action.payload;
+        cartItems: state.cartItems.filter((cartItem) => {
+          if (cartItem[0].id !== action.payload) {
+            return true;
+          } else {
+            return false;
+          }
         }),
       };
     case "errored":
@@ -77,7 +81,7 @@ function CartProvider({ children, products }) {
       const updatedItems = [...data, item];
       localStorage.setItem("cartItems", JSON.stringify(updatedItems));
       dispatch({ type: "adding", payload: item[0].product.name });
-      setTimeout(() => dispatch({ type: "item/added" }), 5000);
+      setTimeout(() => dispatch({ type: "item/added" }), 2000);
       return item;
     } catch {
       dispatch({
@@ -92,7 +96,7 @@ function CartProvider({ children, products }) {
       const res = localStorage.getItem("cartItems");
       const data = res ? JSON.parse(res) : [];
       const updatedItems = data.filter((item) => {
-        item[0].id !== id;
+        return item[0].id !== id;
       });
       localStorage.setItem("cartItems", JSON.stringify(updatedItems));
       dispatch({ type: "item/removed", payload: id });

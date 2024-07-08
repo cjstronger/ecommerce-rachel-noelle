@@ -9,9 +9,9 @@ export default function CartItems({ session }) {
   const router = useRouter();
 
   async function checkout() {
-    const lineItems = cartItems[0].map((cartItem) => {
+    const lineItems = cartItems.map((cartItem) => {
       return {
-        price: cartItem.id,
+        price: cartItem[0].id,
         quantity: 1,
       };
     });
