@@ -31,7 +31,7 @@
     fill: white;
   }
   .cls-2 {
-    fill: #e7e1d7;
+    fill: #313423;
   }
   .cls-3 {
     fill: #949e7b;
@@ -72,7 +72,7 @@ body {
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
     -webkit-background-clip: text;
-    -webkit-text-fill-color: #e7e1d7;
+    -webkit-text-fill-color: #373633;
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: inset 0 0 20px 20px --var(fadedBlack);
   }

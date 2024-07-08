@@ -2,7 +2,7 @@ import { signInAction, signOutAction } from "../_lib/actions";
 
 export default function Page() {
   return (
-    <div className="bg-accent w-[80vw] max-w-[40rem] h-[50vh] mt-[5rem] mx-auto px-12 py-5">
+    <div className="bg-bg w-[80vw] max-w-[40rem] h-[50vh] mt-[7rem] mx-auto px-12 py-5 shadow-md">
       <svg
         id="Apple"
         viewBox="0 0 512 512"

@@ -32,16 +32,16 @@ export default function ApplyForm() {
         )
       ) : (
         <>
-          <div className="w-full bg-accent h-[8rem] p-2 text-bg">
+          <div className="w-full bg-bg h-[8rem] p-2 text-fadedBlack shadow-md">
             <h1 className="z-10 text-5xl">Apply now</h1>
             <p className="text-md font-satoshi">
               Please take a moment to fill out the application below and we will
               get back to you as soon as possible. Thank you!
             </p>
-            <hr className="mt-5 min-w-[60%] h-[2px] bg-brunswick border-brunswick" />
+            <hr className="mt-5 min-w-[60%] h-[2px] bg-fadedBlack opacity-50 border-brunswick" />
           </div>
           <div className="w-full mx-auto relative"></div>
-          <div className="bg-accent py-5 overflow-x-hidden">
+          <div className="bg-bg py-5 overflow-x-hidden shadow-md">
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="flex gap-2 flex-col mx-12 relative mb-8"
@@ -138,7 +138,7 @@ export default function ApplyForm() {
                 </div>
                 <div className="flex justify-end p-2">
                   <button
-                    className="font-satoshi lowercase border-bg text-bg border
+                    className="font-satoshi lowercase border-fadedBlack text-fadedBlack border
                   hover:bg-accentFaded p-2 transition-all duration-400
                   text-2xl min-w-[90px] min-h-[50px] flex items-center justify-center"
                     type="submit"

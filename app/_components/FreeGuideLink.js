@@ -9,7 +9,11 @@ export default function FreeGuideLink() {
   if (!close)
     return (
       <div className="lg:h-[60px] h-[40px] z-10 w-full bg-accent text-bg top-[3.1rem] absolute flex justify-between items-center">
-        <Link href="/foodguide" className="w-full h-[100%] p-2">
+        <Link
+          onClick={() => setClose(true)}
+          href="/foodguide"
+          className="w-full h-[100%] p-2"
+        >
           <h1 className="text-lg lg:text-2xl">
             Download My Daily Food Guide for free!
           </h1>

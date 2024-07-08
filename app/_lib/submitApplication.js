@@ -44,7 +44,7 @@ async function sendApplyNotif(appEmail, appFullName) {
 async function sendApplication(formData) {
   const { data, error } = await resend.emails.send({
     from: "Coaching Applications <rachel@rachelnoelle.net>",
-    to: "clintjstrong@gmail.com",
+    to: "rachelnstrong@gmail.com",
     subject: "You have a new applicant!",
     react: <NoelleApplication data={formData} />,
   });
