@@ -38,6 +38,7 @@ export default function Page({ params }) {
                   fill
                   blur={true}
                   className="object-cover"
+                  key={i}
                 />
               );
             })
