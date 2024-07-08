@@ -31,13 +31,13 @@ export default function Page() {
       </div>
       <div className="mt-6 flex items-center justify-center mx-auto max-w-[1000px] px-4 gap-5 lg:gap-11">
         <div className="flex flex-col">
-          <h1 className="text-3xl lg:text-5xl md:text-4xl uppercase">
+          <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none">
             Ready to start
           </h1>
-          <h1 className="text-3xl lg:text-5xl md:text-4xl uppercase">
+          <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none">
             choosing your
           </h1>
-          <h1 className="text-5xl lg:text-[5rem] md:text-6xl uppercase">
+          <h1 className="text-[2.5rem] lg:text-[5rem] md:text-6xl uppercase leading-none">
             best life?
           </h1>
         </div>
