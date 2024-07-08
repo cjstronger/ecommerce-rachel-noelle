@@ -47,7 +47,7 @@ export default function CartItems({ session }) {
       )}
       {cartItems.length ? (
         <button
-          className="font-satoshi border-[1px] text-bg border-bg hover:bg-bg transition-all duration-200 lowercase p-[6px] text-xl ml-8"
+          className="font-satoshi border-[1px] text-bg border-bg hover:bg-bg hover:text-fadedBlack transition-all duration-200 lowercase p-[6px] text-xl ml-8"
           onClick={checkout}
         >
           Checkout

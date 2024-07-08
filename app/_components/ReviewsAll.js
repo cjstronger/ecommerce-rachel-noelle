@@ -28,7 +28,7 @@ export default function ReviewsAll() {
     setReviewIndex(reviewIndex + 1);
   }
   return (
-    <div className="mb-[5rem] mt-10 overflow-hidden lg:max-w-[80vw] mx-auto items-center justify-center relative h-[60vh]">
+    <div className="mb-[5rem] overflow-hidden lg:max-w-[80vw] mx-auto items-center justify-center relative h-[60vh]">
       <div className="flex justify-end">
         <button
           onClick={handleBack}

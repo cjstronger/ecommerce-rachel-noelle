@@ -37,7 +37,7 @@ export default function Page() {
           <h1 className="text-3xl lg:text-5xl md:text-4xl uppercase">
             choosing your
           </h1>
-          <h1 className="text-3xl lg:text-5xl md:text-4xl uppercase">
+          <h1 className="text-5xl lg:text-[5rem] md:text-6xl uppercase">
             best life?
           </h1>
         </div>

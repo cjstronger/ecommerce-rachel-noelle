@@ -23,8 +23,10 @@ async function getStripeProducts() {
   const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
     apiVersion: "2020-08-27",
   });
+
   const res = await stripe.prices.list({
     expand: ["data.product"],
+    limit: 100,
   });
   const data = res.data;
   return data;

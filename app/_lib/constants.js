@@ -75,3 +75,31 @@ export const exampleReviews = [
     reviewText: "What the fuck is he doin here?",
   },
 ];
+
+export const originals = [
+  {
+    title: "Art1",
+    image: "/images/sun.png",
+    description: "This piece of art is nice.",
+  },
+  {
+    title: "Art2",
+    image: "/images/sun.png",
+    description: "This piece of art is nice.",
+  },
+  {
+    title: "Art3",
+    image: "/images/sun.png",
+    description: "This piece of art is nice.",
+  },
+  {
+    title: "Art4",
+    image: "/images/sun.png",
+    description: "This piece of art is nice.",
+  },
+  {
+    title: "Art5",
+    image: "/images/sun.png",
+    description: "This piece of art is nice.",
+  },
+];

@@ -80,7 +80,7 @@ export default function Page() {
         </div>
         <div className="flex justify-center items-center flex-col text-center my-2">
           <p className="mb-2">Price: $2,400</p>
-          <AddToCart id={"price_1PWCXFEcxLgVB18azqOlB3DQ"}>
+          <AddToCart id={"price_1Pa9SbEcxLgVB18aCGoPtCop"}>
             Lets Get Started
           </AddToCart>
         </div>

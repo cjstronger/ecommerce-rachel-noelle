@@ -114,6 +114,7 @@ function CartProvider({ children, products }) {
         setOpenCart,
         openCart,
         itemAdding,
+        products,
       }}
     >
       {children}

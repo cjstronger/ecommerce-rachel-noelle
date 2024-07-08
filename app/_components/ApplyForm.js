@@ -38,13 +38,13 @@ export default function ApplyForm() {
               Please take a moment to fill out the application below and we will
               get back to you as soon as possible. Thank you!
             </p>
-            <hr className="mt-5 min-w-[60%] h-[2px] bg-fadedBlack opacity-50 border-brunswick" />
+            <hr className="mt-5 min-w-[60%] h-[2px] bg-fadedBlack opacity-50 border-fadedBlack" />
           </div>
           <div className="w-full mx-auto relative"></div>
           <div className="bg-bg py-5 overflow-x-hidden shadow-md">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex gap-2 flex-col mx-12 relative mb-8"
+              className="flex gap-2 flex-col mx-12 relative mb-8 mt-5 md:mt-0"
             >
               <div className="w-full">
                 <Input
