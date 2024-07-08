@@ -56,14 +56,6 @@ export default function Page() {
               your reality to then manifest your deepest desires.
             </p>
           </div>
-          <div className="flex relative">
-            <ChevronLeftIcon className="size-5 mt-0 md:mt-1 absolute" />
-            <p className="ml-5 text-sm md:text-lg lg:text-xl">
-              I help you do this through inner child work, raising your
-              vibration, getting you aware of your blocks and clearing them, and
-              then creating a plan to start living your best life.
-            </p>
-          </div>
         </div>
       </div>
       <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50"></hr>
@@ -82,8 +74,11 @@ export default function Page() {
           personalized game plan for you to overcome your limiting beliefs and
           rediscover what you were meant to do on this earth. Together we will
           get excited about what your dreams are and create a plan to manifest
-          them. Im so excited to work with you and share with you on this
-          abundant journey you are about to partake in.
+          them. I help you do this through inner child work, raising your
+          vibration, getting you aware of your blocks and clearing them, and
+          then creating a plan to start living your best life. Im so excited to
+          work with you and share with you on this abundant journey you are
+          about to partake in.
         </p>
         <Link
           className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
