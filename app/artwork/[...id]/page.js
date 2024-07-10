@@ -2,22 +2,8 @@
 
 import AddToCart from "@/app/_components/AddToCart";
 import BackButton from "@/app/_components/BackButton";
-import { addImages } from "@/app/_lib/actions";
+import { addImages, getStripeProducts } from "@/app/_lib/actions";
 import Image from "next/image";
-import Stripe from "stripe";
-
-async function getStripeProducts() {
-  const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
-    apiVersion: "2020-08-27",
-  });
-
-  const res = await stripe.prices.list({
-    expand: ["data.product"],
-    limit: 100,
-  });
-  const data = res.data;
-  return data;
-}
 
 export default async function Page({ params }) {
   const products = await getStripeProducts();
