@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useReducer, useState } from "react";
+import { getStripeProducts } from "../_lib/actions";
 
 const CartContext = createContext();
 
@@ -53,7 +54,7 @@ function reducer(state, action) {
   }
 }
 
-function CartProvider({ children, products }) {
+function CartProvider({ children }) {
   const [openCart, setOpenCart] = useState(false);
   const [{ isLoading, cartItems, itemAdding }, dispatch] = useReducer(
     reducer,
@@ -72,10 +73,11 @@ function CartProvider({ children, products }) {
       });
     }
   }
-  function addCartItem(id) {
+  async function addCartItem(id) {
+    const products = await getStripeProducts();
     dispatch({ type: "loading" });
     try {
-      const item = products.filter((e) => e.id === id);
+      const item = products?.filter((e) => e.id === id);
       const res = localStorage.getItem("cartItems");
       const data = res ? JSON.parse(res) : [];
       const updatedItems = [...data, item];
@@ -118,7 +120,6 @@ function CartProvider({ children, products }) {
         setOpenCart,
         openCart,
         itemAdding,
-        products,
       }}
     >
       {children}

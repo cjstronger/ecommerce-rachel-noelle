@@ -4,7 +4,6 @@ import TitleSeparator from "./_components/TitleSeparator";
 import ReviewsAll from "./_components/ReviewsAll";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import LocoParalax from "./_components/LocoParalax";
 import LocoParalaxItem from "./_components/LocoParalaxItem";
 
@@ -42,9 +41,8 @@ export default function Page() {
             best life?
           </h1>
         </div>
-        <div className="flex flex-col md:max-w-[400px] max-w-[200px]">
+        <div className="flex flex-col md:max-w-[800px] max-w-[300px]">
           <div className="flex relative">
-            <ChevronLeftIcon className="size-5 mt-0 md:mt-1 absolute" />
             <p className="ml-5 text-sm md:text-lg lg:text-xl">
               everyday we get a choice. We all get to choose what our life looks
               and feels.
@@ -52,6 +50,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <CoachingIntro />
       <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50"></hr>
       <div className="mt-5 flex flex-col">
         <div className="flex items-center mx-5">
@@ -83,7 +82,6 @@ export default function Page() {
       </div>
 
       {/*Second section - coaching */}
-      <CoachingIntro />
       <TitleSeparator titleText="Phases" />
       <CoachingDetails />
       <TitleSeparator titleText="Reviews" />

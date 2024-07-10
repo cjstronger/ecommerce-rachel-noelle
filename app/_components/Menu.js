@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import SignOutButton from "./SignOutButton";

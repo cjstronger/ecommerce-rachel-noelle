@@ -50,7 +50,6 @@ export default function Navigation({ session }) {
         burger={burger}
         setOpenMenu={setOpenMenu}
         openMenu={openMenu}
-        session={session}
       />
       <AnimatePresence>
         {openMenu && (
@@ -63,11 +62,7 @@ export default function Navigation({ session }) {
             variants={variants}
             className="z-20 absolute h-[100vh] w-[100vw] md:w-[400px] top-[3.1rem] bg-accent"
           >
-            <Menu
-              openMenu={openMenu}
-              setOpenMenu={setOpenMenu}
-              session={session}
-            />
+            <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
           </motion.div>
         )}
       </AnimatePresence>

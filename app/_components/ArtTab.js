@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import Originals from "./Originals";
-import { useCart } from "../_contexts/CartContext";
 
-export default function ArtTab() {
+export default function ArtTab({ products }) {
   const [showOriginals, setShowOriginals] = useState(true);
-  const { products } = useCart();
   return (
     <div className="flex flex-col gap-5">
       <div className="flex justify-center gap-5">

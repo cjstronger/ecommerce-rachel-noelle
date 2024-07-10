@@ -5,7 +5,6 @@ export default function NavigationButtons({
   burger,
   openMenu,
   setOpenMenu,
-  session,
   ref2,
 }) {
   return !burger ? (
@@ -20,9 +19,7 @@ export default function NavigationButtons({
         <ActiveLink href="/artwork">Artwork</ActiveLink>
       </li>
       <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
-        <ActiveLink href="/login">
-          {session?.user?.name.split(" ")[0] || "user"}
-        </ActiveLink>
+        <ActiveLink href="/login">user</ActiveLink>
       </li>
     </ul>
   ) : (
