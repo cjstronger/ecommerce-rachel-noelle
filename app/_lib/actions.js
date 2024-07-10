@@ -2,6 +2,8 @@
 
 import Stripe from "stripe";
 import { getSupabaseAuth } from "./auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
   apiVersion: "2020-08-27",
@@ -21,19 +23,15 @@ export async function addImages(formData) {
 }
 
 export async function supaLogin(provider) {
-  try {
-    const { data, error } = await (
-      await getSupabaseAuth()
-    ).signInWithOAuth({
-      provider,
-      options: {
-        redirectTo: `https://nzszzpxpduixjugtfdla.supabase.co/auth/v1/callback`,
-        queryParams: { access_type: "offline", prompt: "consent" },
-      },
-    });
-    if (error) throw new Error("There was an issue signing in", error);
-    return { errorMessage: null, url: data.url };
-  } catch (error) {
-    return { errorMessage: "Error logging in" };
-  }
+  const supabase = getSupabaseAuth();
+  const origin = headers().get("origin");
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider,
+    options: {
+      redirectTo: `${origin}/api/auth/callback`,
+      queryParams: { access_type: "offline", prompt: "consent" },
+    },
+  });
+  if (error) throw new Error("There was an issue signing in", error);
+  return redirect(data.url);
 }
