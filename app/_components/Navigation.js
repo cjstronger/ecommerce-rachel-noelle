@@ -15,7 +15,7 @@ const variants = {
   close: {
     opacity: 0,
     y: "5%",
-    transition: { duration: 0.2 },
+    transition: { duration: 0.2, opacity: { duration: 0.1 } },
   },
 };
 

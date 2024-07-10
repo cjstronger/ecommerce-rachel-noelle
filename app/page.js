@@ -21,9 +21,10 @@ export default function Page() {
           fill
           quality={100}
           className=" object-cover shadow-lg brightness-90"
-          blur
+          blur="true"
           src="/images/life.jpg"
           alt="Rachel-Noelle-Waterfall"
+          priority="true"
         />
         <LocoParalax>
           <LocoParalaxItem>.</LocoParalaxItem>

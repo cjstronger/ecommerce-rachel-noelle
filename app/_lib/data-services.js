@@ -1,4 +1,9 @@
+"use client";
+
+import { useRouter } from "next/router";
 import { supabase } from "./supabase";
+
+const router = useRouter();
 
 export async function checkApplicantByEmail(email) {
   const { data, error } = await supabase
@@ -16,4 +21,8 @@ export async function addApplicant(user) {
     .select();
   if (error) throw new Error("User could not be added to the applicants");
   return data;
+}
+
+export async function supaLogout() {
+  const { data, error } = await supabase.auth.signOut();
 }

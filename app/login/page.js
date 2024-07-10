@@ -1,4 +1,4 @@
-import { signInAction, signOutAction } from "../_lib/actions";
+import SignInButton from "../_components/SignInButton";
 
 export default function Page() {
   return (
@@ -32,16 +32,12 @@ export default function Page() {
         ></path>
       </svg>
       <h1 className="text-center text-4xl">User Login/Logout</h1>
-      <form action={signInAction}>
-        <button className="border-fadedBlack hover:bg-primaryFaded p-4 font-satoshi border-[1px] text-xl w-full transition-all duration-100 mt-5">
-          login with google
-        </button>
-      </form>
-      <form action={signOutAction}>
+      <SignInButton provider="google" />
+      {/* <form action={signOutAction}>
         <button className="border-fadedBlack hover:bg-primaryFaded p-4 font-satoshi border-[1px] text-xl w-full transition-all duration-100 mt-5">
           logout
         </button>
-      </form>
+      </form> */}
     </div>
   );
 }
