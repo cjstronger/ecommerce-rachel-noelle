@@ -5,22 +5,9 @@ import { getSupabaseAuth } from "./auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
+const stripe = new Stripe(process.env.STRIPnE_KEY ?? "", {
   apiVersion: "2020-08-27",
 });
-
-export async function addImages(formData) {
-  const imagePaths = formData.getAll("images");
-  const productId = formData.get("productId");
-  console.log(imagePaths);
-  const imageFileIds = await Promise.all(imagePaths.map(uploadImage));
-
-  const product = await stripe.products.update(productId, {
-    images: imageFileIds.map((fileId) => `https://files.stripe.com/${fileId}`),
-  });
-
-  console.log(`Updated product with ID: ${product.id}`);
-}
 
 export async function supaLogin(provider) {
   const supabase = getSupabaseAuth();
@@ -34,6 +21,11 @@ export async function supaLogin(provider) {
   });
   if (error) throw new Error("There was an issue signing in", error);
   return redirect(data.url);
+}
+
+export async function supaLogout() {
+  const supabase = getSupabaseAuth();
+  const { error } = await supabase.auth.signOut();
 }
 
 export async function getStripeProducts() {

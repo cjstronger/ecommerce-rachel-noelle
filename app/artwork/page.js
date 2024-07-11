@@ -7,7 +7,7 @@ export async function generateMetadata() {
   return { title: "Artwork" };
 }
 
-export default async function Page() {
+export default async function ArtworkPage() {
   const products = await getStripeProducts();
   return (
     <div className="lg:mt-[7rem] mt-[6rem] flex flex-col items-center mb-5 mx-5">

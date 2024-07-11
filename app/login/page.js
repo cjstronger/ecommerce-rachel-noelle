@@ -1,8 +1,9 @@
 import SignInButton from "../_components/SignInButton";
+import SignOutButton from "../_components/SignOutButton";
 
 export default function Page() {
   return (
-    <div className="bg-bg w-[80vw] max-w-[40rem] h-[50vh] mt-[7rem] mx-auto px-12 py-5 shadow-md">
+    <div className="bg-bg w-[80vw] max-w-[40rem] h-[50vh] mt-[7rem] mx-auto px-12 py-5 shadow-md relative">
       <svg
         id="Apple"
         viewBox="0 0 512 512"
@@ -33,11 +34,9 @@ export default function Page() {
       </svg>
       <h1 className="text-center text-4xl">User Login/Logout</h1>
       <SignInButton provider="google" />
-      {/* <form action={signOutAction}>
-        <button className="border-fadedBlack hover:bg-primaryFaded p-4 font-satoshi border-[1px] text-xl w-full transition-all duration-100 mt-5">
-          logout
-        </button>
-      </form> */}
+      <div className="absolute">
+        <SignOutButton type="page" />
+      </div>
     </div>
   );
 }
