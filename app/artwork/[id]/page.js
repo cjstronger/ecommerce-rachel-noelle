@@ -27,7 +27,7 @@ export default async function Page({ params }) {
                   alt={`${name} ${i + 1}`}
                   fill
                   blur={true}
-                  className="object-cover"
+                  className="object-contain"
                   key={i}
                 />
               );

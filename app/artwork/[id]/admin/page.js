@@ -2,8 +2,9 @@
 
 import AddToCart from "@/app/_components/AddToCart";
 import BackButton from "@/app/_components/BackButton";
+import ImageSlide from "@/app/_components/ImageSlide";
 import { getStripeProducts } from "@/app/_lib/actions";
-import { addImages } from "@/app/_lib/data-services";
+import { addImages, getImages } from "@/app/_lib/data-services";
 import Image from "next/image";
 
 export async function generateMetadata() {
@@ -11,38 +12,29 @@ export async function generateMetadata() {
 }
 
 export default async function Page({ params }) {
+  const data = await getImages();
+  const imageUrls = data?.map((item) => {
+    return item.imageUrl;
+  });
   const products = await getStripeProducts();
   const [product] = products.filter((product) => {
     return product.id === params.id;
   });
   const { unit_amount } = product;
-  const { name, images, description, id } = product.product;
+  let { name, images, description, id } = product.product;
+  images = [...images, ...imageUrls];
+  console.log(images);
   return (
     <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
       <BackButton />
       <div className="flex flex-col items-center mt-5 mx-10">
         <div className="flex justify-between gap-4 lg:flex-row flex-col items-baseline mb-5">
           <div className="min-w-[400px] lg:min-w-[800px] h-[70vh] bg-fadedBlack text-bg items-center flex justify-center relative">
-            {!images.length ? (
-              <h1>No images buste</h1>
-            ) : (
-              images.map((image, i) => {
-                return (
-                  <Image
-                    src={image}
-                    alt={`${name} ${i + 1}`}
-                    fill
-                    blur={true}
-                    className="object-cover"
-                    key={i}
-                  />
-                );
-              })
-            )}
+            <ImageSlide images={images} />
           </div>
           <form
             action={addImages}
-            className="flex lg:flex-col lg:gap-2 gap-[7rem] justify-between items-center"
+            className="flex lg:flex-col lg:gap-2 gap-[6rem] justify-between items-center"
           >
             <input hidden defaultValue={id} name="id" />
             <input

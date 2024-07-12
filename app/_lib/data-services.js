@@ -1,6 +1,6 @@
 "use server";
 
-import { supabase } from "./supabase";
+import { supabase, supabaseUrl } from "./supabase";
 
 export async function checkApplicantByEmail(email) {
   const { data, error } = await supabase
@@ -23,10 +23,27 @@ export async function addApplicant(user) {
 export async function addImages(formData) {
   const id = formData.get("id");
   const file = formData.get("image");
-  const folderPath = `${id}/${file.name}`;
+  const fileName = file.name.split(" ").join("").replace("/", "");
+  console.log(fileName);
+  const folderPath = `${id}/${fileName}`;
   const { data, error } = await supabase.storage
     .from("product_images")
     .upload(`${folderPath}`, file);
   if (error) console.error(error);
+  const { data: imageData, error: imageError } = await supabase
+    .from("images")
+    .insert({
+      productId: id,
+      imageUrl: `${supabaseUrl}/storage/v1/object/public/product_images/${data.path}`,
+    });
+  if (imageError) console.error(imageError);
+  console.log(data, imageData);
+  return { data, imageData };
+}
+
+export async function getImages() {
+  const { data, error } = await supabase.from("images").select("/*");
+  if (error) console.error(error);
+  console.log(data);
   return data;
 }

@@ -12,7 +12,6 @@ export async function getUser() {
     }
 
     const { user } = data;
-    console.log(user);
     return user;
   } catch (error) {
     console.error("Unexpected error:", error);
