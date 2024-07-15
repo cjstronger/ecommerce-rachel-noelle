@@ -20,30 +20,38 @@ export async function addApplicant(user) {
   return data;
 }
 
-export async function addImages(formData) {
-  const id = formData.get("id");
-  const file = formData.get("image");
+export async function getImages(id) {
+  const { data, error } = await supabase
+    .from("images")
+    .select("imageUrl")
+    .eq("productId", id);
+  if (error) console.error(error);
+  if (!data) return [];
+  return data;
+}
+
+const SITEURL = "http://localhost:3000";
+
+export async function addImages(id, file) {
+  const adminUrl = `${SITEURL}/artwork/${id}/admin`;
+  const userUrl = `${SITEURL}/artwork/${id}`;
   const fileName = file.name.split(" ").join("").replace("/", "");
-  console.log(fileName);
   const folderPath = `${id}/${fileName}`;
   const { data, error } = await supabase.storage
     .from("product_images")
     .upload(`${folderPath}`, file);
-  if (error) console.error(error);
   const { data: imageData, error: imageError } = await supabase
     .from("images")
     .insert({
       productId: id,
       imageUrl: `${supabaseUrl}/storage/v1/object/public/product_images/${data.path}`,
     });
-  if (imageError) console.error(imageError);
-  console.log(data, imageData);
-  return { data, imageData };
+  return { data, imageData, imageError, error };
 }
 
-export async function getImages() {
-  const { data, error } = await supabase.from("images").select("/*");
+export async function getAllImages() {
+  const { data, error } = await supabase.from("images").select("imageUrl");
   if (error) console.error(error);
-  console.log(data);
+  if (!data) return [];
   return data;
 }

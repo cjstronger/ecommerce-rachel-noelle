@@ -2,6 +2,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Header from "./_components/Header";
 import { CartProvider } from "./_contexts/CartContext";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: { template: "%s - Rachel Noelle", default: "Rachel Noelle" },
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
           <Header />
           <div className="flex-1">{children}</div>
         </CartProvider>
+        <Toaster />
       </body>
     </html>
   );

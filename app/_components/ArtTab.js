@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Originals from "./Originals";
 
-export default function ArtTab({ products }) {
+export default function ArtTab({ products, images }) {
   const [showOriginals, setShowOriginals] = useState(true);
   return (
     <div className="flex flex-col gap-5">
@@ -27,7 +27,7 @@ export default function ArtTab({ products }) {
       </div>
       {showOriginals ? (
         <div>
-          <Originals products={products} />
+          <Originals products={products} images={images}/>
         </div>
       ) : (
         <div>There are currently no prints available.</div>

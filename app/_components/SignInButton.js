@@ -17,7 +17,11 @@ export default function SignInButton({ provider }) {
       }
     });
   return (
-    <button disabled={isPending} onClick={() => handleSignIn(`${provider}`)}>
+    <button
+      className="bg-accent text-bg p-2 border-2 border-fadedBlack w-[50%] "
+      disabled={isPending}
+      onClick={() => handleSignIn(`${provider}`)}
+    >
       {isPending ? "Logging in..." : "login in"}
     </button>
   );

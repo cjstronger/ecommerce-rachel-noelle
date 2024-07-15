@@ -2,38 +2,31 @@
 
 import AddToCart from "@/app/_components/AddToCart";
 import BackButton from "@/app/_components/BackButton";
+import ImageSlide from "@/app/_components/ImageSlide";
 import { getStripeProducts } from "@/app/_lib/actions";
-import Image from "next/image";
+import { getImages } from "@/app/_lib/data-services";
+
+export async function generateMetadata() {
+  return { title: "Artwork Admin" };
+}
 
 export default async function Page({ params }) {
+  const data = await getImages(params.id);
+  const imageUrls = data.map((item) => {
+    return item.imageUrl;
+  });
   const products = await getStripeProducts();
   const [product] = products.filter((product) => {
     return product.id === params.id;
   });
   const { unit_amount } = product;
-  const { name, images, description, id } = product.product;
+  let { name, images, description } = product.product;
+  images = [...images, ...imageUrls];
   return (
-    <div className="lg:mt-[8rem] mt-[6rem] m-2">
+    <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
       <BackButton />
-      <div className="flex flex-col items-center mt-2 mx-10">
-        <div className="min-w-[400px] lg:min-w-[800px] h-[70vh] bg-fadedBlack text-bg items-center flex justify-center relative">
-          {!images.length ? (
-            <h1>No images currently</h1>
-          ) : (
-            images.map((image, i) => {
-              return (
-                <Image
-                  src={image}
-                  alt={`${name} ${i + 1}`}
-                  fill
-                  blur={true}
-                  className="object-contain"
-                  key={i}
-                />
-              );
-            })
-          )}
-        </div>
+      <ImageSlide images={images} />
+      <div className="flex flex-col items-center mt-5 mx-10">
         <h1 className="text-5xl">{name}</h1>
         <p className="max-w-[800px] mb-5">{description}</p>
         <div className="flex items-center gap-5">
