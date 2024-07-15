@@ -33,8 +33,8 @@ export default function Page() {
         ></path>
       </svg>
       <h1 className="text-center text-4xl">User Login/Logout</h1>
-      <SignInButton provider="google" />
-      <div className="absolute">
+      <div className="flex items-center justify-center flex-col mt-5 gap-5 text-2xl font-satoshi">
+        <SignInButton provider="google" />
         <SignOutButton type="page" />
       </div>
     </div>
