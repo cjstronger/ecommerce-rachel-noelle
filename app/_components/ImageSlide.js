@@ -78,6 +78,7 @@ export default function ImageSlide({ images, name = "art" }) {
                   src={`${image}`}
                   alt={`${name} ${index}`}
                   className="object-contain -translate-x-[100%]"
+                  key={i}
                 />
               )
             )
