@@ -28,7 +28,7 @@ export async function getImages(id) {
   return data;
 }
 
-const SITEURL = "http://localhost:3000";
+const SITEURL = "https://rachelnoelle.net";
 
 export async function addImages(formData) {
   const id = formData.get("id");
