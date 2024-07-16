@@ -1,12 +1,10 @@
-"use server";
-
 import ArtTab from "../_components/ArtTab";
 import { getStripeProducts } from "../_lib/actions";
 import { getAllImages } from "../_lib/data-services";
 
-export async function generateMetadata() {
-  return { title: "Artwork" };
-}
+export const metadata = { title: "Artwork" };
+
+export const revalidate = 0;
 
 export default async function ArtworkPage() {
   const products = await getStripeProducts();

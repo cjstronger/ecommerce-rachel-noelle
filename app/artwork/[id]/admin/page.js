@@ -1,5 +1,3 @@
-"use server";
-
 import AddToCart from "@/app/_components/AddToCart";
 import BackButton from "@/app/_components/BackButton";
 import ImageSlide from "@/app/_components/ImageSlide";
@@ -7,9 +5,7 @@ import ImageUpload from "@/app/_components/ImageUpload";
 import { getStripeProducts } from "@/app/_lib/actions";
 import { addImages, getImages } from "@/app/_lib/data-services";
 
-export async function generateMetadata() {
-  return { title: "Artwork Admin" };
-}
+export const revalidate = 0;
 
 export default async function Page({ params }) {
   const data = await getImages(params.id);
@@ -23,6 +19,7 @@ export default async function Page({ params }) {
   const { unit_amount } = product;
   let { name, images, description } = product.product;
   images = [...images, ...imageUrls];
+  console.log(params.id);
   return (
     <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
       <BackButton />
@@ -33,7 +30,7 @@ export default async function Page({ params }) {
         <p className="max-w-[800px] mb-5">{description}</p>
         <div className="flex items-center gap-5">
           <p className="text-xl">${unit_amount * 0.01}.00</p>
-          <AddToCart id={params.id[0]}>Add to Cart</AddToCart>
+          <AddToCart id={params.id}>Add to Cart</AddToCart>
         </div>
       </div>
     </div>

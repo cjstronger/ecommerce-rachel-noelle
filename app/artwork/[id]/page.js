@@ -1,14 +1,12 @@
-"use server";
-
 import AddToCart from "@/app/_components/AddToCart";
 import BackButton from "@/app/_components/BackButton";
 import ImageSlide from "@/app/_components/ImageSlide";
 import { getStripeProducts } from "@/app/_lib/actions";
 import { getImages } from "@/app/_lib/data-services";
 
-export async function generateMetadata() {
-  return { title: "Artwork Admin" };
-}
+export const metadata = { title: "Artwork Admin" };
+
+export const revalidate = 0;
 
 export default async function Page({ params }) {
   const data = await getImages(params.id);

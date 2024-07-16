@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useReducer, useState } from "react";
 import { getStripeProducts } from "../_lib/actions";
+import toast from "react-hot-toast";
 
 const CartContext = createContext();
 
@@ -80,16 +81,24 @@ function CartProvider({ children }) {
       const item = products?.filter((e) => e.id === id);
       const res = localStorage.getItem("cartItems");
       const data = res ? JSON.parse(res) : [];
+      const repeatData = data.filter((e, i) => e[0].id === id);
+      console.log(repeatData);
+      if (repeatData.length > 0) {
+        toast.error("Item is already in the cart");
+        return;
+      }
       const updatedItems = [...data, item];
       localStorage.setItem("cartItems", JSON.stringify(updatedItems));
       dispatch({ type: "adding", payload: item[0].product.name });
       setTimeout(() => dispatch({ type: "item/added" }), 2000);
+      toast.success(`${item[0].product.name} added to cart`);
       return item;
     } catch {
       dispatch({
         type: "errored",
         payload: "There was an error adding an item to the cart",
       });
+      toast.error("There was an error adding an item to the cart");
     }
   }
   function deleteCartItem(id) {

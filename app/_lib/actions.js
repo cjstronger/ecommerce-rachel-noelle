@@ -5,7 +5,7 @@ import { getSupabaseAuth } from "./auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-const stripe = new Stripe(process.env.STRIPnE_KEY ?? "", {
+const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
   apiVersion: "2020-08-27",
 });
 
@@ -20,6 +20,7 @@ export async function supaLogin(provider) {
     },
   });
   if (error) throw new Error("There was an issue signing in", error);
+  console.log(data);
   return redirect(data.url);
 }
 

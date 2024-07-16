@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { supabase, supabaseUrl } from "./supabase";
 
 export async function checkApplicantByEmail(email) {
@@ -12,12 +13,9 @@ export async function checkApplicantByEmail(email) {
 }
 
 export async function addApplicant(user) {
-  const { data, error } = await supabase
-    .from("applicants")
-    .insert([user])
-    .select();
-  if (error) throw new Error("User could not be added to the applicants");
-  return data;
+  const { data, error } = await supabase.from("applicants").insert([user]);
+  if (error) console.error("User could not be added to the applicants");
+  return { data, error };
 }
 
 export async function getImages(id) {
@@ -32,7 +30,9 @@ export async function getImages(id) {
 
 const SITEURL = "http://localhost:3000";
 
-export async function addImages(id, file) {
+export async function addImages(formData) {
+  const id = formData.get("id");
+  const file = formData.get("image");
   const adminUrl = `${SITEURL}/artwork/${id}/admin`;
   const userUrl = `${SITEURL}/artwork/${id}`;
   const fileName = file.name.split(" ").join("").replace("/", "");
@@ -46,6 +46,7 @@ export async function addImages(id, file) {
       productId: id,
       imageUrl: `${supabaseUrl}/storage/v1/object/public/product_images/${data.path}`,
     });
+  revalidatePath(adminUrl);
   return { data, imageData, imageError, error };
 }
 

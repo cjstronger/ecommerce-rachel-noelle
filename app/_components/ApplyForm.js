@@ -9,6 +9,7 @@ import submitApplication from "../_lib/submitApplication";
 import SpinnerMini from "./SpinnerMini";
 import ApplicationSuccess from "./ApplicationSuccess";
 import ApplicationReceived from "./ApplicationReceived";
+import toast from "react-hot-toast";
 
 export default function ApplyForm() {
   const { formState, register, handleSubmit, watch } = useForm();
@@ -17,8 +18,10 @@ export default function ApplyForm() {
 
   async function onSubmit(formData) {
     const { applied } = await submitApplication(formData);
-    console.log(applied);
-    if (!applied) return;
+    if (!applied) {
+      toast.success("Application Received");
+      return;
+    }
     setAlreadyApplied(true);
   }
 
