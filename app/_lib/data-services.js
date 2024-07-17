@@ -40,12 +40,17 @@ export async function addImages(formData) {
   const { data, error } = await supabase.storage
     .from("product_images")
     .upload(`${folderPath}`, file);
+  if (error) {
+    console.error(error);
+    return;
+  }
   const { data: imageData, error: imageError } = await supabase
     .from("images")
     .insert({
       productId: id,
       imageUrl: `${supabaseUrl}/storage/v1/object/public/product_images/${data.path}`,
     });
+  if (imageError) console.error(imageError);
   revalidatePath(adminUrl);
   return { data, imageData, imageError, error };
 }
@@ -55,4 +60,30 @@ export async function getAllImages() {
   if (error) console.error(error);
   if (!data) return [];
   return data;
+}
+
+export async function deleteImages(images, id) {
+  const imageNames = images.map((image) => image.split("/").slice(9).join(""));
+  const imagePaths = imageNames.map((image) => [`${id}/${image}`]);
+
+  for (const path of imagePaths) {
+    const { data: storageData, error: storageError } = await supabase.storage
+      .from("public_images")
+      .remove([path]);
+    if (storageError) {
+      console.error(storageError);
+      return { storageError };
+    }
+  }
+
+  const { data: tableData, error: tableError } = await supabase
+    .from("images")
+    .delete()
+    .eq("imageUrl", images);
+  if (tableError) {
+    console.error(tableError);
+    return { tableError };
+  }
+
+  return { tableData };
 }

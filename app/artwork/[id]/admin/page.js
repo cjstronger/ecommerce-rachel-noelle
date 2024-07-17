@@ -1,5 +1,6 @@
 import AddToCart from "@/app/_components/AddToCart";
 import BackButton from "@/app/_components/BackButton";
+import EditImages from "@/app/_components/EditImages";
 import ImageSlide from "@/app/_components/ImageSlide";
 import ImageUpload from "@/app/_components/ImageUpload";
 import { getStripeProducts } from "@/app/_lib/actions";
@@ -19,12 +20,12 @@ export default async function Page({ params }) {
   const { unit_amount } = product;
   let { name, images, description } = product.product;
   images = [...images, ...imageUrls];
-  console.log(params.id);
   return (
     <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
       <BackButton />
       <ImageSlide images={images} />
       <ImageUpload params={params} />
+      <EditImages images={images} params={params} />
       <div className="flex flex-col items-center mt-5 mx-10">
         <h1 className="text-5xl">{name}</h1>
         <p className="max-w-[800px] mb-5">{description}</p>

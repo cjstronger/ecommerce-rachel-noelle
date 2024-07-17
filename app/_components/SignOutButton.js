@@ -11,7 +11,7 @@ export default function SignOutButton({ setOpenMenu, type }) {
       </button>
     );
   return (
-    <button className="border-2 border-fadedBlack w-[50%] p-2 hover:bg-fadedBlack hover:text-white transition-all duration-150 hover:text-3xl text-2xl">
+    <button className="border-2 border-fadedBlack w-[90%] p-2 hover:bg-fadedBlack hover:text-white transition-all duration-150 text-2xl mt-[6rem]">
       logout
     </button>
   );

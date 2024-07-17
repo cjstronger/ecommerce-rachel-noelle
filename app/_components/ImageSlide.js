@@ -90,13 +90,13 @@ export default function ImageSlide({ images, name = "art" }) {
       <div className="flex gap-10 justify-center">
         <button
           onClick={handleBack}
-          className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150 z-10"
+          className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150"
         >
           <ArrowLeftIcon className="lg:size-10 size-7" />
         </button>
         <button
           onClick={handleNext}
-          className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150 z-10"
+          className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150"
         >
           <ArrowRightIcon className="lg:size-10 size-7" />
         </button>

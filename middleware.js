@@ -11,7 +11,7 @@ export default async function middleware(req) {
   const user = await getUser();
   const { pathname } = req.nextUrl;
   if (pathname.startsWith("/artwork/") && pathname !== "/artwork") {
-    if (user?.role === "service_role" && !pathname.includes("/admin")) {
+    if (user?.role === "authenticated" && !pathname.includes("/admin")) {
       const redirectUrl = new URL(`${pathname}/admin`, req.nextUrl.origin);
       return NextResponse.redirect(redirectUrl);
     }
