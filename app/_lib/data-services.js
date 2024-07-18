@@ -64,26 +64,22 @@ export async function getAllImages() {
 
 export async function deleteImages(images, id) {
   const imageNames = images.map((image) => image.split("/").slice(9).join(""));
-  const imagePaths = imageNames.map((image) => [`${id}/${image}`]);
+  const imagePaths = imageNames.map((image) => `${id}/${image}`);
 
-  for (const path of imagePaths) {
-    const { data: storageData, error: storageError } = await supabase.storage
-      .from("public_images")
-      .remove([path]);
-    if (storageError) {
-      console.error(storageError);
-      return { storageError };
-    }
+  const { data: storageData, error: storageError } = await supabase.storage
+    .from("product_images")
+    .remove(imagePaths);
+  if (storageError) {
+    return { storageError };
   }
 
   const { data: tableData, error: tableError } = await supabase
     .from("images")
     .delete()
-    .eq("imageUrl", images);
+    .in("imageUrl", images);
   if (tableError) {
-    console.error(tableError);
     return { tableError };
   }
 
-  return { tableData };
+  return { storageError: null, tableError: null };
 }

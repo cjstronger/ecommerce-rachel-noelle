@@ -1,8 +1,6 @@
-"use server";
-
 import { addImages } from "../_lib/data-services";
 
-export default async function ImageUpload({ params }) {
+export default function ImageUpload({ params }) {
   return (
     <div className="flex justify-between gap-4 flex-col items-center">
       <form

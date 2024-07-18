@@ -5,7 +5,6 @@ const supabaseKey = process.env.SUPABASE_KEY;
 
 const supabase = createClient(supabaseUrl, supabaseKey, {
   headers: {
-    "Cache-Control": "no-cache",
     Authorization: `Bearer ${process.env.GOOGLE_SECRET}`,
   },
 });

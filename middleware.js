@@ -1,17 +1,21 @@
 "use server";
 
-import { getUser } from "./app/_lib/auth";
 import { NextResponse } from "next/server";
+import { updateSession } from "./app/utils/supabase/middleware";
+import { createClient } from "./app/utils/supabase/server";
 
 export const config = {
   matcher: ["/pricing", "/artwork/:path*"],
 };
 
 export default async function middleware(req) {
-  const user = await getUser();
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   const { pathname } = req.nextUrl;
   if (pathname.startsWith("/artwork/") && pathname !== "/artwork") {
-    if (user?.role === "authenticated" && !pathname.includes("/admin")) {
+    if (user?.role === "service_role" && !pathname.includes("/admin")) {
       const redirectUrl = new URL(`${pathname}/admin`, req.nextUrl.origin);
       return NextResponse.redirect(redirectUrl);
     }
@@ -23,4 +27,5 @@ export default async function middleware(req) {
       }
     }
   }
+  return await updateSession(req);
 }

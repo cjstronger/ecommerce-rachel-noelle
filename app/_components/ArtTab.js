@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Originals from "./Originals";
+import SpinnerMini from "./SpinnerMini";
 
 export default function ArtTab({ products, images }) {
   const [showOriginals, setShowOriginals] = useState(true);
@@ -26,9 +27,9 @@ export default function ArtTab({ products, images }) {
         </button>
       </div>
       {showOriginals ? (
-        <div>
-          <Originals products={products} images={images}/>
-        </div>
+        <Suspense fallback={<SpinnerMini />}>
+          <Originals products={products} images={images} />
+        </Suspense>
       ) : (
         <div>There are currently no prints available.</div>
       )}

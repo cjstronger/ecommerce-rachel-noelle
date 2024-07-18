@@ -3,8 +3,10 @@ import BackButton from "@/app/_components/BackButton";
 import EditImages from "@/app/_components/EditImages";
 import ImageSlide from "@/app/_components/ImageSlide";
 import ImageUpload from "@/app/_components/ImageUpload";
+import Spinner from "@/app/_components/Spinner";
 import { getStripeProducts } from "@/app/_lib/actions";
-import { addImages, getImages } from "@/app/_lib/data-services";
+import { getImages } from "@/app/_lib/data-services";
+import { Suspense } from "react";
 
 export const revalidate = 0;
 
@@ -23,7 +25,9 @@ export default async function Page({ params }) {
   return (
     <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
       <BackButton />
-      <ImageSlide images={images} />
+      <Suspense fallback={<Spinner />}>
+        <ImageSlide images={images} />
+      </Suspense>
       <ImageUpload params={params} />
       <EditImages images={images} params={params} />
       <div className="flex flex-col items-center mt-5 mx-10">
