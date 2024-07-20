@@ -5,7 +5,7 @@ import { updateSession } from "./app/utils/supabase/middleware";
 import { createClient } from "./app/utils/supabase/server";
 
 export const config = {
-  matcher: ["/pricing", "/artwork/:path*"],
+  matcher: ["/pricing", "/artwork/:path*", "/apply/applicants"],
 };
 
 export default async function middleware(req) {
@@ -19,13 +19,18 @@ export default async function middleware(req) {
       const redirectUrl = new URL(`${pathname}/admin`, req.nextUrl.origin);
       return NextResponse.redirect(redirectUrl);
     }
-  } else {
-    if (pathname.startsWith("/pricing")) {
-      if (user?.app_metadata?.role !== "approved") {
-        const redirectUrl = new URL("/", req.nextUrl.origin);
-        return NextResponse.redirect(redirectUrl);
-      }
+  } else if (pathname.startsWith("/pricing")) {
+    if (user?.app_metadata?.role !== "approved") {
+      const redirectUrl = new URL("/", req.nextUrl.origin);
+      return NextResponse.redirect(redirectUrl);
+    }
+  } else if (
+    pathname.startsWith("/apply/applicants") &&
+    pathname !== "/apply"
+  ) {
+    if (user?.role !== "service_role") {
+      const redirectUrl = new URL(`/apply`, req.nextUrl.origin);
+      return NextResponse.redirect(redirectUrl);
     }
   }
-  return await updateSession(req);
 }

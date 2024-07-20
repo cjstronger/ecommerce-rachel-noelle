@@ -20,7 +20,7 @@ const variants = {
   },
 };
 
-export default function Menu({ openMenu, setOpenMenu, session }) {
+export default function Menu({ openMenu, setOpenMenu }) {
   const menuItems = [
     {
       title: "About",
@@ -34,7 +34,7 @@ export default function Menu({ openMenu, setOpenMenu, session }) {
       title: "Artwork",
       href: "/artwork",
     },
-    { title: `${session?.user?.name.split(" ")[0] || "User"}`, href: "/login" },
+    { title: "User", href: "/login" },
   ];
   return (
     <div className="mt-8">

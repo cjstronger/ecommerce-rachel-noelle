@@ -19,7 +19,7 @@ const variants = {
   },
 };
 
-export default function Navigation({ session }) {
+export default function Navigation() {
   const [burger, setBurger] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -43,6 +43,7 @@ export default function Navigation({ session }) {
       window.removeEventListener("resize", handleWidth);
     };
   }, []);
+
   return (
     <>
       <NavigationButtons

@@ -3,7 +3,7 @@ import SignOutButton from "../_components/SignOutButton";
 
 export default function Page() {
   return (
-    <div className="bg-bg w-[80vw] max-w-[40rem] h-[50vh] mt-[7rem] mx-auto px-12 py-5 shadow-md relative">
+    <div className="bg-bg w-[80vw] max-w-[40rem] h-[35rem] mt-[7rem] mx-auto px-12 py-5 shadow-md relative">
       <svg
         id="Apple"
         viewBox="0 0 512 512"

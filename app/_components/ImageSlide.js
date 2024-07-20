@@ -33,22 +33,26 @@ export default function ImageSlide({ images, name = "art" }) {
         <div className="flex flex-col">
           <button
             onClick={() => setImageClicked(false)}
-            className="z-40 size-[3rem] text-fadedBlack bg-bg rounded-full absolute right-10 top-[1rem]"
+            className="z-40 size-[3rem] text-fadedBlack hover:text-red-600 bg-bg absolute right-10 top-[1rem] transition-all duration-150"
           >
             <XMarkIcon />
           </button>
-          <button
-            onClick={handleBack}
-            className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150 z-40 absolute left-10 bg-bg top-[40%]"
-          >
-            <ArrowLeftIcon className="lg:size-10 size-7" />
-          </button>
-          <button
-            onClick={handleNext}
-            className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150 z-40 absolute right-10 top-[40%] bg-bg"
-          >
-            <ArrowRightIcon className="lg:size-10 size-7" />
-          </button>
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={handleBack}
+                className="p-4 hover:border-bg border-b-2 border-b-transparent transition-all duration-150 z-40 absolute left-10 bg-accent text-bg bottom-[5%]"
+              >
+                <ArrowLeftIcon className="size-7" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="p-4 hover:border-bg border-b-2 border-b-transparent transition-all duration-150 z-40 absolute right-10 bottom-[5%] bg-accent text-bg"
+              >
+                <ArrowRightIcon className="size-7" />
+              </button>
+            </>
+          )}
           <Image
             fill
             quality={100}
@@ -58,7 +62,7 @@ export default function ImageSlide({ images, name = "art" }) {
           />
         </div>
       ) : (
-        <div className="aspect-[2/3] md:aspect-[3/2] xl:aspect-[3/1] relative mt-5 mx-11 overflow-hidden">
+        <div className="aspect-[2/3] md:aspect-[3/2] xl:aspect-[3/1] relative mt-5 mx-11 overflow-hidden mb-5">
           {images.length > 0 ? (
             images.map((image, i) =>
               i === index ? (
@@ -77,7 +81,7 @@ export default function ImageSlide({ images, name = "art" }) {
                   quality={100}
                   src={`${image}`}
                   alt={`${name} ${index}`}
-                  className="object-contain -translate-x-[100%]"
+                  className="object-contain -translate-x-[-100%]"
                   key={i}
                 />
               )
@@ -87,20 +91,22 @@ export default function ImageSlide({ images, name = "art" }) {
           )}
         </div>
       )}
-      <div className="flex gap-10 justify-center">
-        <button
-          onClick={handleBack}
-          className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150"
-        >
-          <ArrowLeftIcon className="lg:size-10 size-7" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150"
-        >
-          <ArrowRightIcon className="lg:size-10 size-7" />
-        </button>
-      </div>
+      {images.length > 1 && (
+        <div className="flex gap-10 justify-center">
+          <button
+            onClick={handleBack}
+            className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150"
+          >
+            <ArrowLeftIcon className="lg:size-10 size-7" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150"
+          >
+            <ArrowRightIcon className="lg:size-10 size-7" />
+          </button>
+        </div>
+      )}
     </>
   );
 }

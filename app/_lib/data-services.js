@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { supabase, supabaseUrl } from "./supabase";
+import { createClient } from "../utils/supabase/server";
 
 export async function checkApplicantByEmail(email) {
   const { data, error } = await supabase
@@ -12,10 +13,45 @@ export async function checkApplicantByEmail(email) {
   return { data };
 }
 
+export async function getApplicants() {
+  const { data, error } = await supabase.from("applicants").select("*");
+  if (error) console.error("Applicants could not be retrieved");
+  return { data };
+}
+
 export async function addApplicant(user) {
   const { data, error } = await supabase.from("applicants").insert([user]);
   if (error) console.error("User could not be added to the applicants");
   return { data, error };
+}
+
+export async function approveApplicant(email) {
+  const supabaser = createClient();
+  const {
+    data: { users },
+    error: userError,
+  } = await supabaser.auth.admin.listUsers();
+  if (userError) console.error("User Error", userError);
+
+  const [userToUpdate] = users.filter((user) => {
+    return user.email === email;
+  });
+
+  const userId = userToUpdate.id;
+
+  const { data: roleData, error: roleError } =
+    await supabaser.auth.admin.updateUserById(userId, {
+      app_metadata: { role: "approved" },
+    });
+  if (roleError) throw new Error("Error in the role add", roleError);
+
+  const { data, error } = await supabase
+    .from("applicants")
+    .update({ approved: true })
+    .eq("appEmail", email);
+  if (error) console.error(error);
+
+  return { data, roleData };
 }
 
 export async function getImages(id) {
@@ -31,8 +67,8 @@ export async function getImages(id) {
 const SITEURL = "https://rachelnoelle.net";
 
 export async function addImages(formData) {
-  const id = formData.get("id");
   const file = formData.get("image");
+  const id = formData.get("id");
   const adminUrl = `${SITEURL}/artwork/${id}/admin`;
   const userUrl = `${SITEURL}/artwork/${id}`;
   const fileName = file.name.split(" ").join("").replace("/", "");
@@ -42,7 +78,7 @@ export async function addImages(formData) {
     .upload(`${folderPath}`, file);
   if (error) {
     console.error(error);
-    return;
+    return { error };
   }
   const { data: imageData, error: imageError } = await supabase
     .from("images")
@@ -50,9 +86,12 @@ export async function addImages(formData) {
       productId: id,
       imageUrl: `${supabaseUrl}/storage/v1/object/public/product_images/${data.path}`,
     });
-  if (imageError) console.error(imageError);
+  if (imageError) {
+    console.error(imageError);
+    return { imageError };
+  }
   revalidatePath(adminUrl);
-  return { data, imageData, imageError, error };
+  return { imageError: undefined, error: undefined };
 }
 
 export async function getAllImages() {

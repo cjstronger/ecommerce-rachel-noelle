@@ -12,11 +12,11 @@ export default function SignInButton({ provider }) {
     startTransition(async () => {
       const { errorMessage, url } = await supaLogin(provider);
       if (!errorMessage && url) {
-        toast.success("Login Successful");
         router.push(url);
       } else {
         toast.error(errorMessage);
       }
+      toast.success("Signed In");
     });
   return (
     <button
@@ -24,7 +24,7 @@ export default function SignInButton({ provider }) {
       disabled={isPending}
       onClick={() => handleSignIn(`${provider}`)}
     >
-      {isPending ? "redirecting" : "login with google"}
+      {isPending ? "redirecting" : `login with ${provider}`}
     </button>
   );
 }

@@ -77,3 +77,47 @@ body {
     box-shadow: inset 0 0 20px 20px --var(fadedBlack);
   }
 }
+
+.content-fullname {
+  display: none;
+  position: absolute;
+  top: 30px;
+  font-size: 25px;
+  background-color: #373633;
+  color: #e7e1d7;
+  padding: 5px;
+  border-radius: 5px;
+  text-wrap: nowrap;
+  z-index: 10;
+}
+.content-email {
+  display: none;
+  position: absolute;
+  top: 30px;
+  font-size: 25px;
+  background-color: #373633;
+  color: #e7e1d7;
+  padding: 5px;
+  border-radius: 5px;
+  text-wrap: nowrap;
+  z-index: 10;
+}
+
+p[data-fullName]:hover + .content-fullname {
+  display: inline;
+  animation: bleh 0.5s forwards;
+}
+
+p[data-email]:hover + .content-email {
+  display: inline;
+  animation: bleh 0.5s forwards;
+}
+
+@keyframes bleh {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

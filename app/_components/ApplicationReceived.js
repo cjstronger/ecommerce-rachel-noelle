@@ -21,10 +21,10 @@ export default function ApplicationReceived() {
     setIsLoading(false);
   }
   return (
-    <div className="w-full h-[80vh] mx-auto bg-accent flex flex-col items-center justify-center text-center gap-5 relative">
+    <div className="w-full h-[80vh] mx-auto bg-accent text-bg flex flex-col items-center justify-center text-center gap-5 relative">
       <Link
         href="/"
-        className="font-satoshi lowercase border-fadedBlack border hover:bg-primaryFaded p-2 transition-all duration-400 text-lg left-5 top-5 absolute"
+        className="font-satoshi lowercase border-bg border hover:bg-primaryFaded p-2 transition-all duration-400 text-lg left-5 top-5 absolute"
       >
         &larr; home
       </Link>

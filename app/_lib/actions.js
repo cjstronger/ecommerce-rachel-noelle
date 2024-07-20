@@ -26,6 +26,8 @@ export async function supaLogin(provider) {
 export async function supaLogout() {
   const supabase = createClient();
   const { error } = await supabase.auth.signOut();
+  if (error) throw new Error("error signing out");
+  return redirect("/");
 }
 
 export async function getStripeProducts() {
