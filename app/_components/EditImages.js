@@ -41,7 +41,10 @@ export default function EditImages({ params }) {
         </button>
       </div>
       {edit && (
-        <div className="h-[100vh] w-[100vw] backdrop-blur-md fixed top-0 left-1/2 transform -translate-x-1/2">
+        <div
+          style={{ backdropFilter: "blur(10px)" }}
+          className="h-[100vh] w-[100vw] backdrop-blur fixed top-0 left-1/2 transform -translate-x-1/2 "
+        >
           <div
             ref={ref}
             className="overflow-scroll h-[70vh] fixed w-[80vw] bg-gradient-to-b from-primaryFaded to-primaryFaded z-20 bottom-1/2 translate-y-1/2 left-1/2 transform -translate-x-1/2 rounded-lg"

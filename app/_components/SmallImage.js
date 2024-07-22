@@ -70,6 +70,24 @@ export default function SmallImage({
     );
     return el;
   }
+
+  function handleTouchStart(e) {
+    e.preventDefault();
+    handleDragStart(e.touches[0], image);
+  }
+
+  function handleTouchMove(e) {
+    e.preventDefault();
+    // Simulate drag over event
+    handleDragOver(e.touches[0]);
+  }
+
+  function handleTouchEnd(e) {
+    e.preventDefault();
+    // Simulate drag end event
+    handleDragEnd(e.changedTouches[0]);
+  }
+
   return (
     <div className="flex">
       <DropIndicator beforeId={i} />
@@ -81,6 +99,9 @@ export default function SmallImage({
         onDrop={handleDragEnd}
         onDragOver={handleDragOver}
         onDragStart={(e) => handleDragStart(e, image)}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         onClick={(e) => e.preventDefault()}
         className="border-2 border-fadedBlack size-[6rem] lg:size-[8rem] 2xl:size-[10rem] relative rounded-lg cursor-grab active:cursor-grabbing"
       >

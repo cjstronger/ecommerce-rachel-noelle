@@ -143,3 +143,8 @@ p[data-email]:hover + .content-email {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color of the thumb when hovered */
 }
+
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
