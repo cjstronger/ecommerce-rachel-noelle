@@ -20,7 +20,7 @@ const variants = {
   },
 };
 
-export default function Menu({ openMenu, setOpenMenu }) {
+export default function Menu({ openMenu, setOpenMenu, user, setUser }) {
   const menuItems = [
     {
       title: "About",
@@ -34,7 +34,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
       title: "Artwork",
       href: "/artwork",
     },
-    { title: "User", href: "/login" },
+    { title: `${user ? user : "User"}`, href: "/login" },
   ];
   return (
     <div className="mt-8">
@@ -58,7 +58,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
           </motion.div>
         ))}
       </div>
-      <SignOutButton setOpenMenu={setOpenMenu} />
+      <SignOutButton setOpenMenu={setOpenMenu} setUser={setUser} />
       <hr className="w-[80%] border-bg mx-auto mt-4 opacity-50"></hr>
       <motion.div className="flex justify-center mt-5 gap-4">
         <a

@@ -4,16 +4,19 @@ import EditImages from "@/app/_components/EditImages";
 import ImageSlide from "@/app/_components/ImageSlide";
 import ImageUpload from "@/app/_components/ImageUpload";
 import Spinner from "@/app/_components/Spinner";
+import { ImageProvider } from "@/app/_contexts/ImageContext";
 import { getStripeProducts } from "@/app/_lib/actions";
 import { getImages } from "@/app/_lib/data-services";
 import { Suspense } from "react";
 
 export const revalidate = 0;
 
+export const metadata = { title: "Admin Artwork" };
+
 export default async function Page({ params }) {
   const data = await getImages(params.id);
   const imageUrls = data?.map((item) => {
-    return item.imageUrl;
+    return item;
   });
   const products = await getStripeProducts();
   const [product] = products.filter((product) => {
@@ -25,11 +28,13 @@ export default async function Page({ params }) {
   return (
     <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
       <BackButton />
-      <Suspense fallback={<Spinner />}>
-        <ImageSlide images={images} />
-      </Suspense>
-      <ImageUpload params={params} />
-      <EditImages images={images} params={params} />
+      <ImageProvider serverImages={images}>
+        <Suspense fallback={<Spinner />}>
+          <ImageSlide />
+        </Suspense>
+        <ImageUpload params={params} />
+        <EditImages params={params} />
+      </ImageProvider>
       <div className="flex flex-col items-center mt-5 mx-10">
         <h1 className="text-5xl">{name}</h1>
         <p className="max-w-[800px] mb-5">{description}</p>

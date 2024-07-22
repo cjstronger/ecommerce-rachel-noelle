@@ -6,6 +6,7 @@ export default function NavigationButtons({
   openMenu,
   setOpenMenu,
   ref2,
+  user,
 }) {
   return !burger ? (
     <ul className="flex text-lg text-fadedBlack h-full font-satoshi lowercase">
@@ -19,7 +20,7 @@ export default function NavigationButtons({
         <ActiveLink href="/artwork">Artwork</ActiveLink>
       </li>
       <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
-        <ActiveLink href="/login">user</ActiveLink>
+        <ActiveLink href="/login">{user ? user : "user"}</ActiveLink>
       </li>
     </ul>
   ) : (

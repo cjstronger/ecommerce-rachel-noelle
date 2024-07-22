@@ -3,10 +3,11 @@
 import toast from "react-hot-toast";
 import { supaLogout } from "../_lib/actions";
 
-export default function SignOutButton({ setOpenMenu, type }) {
+export default function SignOutButton({ setOpenMenu, type, setUser }) {
   async function handleSignout() {
     if (!type) {
       setOpenMenu(false);
+      setUser(null);
       await supaLogout();
       toast.success("Signed out");
     } else {

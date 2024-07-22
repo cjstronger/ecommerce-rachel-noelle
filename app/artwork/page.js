@@ -1,4 +1,5 @@
 import ArtTab from "../_components/ArtTab";
+import { ImageProvider } from "../_contexts/ImageContext";
 import { getStripeProducts } from "../_lib/actions";
 import { getAllImages } from "../_lib/data-services";
 

@@ -25,7 +25,7 @@ async function sendGuideEmail(appEmail, appFullName) {
   const { data, error } = await resend.emails.send({
     from: "Rachel Noelle <rachel@rachelnoelle.net>",
     to: [`${appEmail}`],
-    subject: "Thank you for your application!",
+    subject: "My Daily Food Guide - Rachel Noelle",
     attachments: [
       {
         filename: "DailyFoodGuide-RachelNoelle.pdf",

@@ -7,20 +7,22 @@ import {
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useState } from "react";
+import { useImages } from "../_contexts/ImageContext";
 
-export default function ImageSlide({ images, name = "art" }) {
+export default function ImageSlide({ name = "art" }) {
   const [index, setIndex] = useState(0);
   const [imageClicked, setImageClicked] = useState(false);
+  const { contextImages } = useImages();
 
   function handleBack() {
     if (index < 1) {
-      setIndex(images.length - 1);
+      setIndex(contextImages.length - 1);
       return;
     }
     setIndex(index - 1);
   }
   function handleNext() {
-    if (index === images.length - 1) {
+    if (index === contextImages.length - 1) {
       setIndex(0);
       return;
     }
@@ -37,7 +39,7 @@ export default function ImageSlide({ images, name = "art" }) {
           >
             <XMarkIcon />
           </button>
-          {images.length > 1 && (
+          {contextImages.length > 1 && (
             <>
               <button
                 onClick={handleBack}
@@ -56,15 +58,15 @@ export default function ImageSlide({ images, name = "art" }) {
           <Image
             fill
             quality={100}
-            src={`${images[index]}`}
+            src={`${contextImages[index]}`}
             alt={`${name} ${index}`}
             className="z-30 object-contain backdrop-blur-lg"
           />
         </div>
       ) : (
         <div className="aspect-[2/3] md:aspect-[3/2] xl:aspect-[3/1] relative mt-5 mx-11 overflow-hidden mb-5">
-          {images.length > 0 ? (
-            images.map((image, i) =>
+          {contextImages.length > 0 ? (
+            contextImages.map((image, i) =>
               i === index ? (
                 <Image
                   fill
@@ -91,7 +93,7 @@ export default function ImageSlide({ images, name = "art" }) {
           )}
         </div>
       )}
-      {images.length > 1 && (
+      {contextImages.length > 1 && (
         <div className="flex gap-10 justify-center">
           <button
             onClick={handleBack}

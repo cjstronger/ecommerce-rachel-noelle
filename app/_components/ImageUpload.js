@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { addImages } from "../_lib/data-services";
 import toast from "react-hot-toast";
+import { useImages } from "../_contexts/ImageContext";
 
 export default function ImageUpload({ params }) {
+  const { getImagesById } = useImages();
   const [file, setFile] = useState(null);
 
   async function handleUpload() {
@@ -21,7 +23,9 @@ export default function ImageUpload({ params }) {
       return;
     }
     toast.success(`${file.name} Uploaded!`);
+    getImagesById(params.id);
   }
+
   return (
     <div className="flex justify-between gap-4 flex-col items-center">
       <div

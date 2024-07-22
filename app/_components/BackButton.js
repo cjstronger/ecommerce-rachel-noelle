@@ -11,7 +11,7 @@ export default function BackButton() {
       className="text-xl size-5 flex items-center"
     >
       <ArrowLeftIcon className="w-5 h-5 absolute" />
-      <h1 className="px-6 border-b-2 border-b-transparent hover:border-b-accent transition-all duration-150">
+      <h1 className="px-6 border-b-2 border-b-transparent hover:border-b-blackTrans transition-all duration-150">
         Back
       </h1>
     </button>

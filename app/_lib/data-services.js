@@ -1,11 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { supabase, supabaseUrl } from "./supabase";
-import { createClient } from "../utils/supabase/server";
+import { supabase, supabaseAdmin, supabaseUrl } from "./supabase";
 
 export async function checkApplicantByEmail(email) {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from("applicants")
     .select("appEmail")
     .eq("appEmail", email);
@@ -14,23 +13,22 @@ export async function checkApplicantByEmail(email) {
 }
 
 export async function getApplicants() {
-  const { data, error } = await supabase.from("applicants").select("*");
+  const { data, error } = await supabaseAdmin.from("applicants").select("*");
   if (error) console.error("Applicants could not be retrieved");
   return { data };
 }
 
 export async function addApplicant(user) {
-  const { data, error } = await supabase.from("applicants").insert([user]);
+  const { data, error } = await supabaseAdmin.from("applicants").insert([user]);
   if (error) console.error("User could not be added to the applicants");
   return { data, error };
 }
 
 export async function approveApplicant(email) {
-  const supabaser = createClient();
   const {
     data: { users },
     error: userError,
-  } = await supabaser.auth.admin.listUsers();
+  } = await supabaseAdmin.auth.admin.listUsers();
   if (userError) console.error("User Error", userError);
 
   const [userToUpdate] = users.filter((user) => {
@@ -40,12 +38,12 @@ export async function approveApplicant(email) {
   const userId = userToUpdate.id;
 
   const { data: roleData, error: roleError } =
-    await supabaser.auth.admin.updateUserById(userId, {
+    await supabaseAdmin.auth.admin.updateUserById(userId, {
       app_metadata: { role: "approved" },
     });
   if (roleError) throw new Error("Error in the role add", roleError);
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from("applicants")
     .update({ approved: true })
     .eq("appEmail", email);
@@ -61,7 +59,7 @@ export async function getImages(id) {
     .eq("productId", id);
   if (error) console.error(error);
   if (!data) return [];
-  return data;
+  return data && data.map((item) => item.imageUrl);
 }
 
 const SITEURL = "https://rachelnoelle.net";
@@ -73,14 +71,14 @@ export async function addImages(formData) {
   const userUrl = `${SITEURL}/artwork/${id}`;
   const fileName = file.name.split(" ").join("").replace("/", "");
   const folderPath = `${id}/${fileName}`;
-  const { data, error } = await supabase.storage
+  const { data, error } = await supabaseAdmin.storage
     .from("product_images")
     .upload(`${folderPath}`, file);
   if (error) {
     console.error(error);
     return { error };
   }
-  const { data: imageData, error: imageError } = await supabase
+  const { data: imageData, error: imageError } = await supabaseAdmin
     .from("images")
     .insert({
       productId: id,
@@ -90,7 +88,6 @@ export async function addImages(formData) {
     console.error(imageError);
     return { imageError };
   }
-  revalidatePath(adminUrl);
   return { imageError: undefined, error: undefined };
 }
 
@@ -101,24 +98,70 @@ export async function getAllImages() {
   return data;
 }
 
-export async function deleteImages(images, id) {
-  const imageNames = images.map((image) => image.split("/").slice(9).join(""));
-  const imagePaths = imageNames.map((image) => `${id}/${image}`);
+export async function deleteImages(image, id) {
+  const imageName = image.split("/").slice(9).join("");
+  const imagePath = `${id}/${imageName}`;
 
-  const { data: storageData, error: storageError } = await supabase.storage
+  const { data: storageData, error: storageError } = await supabaseAdmin.storage
     .from("product_images")
-    .remove(imagePaths);
+    .remove(imagePath);
   if (storageError) {
     return { storageError };
   }
 
-  const { data: tableData, error: tableError } = await supabase
+  const { data: tableData, error: tableError } = await supabaseAdmin
     .from("images")
     .delete()
-    .in("imageUrl", images);
+    .eq("imageUrl", image);
   if (tableError) {
     return { tableError };
   }
 
   return { storageError: null, tableError: null };
+}
+
+export async function updateImages(images, id) {
+  const { data: imagesData, error: fetchError } = await supabaseAdmin
+    .from("images")
+    .select("created_at, imageUrl, productId")
+    .eq("productId", id);
+
+  if (fetchError) {
+    console.error(fetchError);
+    return { fetchError };
+  }
+
+  const updatedImages = imagesData.map((image, i) => {
+    const createdAt = new Date();
+    const seconds = createdAt.getSeconds();
+    const newSeconds = Math.floor(seconds / 10) * 10 + i + 1;
+    createdAt.setSeconds(newSeconds);
+    return {
+      imageUrl: image.imageUrl,
+      createdAt: createdAt.toISOString(),
+    };
+  });
+
+  const imageIndexMap = new Map();
+  images.forEach((image, index) => {
+    imageIndexMap.set(image, index);
+  });
+
+  updatedImages.sort((a, b) => {
+    return imageIndexMap.get(a.imageUrl) - imageIndexMap.get(b.imageUrl);
+  });
+
+  for (const image of updatedImages) {
+    const { error: updateError } = await supabaseAdmin
+      .from("images")
+      .update({ created_at: image.createdAt })
+      .eq("imageUrl", image.imageUrl);
+
+    if (updateError) {
+      console.error(updateError);
+      return { errors: [updateError] };
+    }
+  }
+
+  return { errors: null };
 }
