@@ -4,8 +4,6 @@ import TitleSeparator from "./_components/TitleSeparator";
 import ReviewsAll from "./_components/ReviewsAll";
 import Image from "next/image";
 import Link from "next/link";
-import LocoParalax from "./_components/LocoParalax";
-import LocoParalaxItem from "./_components/LocoParalaxItem";
 
 export const metadata = { title: "Rachel Noelle - Coaching" };
 
@@ -25,9 +23,6 @@ export default function Page() {
           alt="Rachel-Noelle-Waterfall"
           priority="true"
         />
-        <LocoParalax>
-          <LocoParalaxItem>.</LocoParalaxItem>
-        </LocoParalax>
       </div>
       <div className="mt-6 flex flex-col items-center justify-center mx-auto max-w-[1000px] px-4 gap-5 lg:gap-11">
         <div className="flex flex-col">

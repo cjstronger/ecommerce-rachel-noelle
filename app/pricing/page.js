@@ -1,6 +1,4 @@
 import Image from "next/image";
-import LocoParalax from "../_components/LocoParalax";
-import LocoParalaxItem from "../_components/LocoParalaxItem";
 import Benefit from "../_components/Benefit";
 import AddToCart from "../_components/AddToCart";
 
@@ -16,14 +14,6 @@ export default function Page() {
           className="object-cover object-top"
           quality={100}
         />
-        <LocoParalax textPosition="right">
-          <LocoParalaxItem text="xl" lg="5xl">
-            Sample
-          </LocoParalaxItem>
-          <LocoParalaxItem text="xl" lg="5xl">
-            More Sample
-          </LocoParalaxItem>
-        </LocoParalax>
       </div>
       <div className="mt-5">
         <h1 className="text-center text-xl lg:text-2xl">Benefits</h1>

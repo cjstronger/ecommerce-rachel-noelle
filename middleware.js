@@ -1,7 +1,6 @@
 "use server";
 
 import { NextResponse } from "next/server";
-import { updateSession } from "./app/utils/supabase/middleware";
 import { createClient } from "./app/utils/supabase/server";
 
 export const config = {
@@ -15,7 +14,7 @@ export default async function middleware(req) {
   } = await supabase.auth.getUser();
   const { pathname } = req.nextUrl;
   if (pathname.startsWith("/artwork/") && pathname !== "/artwork") {
-    if (!pathname.includes("/admin")) {
+    if (!pathname.includes("/admin") && user?.role === "service_role") {
       const redirectUrl = new URL(`${pathname}/admin`, req.nextUrl.origin);
       return NextResponse.redirect(redirectUrl);
     }

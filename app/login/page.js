@@ -33,6 +33,7 @@ export default function Page() {
         ></path>
       </svg>
       <h1 className="text-center text-4xl">User Login/Logout</h1>
+      <p className="text-center">currently only supporting google logins</p>
       <div className="flex items-center flex-col mt-5 gap-5 text-2xl font-satoshi">
         <SignInButton provider="google" />
         <SignOutButton type="page" />
