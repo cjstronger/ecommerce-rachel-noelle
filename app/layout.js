@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Header from "./_components/Header";
 import { CartProvider } from "./_contexts/CartContext";
 import { Toaster } from "react-hot-toast";
+import { UserProvider } from "./_contexts/userContext";
 
 export const metadata = {
   title: { template: "%s - Rachel Noelle", default: "Rachel Noelle" },
@@ -26,8 +27,10 @@ export default function RootLayout({ children }) {
         className={`${luxiachy.className} bg-bg min-h-screen flex flex-col`}
       >
         <CartProvider>
-          <Header />
-          <div className="flex-1">{children}</div>
+          <UserProvider>
+            <Header />
+            <div className="flex-1">{children}</div>
+          </UserProvider>
         </CartProvider>
         <Toaster />
       </body>

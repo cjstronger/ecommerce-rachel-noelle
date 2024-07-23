@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import SignOutButton from "./SignOutButton";
 import ActiveLink from "./ActiveLink";
+import { useUser } from "../_contexts/userContext";
 
 const variants = {
   initial: {
@@ -20,8 +21,9 @@ const variants = {
   },
 };
 
-export default function Menu({ openMenu, setOpenMenu, user, setUser }) {
-  const menuItems = [
+export default function Menu({ openMenu, setOpenMenu }) {
+  const { user, setUser } = useUser();
+  const MENUITEMS = [
     {
       title: "About",
       href: "/#about",
@@ -34,29 +36,43 @@ export default function Menu({ openMenu, setOpenMenu, user, setUser }) {
       title: "Artwork",
       href: "/artwork",
     },
-    { title: `${user ? user : "User"}`, href: "/login" },
+    {
+      title: `${
+        user?.app_metadata?.full_name
+          ? user.app_metadata.full_name.split(" ")[0]
+          : "User"
+      }`,
+      href: "/login",
+    },
+    user?.role === "service_role" && {
+      title: "Applicants",
+      href: "/apply/applicants",
+    },
   ];
   return (
     <div className="mt-8">
       <div className="mb-[35%]">
-        {menuItems.map((item, i) => (
-          <motion.div
-            animate={openMenu ? "enter" : "exit"}
-            variants={variants}
-            custom={i}
-            exit={"exit"}
-            key={i}
-            className="flex flex-col text-5xl gap-5"
-          >
-            <ActiveLink
-              type="mobile"
-              href={item.href}
-              setOpenMenu={setOpenMenu}
-            >
-              {item.title}
-            </ActiveLink>
-          </motion.div>
-        ))}
+        {MENUITEMS.map(
+          (item, i) =>
+            item && (
+              <motion.div
+                animate={openMenu ? "enter" : "exit"}
+                variants={variants}
+                custom={i}
+                exit={"exit"}
+                key={i}
+                className="flex flex-col text-5xl gap-5"
+              >
+                <ActiveLink
+                  type="mobile"
+                  href={item.href}
+                  setOpenMenu={setOpenMenu}
+                >
+                  {item.title}
+                </ActiveLink>
+              </motion.div>
+            )
+        )}
       </div>
       <SignOutButton setOpenMenu={setOpenMenu} setUser={setUser} />
       <hr className="w-[80%] border-bg mx-auto mt-4 opacity-50"></hr>

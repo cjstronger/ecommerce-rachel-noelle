@@ -2,7 +2,6 @@
 
 import { createContext, useContext, useState } from "react";
 import { getImages } from "../_lib/data-services";
-import toast from "react-hot-toast";
 
 const ImageContext = createContext();
 

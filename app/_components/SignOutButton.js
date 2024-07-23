@@ -11,6 +11,7 @@ export default function SignOutButton({ setOpenMenu, type, setUser }) {
       await supaLogout();
       toast.success("Signed out");
     } else {
+      setUser(null);
       await supaLogout();
       toast.success("Signed out");
     }
