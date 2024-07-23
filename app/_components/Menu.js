@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import SignOutButton from "./SignOutButton";
 import ActiveLink from "./ActiveLink";
-import { useUser } from "../_contexts/userContext";
+import { useUser } from "../_contexts/UsersContext";
 
 const variants = {
   initial: {

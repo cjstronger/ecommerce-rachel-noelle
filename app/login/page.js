@@ -3,7 +3,7 @@
 import Link from "next/link";
 import SignInButton from "../_components/SignInButton";
 import SignOutButton from "../_components/SignOutButton";
-import { useUser } from "../_contexts/userContext";
+import { useUser } from "../_contexts/UsersContext";
 
 export default function Page() {
   const { user, setUser } = useUser();

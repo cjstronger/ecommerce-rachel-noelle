@@ -1,6 +1,6 @@
 import MenuNav from "./MenuNav";
 import ActiveLink from "./ActiveLink";
-import { useUser } from "../_contexts/userContext";
+import { useUser } from "../_contexts/UsersContext";
 
 export default function NavigationButtons({
   burger,
