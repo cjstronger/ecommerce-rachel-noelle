@@ -8,6 +8,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export default function ReviewsAll() {
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [touched, setTouched] = useState(false);
 
   const variants = {
     move: { translateX: `${reviewIndex * -100}%` },
@@ -21,7 +22,9 @@ export default function ReviewsAll() {
     setReviewIndex(reviewIndex - 1);
   }
   function handleNext() {
-    console.log("called");
+    if (!touched && reviewIndex !== 0) {
+      setReviewIndex(0);
+    }
     if (reviewIndex === exampleReviews.length - 1) {
       setReviewIndex(0);
       return;
@@ -39,6 +42,7 @@ export default function ReviewsAll() {
         </button>
         <button
           onClick={handleNext}
+          onTouchStart={() => setTouched(true)}
           className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150 z-10 md:static absolute bottom-[-35rem] right-[30vw]"
         >
           <ArrowRightIcon className="lg:size-10 size-7" />
