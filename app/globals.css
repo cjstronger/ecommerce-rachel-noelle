@@ -148,3 +148,23 @@ p[data-email]:hover + .content-email {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
+
+.reviews::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+  height: 0px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+/* The scrollbar track */
+.reviews::-webkit-scrollbar-track {
+  background: transparent; /* Color of the track */
+}
+
+/* The scrollbar thumb */
+.reviews::-webkit-scrollbar-thumb {
+  background: transparent; /* Color of the thumb */
+}
+
+/* The scrollbar thumb on hover */
+.reviews::-webkit-scrollbar-thumb:hover {
+  background: transparent; /* Color of the thumb when hovered */
+}

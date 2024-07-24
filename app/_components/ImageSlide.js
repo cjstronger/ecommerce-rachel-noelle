@@ -74,7 +74,9 @@ export default function ImageSlide({ name = "art" }) {
                   src={`${image}`}
                   alt={`${name} ${index}`}
                   className="object-contain"
-                  onClick={() => setImageClicked(true)}
+                  onClick={() => {
+                    setImageClicked(true);
+                  }}
                   key={i}
                 />
               ) : (
