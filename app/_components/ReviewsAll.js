@@ -20,7 +20,7 @@ export default function ReviewsAll() {
     scrollTimeout = setTimeout(() => {
       setScrolled(true);
       setTouched((touched) => !touched);
-    }, 200);
+    }, 25);
   }
 
   useEffect(() => {
@@ -88,12 +88,12 @@ export default function ReviewsAll() {
           })}
         </motion.div>
       </div>
-      <div className="flex items-center justify-center gap-4 mt-[-5rem] mb-[5rem] h-2">
+      <div className="flex items-center justify-center gap-4 h-2 mt-[-4.5rem] mb-10">
         {exampleReviews.map((review, i) => (
           <div
             key={i}
-            className={`rounded-full bg-white transition-all duration-150 ${
-              i === reviewIndex ? "size-2" : "size-1"
+            className={`rounded-full transition-all duration-150 ${
+              i === reviewIndex ? "size-2 bg-accent" : "size-1 bg-white"
             } `}
           />
         ))}
