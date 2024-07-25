@@ -7,8 +7,11 @@ export default function OriginalsLoading() {
         <div className="bg-bgDark rounded-lg w-10 h-3 animate-pulse" />
       </div>
       <div className="grid grid-cols-2 gap-5 mt-6">
-        {FAKE_ORIGINALS.map((fake) => (
-          <div className="lg:size-[20rem] size=[12rem] bg-bgDark rounded-lg animate-pulse" />
+        {FAKE_ORIGINALS.map((fake, i) => (
+          <div
+            key={i}
+            className="lg:size-[20rem] size=[12rem] bg-bgDark rounded-lg animate-pulse"
+          />
         ))}
       </div>
     </>
