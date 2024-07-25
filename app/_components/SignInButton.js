@@ -24,7 +24,12 @@ export default function SignInButton({ provider }) {
       disabled={isPending}
       onClick={() => handleSignIn(`${provider}`)}
     >
-      {isPending ? "redirecting" : `login with ${provider}`}
+      {isPending
+        ? "redirecting"
+        : `login with ${provider.split("")[0].toUpperCase()}${provider
+            .split("")
+            .slice(1)
+            .join("")}`}
     </button>
   );
 }

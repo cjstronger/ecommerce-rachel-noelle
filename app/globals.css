@@ -28,16 +28,16 @@
   }
 
   .cls-1 {
-    fill: white;
+    fill: #e63b2e;
   }
   .cls-2 {
-    fill: #313423;
+    fill: #f9b604;
   }
   .cls-3 {
-    fill: #949e7b;
+    fill: #2da24b;
   }
   .cls-4 {
-    fill: #373633;
+    fill: #3b7ef2;
   }
 
   @keyframes rotate {
@@ -142,6 +142,11 @@ p[data-email]:hover + .content-email {
 /* The scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color of the thumb when hovered */
+  cursor: default;
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
 }
 
 .backdrop-blur {

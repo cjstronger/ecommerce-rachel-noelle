@@ -6,7 +6,10 @@ export const formData = [
     inputs: [
       { label: "First Name", placeholder: "Your first name" },
       { label: "Last Name", placeholder: "Your first name" },
-      { label: "Email", placeholder: "Your email" },
+      {
+        label: "Email",
+        placeholder: "Your google email/gmail",
+      },
     ],
   },
   {

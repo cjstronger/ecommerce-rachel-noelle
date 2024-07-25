@@ -6,13 +6,29 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useImages } from "../_contexts/ImageContext";
+import { motion } from "framer-motion";
 
 export default function ImageSlide({ name = "art" }) {
   const [index, setIndex] = useState(0);
   const [imageClicked, setImageClicked] = useState(false);
   const { contextImages } = useImages();
+  const [touched, setTouched] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  function handleOnScroll() {
+    setScrolled(true);
+    setTouched((touched) => !touched);
+  }
+
+  useEffect(() => {
+    const imagesElement = document.querySelector("#images");
+    const images = { imagesElement };
+    const imageDif =
+      images.imagesElement.scrollLeft - images.imagesElement.offsetWidth;
+    setIndex(imageDif / images.imagesElement.offsetWidth + 1);
+  }, [touched]);
 
   function handleBack() {
     if (index < 1) {
@@ -60,43 +76,53 @@ export default function ImageSlide({ name = "art" }) {
             quality={100}
             src={`${contextImages[index]}`}
             alt={`${name} ${index}`}
-            className="z-30 object-contain backdrop-blur-lg"
+            className="z-30 object-contain backdrop-blur"
           />
         </div>
       ) : (
-        <div className="aspect-[2/3] md:aspect-[3/2] xl:aspect-[3/1] relative mt-5 mx-11 overflow-hidden mb-5">
-          {contextImages.length > 0 ? (
-            contextImages.map((image, i) =>
-              i === index ? (
-                <Image
-                  fill
-                  quality={100}
-                  src={`${image}`}
-                  alt={`${name} ${index}`}
-                  className="object-contain"
-                  onClick={() => {
-                    setImageClicked(true);
-                  }}
-                  key={i}
-                />
-              ) : (
-                <Image
-                  fill
-                  quality={100}
-                  src={`${image}`}
-                  alt={`${name} ${index}`}
-                  className="object-contain -translate-x-[-100%]"
-                  key={i}
-                />
-              )
-            )
-          ) : (
-            <p className="text-2xl text-center">No images yet</p>
-          )}
-        </div>
+        <>
+          <div
+            id="images"
+            onScroll={handleOnScroll}
+            className="aspect-[3/3] md:aspect-[3/2] xl:aspect-[3/1] overflow-scroll flex reviews snap-x snap-mandatory mb-5"
+          >
+            {contextImages.length > 0 ? (
+              <div className={`flex w-[${contextImages.length}00vw] h-full`}>
+                {contextImages.map((image, i) => (
+                  <motion.div
+                    className="w-[100vw] h-full relative snap-start"
+                    key={i}
+                  >
+                    <Image
+                      fill
+                      quality={100}
+                      src={`${image}`}
+                      alt={`${name} ${index}`}
+                      onClick={() => {
+                        setImageClicked(true);
+                      }}
+                      className="object-contain"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-2xl text-center">No images yet</p>
+            )}
+          </div>
+          <div className="flex gap-2 flex-row justify-center items-center h-2">
+            {contextImages.map((image, i) => (
+              <div
+                className={`rounded-full transition-all duration-150 ${
+                  i === index ? "size-2 bg-accent" : "size-1 bg-neutral-400"
+                }`}
+              />
+            ))}
+          </div>
+        </>
       )}
       {contextImages.length > 1 && (
-        <div className="flex gap-10 justify-center">
+        <div className="hidden gap-10 justify-center lg:flex">
           <button
             onClick={handleBack}
             className="p-4 hover:border-blackTrans border-b-2 border-b-transparent transition-all duration-150"

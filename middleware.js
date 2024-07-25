@@ -2,9 +2,11 @@
 
 import { NextResponse } from "next/server";
 import { createClient } from "./app/utils/supabase/server";
+import { cookies } from "next/headers";
+import { setLoginCookies } from "./app/_lib/actions";
 
 export const config = {
-  matcher: ["/pricing", "/artwork/:path*", "/apply/applicants"],
+  matcher: ["/pricing", "/artwork/:path*", "/apply/applicants", "/apply"],
 };
 
 export default async function middleware(req) {
@@ -30,6 +32,13 @@ export default async function middleware(req) {
     if (user?.role !== "service_role") {
       const redirectUrl = new URL(`/apply`, req.nextUrl.origin);
       return NextResponse.redirect(redirectUrl);
+    }
+  } else if (pathname.startsWith("/apply")) {
+    if (!user) {
+      const redirectUrl = new URL("/login", req.nextUrl.origin);
+      const response = NextResponse.redirect(redirectUrl);
+      response.cookies.set("applyVisited", true);
+      return response;
     }
   }
 }

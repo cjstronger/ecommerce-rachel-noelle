@@ -1,7 +1,7 @@
 "use server";
 
 import Stripe from "stripe";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "../utils/supabase/server";
 
@@ -41,4 +41,11 @@ export async function getStripeProducts() {
   });
   const data = res.data;
   return data;
+}
+
+export async function setLoginCookies(boolean) {
+  const cookieStore = cookies();
+  boolean
+    ? cookieStore.set("loginVisited", true) && console.log("hey we got it!")
+    : cookieStore.set("loginVisited", false) && console.log("we dont got it!");
 }

@@ -4,7 +4,7 @@ export default function Footer() {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <footer className="bg-bgDark w-full h-[15rem] flex flex-col justify-evenly items-center gap-5 text-xl shadow-md">
+    <footer className="bg-bgDark w-full h-[15rem] flex flex-col justify-evenly items-center gap-5 text-xl shadow-md mt-[5rem]">
       <div className="flex gap-5">
         <Link
           target="_blank"
