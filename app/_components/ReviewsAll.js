@@ -9,6 +9,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 export default function ReviewsAll() {
   const [reviewIndex, setReviewIndex] = useState(0);
   const [touched, setTouched] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   let scrollTimeout;
 
@@ -17,6 +18,7 @@ export default function ReviewsAll() {
       clearTimeout(scrollTimeout);
     }
     scrollTimeout = setTimeout(() => {
+      setScrolled(true);
       setTouched((touched) => !touched);
     }, 200);
   }
@@ -26,8 +28,8 @@ export default function ReviewsAll() {
     const reviews = { reviewElement };
     const reviewDifference =
       reviews.reviewElement.scrollLeft - reviews.reviewElement.offsetWidth;
-    console.log(reviewDifference / reviews.reviewElement.offsetWidth);
-    setReviewIndex(reviewDifference / reviews.reviewElement.offsetWidth);
+    console.log(reviewDifference / reviews.reviewElement.offsetWidth + 1);
+    setReviewIndex(reviewDifference / reviews.reviewElement.offsetWidth + 1);
   }, [touched]);
 
   const variants = {
@@ -35,6 +37,7 @@ export default function ReviewsAll() {
   };
 
   function handleBack() {
+    setScrolled(false);
     if (reviewIndex < 1) {
       setReviewIndex(exampleReviews.length - 1);
       return;
@@ -42,6 +45,7 @@ export default function ReviewsAll() {
     setReviewIndex(reviewIndex - 1);
   }
   function handleNext() {
+    setScrolled(false);
     if (!touched && reviewIndex !== 0) {
       setReviewIndex(0);
     }
@@ -74,7 +78,7 @@ export default function ReviewsAll() {
       >
         <motion.div
           className="flex justify-center items-center w-full"
-          animate={"move"}
+          animate={!scrolled && "move"}
           variants={variants}
           initial={{ x: "100%" }}
           transition={{ ease: easeInOut }}
