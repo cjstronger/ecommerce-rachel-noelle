@@ -150,8 +150,12 @@ p[data-email]:hover + .content-email {
 }
 
 .reviews::-webkit-scrollbar {
-  width: 0px; /* Width of the scrollbar */
-  height: 0px; /* Height of the scrollbar (for horizontal scrollbars) */
+  display: none;
+}
+
+.reviews {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* The scrollbar track */
