@@ -1,7 +1,8 @@
+import { Suspense } from "react";
 import ArtTab from "../_components/ArtTab";
-import { ImageProvider } from "../_contexts/ImageContext";
 import { getStripeProducts } from "../_lib/actions";
 import { getAllImages } from "../_lib/data-services";
+import OriginalsLoading from "../_components/OriginalsLoading";
 
 export const metadata = { title: "Artwork" };
 
@@ -13,7 +14,9 @@ export default async function ArtworkPage() {
   return (
     <div className="lg:mt-[7rem] mt-[6rem] flex flex-col items-center mb-5 mx-5">
       <h1 className="text-3xl">Rachel Noelle Artwork</h1>
-      <ArtTab products={products} images={images} />
+      <Suspense fallback={<OriginalsLoading />}>
+        <ArtTab products={products} images={images} />
+      </Suspense>
     </div>
   );
 }

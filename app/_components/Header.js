@@ -7,6 +7,7 @@ import FreeGuideLink from "./FreeGuideLink";
 import { easeIn, motion } from "framer-motion";
 import Lenis from "lenis";
 import { useEffect } from "react";
+import Head from "next/head";
 
 export default function Header() {
   useEffect(() => {
@@ -28,6 +29,14 @@ export default function Header() {
   }, []);
   return (
     <>
+      <Head>
+        <link
+          rel="preload"
+          href="/_next/static/chunks/app/_components/Header.js"
+          as="script"
+        />
+        <link rel="preload" href="/next/static/css/globals.css" as="style" />
+      </Head>
       <motion.header
         initial={{ translateY: -100 }}
         animate={{ translateY: 0 }}

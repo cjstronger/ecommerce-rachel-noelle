@@ -17,6 +17,7 @@ module.exports = {
         fadedBlack: "#373633",
         blackTrans: "rgba(55, 54, 51, 0.5)",
         bg: "#e7e1d7",
+        bgDark: "#BDB7AF",
       },
       fontFamily: {
         dm: ["DM Sans", "sans-serif"],

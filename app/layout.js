@@ -4,6 +4,7 @@ import Header from "./_components/Header";
 import { CartProvider } from "./_contexts/CartContext";
 import { Toaster } from "react-hot-toast";
 import { UserProvider } from "./_contexts/UsersContext";
+import Footer from "./footer";
 
 export const metadata = {
   title: { template: "%s - Rachel Noelle", default: "Rachel Noelle" },
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
           </UserProvider>
         </CartProvider>
         <Toaster />
+        <Footer />
       </body>
     </html>
   );
