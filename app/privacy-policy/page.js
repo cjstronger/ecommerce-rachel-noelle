@@ -44,12 +44,13 @@ export default function Page() {
         <li>
           <p>
             <strong>Business</strong>, for the purpose of CCPA/CPRA, refers to
-            the Company as the legal entity that collects Consumers' personal
-            information and determines the purposes and means of the processing
-            of Consumers' personal information, or on behalf of which such
-            information is collected and that alone, or jointly with others,
-            determines the purposes and means of the processing of consumers'
-            personal information, that does business in the State of California.
+            the Company as the legal entity that collects Consumers&apos;
+            personal information and determines the purposes and means of the
+            processing of Consumers&apos; personal information, or on behalf of
+            which such information is collected and that alone, or jointly with
+            others, determines the purposes and means of the processing of
+            consumers&apos; personal information, that does business in the
+            State of California.
           </p>
         </li>
         <li>
@@ -219,7 +220,7 @@ export default function Page() {
       <h4>Usage Data</h4>
       <p>Usage Data is collected automatically when using the Service.</p>
       <p>
-        Usage Data may include information such as Your Device's Internet
+        Usage Data may include information such as Your Device&apos;s Internet
         Protocol address (e.g. IP address), browser type, browser version, the
         pages of our Service that You visit, the time and date of Your visit,
         the time spent on those pages, unique device identifiers and other
@@ -251,14 +252,14 @@ export default function Page() {
       <p>
         If You decide to register through or otherwise grant us access to a
         Third-Party Social Media Service, We may collect Personal data that is
-        already associated with Your Third-Party Social Media Service's account,
-        such as Your name, Your email address, Your activities or Your contact
-        list associated with that account.
+        already associated with Your Third-Party Social Media Service&apos;s
+        account, such as Your name, Your email address, Your activities or Your
+        contact list associated with that account.
       </p>
       <p>
         You may also have the option of sharing additional information with the
-        Company through Your Third-Party Social Media Service's account. If You
-        choose to provide such information and Personal Data, during
+        Company through Your Third-Party Social Media Service&apos;s account. If
+        You choose to provide such information and Personal Data, during
         registration or otherwise, You are giving the Company permission to use,
         share, and store it in a manner consistent with this Privacy Policy.
       </p>
@@ -382,10 +383,11 @@ export default function Page() {
           <p>
             <strong>To contact You:</strong> To contact You by email, telephone
             calls, SMS, or other equivalent forms of electronic communication,
-            such as a mobile application's push notifications regarding updates
-            or informative communications related to the functionalities,
-            products or contracted services, including the security updates,
-            when necessary or reasonable for their implementation.
+            such as a mobile application&apos;s push notifications regarding
+            updates or informative communications related to the
+            functionalities, products or contracted services, including the
+            security updates, when necessary or reasonable for their
+            implementation.
           </p>
         </li>
         <li>
@@ -483,12 +485,13 @@ export default function Page() {
       </p>
       <h3 className="text-xl">Transfer of Your Personal Data</h3>
       <p>
-        Your information, including Personal Data, is processed at the Company's
-        operating offices and in any other places where the parties involved in
-        the processing are located. It means that this information may be
-        transferred to — and maintained on — computers located outside of Your
-        state, province, country or other governmental jurisdiction where the
-        data protection laws may differ than those from Your jurisdiction.
+        Your information, including Personal Data, is processed at the
+        Company&apos;s operating offices and in any other places where the
+        parties involved in the processing are located. It means that this
+        information may be transferred to — and maintained on — computers
+        located outside of Your state, province, country or other governmental
+        jurisdiction where the data protection laws may differ than those from
+        Your jurisdiction.
       </p>
       <p>
         Your consent to this Privacy Policy followed by Your submission of such
@@ -780,8 +783,8 @@ export default function Page() {
           <p>
             Examples: A real name, alias, postal address, unique personal
             identifier, online identifier, Internet Protocol address, email
-            address, account name, driver's license number, passport number, or
-            other similar identifiers.
+            address, account name, driver&apos;s license number, passport
+            number, or other similar identifiers.
           </p>
           <p>Collected: Yes.</p>
         </li>
@@ -795,7 +798,7 @@ export default function Page() {
           <p>
             Examples: A name, signature, Social Security number, physical
             characteristics or description, address, telephone number, passport
-            number, driver's license or state identification card number,
+            number, driver&apos;s license or state identification card number,
             insurance policy number, education, employment, employment history,
             bank account number, credit card number, debit card number, or any
             other financial information, medical information, or health
@@ -906,7 +909,7 @@ export default function Page() {
             </strong>
           </p>
           <p>
-            Examples: Profile reflecting a person's preferences,
+            Examples: Profile reflecting a person&apos;s preferences,
             characteristics, psychological trends, predispositions, behavior,
             attitudes, intelligence, abilities, and aptitudes.
           </p>
@@ -927,7 +930,7 @@ export default function Page() {
         <li>Publicly available information from government records</li>
         <li>Deidentified or aggregated consumer information</li>
         <li>
-          Information excluded from the CCPA/CPRA's scope, such as:
+          Information excluded from the CCPA/CPRA&apos;s scope, such as:
           <ul>
             <li>
               Health or medical information covered by the Health Insurance
@@ -939,8 +942,8 @@ export default function Page() {
               Personal Information covered by certain sector-specific privacy
               laws, including the Fair Credit Reporting Act (FRCA), the
               Gramm-Leach-Bliley Act (GLBA) or California Financial Information
-              Privacy Act (FIPA), and the Driver's Privacy Protection Act of
-              1994
+              Privacy Act (FIPA), and the Driver&apos;s Privacy Protection Act
+              of 1994
             </li>
           </ul>
         </li>
@@ -1070,8 +1073,8 @@ export default function Page() {
         As defined in the CCPA/CPRA, &quot;sell&quot; and &quot;sale&quot; mean
         selling, renting, releasing, disclosing, disseminating, making
         available, transferring, or otherwise communicating orally, in writing,
-        or by electronic or other means, a Consumer's personal information by
-        the Business to a third party for valuable consideration. This means
+        or by electronic or other means, a Consumer&apos;s personal information
+        by the Business to a third party for valuable consideration. This means
         that We may have received some kind of benefit in return for sharing
         personal information, but not necessarily a monetary benefit.
       </p>
@@ -1110,9 +1113,9 @@ export default function Page() {
         age of 16 through our Service, although certain third party websites
         that we link to may do so. These third-party websites have their own
         terms of use and privacy policies and We encourage parents and legal
-        guardians to monitor their children's Internet usage and instruct their
-        children to never provide information on other websites without their
-        permission.
+        guardians to monitor their children&apos;s Internet usage and instruct
+        their children to never provide information on other websites without
+        their permission.
       </p>
       <p>
         We do not sell the personal information of Consumers We actually know
@@ -1242,10 +1245,10 @@ export default function Page() {
             <li>
               Engage in public or peer-reviewed scientific, historical, or
               statistical research in the public interest that adheres to all
-              other applicable ethics and privacy laws, when the information's
-              deletion may likely render impossible or seriously impair the
-              research's achievement, if You previously provided informed
-              consent.
+              other applicable ethics and privacy laws, when the
+              information&apos;s deletion may likely render impossible or
+              seriously impair the research&apos;s achievement, if You
+              previously provided informed consent.
             </li>
             <li>
               Enable solely internal uses that are reasonably aligned with
@@ -1261,7 +1264,7 @@ export default function Page() {
         <li>
           <strong>The right not to be discriminated against.</strong> You have
           the right not to be discriminated against for exercising any of Your
-          consumer's rights, including by:
+          consumer&apos;s rights, including by:
           <ul>
             <li>Denying goods or services to You</li>
             <li>
@@ -1329,7 +1332,7 @@ export default function Page() {
       </p>
       <p>
         Any disclosures We provide will only cover the 12-month period preceding
-        the verifiable request's receipt.
+        the verifiable request&apos;s receipt.
       </p>
       <p>
         For data portability requests, We will select a format to provide Your
@@ -1342,8 +1345,8 @@ export default function Page() {
         As defined in the CCPA/CPRA, &quot;sell&quot; and &quot;sale&quot; mean
         selling, renting, releasing, disclosing, disseminating, making
         available, transferring, or otherwise communicating orally, in writing,
-        or by electronic or other means, a Consumer's personal information by
-        the Business to a third party for valuable consideration. This means
+        or by electronic or other means, a Consumer&apos;s personal information
+        by the Business to a third party for valuable consideration. This means
         that We may have received some kind of benefit in return for sharing
         personal information, but not necessarily a monetary benefit.
       </p>
@@ -1389,19 +1392,19 @@ export default function Page() {
       </p>
       <hr className=" mt-5 w-full h-[2px] bg-fadedBlack fill-fadedBlack border-fadedBlack"></hr>
       <h2 className="text-2xl mt-5">
-        Your California Privacy Rights (California's Shine the Light law)
+        Your California Privacy Rights (California&apos;s Shine the Light law)
       </h2>
       <p>
-        Under California Civil Code Section 1798 (California's Shine the Light
-        law), California residents with an established business relationship
-        with us can request information once a year about sharing their Personal
-        Data with third parties for the third parties' direct marketing
-        purposes.
+        Under California Civil Code Section 1798 (California&apos;s Shine the
+        Light law), California residents with an established business
+        relationship with us can request information once a year about sharing
+        their Personal Data with third parties for the third parties&apos;
+        direct marketing purposes.
       </p>
       <p>
-        If you'd like to request more information under the California Shine the
-        Light law, and if You are a California resident, You can contact Us
-        using the contact information provided below.
+        If you&apos;d like to request more information under the California
+        Shine the Light law, and if You are a California resident, You can
+        contact Us using the contact information provided below.
       </p>
       <hr className=" mt-5 w-full h-[2px] bg-fadedBlack fill-fadedBlack border-fadedBlack"></hr>
       <h2 className="text-2xl mt-5">
@@ -1425,7 +1428,7 @@ export default function Page() {
         permit or require removal in certain circumstances.
       </p>
       <hr className=" mt-5 w-full h-[2px] bg-fadedBlack fill-fadedBlack border-fadedBlack"></hr>
-      <h2 className="text-2xl mt-5">Children's Privacy</h2>
+      <h2 className="text-2xl mt-5">Children&apos;s Privacy</h2>
       <p>
         Our Service does not address anyone under the age of 13. We do not
         knowingly collect personally identifiable information from anyone under
@@ -1438,7 +1441,7 @@ export default function Page() {
       <p>
         If We need to rely on consent as a legal basis for processing Your
         information and Your country requires consent from a parent, We may
-        require Your parent's consent before We collect and use that
+        require Your parent&apos;s consent before We collect and use that
         information.
       </p>
       <hr className=" mt-5 w-full h-[2px] bg-fadedBlack fill-fadedBlack border-fadedBlack"></hr>
@@ -1446,8 +1449,8 @@ export default function Page() {
       <p>
         Our Service may contain links to other websites that are not operated by
         Us. If You click on a third party link, You will be directed to that
-        third party's site. We strongly advise You to review the Privacy Policy
-        of every site You visit.
+        third party&apos;s site. We strongly advise You to review the Privacy
+        Policy of every site You visit.
       </p>
       <p>
         We have no control over and assume no responsibility for the content,
