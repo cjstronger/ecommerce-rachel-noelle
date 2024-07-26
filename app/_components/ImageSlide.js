@@ -8,7 +8,7 @@ import {
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useImages } from "../_contexts/ImageContext";
-import { motion } from "framer-motion";
+import { easeIn, motion } from "framer-motion";
 
 export default function ImageSlide({ name = "art" }) {
   const [index, setIndex] = useState(0);
@@ -16,6 +16,7 @@ export default function ImageSlide({ name = "art" }) {
   const { contextImages } = useImages();
   const [touched, setTouched] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const variants = { move: { translateX: `${index * -100}%` } };
 
   function handleOnScroll() {
     setScrolled(true);
@@ -27,10 +28,11 @@ export default function ImageSlide({ name = "art" }) {
     const images = { imagesElement };
     const imageDif =
       images.imagesElement.scrollLeft - images.imagesElement.offsetWidth;
-    setIndex(imageDif / images.imagesElement.offsetWidth + 1);
+    setIndex(Number.parseInt(imageDif / images.imagesElement.offsetWidth + 1));
   }, [touched]);
 
   function handleBack() {
+    setScrolled(false);
     if (index < 1) {
       setIndex(contextImages.length - 1);
       return;
@@ -38,6 +40,7 @@ export default function ImageSlide({ name = "art" }) {
     setIndex(index - 1);
   }
   function handleNext() {
+    setScrolled(false);
     if (index === contextImages.length - 1) {
       setIndex(0);
       return;
@@ -90,6 +93,10 @@ export default function ImageSlide({ name = "art" }) {
               <div className={`flex w-[${contextImages.length}00vw] h-full`}>
                 {contextImages.map((image, i) => (
                   <motion.div
+                    variants={variants}
+                    initial={{ x: "0%" }}
+                    animate={!scrolled && "move"}
+                    transition={{ ease: easeIn }}
                     className="w-[100vw] h-full relative snap-start"
                     key={i}
                   >
@@ -107,7 +114,7 @@ export default function ImageSlide({ name = "art" }) {
                 ))}
               </div>
             ) : (
-              <p className="text-2xl text-center">No images yet</p>
+              <p className="text-2xl text-center mx-auto">No images yet</p>
             )}
           </div>
           <div className="flex gap-2 flex-row justify-center items-center h-2">

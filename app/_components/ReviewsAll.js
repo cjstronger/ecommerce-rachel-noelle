@@ -29,7 +29,10 @@ export default function ReviewsAll() {
   };
 
   function handleBack() {
-    setScrolled(false);
+    if (scrolled) {
+      setReviewIndex(0);
+      setScrolled(false);
+    }
     if (reviewIndex < 1) {
       setReviewIndex(exampleReviews.length - 1);
       return;
@@ -37,7 +40,10 @@ export default function ReviewsAll() {
     setReviewIndex(reviewIndex - 1);
   }
   function handleNext() {
-    setScrolled(false);
+    if (scrolled) {
+      setReviewIndex(0);
+      setScrolled(false);
+    }
     if (!touched && reviewIndex !== 0) {
       setReviewIndex(0);
     }
@@ -66,7 +72,7 @@ export default function ReviewsAll() {
       <div
         onScroll={handleScrollEnd}
         id="reviews"
-        className="lg:max-w-[80vw] mx-auto items-center justify-center relative h-[50vh] overflow-scroll snap-x snap-mandatory reviews"
+        className="lg:max-w-[80vw] mx-auto items-center justify-center relative h-[60vh] overflow-scroll snap-x snap-mandatory reviews"
       >
         <motion.div
           className="flex justify-center items-center w-full"
