@@ -20,7 +20,7 @@ export default function Review({ review }) {
         </div>
       )}
       <h1 className="text-5xl lg:text-6xl">{fullName}</h1>
-      <p className="px-8 text-lg md:text-xl">{reviewText}</p>
+      <p className="px-8 text-md md:text-lg">{reviewText}</p>
     </div>
   );
 }
