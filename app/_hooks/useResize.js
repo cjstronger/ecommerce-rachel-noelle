@@ -11,7 +11,6 @@ export default function useResize(ref2) {
       if (newWidth !== width && (newWidth < 1000 || prevWidth >= 1000)) {
         setWidth(newWidth);
         setPrevWidth(newWidth);
-        console.log(width);
       }
     }
 

@@ -32,15 +32,17 @@ export default function Page() {
           <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none">
             choosing your
           </h1>
-          <h1 className="text-[2.5rem] lg:text-[5rem] md:text-6xl uppercase leading-none">
+          <h1 className="text-[2.5rem] lg:text-[5rem] md:text-6xl uppercase leading-none text-center">
             best life?
           </h1>
         </div>
-        <div className="flex flex-col md:max-w-[800px] max-w-[300px]">
-          <div className="flex relative">
+        <div className="flex flex-col md:max-w-[800px] max-w-[500px]">
+          <div className="relative">
+            <p className="ml-5 text-sm md:text-lg lg:text-xl text-center">
+              Everyday we get a choice.
+            </p>
             <p className="ml-5 text-sm md:text-lg lg:text-xl">
-              everyday we get a choice. We all get to choose what our life looks
-              and feels.
+              We all get to choose what our life looks and feels like.
             </p>
           </div>
         </div>
@@ -61,12 +63,11 @@ export default function Page() {
           and I am here to remind you of this. My job is to create a
           personalized game plan for you to overcome your limiting beliefs and
           rediscover what you were meant to do on this earth. Together we will
-          get excited about what your dreams are and create a plan to manifest
-          them. I help you do this through inner child work, raising your
-          vibration, getting you aware of your blocks and clearing them, and
-          then creating a plan to start living your best life. Im so excited to
-          work with you and share with you on this abundant journey you are
-          about to partake in.
+          get excited about what your dreams are. I help you do this through
+          inner child work, raising your vibration, getting you aware of your
+          blocks and clearing them, and then creating a plan to start living
+          your best life. Im so excited to work with you and share with you on
+          this abundant journey you are about to partake in.
         </p>
         <Link
           className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"

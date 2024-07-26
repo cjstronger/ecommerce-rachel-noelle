@@ -113,6 +113,7 @@ export default function ImageSlide({ name = "art" }) {
           <div className="flex gap-2 flex-row justify-center items-center h-2">
             {contextImages.map((image, i) => (
               <div
+                key={i}
                 className={`rounded-full transition-all duration-150 ${
                   i === index ? "size-2 bg-accent" : "size-1 bg-neutral-400"
                 }`}

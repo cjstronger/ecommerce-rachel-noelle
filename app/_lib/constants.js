@@ -62,6 +62,12 @@ export const formData = [
 
 export const exampleReviews = [
   {
+    fullName: "Rachel Parsons",
+    stars: 4,
+    reviewText:
+      "Rachel helped me learn how to love taking care of my body through exercise! She created a plan that was clear & easy to follow. She lives her life as an example of the importance of taking care of ourselves mind, body, & spirit. By following her plan I was able to gain confidence in the gym & consistency in my workouts. She helped me learn that working out is more than just losing weight & that it’s a way to show myself the love that I deserve!",
+  },
+  {
     fullName: "Sandy Strong",
     stars: 2,
     reviewText: "Best coaching I've never experienced!",
@@ -71,38 +77,5 @@ export const exampleReviews = [
     stars: 5,
     reviewText:
       "My own daughter is starting this so I had to give her a free 5 fuh 5!",
-  },
-  {
-    fullName: "Bob Marley",
-    stars: 4,
-    reviewText: "What the fuck is he doin here?",
-  },
-];
-
-export const originals = [
-  {
-    title: "Art1",
-    image: "/images/sun.png",
-    description: "This piece of art is nice.",
-  },
-  {
-    title: "Art2",
-    image: "/images/sun.png",
-    description: "This piece of art is nice.",
-  },
-  {
-    title: "Art3",
-    image: "/images/sun.png",
-    description: "This piece of art is nice.",
-  },
-  {
-    title: "Art4",
-    image: "/images/sun.png",
-    description: "This piece of art is nice.",
-  },
-  {
-    title: "Art5",
-    image: "/images/sun.png",
-    description: "This piece of art is nice.",
   },
 ];

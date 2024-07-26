@@ -21,7 +21,6 @@ export default function ReviewsAll() {
     const reviews = { reviewElement };
     const reviewDifference =
       reviews.reviewElement.scrollLeft - reviews.reviewElement.offsetWidth;
-    console.log(reviewDifference / reviews.reviewElement.offsetWidth + 1);
     setReviewIndex(reviewDifference / reviews.reviewElement.offsetWidth + 1);
   }, [touched]);
 

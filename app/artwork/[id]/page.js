@@ -21,7 +21,6 @@ export default async function Page({ params }) {
   const { unit_amount } = product;
   let { name, images, description } = product.product;
   images = [...images, ...imageUrls];
-  console.log(images);
   return (
     <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
       <BackButton />

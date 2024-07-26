@@ -82,7 +82,6 @@ function CartProvider({ children }) {
       const res = localStorage.getItem("cartItems");
       const data = res ? JSON.parse(res) : [];
       const repeatData = data.filter((e, i) => e[0].id === id);
-      console.log(repeatData);
       if (repeatData.length > 0) {
         toast.error("Item is already in the cart");
         return;

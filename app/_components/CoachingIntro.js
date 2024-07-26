@@ -8,14 +8,16 @@ export default function CoachingIntro() {
           <h1 className="uppercase text-2xl lg:text-4xl mx-2 mb-2">
             Have you longed for...
           </h1>
-          <h1 className="text-sm lg:text-2xl mx-2">your purpose in life?</h1>
-          <h1 className="text-sm lg:text-2xl mx-2">
+          <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
+            your purpose in life?
+          </h1>
+          <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
             your existence to be up leveled?
           </h1>
-          <h1 className="text-sm lg:text-2xl mx-2">
+          <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
             guidance through your own blocks?
           </h1>
-          <h1 className="text-sm lg:text-2xl mx-2 mt-2">
+          <h1 className="text-sm lg:text-xl mx-2 mt-2 font-satoshi">
             If you let me help you expand yourself you will start shifting your
             reality to then manifest your deepest desires.
           </h1>

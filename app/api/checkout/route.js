@@ -20,7 +20,7 @@ export async function POST(request) {
     });
     return NextResponse.json({ session });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return new Response("error", {
       status: 405,
     });

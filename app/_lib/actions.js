@@ -42,10 +42,3 @@ export async function getStripeProducts() {
   const data = res.data;
   return data;
 }
-
-export async function setLoginCookies(boolean) {
-  const cookieStore = cookies();
-  boolean
-    ? cookieStore.set("loginVisited", true) && console.log("hey we got it!")
-    : cookieStore.set("loginVisited", false) && console.log("we dont got it!");
-}
