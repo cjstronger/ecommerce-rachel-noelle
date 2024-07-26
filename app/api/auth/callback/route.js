@@ -13,7 +13,9 @@ export async function GET(request) {
 
   const cookieStore = cookies();
   const applyVisited = cookieStore.get("applyVisited");
-  if (applyVisited?.value === "true") origin = `${origin}/apply`;
+  if (applyVisited?.value === "true") {
+    origin = `${origin}/apply`;
+  }
   cookieStore.set("applyVisited", false);
 
   return NextResponse.redirect(`${origin}`);

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { easeIn, motion } from "framer-motion";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import SignOutButton from "./SignOutButton";
 import ActiveLink from "./ActiveLink";
@@ -7,16 +7,13 @@ import { useUser } from "../_contexts/UsersContext";
 const variants = {
   initial: {
     opacity: 0,
-    translateY: 0,
   },
   enter: (i) => ({
     opacity: 1,
-    translateY: -20,
-    transition: { duration: 0.1, delay: (0.1 + i) * 0.05 },
+    transition: { duration: 0.1, delay: i * 0.1, ease: easeIn },
   }),
   exit: {
     opacity: 0,
-    translateY: 0,
     transition: { duration: 0.5 },
   },
 };
@@ -56,6 +53,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
           (item, i) =>
             item && (
               <motion.div
+                initial={"initial"}
                 animate={openMenu ? "enter" : "exit"}
                 variants={variants}
                 custom={i}

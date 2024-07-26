@@ -28,9 +28,21 @@ export default function Footer() {
           Email
         </Link>
       </div>
+      <Link
+        href="/privacy-policy"
+        className="text-lg border-x-[1px] border-fadedBlack px-2 lg:inline hidden"
+      >
+        Privacy Policy
+      </Link>
       <div className="w-full">
         <div className="flex flex-col items-center lg:flex-row justify-between mx-10">
           <h1>Rachel Noelle &copy; {year}</h1>
+          <Link
+            href="/privacy-policy"
+            className="text-base border-x-[1px] border-fadedBlack px-2 lg:hidden"
+          >
+            Privacy Policy
+          </Link>
           <Link
             target="_blank"
             href="https://www.github.com/cjstronger"

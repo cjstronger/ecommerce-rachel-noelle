@@ -44,7 +44,7 @@ export default function Input({
             message: errorPattern[1]?.message,
           },
         })}
-        className="min-w-[20rem] max-w-[30rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack text-fadedBlack focus:outline-none placeholder-accentFaded autofill:text-fadedBlack"
+        className="min-w-[50%] max-w-[30rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack text-fadedBlack focus:outline-none placeholder-accentFaded autofill:text-fadedBlack"
         placeholder={placeholder}
         disabled={pending}
         hidden={hidden}
