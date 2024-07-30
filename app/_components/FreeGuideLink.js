@@ -38,9 +38,7 @@ export default function FreeGuideLink() {
           href="/foodguide"
           className="w-full h-[100%] p-2"
         >
-          <h1 className="text-lg lg:text-2xl">
-            Download My Daily Food Guide for free!
-          </h1>
+          <h1 className="text-lg lg:text-2xl">Get my free e-book!</h1>
         </Link>
         <button
           className="p-2 text-white hover:text-red-800 transition-all duration-150"

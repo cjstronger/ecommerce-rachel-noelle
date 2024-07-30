@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Review({ review }) {
   const { fullName, reviewText, img } = review;
   return (
-    <div className="snap-start grid grid-rows-[auto, auto, 1fr] place-items-center p-2 items-center bg-accent min-w-[100%] h-[60vh] text-bg overflow-scroll">
+    <div className="snap-start grid grid-rows-[auto, auto, 1fr] place-items-center p-2 items-center bg-accent min-w-[100%] h-[60vh] text-bg overflow-scroll pt-5">
       {img ? (
         <div className="rounded-full w-[5rem] min-h-[5rem] relative border-2 border-bg row-span-1">
           <Image
