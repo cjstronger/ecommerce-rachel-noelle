@@ -6,7 +6,7 @@ export default function AddToCart({ id, children }) {
   const { addCartItem, itemAdding } = useCart();
   return (
     <button
-      className="font-satoshi lowercase border-fadedBlack border hover:bg-primaryFaded p-2 transition-all duration-400 text-xl min-h-[50px] min-w-[125px] flex justify-center items-center"
+      className="font-satoshi lowercase border-fadedBlack border hover:bg-accentFaded p-2 transition-all duration-400 text-xl min-h-[50px] min-w-[125px] flex justify-center items-center"
       onClick={async () => {
         await addCartItem(id);
       }}

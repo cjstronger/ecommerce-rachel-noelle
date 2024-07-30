@@ -9,21 +9,21 @@ export default function Footer() {
         <Link
           target="_blank"
           href="https://www.youtube.com/@rachelnoelleschannel"
-          className="border-[1px] border-fadedBlack p-2 hover:bg-bg transition-all duration-150"
+          className="border-[1px] border-fadedBlack p-2 hover:bg-accentFaded transition-all duration-150"
         >
           Youtube
         </Link>
         <Link
           target="_blank"
           href="https://www.instagram.com/rachelnoellesart"
-          className="border-[1px] border-fadedBlack p-2 hover:bg-bg transition-all duration-150"
+          className="border-[1px] border-fadedBlack p-2 hover:bg-accentFaded transition-all duration-150"
         >
           Instagram
         </Link>
         <Link
           target="_blank"
           href="mailto:rachelnoellesart@gmail.com"
-          className="border-[1px] border-fadedBlack p-2 hover:bg-bg transition-all duration-150"
+          className="border-[1px] border-fadedBlack p-2 hover:bg-accentFaded transition-all duration-150"
         >
           Email
         </Link>

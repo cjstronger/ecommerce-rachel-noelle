@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Head from "next/head";
+import Lenis from "lenis";
+import { useEffect } from "react";
+import { easeIn, motion } from "framer-motion";
 import Navigation from "./Navigation";
 import Cart from "./Cart";
 import FreeGuideLink from "./FreeGuideLink";
-import { easeIn, motion } from "framer-motion";
-import Lenis from "lenis";
-import { useEffect } from "react";
-import Head from "next/head";
 
 export default function Header() {
   useEffect(() => {

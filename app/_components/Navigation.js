@@ -32,7 +32,12 @@ export default function Navigation() {
   useLayoutEffect(() => {
     function handleWidth() {
       const windowWidth = window.innerWidth;
-      windowWidth <= 1000 ? setBurger(true) : setBurger(false);
+      if (windowWidth <= 1000) {
+        setBurger(true);
+      } else {
+        setOpenMenu(false);
+        setBurger(false);
+      }
     }
 
     handleWidth();

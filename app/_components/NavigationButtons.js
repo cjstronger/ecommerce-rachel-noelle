@@ -2,7 +2,6 @@ import MenuNav from "./MenuNav";
 import ActiveLink from "./ActiveLink";
 import { useUser } from "../_contexts/UsersContext";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function NavigationButtons({
   burger,

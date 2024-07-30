@@ -4,8 +4,8 @@ import { AnimatePresence, easeInOut, motion } from "framer-motion";
 export default function MenuNav({ setOpenMenu, openMenu, ref2 }) {
   return (
     <div
-      style={{ borderBlockColor: openMenu ? "black" : "" }}
-      className="px-[15px] py-[9.5px] cursor-pointer hover:border-b-black border-b-2 border-b-transparent transition-all duration-[400] relative"
+      style={{ borderBlockColor: openMenu ? "#28282b" : "" }}
+      className="px-[15px] py-[9.5px] cursor-pointer hover:border-b-accent border-b-2 border-b-transparent transition-all duration-[400] relative"
       aria-label="menu"
       onClick={() => {
         setOpenMenu((openMenu) => !openMenu);

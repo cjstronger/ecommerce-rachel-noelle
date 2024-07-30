@@ -19,7 +19,7 @@ export default async function Page({ params }) {
     return product.id === params.id;
   });
   const { unit_amount } = product;
-  let { name, images, description } = product.product;
+  let { name, images, description, metadata } = product.product;
   images = [...images, ...imageUrls];
   return (
     <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
@@ -32,7 +32,13 @@ export default async function Page({ params }) {
         <p className="max-w-[800px] mb-5">{description}</p>
         <div className="flex items-center gap-5">
           <p className="text-xl">${unit_amount * 0.01}.00</p>
-          <AddToCart id={params.id[0]}>Add to Cart</AddToCart>
+          {metadata.sold === "true" ? (
+            <p className="border-[1px] border-fadedBlack py-2 px-5 text-xl cursor-default">
+              sold
+            </p>
+          ) : (
+            <AddToCart id={params.id[0]}>Add to Cart</AddToCart>
+          )}
         </div>
       </div>
     </div>
