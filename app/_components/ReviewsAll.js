@@ -78,7 +78,7 @@ export default function ReviewsAll() {
           className="flex justify-center items-center w-full"
           animate={!scrolled && "move"}
           variants={variants}
-          initial={{ x: "100%" }}
+          initial={{ x: "150%" }}
           transition={{ ease: easeInOut }}
         >
           {exampleReviews.map((review, i) => {

@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Review({ review }) {
   const { fullName, reviewText, img } = review;
   return (
-    <div className="snap-start flex flex-col justify-center gap-5 p-2 items-center bg-accent min-w-[100%] h-[60vh] text-bg">
+    <div className="snap-start flex flex-col justify-center gap-5 p-2 items-center bg-accent min-w-[100%] h-[60vh] text-bg overflow-scroll">
       {img ? (
-        <div className="rounded-full size-[6rem] relative border-2 border-bg">
+        <div className="rounded-full min-h-[5rem] min-w-[5rem] relative border-2 border-bg">
           <Image
             src={img}
             fill
@@ -20,7 +20,7 @@ export default function Review({ review }) {
         </div>
       )}
       <h1 className="text-5xl lg:text-6xl">{fullName}</h1>
-      <p className="px-8 text-md md:text-lg">{reviewText}</p>
+      <p className="px-8 text-md md:text-lg mb-5">{reviewText}</p>
     </div>
   );
 }
