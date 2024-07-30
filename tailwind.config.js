@@ -9,13 +9,13 @@ module.exports = {
     extend: {
       textColor: ["autofill"],
       colors: {
-        accent: "#313423",
+        accent: "black",
         accentFaded: "rgba(178, 177, 159, 0.5)",
         accentLower: "#c7c6b5",
         primary: "#E6E2CF",
         primaryFaded: "rgba(249, 248, 243, 0.5)",
         fadedBlack: "#373633",
-        blackTrans: "rgba(55, 54, 51, 0.5)",
+        blackTrans: "#373633",
         bg: "#e7e1d7",
         bgDark: "#BDB7AF",
       },

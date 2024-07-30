@@ -57,7 +57,7 @@ export default function NavigationButtons({
         </ActiveLink>
       </li>
       {user?.role === "service_role" && (
-        <li>
+        <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
           <ActiveLink href="/apply/applicants">Applicants</ActiveLink>
         </li>
       )}
