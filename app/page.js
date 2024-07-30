@@ -79,7 +79,7 @@ export default function Page() {
 
       {/*Second section - coaching */}
       <TitleSeparator titleText="Phases" />
-      <CoachingDetails />
+      <CoachingDetails id="coaching" />
       <TitleSeparator titleText="Reviews" />
       <ReviewsAll />
     </>

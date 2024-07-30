@@ -3,6 +3,7 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import SignOutButton from "./SignOutButton";
 import ActiveLink from "./ActiveLink";
 import { useUser } from "../_contexts/UsersContext";
+import { useRouter } from "next/navigation";
 
 const variants = {
   initial: {
@@ -19,15 +20,18 @@ const variants = {
 };
 
 export default function Menu({ openMenu, setOpenMenu }) {
+  const router = useRouter();
   const { user, setUser } = useUser();
   const MENUITEMS = [
     {
       title: "About",
-      href: "/#about",
+      href: "#about",
+      type: "anchor",
     },
     {
       title: "Coaching",
-      href: "/#coaching",
+      href: "#coaching",
+      type: "anchor",
     },
     {
       title: "Artwork",
@@ -46,6 +50,20 @@ export default function Menu({ openMenu, setOpenMenu }) {
       href: "/apply/applicants",
     },
   ];
+
+  function handleScroll(e) {
+    setOpenMenu(false);
+    e.preventDefault();
+    const id = e.target.getAttribute("href").replace("#", "");
+    if (window.location.pathname !== "/") {
+      router.push("/");
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }
   return (
     <div className="mt-8">
       <div className="mb-[35%]">
@@ -61,13 +79,23 @@ export default function Menu({ openMenu, setOpenMenu }) {
                 key={i}
                 className="flex flex-col text-5xl gap-5"
               >
-                <ActiveLink
-                  type="mobile"
-                  href={item.href}
-                  setOpenMenu={setOpenMenu}
-                >
-                  {item.title}
-                </ActiveLink>
+                {!item.type ? (
+                  <ActiveLink
+                    type="mobile"
+                    href={item.href}
+                    setOpenMenu={setOpenMenu}
+                  >
+                    {item.title}
+                  </ActiveLink>
+                ) : (
+                  <a
+                    onClick={handleScroll}
+                    href={item.href}
+                    className="border-transparent border-b-2 font-satoshi p-2 px-8 transition-all duration-200 text-bg hover:border-bg"
+                  >
+                    {item.title}
+                  </a>
+                )}
               </motion.div>
             )
         )}

@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { supabase, supabaseAdmin, supabaseUrl } from "./supabase";
 
 export async function checkApplicantByEmail(email) {
@@ -50,6 +49,14 @@ export async function approveApplicant(email) {
   if (error) console.error(error);
 
   return { data, roleData };
+}
+
+export async function addSubscriber(user) {
+  const { data, error } = await supabaseAdmin
+    .from("subscribers")
+    .insert([user]);
+  if (error) console.error("User could not be added to the applicants");
+  return { data, error };
 }
 
 export async function getImages(id) {

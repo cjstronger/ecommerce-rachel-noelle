@@ -4,6 +4,7 @@ import { Resend } from "resend";
 import fs from "fs";
 import path from "path";
 import { NoelleGuide } from "@/react-email-starter/emails/noelle-sendGuide";
+import { addSubscriber } from "./data-services";
 
 const resend = new Resend(process.env.RESEND_KEY);
 let sent = false;
@@ -17,7 +18,11 @@ const fileContent = fs.readFileSync(filePath).toString("base64");
 export default async function sendGuide(formData) {
   const firstName = formData.first;
   const appEmail = formData.email;
+  const subFullName = formData.first;
+  const subEmail = formData.email;
+  const user = { subFullName, subEmail };
   const { sent } = await sendGuideEmail(appEmail, firstName);
+  await addSubscriber(user);
   return { sent };
 }
 

@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import CoachingPhase from "./CoachingPhase";
 import Link from "next/link";
 
-export default function CoachingDetails() {
+export default function CoachingDetails({ id }) {
   const [pageX, setPageX] = useState(null);
   const [clicked, setClicked] = useState(false);
   const scrollLeft = useRef(null);
@@ -46,7 +46,7 @@ export default function CoachingDetails() {
   }, [pageX, clicked, pageXX, walk, scrollLeft]);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div id={id} className="flex flex-col gap-8">
       <div
         id="horizontal"
         className="shadow-xl md:mx-[10rem] bg-[url(/images/elephantearleaves.jpg)] md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden"
