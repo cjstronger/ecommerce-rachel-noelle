@@ -15,7 +15,7 @@ module.exports = {
         primary: "#E6E2CF",
         primaryFaded: "rgba(249, 248, 243, 0.5)",
         fadedBlack: "#373633",
-        blackTrans: "#373633",
+        blackTrans: "rgba(0, 0, 0, 0.5)",
         bg: "#e7e1d7",
         bgDark: "#BDB7AF",
       },

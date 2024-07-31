@@ -10,16 +10,16 @@ export default function ArtTab({ products, images }) {
       <div className="flex justify-center gap-5">
         <button
           className={`text-xl ${
-            showOriginals ? "border-b-accent" : "border-b-transparent"
-          } border-b-2 hover:border-b-accent transition-all duration-150`}
+            showOriginals ? "border-b-blackTrans" : "border-b-transparent"
+          } border-b-2 hover:border-b-blackTrans transition-all duration-150`}
           onClick={() => setShowOriginals(true)}
         >
           Originals
         </button>
         <button
           className={`text-xl ${
-            showOriginals ? "border-b-transparent" : "border-b-accent"
-          } border-b-2 hover:border-b-accent transition-all duration-150`}
+            showOriginals ? "border-b-transparent" : "border-b-blackTrans"
+          } border-b-2 hover:border-b-blackTrans transition-all duration-150`}
           onClick={() => setShowOriginals(false)}
         >
           Prints

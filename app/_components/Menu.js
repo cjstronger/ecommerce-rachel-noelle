@@ -39,8 +39,8 @@ export default function Menu({ openMenu, setOpenMenu }) {
     },
     {
       title: `${
-        user?.app_metadata?.full_name
-          ? user.app_metadata.full_name.split(" ")[0]
+        user?.user_metadata?.full_name
+          ? user.user_metadata.full_name.split(" ")[0]
           : "User"
       }`,
       href: "/login",

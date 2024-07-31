@@ -50,8 +50,8 @@ export default function NavigationButtons({
       </li>
       <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
         <ActiveLink href="/login">
-          {user?.app_metadata?.full_name
-            ? user.app_metadata.full_name.split(" ")[0]
+          {user?.user_metadata?.full_name
+            ? user.user_metadata.full_name.split(" ")[0]
             : "user"}
         </ActiveLink>
       </li>

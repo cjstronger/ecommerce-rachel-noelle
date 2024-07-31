@@ -11,7 +11,7 @@ export default function Applicant({ email, fullName, approved }) {
     await approveApplicant(email);
   }
   return (
-    <div className="px-9 text-lg border-b-[1px] border-fadedBlack items-center top-11 grid grid-cols-3 py-2">
+    <div className="px-9 text-lg border-b-[1px] border-bg items-center top-11 grid grid-cols-3 py-2 text-bg">
       <div className="relative">
         <p
           className="mr-3 p-[2px] cursor-default overflow-hidden text-nowrap"

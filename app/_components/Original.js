@@ -11,8 +11,10 @@ export default function Original({ original, imageUrls }) {
   if (!images.length) images = imageArray;
   return (
     <div
-      onClick={() => router.push(`/artwork/${id}`)}
-      className={`border-[1px] border-fadedBlack p-2 hover:cursor-pointer lg:size-[20rem] size-[12rem] flex flex-col justify-between relative ${
+      onClick={() => {
+        router.push(`/artwork/${id}`);
+      }}
+      className={`border-[1px] border-fadedBlack hover:rounded-xl transition-all duration-150 p-2 hover:cursor-pointer lg:size-[20rem] size-[12rem] flex flex-col justify-between relative ${
         metadata.sold === "true" && "bg-bgDark"
       }`}
     >

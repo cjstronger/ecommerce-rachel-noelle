@@ -28,7 +28,7 @@ export default function Input({
     ];
   const { pending } = useFormStatus();
   return (
-    <div className="flex flex-col mx-2 text-fadedBlack">
+    <div className="flex flex-col mx-2 text-bg">
       <label htmlFor={id} className="text-xl font-satoshi">
         {label}:
       </label>
@@ -44,7 +44,7 @@ export default function Input({
             message: errorPattern[1]?.message,
           },
         })}
-        className="min-w-[50%] max-w-[30rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack text-fadedBlack focus:outline-none placeholder-accentFaded autofill:text-fadedBlack"
+        className="min-w-[50%] max-w-[30rem] text-lg p-2 font-satoshi bg-transparent border border-bg text-bg focus:outline-none placeholder-neutral-500 autofill:text-bg"
         placeholder={placeholder}
         disabled={pending}
         hidden={hidden}
