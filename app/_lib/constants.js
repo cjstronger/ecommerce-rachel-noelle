@@ -76,7 +76,7 @@ export const exampleReviews = [
     fullName: "Carolyn",
     img: "/images/mom.jpg",
     reviewText:
-      "My own daughter is starting this so I had to give her a free 5 fuh 5!",
+      "Rachel is a very empathetic, goal oriented, kind listener. She has especially encouraged me in my relationships by highlighting the positive qualities that I had overlooked while emphasizing the importance of focusing on love for self and my partner. She would continually remind me that whatever I focus on is what I will receive more of. I constantly hear her voice telling me this. Her coaching style is holistic, embracing the whole person to include love, health, happiness, and esoteric understandings. She has inspired me to eat more healthful foods and to focus on conscious eating habits. I am grateful for her guidance and inspiration!",
   },
   {
     fullName: "Paula",

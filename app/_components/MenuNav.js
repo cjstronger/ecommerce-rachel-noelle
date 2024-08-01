@@ -15,7 +15,7 @@ export default function MenuNav({ setOpenMenu, openMenu, ref2 }) {
       <motion.div
         animate={{
           scale: openMenu ? 0 : 1,
-          transition: { delay: openMenu ? 0 : 0.2, duration: 0.1 },
+          transition: { delay: openMenu ? 0 : 0.2, duration: 0.2 },
         }}
         className="absolute z-20 text-fadedBlack"
       >
@@ -28,7 +28,7 @@ export default function MenuNav({ setOpenMenu, openMenu, ref2 }) {
           scale: openMenu ? 1 : 0,
           transition: {
             delay: openMenu ? 0.2 : 0,
-            duration: 0.05,
+            duration: 0.2,
           },
         }}
         className="z-20 relative"
