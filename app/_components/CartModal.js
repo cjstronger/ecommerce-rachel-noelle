@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, easeInOut } from "framer-motion";
 import CartItems from "./CartItems";
 import { useCart } from "../_contexts/CartContext";
+import { useEffect } from "react";
 
 const variants = {
   open: {
@@ -16,7 +17,11 @@ const variants = {
 };
 
 export default function CartModal({ ref2, session }) {
-  const { openCart } = useCart();
+  const { openCart, setStateCart, cartItems } = useCart();
+  useEffect(() => {
+    setStateCart(cartItems);
+  }, [cartItems]);
+
   return (
     <AnimatePresence>
       {openCart && (

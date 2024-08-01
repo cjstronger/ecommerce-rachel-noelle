@@ -37,7 +37,7 @@ export default async function Page({ params }) {
               sold
             </p>
           ) : (
-            <AddToCart id={params.id[0]}>Add to Cart</AddToCart>
+            <AddToCart id={params.id}>Add to Cart</AddToCart>
           )}
         </div>
       </div>

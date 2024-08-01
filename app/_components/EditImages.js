@@ -12,7 +12,7 @@ import { useImages } from "../_contexts/ImageContext";
 const type = "oneRef";
 
 export default function EditImages({ params }) {
-  const { contextImages, setContextImages, getImagesById } = useImages();
+  const { contextImages, setContextImages } = useImages();
   const [edit, setEdit] = useState(false);
   const { ref } = useModalClose(handleClose, type);
 

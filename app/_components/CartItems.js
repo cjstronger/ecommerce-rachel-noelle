@@ -1,11 +1,13 @@
 import Link from "next/link";
+import { AnimatePresence, motion, Reorder } from "framer-motion";
 import { useCart } from "../_contexts/CartContext";
 import Spinner from "./Spinner";
 import CartItem from "./CartItem";
 import { useRouter } from "next/navigation";
 
 export default function CartItems({ session }) {
-  const { cartItems, isLoading, setOpenCart } = useCart();
+  const { cartItems, isLoading, setOpenCart, stateCart, setStateCart } =
+    useCart();
   const router = useRouter();
 
   async function checkout() {
@@ -26,7 +28,12 @@ export default function CartItems({ session }) {
     router.push(data.session.url);
   }
   return (
-    <div className="m-5 mb-[5rem]">
+    <Reorder.Group
+      values={stateCart}
+      onReorder={() => setStateCart(cartItems)}
+      layout
+      className="m-5 mb-[5rem]"
+    >
       {isLoading ? (
         <Spinner />
       ) : !cartItems.length ? (
@@ -34,7 +41,11 @@ export default function CartItems({ session }) {
           Your cart is empty, sign in if you have a cart established.
         </p>
       ) : (
-        cartItems.map((item, index) => <CartItem item={item} key={index} />)
+        stateCart.map((item, index) => (
+          <Reorder.Item value={index} key={index}>
+            <CartItem item={item} key={index} />
+          </Reorder.Item>
+        ))
       )}
       {!session && (
         <Link
@@ -45,7 +56,7 @@ export default function CartItems({ session }) {
           sign in
         </Link>
       )}
-      {cartItems.length ? (
+      {stateCart.length ? (
         <button
           className="font-satoshi border-[1px] text-bg border-bg hover:bg-bg hover:text-fadedBlack transition-all duration-200 lowercase p-[6px] text-xl ml-8"
           onClick={checkout}
@@ -55,6 +66,6 @@ export default function CartItems({ session }) {
       ) : (
         ""
       )}
-    </div>
+    </Reorder.Group>
   );
 }

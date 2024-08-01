@@ -6,13 +6,6 @@ import toast from "react-hot-toast";
 
 const CartContext = createContext();
 
-const initialState = {
-  isLoading: false,
-  itemAdding: false,
-  cartItems: [],
-  error: "",
-};
-
 function reducer(state, action) {
   switch (action.type) {
     case "loading":
@@ -56,7 +49,14 @@ function reducer(state, action) {
 }
 
 function CartProvider({ children }) {
+  const initialState = {
+    isLoading: false,
+    itemAdding: false,
+    cartItems: [],
+    error: "",
+  };
   const [openCart, setOpenCart] = useState(false);
+  const [stateCart, setStateCart] = useState([]);
   const [{ isLoading, cartItems, itemAdding }, dispatch] = useReducer(
     reducer,
     initialState
@@ -81,9 +81,10 @@ function CartProvider({ children }) {
       const item = products?.filter((e) => e.id === id);
       const res = localStorage.getItem("cartItems");
       const data = res ? JSON.parse(res) : [];
-      const repeatData = data.filter((e, i) => e[0].id === id);
+      const repeatData =
+        data.length > 0 && data.filter((e, i) => e[0].id === id);
       if (repeatData.length > 0) {
-        toast.error("Item is already in the cart");
+        toast.success("Item is already in the cart");
         return;
       }
       const updatedItems = [...data, item];
@@ -122,6 +123,8 @@ function CartProvider({ children }) {
       value={{
         isLoading,
         cartItems,
+        setStateCart,
+        stateCart,
         getCartItems,
         deleteCartItem,
         addCartItem,
