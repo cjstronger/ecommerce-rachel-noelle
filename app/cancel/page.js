@@ -8,7 +8,7 @@ export default function Page() {
       </h1>
       <Link
         href="/"
-        className="border-[1px] border-fadedBlack p-2 font-satoshi hover:bg-accentFaded transition-all duration-200"
+        className="border-[1px] border-fadedBlack p-2 font-satoshi hover:bg-accentFaded transition-all duration-200 mt-5"
       >
         Home
       </Link>

@@ -17,14 +17,16 @@ export default function CartItems({ session }) {
         quantity: 1,
       };
     });
-    const res = await fetch("api/checkout", {
+    const res = await fetch("/api/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ lineItems }),
     });
+    console.log(res);
     const data = await res.json();
+    console.log(data.session.url);
     router.push(data.session.url);
   }
   return (

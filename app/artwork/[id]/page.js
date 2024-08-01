@@ -5,9 +5,14 @@ import { ImageProvider } from "@/app/_contexts/ImageContext";
 import { getStripeProducts } from "@/app/_lib/actions";
 import { getImages } from "@/app/_lib/data-services";
 
-export const metadata = { title: "Artwork Admin" };
-
 export const revalidate = 0;
+
+export async function generateMetadata({ params }) {
+  const name = (await getStripeProducts()).filter(
+    (product) => product.id === params.id
+  )[0].product.name;
+  return { title: `${name}` };
+}
 
 export default async function Page({ params }) {
   const data = await getImages(params.id);
