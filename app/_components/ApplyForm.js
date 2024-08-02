@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import { formData } from "@/app/_lib/constants";
@@ -15,6 +15,10 @@ export default function ApplyForm() {
   const { formState, register, handleSubmit, watch } = useForm();
   const { errors, isSubmitting, isSubmitSuccessful } = formState;
   const [alreadyApplied, setAlreadyApplied] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   async function onSubmit(formData) {
     const { applied } = await submitApplication(formData);
