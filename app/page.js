@@ -24,7 +24,7 @@ export default function Page() {
           priority="true"
         />
       </div>
-      <div className="mt-6 flex flex-col items-center justify-center mx-auto max-w-[1000px] px-4 gap-5 lg:gap-11">
+      <div className="mt-6 flex flex-col items-center justify-center mx-auto max-w-[1000px] px-2 gap-5 lg:gap-11">
         <div className="flex flex-col">
           <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none">
             Ready to start
@@ -36,12 +36,12 @@ export default function Page() {
             best life?
           </h1>
         </div>
-        <div className="flex flex-col md:max-w-[800px] max-w-[500px]">
+        <div className="flex flex-col md:max-w-[800px] max-w-[600px]">
           <div className="relative">
-            <p className="ml-5 text-sm md:text-lg lg:text-xl text-center">
-              Everyday we get a choice.
+            <p className="text-sm md:text-lg lg:text-xl text-center">
+              Everyday we have a choice.
             </p>
-            <p className="ml-5 text-sm md:text-lg lg:text-xl">
+            <p className="text-sm md:text-lg lg:text-xl">
               We all get to choose what our life looks and feels like.
             </p>
           </div>
@@ -51,13 +51,17 @@ export default function Page() {
       <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50"></hr>
       <div className="mt-5 flex flex-col">
         <div className="flex items-center mx-5">
-          <div>
+          <div className="leading-3">
             <h1 className="z-10 lg:text-5xl text-3xl">I&apos;M RACHEL,</h1>
-            <h1 className="z-10 text-md lg:text-3xl">YOUR FEMININE ENERGY</h1>
-            <h1 className="z-10 text-md lg:text-3xl">AND INNER WORK COACH</h1>
+            <h1 className="z-10 text-md lg:text-3xl">
+              YOUR FEMININE ENERGY AND INNER WORK COACH
+            </h1>
           </div>
         </div>
-        <p id="about" className="mx-auto lg:text-lg text-sm bg-bg p-5 mb-5">
+        <p
+          id="about"
+          className="mx-auto lg:text-lg text-sm bg-bg px-5 py-3 mb-5"
+        >
           I empower you to live authentically in alignment with your desires
           through the balance of strength and softness. You are Divine Feminine
           and I am here to remind you of this. My job is to create a

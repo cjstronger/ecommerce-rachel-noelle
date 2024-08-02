@@ -3,19 +3,19 @@ import GridImage from "./GridImage";
 export default function CoachingIntro() {
   return (
     <div className="grid grid-cols-3 lg:mx-[10rem] lg:min-h-[60vh] text-bg mt-5 shadow-md">
-      <div className="min-h-[33vh] lg:min-h-[60vh] flex flex-col justify-center col-span-2 bg-accent">
+      <div className="min-h-[280px] lg:min-h-[60vh] flex flex-col justify-center col-span-2 bg-accent">
         <div className="mx-2 lg:mx-[5rem]">
           <h1 className="uppercase text-2xl lg:text-4xl mx-2 mb-2">
             Have you longed for...
           </h1>
           <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
-            your purpose in life?
+            Your purpose in life?
           </h1>
           <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
-            your existence to be up leveled?
+            Your existence to be up leveled?
           </h1>
           <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
-            guidance through your own blocks?
+            Guidance through your own blocks?
           </h1>
           <h1 className="text-sm lg:text-xl mx-2 mt-2 font-satoshi">
             If you let me help you expand yourself you will start shifting your
@@ -23,7 +23,7 @@ export default function CoachingIntro() {
           </h1>
         </div>
       </div>
-      <GridImage colSpan="1" src="/images/home.jpg" alt="home" />
+      <GridImage colSpan="1" src="/images/life.jpg" alt="home" />
     </div>
   );
 }
