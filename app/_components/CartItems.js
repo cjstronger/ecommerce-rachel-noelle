@@ -53,7 +53,7 @@ export default function CartItems({ session }) {
         <Link
           onClick={() => setOpenCart(false)}
           href="/login"
-          className="border-[1px] border-bg text-bg font-satoshi p-2 text-xl hover:bg-bg hover:text-fadedBlack transition-all duration-200"
+          className="border-[1px] border-bg text-bg font-satoshi p-2 text-xl hover:bg-accentFaded hover:text-white transition-all duration-200"
         >
           sign in
         </Link>

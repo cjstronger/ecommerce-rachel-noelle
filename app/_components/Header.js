@@ -3,14 +3,14 @@
 import Link from "next/link";
 import Head from "next/head";
 import Lenis from "lenis";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { easeIn, motion } from "framer-motion";
 import Navigation from "./Navigation";
 import Cart from "./Cart";
 import FreeGuideLink from "./FreeGuideLink";
 
 export default function Header() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -24,7 +24,7 @@ export default function Header() {
     requestAnimationFrame(raf);
 
     return () => {
-      lenis.destroy();
+      lenis.stop();
     };
   }, []);
   return (

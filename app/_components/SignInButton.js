@@ -20,7 +20,7 @@ export default function SignInButton({ provider }) {
     });
   return (
     <button
-      className="bg-accent text-bg p-2 border-2 border-fadedBlack w-[90%] hover:text-white hover:bg-fadedBlack duration-150 transition-all text-2xl"
+      className="bg-accent text-bg p-2 border-2 border-fadedBlack w-[90%] hover:text-white hover:bg-black duration-150 transition-all text-2xl"
       disabled={isPending}
       onClick={() => handleSignIn(`${provider}`)}
     >

@@ -29,7 +29,7 @@ export default function SignOutButton({ setOpenMenu, type, setUser }) {
   return (
     <button
       onClick={handleSignout}
-      className="border-2 border-fadedBlack w-[90%] p-2 hover:bg-fadedBlack hover:text-white transition-all duration-150 text-2xl"
+      className="border-2 border-fadedBlack w-[90%] p-2 hover:bg-black hover:text-white transition-all duration-150 text-2xl"
     >
       logout
     </button>

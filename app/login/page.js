@@ -15,7 +15,7 @@ export default function Page() {
             You have been approved by Rachel! Look at what she has to offer
           </p>
           <Link
-            className="font-satoshi border-[1px] border-bg p-2 hover:bg-fadedBlack hover:text-white duration-150 transition-all"
+            className="font-satoshi border-[1px] border-bg p-2 hover:bg-accentFaded hover:text-white duration-150 transition-all"
             href="/pricing"
           >
             Fulfill your dreams

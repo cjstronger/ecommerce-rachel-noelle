@@ -6,7 +6,7 @@ export default function Page() {
       <h1 className="text-3xl">Thank you so much!!</h1>
       <Link
         href="/"
-        className="border-[1px] border-fadedBlack p-2 font-satoshi hover:bg-accentFaded transition-all duration-200 mt-5"
+        className="border-[1px] border-fadedBlack p-2 px-5 font-satoshi hover:bg-accent hover:text-white transition-all duration-200 mt-5 text-lg md:text-xl"
       >
         Home
       </Link>

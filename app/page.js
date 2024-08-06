@@ -17,6 +17,7 @@ export default function Page() {
         <Image
           fill
           quality={100}
+          sizes="100vw"
           className=" object-cover shadow-lg brightness-90"
           blur="true"
           src="/images/life.jpg"
