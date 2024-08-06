@@ -19,7 +19,7 @@ export default function ArtTab({ products, images }) {
         <button
           className={`text-xl ${
             showOriginals ? "border-b-transparent" : "border-b-blackTrans"
-          } border-b-2 hover:border-b-blackTrans transition-all duration-150`}
+          } border-b-2 hover:border-b-blackTrans transition-all duration-150 hidden`}
           onClick={() => setShowOriginals(false)}
         >
           Prints

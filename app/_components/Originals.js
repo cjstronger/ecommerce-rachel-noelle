@@ -1,12 +1,18 @@
 import Original from "./Original";
 
 export default function Originals({ products, images }) {
-  const originals = products.filter((product) => {
-    return product.product.unit_label === null;
+  let originals = products.filter((product) => {
+    return (
+      product.product.unit_label === null && !product.product.metadata.sold
+    );
   });
+  let soldOriginals = products.filter((product) => {
+    return product.product.metadata.sold === "true";
+  });
+  let modifiedOriginals = originals.concat(soldOriginals);
   return (
     <div className="grid grid-cols-2 xl:grid-cols-3 gap-5">
-      {originals.map((original, i) => {
+      {modifiedOriginals.map((original, i, a) => {
         return <Original original={original} key={i} imageUrls={images} />;
       })}
     </div>

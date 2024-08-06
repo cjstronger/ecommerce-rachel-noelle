@@ -15,7 +15,7 @@ export default function FreeGuideForm() {
   }
   return (
     <form
-      className="flex flex-col items-center"
+      className="flex flex-col items-center bg-accent lg:w-[1000px] w-[80vw] h-[300px] p-5 mx-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
       <Input
@@ -33,7 +33,7 @@ export default function FreeGuideForm() {
         label="Email"
       />
       <div className="mt-5">
-        <button className="font-satoshi lowercase border-fadedBlack border hover:bg-primaryFaded p-2 transition-all duration-400 text-xl min-h-[50px] min-w-[125px] flex justify-center items-center">
+        <button className="text-neutral-300 hover:text-white font-satoshi lowercase border-bg border hover:bg-accentFaded p-2 transition-all duration-400 text-xl min-h-[50px] min-w-[125px] flex justify-center items-center">
           {isSubmitting ? (
             <SpinnerMini />
           ) : isSubmitSuccessful ? (
