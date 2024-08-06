@@ -24,15 +24,22 @@ export async function addApplicant(user) {
 }
 
 export async function approveApplicant(email) {
+  let userHasNotLoggedIn = false;
   const {
     data: { users },
     error: userError,
   } = await supabaseAdmin.auth.admin.listUsers();
+
   if (userError) console.error("User Error", userError);
 
   const [userToUpdate] = users.filter((user) => {
     return user.email === email;
   });
+
+  if (!userToUpdate?.id) {
+    userHasNotLoggedIn = true;
+    return { userHasNotLoggedIn };
+  }
 
   const userId = userToUpdate.id;
 
@@ -48,7 +55,7 @@ export async function approveApplicant(email) {
     .eq("appEmail", email);
   if (error) console.error(error);
 
-  return { data, roleData };
+  return { userHasNotLoggedIn, data, roleData };
 }
 
 export async function addSubscriber(user) {
@@ -69,13 +76,9 @@ export async function getImages(id) {
   return data && data.map((item) => item.imageUrl);
 }
 
-const SITEURL = "https://rachelnoelle.net";
-
 export async function addImages(formData) {
   const file = formData.get("image");
   const id = formData.get("id");
-  const adminUrl = `${SITEURL}/artwork/${id}/admin`;
-  const userUrl = `${SITEURL}/artwork/${id}`;
   const fileName = file.name.split(" ").join("").replace("/", "");
   const folderPath = `${id}/${fileName}`;
   const { data, error } = await supabaseAdmin.storage

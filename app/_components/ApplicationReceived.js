@@ -12,7 +12,7 @@ export default function ApplicationReceived() {
   async function handleCopyEmail() {
     setIsLoading(true);
     try {
-      navigator.clipboard.writeText("rachelnstrong@gmail.com");
+      navigator.clipboard.writeText("rachelnoellesart@gmail.com");
     } catch {
       error;
       if (error) setFailCopy(true);
@@ -24,7 +24,7 @@ export default function ApplicationReceived() {
     <div className="w-full h-[80vh] mx-auto bg-accent text-bg flex flex-col items-center justify-center text-center gap-5 relative">
       <Link
         href="/"
-        className="font-satoshi lowercase border-bg border hover:bg-accentFaded p-2 transition-all duration-400 text-lg left-5 top-5 absolute"
+        className="font-satoshi lowercase border-bg border hover:text-white hover:bg-accentFaded p-2 transition-all duration-400 text-lg left-5 top-5 absolute"
       >
         &larr; home
       </Link>

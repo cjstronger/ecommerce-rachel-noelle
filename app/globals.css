@@ -111,6 +111,7 @@ p[data-fullName]:hover + .content-fullname {
 p[data-email]:hover + .content-email {
   display: inline;
   animation: bleh 0.5s forwards;
+  margin-left: -50px;
 }
 
 @keyframes bleh {

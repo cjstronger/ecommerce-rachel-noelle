@@ -145,8 +145,8 @@ export default function ApplyForm() {
                 </div>
                 <div className="flex justify-end p-2">
                   <button
-                    className="font-satoshi lowercase border-bg text-bg border
-                  hover:bg-fadedBlack p-2 transition-all duration-400
+                    className="font-satoshi lowercase border-bg text-bg hover:text-white border
+                  hover:bg-accentFaded p-2 transition-all duration-400
                   text-2xl min-w-[90px] min-h-[50px] flex items-center justify-center"
                     type="submit"
                   >
