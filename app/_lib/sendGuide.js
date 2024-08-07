@@ -5,15 +5,10 @@ import fs from "fs";
 import path from "path";
 import { NoelleGuide } from "@/react-email-starter/emails/noelle-sendGuide";
 import { addSubscriber } from "./data-services";
+import { supabase } from "./supabase";
 
 const resend = new Resend(process.env.RESEND_KEY);
 let sent = false;
-
-const filePath = path.join(
-  "public",
-  "attachments/MyFoodGuide-RachelNoelle.pdf"
-);
-const fileContent = fs.readFileSync(filePath).toString("base64");
 
 export default async function sendGuide(formData) {
   const firstName = formData.first;
@@ -28,6 +23,15 @@ export default async function sendGuide(formData) {
 }
 
 async function sendGuideEmail(appEmail, appFullName) {
+  const { data: fileContent, fileError } = await supabase.storage
+    .from("PDFs")
+    .download("/MyFoodGuide-RachelNoelle.pdf");
+  if (fileError) console.error(fileError);
+
+  const base64FileContent = await fileContent.arrayBuffer().then((buffer) => {
+    return Buffer.from(buffer).toString("base64");
+  });
+
   const { data, error } = await resend.emails.send({
     from: "Rachel Noelle <rachel@rachelnoelle.net>",
     to: [`${appEmail}`],
@@ -35,7 +39,7 @@ async function sendGuideEmail(appEmail, appFullName) {
     attachments: [
       {
         filename: "DailyFoodGuide-RachelNoelle.pdf",
-        content: fileContent,
+        content: base64FileContent,
         type: "application/pdf",
       },
     ],
