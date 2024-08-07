@@ -24,7 +24,7 @@ export default function Header() {
     requestAnimationFrame(raf);
 
     return () => {
-      lenis.stop();
+      lenis.destroy();
     };
   }, []);
   return (

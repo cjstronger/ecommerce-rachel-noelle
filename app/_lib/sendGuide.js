@@ -22,7 +22,8 @@ export default async function sendGuide(formData) {
   const subEmail = formData.email;
   const user = { subFullName, subEmail };
   const { sent } = await sendGuideEmail(appEmail, firstName);
-  await addSubscriber(user);
+  const { error } = await addSubscriber(user);
+  if (error) console.error(error);
   return { sent };
 }
 

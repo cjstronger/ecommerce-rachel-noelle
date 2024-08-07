@@ -27,7 +27,7 @@ export default function ImageSlide({ name = "art" }) {
     const imagesElement = document.querySelector("#images");
     const images = { imagesElement };
     const imageDif =
-      images.imagesElement.scrollLeft - images.imagesElement.offsetWidth;
+      images.imagesElement.scrollLeft - (images.imagesElement.offsetWidth - 50);
     setIndex(Number.parseInt(imageDif / images.imagesElement.offsetWidth + 1));
   }, [touched]);
 
@@ -87,7 +87,7 @@ export default function ImageSlide({ name = "art" }) {
           <div
             id="images"
             onScroll={handleOnScroll}
-            className="aspect-[3/3] md:aspect-[3/2] xl:aspect-[3/1] overflow-scroll flex reviews snap-x snap-mandatory mb-5"
+            className="mt-5 aspect-[3/3] md:aspect-[3/2] xl:aspect-[3/1] overflow-scroll flex reviews snap-x snap-mandatory mb-5"
           >
             {contextImages.length > 0 ? (
               <div className={`flex w-[${contextImages.length}00vw] h-full`}>
@@ -97,7 +97,7 @@ export default function ImageSlide({ name = "art" }) {
                     initial={{ x: "0%" }}
                     animate={!scrolled && "move"}
                     transition={{ ease: easeIn }}
-                    className="w-[100vw] h-full relative snap-start"
+                    className="w-[96vw] h-full relative snap-start"
                     key={i}
                   >
                     <Image

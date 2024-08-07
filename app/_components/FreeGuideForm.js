@@ -37,7 +37,7 @@ export default function FreeGuideForm() {
           {isSubmitting ? (
             <SpinnerMini />
           ) : isSubmitSuccessful ? (
-            "Sent"
+            "Check your email"
           ) : (
             "Send Free Guide"
           )}
