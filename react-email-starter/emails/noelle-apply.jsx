@@ -29,9 +29,8 @@ export const NoelleApply = ({ appFullName }) => (
             Hello, {appFullName}
           </Heading>
           <Text style={paragraph}>
-            Thank you for submitting your application to work with Rachel! We
-            will get back to you as soon as possible to let you know if we are a
-            good fit!
+            Thank you so much for applying! I look forward to speaking to you
+            soon. Let&apos;s see if we&apos;re a good match!
           </Text>
         </Section>
       </Container>
