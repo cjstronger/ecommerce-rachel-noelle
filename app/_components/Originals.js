@@ -11,7 +11,7 @@ export default function Originals({ products, images }) {
   });
   let modifiedOriginals = originals.concat(soldOriginals);
   return (
-    <div className="grid grid-cols-2 xl:grid-cols-3 gap-5">
+    <div className="grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
       {modifiedOriginals.map((original, i, a) => {
         return <Original original={original} key={i} imageUrls={images} />;
       })}

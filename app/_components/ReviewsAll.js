@@ -72,7 +72,7 @@ export default function ReviewsAll() {
       <div
         onScroll={handleScrollEnd}
         id="reviews"
-        className="lg:max-w-[80vw] mx-auto items-center justify-center relative h-[80vh] overflow-scroll snap-x snap-mandatory reviews"
+        className="lg:max-w-[80vw] mx-auto items-center justify-center relative h-[80vh] lg:h-[70vh] overflow-scroll snap-x snap-mandatory reviews"
       >
         <motion.div
           className="flex justify-center items-center w-full"
