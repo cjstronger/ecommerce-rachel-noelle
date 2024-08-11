@@ -45,6 +45,9 @@ export default async function Page({ params }) {
             <AddToCart id={params.id}>Add to Cart</AddToCart>
           )}
         </div>
+        <p className="text-xs mt-2">
+          We support payment plans with Klarna&copy;
+        </p>
       </div>
     </div>
   );

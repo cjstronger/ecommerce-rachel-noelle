@@ -12,6 +12,7 @@ export default function Input({
   errorType,
   hidden,
   type,
+  autoComplete,
 }) {
   let errorPattern = "none";
   if (errorType === "name")
@@ -48,6 +49,7 @@ export default function Input({
         placeholder={placeholder}
         disabled={pending}
         hidden={hidden}
+        autoComplete={autoComplete}
       />
       {errors[name] && (
         <span className="text-red-600 text-md font-satoshi">

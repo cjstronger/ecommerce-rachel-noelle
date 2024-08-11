@@ -19,7 +19,7 @@ export default function Original({ original, imageUrls }) {
       }`}
     >
       {metadata.sold === "true" && (
-        <h1 className="text-2xl absolute bottom-1/2 translate-y-1/2 right-1/2 translate-x-1/2 w-full text-center bg-bg z-20 opacity-75 shadow-lg">
+        <h1 className="text-2xl absolute bottom-1/2 translate-y-1/2 right-1/2 translate-x-1/2 w-full text-center bg-bg z-10 opacity-75 shadow-lg">
           Sold
         </h1>
       )}

@@ -27,14 +27,14 @@ export default function Page() {
       </div>
       <div className="mt-6 flex flex-col items-center justify-center mx-auto max-w-[1000px] px-2 gap-5 lg:gap-11">
         <div className="flex flex-col">
-          <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none">
-            Ready to start
+          <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none text-center">
+            Your best life
           </h1>
-          <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none">
-            choosing your
+          <h1 className="text-[2rem] lg:text-[4rem] md:text-5xl uppercase leading-none text-center">
+            is waiting
           </h1>
           <h1 className="text-[2.5rem] lg:text-[5rem] md:text-6xl uppercase leading-none text-center">
-            best life?
+            for you
           </h1>
         </div>
         <div className="flex flex-col md:max-w-[800px] max-w-[600px]">
@@ -53,9 +53,9 @@ export default function Page() {
       <div className="mt-5 flex flex-col">
         <div className="flex items-center mx-5">
           <div className="leading-3">
-            <h1 className="z-10 lg:text-5xl text-3xl">I&apos;M RACHEL,</h1>
+            <h1 className="z-10 lg:text-5xl text-3xl">I&apos;m Rachel,</h1>
             <h1 className="z-10 text-md lg:text-3xl">
-              YOUR FEMININE ENERGY AND INNER WORK COACH
+              Your feminine energy and inner work coach
             </h1>
           </div>
         </div>

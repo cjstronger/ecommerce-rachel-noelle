@@ -40,7 +40,13 @@ export default async function Page({ params }) {
         <p className="max-w-[800px] mb-5">{description}</p>
         <div className="flex items-center gap-5">
           <p className="text-xl">${unit_amount * 0.01}.00</p>
-          <AddToCart id={params.id}>Add to Cart</AddToCart>
+          {metadata.sold === "true" ? (
+            <p className="border-[1px] border-fadedBlack py-2 px-5 text-xl cursor-default">
+              sold
+            </p>
+          ) : (
+            <AddToCart id={params.id}>Add to Cart</AddToCart>
+          )}
         </div>
       </div>
     </div>

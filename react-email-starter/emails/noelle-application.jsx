@@ -14,11 +14,10 @@ import {
 } from "@react-email/components";
 import React from "react";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
-
 export default function NoelleApplication({ data }) {
+  data = {
+    textAreas: ["Wow", "Wow2", "Wow3"],
+  };
   let inputIndex = 1;
   const adjustedData = Object.keys(data).filter((key) => {
     return key !== "first" && key !== "last" && key !== "email";
@@ -33,7 +32,7 @@ export default function NoelleApplication({ data }) {
           <Section style={box}>
             <Img src={`/static/RN.png`} fill="true" alt="RN" />
             <Hr style={hr} />
-            <Heading style={h1} as="h1">
+            <Heading style={h1} as="h2">
               Your new applicants application is here!
             </Heading>
             {adjustedForm.map((formSections) => {
@@ -59,13 +58,14 @@ export default function NoelleApplication({ data }) {
 }
 
 const main = {
-  backgroundColor: "#f6f9fc",
+  color: "#e7e1d7",
+  backgroundColor: "#28282b",
   fontFamily:
     '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
 };
 
 const container = {
-  backgroundColor: "#ffffff",
+  backgroundColor: "#28282b",
   margin: "0 auto",
   padding: "20px 0 48px",
   marginBottom: "64px",
@@ -76,7 +76,7 @@ const box = {
 };
 
 const hr = {
-  borderColor: "#e6ebf1",
+  borderColor: "#e7e1d7",
   margin: "20px 0",
 };
 
@@ -90,7 +90,7 @@ const paragraph = {
   fontSize: "16px",
   lineHeight: "24px",
   textAlign: "left",
-  backgroundColor: "#b2b19f",
+  backgroundColor: "#e7e1d7",
   borderRadius: 10,
   padding: 5,
 };

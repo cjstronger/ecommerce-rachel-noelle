@@ -12,7 +12,6 @@ module.exports = {
         accent: "#28282b",
         accentFaded: "rgba(0, 0, 0, 0.3)",
         accentLower: "#c7c6b5",
-        primary: "#E6E2CF",
         primaryFaded: "rgba(249, 248, 243, 0.5)",
         fadedBlack: "#373633",
         blackTrans: "rgba(0, 0, 0, 0.5)",

@@ -15,7 +15,7 @@ export default function FreeGuideForm() {
   }
   return (
     <form
-      className="flex flex-col items-center bg-accent lg:w-[1000px] w-[80vw] h-[300px] p-5 mx-auto"
+      className="flex flex-col items-center bg-accent lg:w-[60vw] w-[300px] lg:h-[470px] h-[300px] p-5 mx-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
       <Input
@@ -24,6 +24,7 @@ export default function FreeGuideForm() {
         register={register}
         name="first"
         label="First Name"
+        autoComplete="given-name"
       />
       <Input
         placeholder="Your Email"
@@ -31,6 +32,7 @@ export default function FreeGuideForm() {
         register={register}
         name="email"
         label="Email"
+        autoComplete="email"
       />
       <div className="mt-5">
         <button className="text-neutral-300 hover:text-white font-satoshi lowercase border-bg border hover:bg-accentFaded p-2 transition-all duration-400 text-xl min-h-[50px] min-w-[125px] flex justify-center items-center">

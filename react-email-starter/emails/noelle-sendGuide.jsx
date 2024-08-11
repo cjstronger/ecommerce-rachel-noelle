@@ -19,7 +19,7 @@ const baseUrl = process.env.VERCEL_URL
 export const NoelleGuide = ({ appFullName }) => (
   <Html>
     <Head />
-    <Preview>Enjoy</Preview>
+    <Preview>Rachel's Free Ebook</Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={box}>
@@ -28,8 +28,12 @@ export const NoelleGuide = ({ appFullName }) => (
           <Heading style={h1} as="h1">
             Hello, {appFullName}
           </Heading>
-          <Text style={paragraph}>Is is time to get serious about your health?</Text>
-          <Text style={paragraph}>This is where the journey begins in improving your life.</Text>
+          <Text style={paragraph}>
+            Is is time to get serious about your health?
+          </Text>
+          <Text style={paragraph}>
+            This is where the journey begins in improving your life.
+          </Text>
         </Section>
       </Container>
     </Body>

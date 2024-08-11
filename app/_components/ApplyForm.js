@@ -62,6 +62,7 @@ export default function ApplyForm() {
                   errors={errors}
                   errorType={"name"}
                   id="first"
+                  autoComplete="given-name"
                 />
                 <Input
                   label={formData[0].inputs[1].label}
@@ -70,7 +71,7 @@ export default function ApplyForm() {
                   register={register}
                   errors={errors}
                   errorType={"name"}
-                  id="last"
+                  id="family-name"
                 />
                 <Input
                   label={formData[0].inputs[2].label}
@@ -80,6 +81,7 @@ export default function ApplyForm() {
                   errors={errors}
                   errorType={"email"}
                   id="email"
+                  autoComplete="email"
                 />
                 <div className="mt-6 flex flex-col gap-2">
                   <TextArea

@@ -15,7 +15,7 @@ export default function Footer() {
         </Link>
         <Link
           target="_blank"
-          href="https://www.instagram.com/rachelnoellesart"
+          href="https://www.instagram.com/rachelnoelles/"
           className="border-[1px] border-fadedBlack p-2 hover:bg-accentFaded transition-all duration-150"
         >
           Instagram
