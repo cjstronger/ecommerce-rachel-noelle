@@ -18,9 +18,9 @@ export default function Page() {
           fill
           quality={100}
           sizes="100vw"
-          className=" object-cover shadow-lg brightness-90"
+          className=" object-cover shadow-lg brightness-90 object-center"
           blur="true"
-          src="/images/life.jpg"
+          src="/images/beach.jpg"
           alt="Rachel-Noelle-Waterfall"
           priority="true"
         />

@@ -27,7 +27,7 @@ export default async function Page({ params }) {
   let { name, images, description, metadata } = product.product;
   images = [...images, ...imageUrls];
   return (
-    <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
+    <div className="lg:mt-[2rem] mt-[1rem] m-2 mb-10">
       <BackButton />
       <ImageProvider serverImages={images}>
         <ImageSlide />

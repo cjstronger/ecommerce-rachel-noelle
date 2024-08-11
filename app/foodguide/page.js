@@ -3,9 +3,9 @@ import FreeGuideForm from "../_components/FreeGuideForm";
 
 export default function Page() {
   return (
-    <div className="mt-[5rem] lg:flex flex-column">
+    <div className="mt-[2rem] lg:flex flex-column">
       <Image
-        src="/images/foodguide-1.png"
+        src="/images/foodguide-1.jpg"
         alt="free-guide"
         quality={80}
         width="300"

@@ -25,7 +25,7 @@ export default async function sendGuide(formData) {
 async function sendGuideEmail(appEmail, appFullName) {
   const { data: fileContent, fileError } = await supabase.storage
     .from("PDFs")
-    .download("/MyFoodGuide-RachelNoelle.pdf");
+    .download("/Uplevel Using My Food Guide.pdf");
   if (fileError) console.error(fileError);
 
   const base64FileContent = await fileContent.arrayBuffer().then((buffer) => {
@@ -38,7 +38,7 @@ async function sendGuideEmail(appEmail, appFullName) {
     subject: "My Free Ebook - Rachel Noelle",
     attachments: [
       {
-        filename: "DailyFoodGuide-RachelNoelle.pdf",
+        filename: "Uplevel Using My Food Guide.pdf",
         content: base64FileContent,
         type: "application/pdf",
       },

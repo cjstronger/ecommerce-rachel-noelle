@@ -12,7 +12,7 @@ export default async function ArtworkPage() {
   const products = await getStripeProducts();
   const images = await getAllImages();
   return (
-    <div className="lg:mt-[7rem] mt-[6rem] flex flex-col items-center mb-5 mx-5">
+    <div className="lg:mt-[4rem] mt-[3rem] flex flex-col items-center mb-5 mx-5">
       <h1 className="text-3xl">Rachel Noelle Artwork</h1>
       <p className="my-3 text-sm text-center px-5 lg:text-base">
         Rachel infuses the calming presence of spirit into her work and imprints

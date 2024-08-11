@@ -26,7 +26,7 @@ export default async function Page({ params }) {
   let { name, images, description } = product.product;
   images = [...images, ...imageUrls];
   return (
-    <div className="lg:mt-[8rem] mt-[6rem] m-2 mb-10">
+    <div className="lg:mt-[5rem] mt-[3rem] m-2 mb-10">
       <BackButton />
       <ImageProvider serverImages={images}>
         <Suspense fallback={<Spinner />}>

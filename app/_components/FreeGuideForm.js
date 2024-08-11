@@ -15,7 +15,7 @@ export default function FreeGuideForm() {
   }
   return (
     <form
-      className="flex flex-col items-center bg-accent lg:w-[60vw] w-[300px] lg:h-[470px] h-[300px] p-5 mx-auto"
+      className="flex flex-col items-center bg-accent lg:w-[60vw] w-[300px] lg:h-[470px] h-[300px] p-5 mx-auto justify-center gap-2"
       onSubmit={handleSubmit(onSubmit)}
     >
       <Input

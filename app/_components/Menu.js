@@ -77,7 +77,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
                 custom={i}
                 exit={"exit"}
                 key={i}
-                className="flex flex-col text-5xl gap-5"
+                className="flex flex-col text-4xl gap-5"
               >
                 {!item.type ? (
                   <ActiveLink

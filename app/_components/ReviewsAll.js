@@ -86,7 +86,7 @@ export default function ReviewsAll() {
           })}
         </motion.div>
       </div>
-      <div className="flex items-center justify-center gap-4 h-2 mb-10 mt-5">
+      <div className="flex items-center justify-center gap-4 h-2 mt-5">
         {exampleReviews.map((review, i) => (
           <div
             key={i}

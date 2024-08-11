@@ -10,8 +10,8 @@ export default function Page() {
   return (
     <div>
       {user?.app_metadata?.role === "approved" && (
-        <div className="w-full h-[8rem] bg-accent text-bg mt-[4rem] flex flex-col items-center justify-center gap-2">
-          <p className="text-center text-sm md:text-xl">
+        <div className="w-full h-[11rem] bg-neutral-700 text-bg flex flex-col items-center justify-center gap-2">
+          <p className="mt-6 text-center text-sm md:text-xl">
             You have been approved by Rachel! Look at what she has to offer
           </p>
           <Link

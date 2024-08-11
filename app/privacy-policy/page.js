@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <div className="mt-[5rem] mx-5">
+    <div className="mt-[1rem] mx-5">
       <h1 className="text-3xl">Privacy Policy</h1>
       <p>Last updated: July 26, 2024</p>
       <p>
