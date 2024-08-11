@@ -30,10 +30,10 @@ export default function Page() {
           <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none text-center">
             Your best life
           </h1>
-          <h1 className="text-[2rem] lg:text-[4rem] md:text-5xl uppercase leading-none text-center">
+          <h1 className="ml-1 text-[2.1rem] lg:text-[4.2rem] md:text-[3.2rem] uppercase leading-none text-center">
             is waiting
           </h1>
-          <h1 className="text-[2.5rem] lg:text-[5rem] md:text-6xl uppercase leading-none text-center">
+          <h1 className="text-[2.75rem] lg:text-[5.5rem] md:text-[4.2rem] uppercase leading-none text-center">
             for you
           </h1>
         </div>

@@ -17,7 +17,7 @@ export const viewport = {
 };
 
 const luxiachy = localFont({
-  src: [{ path: "../public/fonts/Luxiachy.ttf", weight: "500" }],
+  src: [{ path: "../public/fonts/Butler.otf", weight: "500" }],
   subsets: ["latin"],
 });
 
