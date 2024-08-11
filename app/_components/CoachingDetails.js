@@ -49,7 +49,7 @@ export default function CoachingDetails({ id }) {
     <div id={id} className="flex flex-col gap-8">
       <div
         id="horizontal"
-        className="shadow-xl md:mx-[10rem] bg-[url(/images/artist.jpg)] bg-center md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden"
+        className="shadow-xl md:mx-[10rem] bg-[url(/images/beach2.jpg)] bg-center md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden"
         style={{ backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
       >
         <div className="flex gap-6 lg:gap-10 items-center mt-[10vw] lg:mt-[4vw] md:mx-[5rem] mx-[2rem]">
