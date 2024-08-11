@@ -97,7 +97,7 @@ function CoachingProduct({ imageSrc, name, metadata, price, priceId }) {
               <p className="text-base lg:text-xl">{description.join(" ")}</p>
             ) : (
               <p className="text-red-600">
-                To add a description, go to the product's metadata on stripe.
+                To add a description, go to the products metadata on stripe.
                 Specifying a key &#40;the key needs to have
                 &apos;description&apos; in the key name&#41; and a value with
                 the text you want in the description. You can split the
