@@ -11,7 +11,7 @@ export default function FreeGuideForm() {
   const { errors, isSubmitting, isSubmitSuccessful } = formState;
   async function onSubmit(formData) {
     const { sent } = await sendGuide(formData);
-    if (sent) toast.success("Guide sent to your email!");
+    if (sent) toast("Guide sent to your email!");
   }
   return (
     <form

@@ -15,9 +15,6 @@ import {
 import React from "react";
 
 export default function NoelleApplication({ data }) {
-  data = {
-    textAreas: ["Wow", "Wow2", "Wow3"],
-  };
   let inputIndex = 1;
   const adjustedData = Object.keys(data).filter((key) => {
     return key !== "first" && key !== "last" && key !== "email";

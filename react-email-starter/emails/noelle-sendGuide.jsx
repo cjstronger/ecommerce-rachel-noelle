@@ -25,7 +25,7 @@ export const NoelleGuide = ({ appFullName }) => (
         <Section style={box}>
           <Img src={`/static/RN.png`} fill="true" alt="RN" />
           <Hr style={hr} />
-          <Heading style={h1} as="h1">
+          <Heading style={h1} as="h2">
             Hello, {appFullName}
           </Heading>
           <Text style={paragraph}>
@@ -41,13 +41,14 @@ export const NoelleGuide = ({ appFullName }) => (
 );
 
 const main = {
-  backgroundColor: "#f6f9fc",
+  color: "#e7e1d7",
+  backgroundColor: "#28282b",
   fontFamily:
     '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
 };
 
 const container = {
-  backgroundColor: "#ffffff",
+  backgroundColor: "#28282b",
   margin: "0 auto",
   padding: "20px 0 48px",
   marginBottom: "64px",
@@ -58,7 +59,7 @@ const box = {
 };
 
 const hr = {
-  borderColor: "#e6ebf1",
+  borderColor: "#e7e1d7",
   margin: "20px 0",
 };
 
@@ -67,7 +68,7 @@ const h1 = {
 };
 
 const paragraph = {
-  color: "#373633",
+  color: "#e7e1d7",
 
   fontSize: "16px",
   lineHeight: "24px",
