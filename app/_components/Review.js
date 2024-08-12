@@ -19,7 +19,7 @@ export default function Review({ review }) {
           {fullName}
         </div>
       )}
-      <h1 className="mt-5 text-4xl lg:text-5xl">{fullName}</h1>
+      <h1 className="mt-5 text-2xl lg:text-3xl">{fullName}</h1>
       <p className="mt-5 px-8 lg:px-[12rem] text-md md:text-xl mb-5">
         {reviewText}
       </p>
