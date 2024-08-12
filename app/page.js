@@ -30,50 +30,57 @@ export default function Page() {
           <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none text-center">
             Your best life
           </h1>
-          <h1 className="ml-1 text-[2.1rem] lg:text-[4.2rem] md:text-[3.2rem] uppercase leading-none text-center">
-            is waiting
-          </h1>
-          <h1 className="text-[2.75rem] lg:text-[5.5rem] md:text-[4.2rem] uppercase leading-none text-center">
-            for you
+          <h1 className="ml-1 text-2xl lg:text-5xl md:text-4xl uppercase leading-none text-center">
+            is waiting for you
           </h1>
         </div>
         <div className="flex flex-col md:max-w-[800px] max-w-[600px]">
           <div className="relative">
             <p className="text-sm md:text-lg lg:text-xl text-center">
-              Everyday we have a choice.
+              I can help you heal wounds around your
             </p>
-            <p className="text-sm md:text-lg lg:text-xl">
-              We all get to choose what our life looks and feels like.
+            <p className="text-sm md:text-lg lg:text-xl text-center">
+              feminine energy with my holistic program
             </p>
           </div>
         </div>
       </div>
       <CoachingIntro />
       <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50"></hr>
-      <div className="mt-5 flex flex-col">
-        <div className="flex items-center mx-5">
-          <div className="leading-3">
-            <h1 className="z-10 lg:text-5xl text-3xl">I&apos;m Rachel,</h1>
-            <h1 className="z-10 text-md lg:text-3xl">
-              Your feminine energy and inner work coach
-            </h1>
+      <div className="mt-5 flex flex-col bg-accent text-bg pt-6">
+        <div className="flex items-center mx-5 mb-10">
+          <div className="flex gap-3 items-center">
+            <div className="relative aspect-auto size-[15rem]">
+              <img
+                src="/images/rachel.jpeg"
+                alt="Rachel Noelle"
+                className="object-cover"
+              />
+            </div>
+            <div className="max-w-[125px]">
+              <h1 className="lg:text-lg text-[6px]">
+                I&apos;m Rachel, your feminine energy life coach
+              </h1>
+              <h1 className="lg:text-5xl text-sm">I&apos;m here to help</h1>
+              <h1 className="lg:text-5xl text-sm">you be the best you</h1>
+              <p id="about" className="mx-auto text-[6px]">
+                I empower you to live authentically in alignment with your
+                desires through the balance of strength and softness. You are
+                Divine Feminine and I am here to remind you of this. My job is
+                to create a personalized game plan for you to overcome your
+                limiting beliefs and rediscover what you were meant to do on
+                this earth. Together we will get excited about what your dreams
+                are. I help you do this through inner child work, raising your
+                vibration, getting you aware of your blocks and clearing them,
+                and then creating a plan to start living your best life. Im so
+                excited to work with you and share with you on this abundant
+                journey you are about to partake in.
+              </p>
+            </div>
           </div>
         </div>
-        <p
-          id="about"
-          className="mx-auto lg:text-lg text-sm bg-bg px-5 py-3 mb-5"
-        >
-          I empower you to live authentically in alignment with your desires
-          through the balance of strength and softness. You are Divine Feminine
-          and I am here to remind you of this. My job is to create a
-          personalized game plan for you to overcome your limiting beliefs and
-          rediscover what you were meant to do on this earth. Together we will
-          get excited about what your dreams are. I help you do this through
-          inner child work, raising your vibration, getting you aware of your
-          blocks and clearing them, and then creating a plan to start living
-          your best life. Im so excited to work with you and share with you on
-          this abundant journey you are about to partake in.
-        </p>
+      </div>
+      <div className="flex items-center mt-5">
         <Link
           className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
           href="/apply"
