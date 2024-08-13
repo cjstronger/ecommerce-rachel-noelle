@@ -47,23 +47,26 @@ export default function Page() {
       </div>
       <CoachingIntro />
       <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50"></hr>
-      <div className="mt-5 flex flex-col bg-accent text-bg pt-6">
+      <div className="mt-5 flex flex-col bg-accent text-bg pt-6 lg:py-10">
         <div className="flex items-center mx-5 mb-10">
-          <div className="flex gap-3 items-center">
-            <div className="relative aspect-auto size-[15rem]">
+          <div className="flex lg:gap-10 gap-3 items-center mx-auto">
+            <div className="relative aspect-auto lg:size-[23rem] size-[15rem]">
               <img
                 src="/images/rachel.jpeg"
                 alt="Rachel Noelle"
                 className="object-cover"
               />
             </div>
-            <div className="max-w-[125px]">
+            <div className="lg:max-w-[500px] max-w-[125px]">
               <h1 className="lg:text-lg text-[6px]">
                 I&apos;m Rachel, your feminine energy life coach
               </h1>
               <h1 className="lg:text-5xl text-sm">I&apos;m here to help</h1>
               <h1 className="lg:text-5xl text-sm">you be the best you</h1>
-              <p id="about" className="mx-auto text-[6px]">
+              <p
+                id="about"
+                className="mx-auto md:text-sm text-[6px] max-w-[400px]"
+              >
                 I empower you to live authentically in alignment with your
                 desires through the balance of strength and softness. You are
                 Divine Feminine and I am here to remind you of this. My job is
