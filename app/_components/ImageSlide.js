@@ -9,13 +9,15 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useImages } from "../_contexts/ImageContext";
 import { easeIn, motion } from "framer-motion";
+import Spinner from "./Spinner";
 
-export default function ImageSlide({ name = "art" }) {
+export default function ImageSlide({ name = "art", params }) {
   const [index, setIndex] = useState(0);
   const [imageClicked, setImageClicked] = useState(false);
-  const { contextImages } = useImages();
   const [touched, setTouched] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { contextImages } = useImages();
+  const [imageLoading, setImageLoading] = useState(true);
   const variants = { move: { translateX: `${index * -100}%` } };
 
   function handleOnScroll() {
@@ -87,7 +89,7 @@ export default function ImageSlide({ name = "art" }) {
           <div
             id="images"
             onScroll={handleOnScroll}
-            className="mt-5 aspect-[3/3] md:aspect-[3/2] xl:aspect-[3/1] overflow-scroll flex reviews snap-x snap-mandatory mb-5"
+            className="mt-5 aspect-[3/3] md:aspect-[3/2] xl:aspect-[3/1] overflow-x-scroll flex reviews snap-x snap-mandatory mb-5"
           >
             {contextImages.length > 0 ? (
               <div className={`flex w-[${contextImages.length}00vw] h-full`}>
@@ -97,18 +99,23 @@ export default function ImageSlide({ name = "art" }) {
                     initial={{ x: "0%" }}
                     animate={!scrolled && "move"}
                     transition={{ ease: easeIn }}
-                    className="w-[96vw] h-full relative snap-start"
+                    className="w-[100vw] snap-start flex-shrink-0"
                     key={i}
                   >
-                    <Image
-                      fill
-                      quality={100}
+                    <img
+                      // fill
+                      // quality={100}
                       src={`${image}`}
                       alt={`${name} ${index}`}
                       onClick={() => {
                         setImageClicked(true);
                       }}
-                      className="object-contain"
+                      className={`w-full h-full object-contain pr-4 ${
+                        imageLoading ? "animate-pulse bg-accent" : ""
+                      }`}
+                      onLoad={(e) => {
+                        setImageLoading(false), console.log("image loaded");
+                      }}
                     />
                   </motion.div>
                 ))}

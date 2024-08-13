@@ -29,9 +29,7 @@ export default async function Page({ params }) {
     <div className="lg:mt-[5rem] mt-[3rem] m-2 mb-10">
       <BackButton />
       <ImageProvider serverImages={images}>
-        <Suspense fallback={<Spinner />}>
-          <ImageSlide />
-        </Suspense>
+        <ImageSlide params={params} />
         <ImageUpload params={params} />
         <EditImages params={params} />
       </ImageProvider>

@@ -37,7 +37,7 @@ export default function ImageUpload({ params }) {
         className="flex gap-[6rem] justify-between items-center"
       >
         <input
-          className="file:text-accent file:border-0 file:rounded-full file:font-satoshi font-satoshi file:py-2 file:px-5 mr-[-5rem] file:hover:cursor-pointer file:hover:px-6 file:transition-all file:duration-150"
+          className="py-2 file:text-accent file:border-0 file:rounded-full file:font-satoshi font-satoshi file:py-2 file:px-5 mr-[-5rem] file:hover:cursor-pointer file:hover:px-6 file:transition-all file:duration-150"
           type="file"
           name="image"
           onChange={(e) => {
@@ -45,12 +45,14 @@ export default function ImageUpload({ params }) {
           }}
         />
         <input hidden defaultValue={params.id} name="id"></input>
-        <button
-          onClick={handleUpload}
-          className="rounded-full py-2 px-5 bg-blue-500 text-white font-satoshi hover:px-6 transtion-all duration-150"
-        >
-          {isPending ? <SpinnerMini /> : "Upload"}
-        </button>
+        {file && (
+          <button
+            onClick={handleUpload}
+            className="rounded-full py-2 px-5 bg-blue-500 text-white font-satoshi hover:px-6 transtion-all duration-150"
+          >
+            {isPending ? <SpinnerMini /> : "Upload"}
+          </button>
+        )}
       </div>
     </div>
   );
