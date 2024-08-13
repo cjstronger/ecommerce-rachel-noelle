@@ -34,7 +34,7 @@ export default async function Page({ params }) {
         <EditImages params={params} />
       </ImageProvider>
       <div className="flex flex-col items-center mt-5 mx-10">
-        <h1 className="text-5xl">{name}</h1>
+        <h1 className="lg:text-5xl text-3xl">{name}</h1>
         <p className="max-w-[800px] mb-5">{description}</p>
         <div className="flex items-center gap-5">
           <p className="text-xl">${unit_amount * 0.01}.00</p>

@@ -38,9 +38,9 @@ export default function Header() {
         <link rel="preload" href="/next/static/css/globals.css" as="style" />
       </Head>
       <motion.header
-        initial={{ translateY: -100 }}
-        animate={{ translateY: 0 }}
-        transition={{ translateY: { delay: 0.2, ease: easeIn, duration: 1 } }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ opacity: { delay: 0.2, ease: easeIn, duration: 0.35 } }}
         className="h-[50px] shadow-md z-20 fixed top-0 w-full bg-bg"
       >
         <div className="flex justify-between items-center overflow-hidden h-full">
