@@ -46,8 +46,11 @@ export default function Page() {
         </div>
       </div>
       <CoachingIntro />
-      <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50"></hr>
-      <div className="mt-5 flex flex-col bg-accent text-bg pt-6 lg:py-10">
+      <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50" />
+      <h1 className="lg:text-lg md:text-sm text-xs pb-2 text-center mt-2">
+        I&apos;m Rachel, Your Feminine Energy Life Coach
+      </h1>
+      <div className="mt-2 flex flex-col bg-accent text-bg pt-6 lg:py-10">
         <div className="flex items-center mx-5 mb-10">
           <div className="flex lg:gap-10 gap-3 items-center mx-auto">
             <div className="relative aspect-auto lg:size-[23rem] md:size-[15rem] size-[9rem]">
@@ -58,9 +61,6 @@ export default function Page() {
               />
             </div>
             <div className="lg:max-w-[500px] md:max-w-[400px] max-w-[215px]">
-              <h1 className="lg:text-lg md:text-sm text-xs pb-2">
-                I&apos;m Rachel, your feminine energy life coach
-              </h1>
               <h1 className="lg:text-5xl md:text-3xl text-2xl">
                 I&apos;m here to help
               </h1>
