@@ -25,7 +25,7 @@ export default function Page() {
           priority="true"
         />
       </div>
-      <div className="mt-6 flex flex-col items-center justify-center mx-auto max-w-[1000px] px-2 gap-5 lg:gap-11">
+      <div className="mt-6 flex flex-col items-center justify-center mx-auto max-w-[1000px] px-2">
         <div className="flex flex-col">
           <h1 className="text-2xl lg:text-5xl md:text-4xl uppercase leading-none text-center">
             Your best life
@@ -35,7 +35,7 @@ export default function Page() {
           </h1>
         </div>
         <div className="flex flex-col md:max-w-[800px] max-w-[600px]">
-          <div className="relative">
+          <div>
             <p className="text-sm md:text-lg lg:text-xl text-center">
               I can help you heal wounds around your
             </p>
@@ -50,34 +50,37 @@ export default function Page() {
       <div className="mt-5 flex flex-col bg-accent text-bg pt-6 lg:py-10">
         <div className="flex items-center mx-5 mb-10">
           <div className="flex lg:gap-10 gap-3 items-center mx-auto">
-            <div className="relative aspect-auto lg:size-[23rem] size-[15rem]">
+            <div className="relative aspect-auto lg:size-[23rem] size-[9rem]">
               <img
                 src="/images/rachel.jpeg"
                 alt="Rachel Noelle"
                 className="object-cover"
               />
             </div>
-            <div className="lg:max-w-[500px] max-w-[125px]">
-              <h1 className="lg:text-lg text-[6px]">
+            <div className="lg:max-w-[500px] max-w-[215px]">
+              <h1 className="lg:text-lg text-xs pb-2">
                 I&apos;m Rachel, your feminine energy life coach
               </h1>
-              <h1 className="lg:text-5xl text-sm">I&apos;m here to help</h1>
-              <h1 className="lg:text-5xl text-sm">you be the best you</h1>
+              <h1 className="lg:text-5xl text-2xl">I&apos;m here to help</h1>
+              <h1 className="lg:text-5xl text-2xl">you be the best you</h1>
               <p
                 id="about"
-                className="mx-auto md:text-sm text-[6px] max-w-[400px]"
+                className="mx-auto md:text-sm text-xs max-w-[400px] pt-2"
               >
                 I empower you to live authentically in alignment with your
                 desires through the balance of strength and softness. You are
                 Divine Feminine and I am here to remind you of this. My job is
                 to create a personalized game plan for you to overcome your
                 limiting beliefs and rediscover what you were meant to do on
-                this earth. Together we will get excited about what your dreams
-                are. I help you do this through inner child work, raising your
-                vibration, getting you aware of your blocks and clearing them,
-                and then creating a plan to start living your best life. Im so
-                excited to work with you and share with you on this abundant
-                journey you are about to partake in.
+                this earth.{" "}
+                <span className="lg:inline hidden">
+                  Together we will get excited about what your dreams are. I
+                  help you do this through inner child work, raising your
+                  vibration, getting you aware of your blocks and clearing them,
+                  and then creating a plan to start living your best life. Im so
+                  excited to work with you and share with you on this abundant
+                  journey you are about to partake in.
+                </span>
               </p>
             </div>
           </div>
