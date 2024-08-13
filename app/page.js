@@ -50,22 +50,26 @@ export default function Page() {
       <div className="mt-5 flex flex-col bg-accent text-bg pt-6 lg:py-10">
         <div className="flex items-center mx-5 mb-10">
           <div className="flex lg:gap-10 gap-3 items-center mx-auto">
-            <div className="relative aspect-auto lg:size-[23rem] size-[9rem]">
+            <div className="relative aspect-auto lg:size-[23rem] md:size-[15rem] size-[9rem]">
               <img
                 src="/images/rachel.jpeg"
                 alt="Rachel Noelle"
                 className="object-cover"
               />
             </div>
-            <div className="lg:max-w-[500px] max-w-[215px]">
-              <h1 className="lg:text-lg text-xs pb-2">
+            <div className="lg:max-w-[500px] md:max-w-[400px] max-w-[215px]">
+              <h1 className="lg:text-lg md:text-sm text-xs pb-2">
                 I&apos;m Rachel, your feminine energy life coach
               </h1>
-              <h1 className="lg:text-5xl text-2xl">I&apos;m here to help</h1>
-              <h1 className="lg:text-5xl text-2xl">you be the best you</h1>
+              <h1 className="lg:text-5xl md:text-3xl text-2xl">
+                I&apos;m here to help
+              </h1>
+              <h1 className="lg:text-5xl md:text-3xl text-2xl">
+                you be the best you
+              </h1>
               <p
                 id="about"
-                className="mx-auto md:text-sm text-xs max-w-[400px] pt-2"
+                className="mx-auto lg:text-lg md:text-sm text-xs md:max-w-[500px] max-w-[400px] pt-2"
               >
                 I empower you to live authentically in alignment with your
                 desires through the balance of strength and softness. You are
@@ -73,7 +77,7 @@ export default function Page() {
                 to create a personalized game plan for you to overcome your
                 limiting beliefs and rediscover what you were meant to do on
                 this earth.{" "}
-                <span className="lg:inline hidden">
+                <span className="md:inline hidden">
                   Together we will get excited about what your dreams are. I
                   help you do this through inner child work, raising your
                   vibration, getting you aware of your blocks and clearing them,
