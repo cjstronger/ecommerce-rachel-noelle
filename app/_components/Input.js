@@ -13,6 +13,7 @@ export default function Input({
   hidden,
   type,
   autoComplete,
+  defaultValue,
 }) {
   let errorPattern = "none";
   if (errorType === "name")
@@ -36,6 +37,7 @@ export default function Input({
       <input
         type={type}
         name={name}
+        defaultValue={defaultValue}
         id={id}
         {...register(name, {
           required: { value: true, message: "This field is required" },

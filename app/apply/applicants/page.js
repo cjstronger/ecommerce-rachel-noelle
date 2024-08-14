@@ -20,6 +20,7 @@ export default async function Page() {
             fullName={applicant.appFullName}
             email={applicant.appEmail}
             approved={applicant.approved}
+            id={applicant?.appId}
           />
         ))}
       </div>

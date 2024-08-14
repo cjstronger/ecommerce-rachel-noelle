@@ -9,10 +9,10 @@ export default function CoachingIntro() {
             Have you longed for...
           </h1>
           <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
-            Your purpose in life?
+            A more fulfilling life?
           </h1>
           <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
-            Level up in your life?
+            Finding your true purpose?
           </h1>
           <h1 className="text-sm lg:text-xl mx-2 font-satoshi">
             Guidance through your own blocks?

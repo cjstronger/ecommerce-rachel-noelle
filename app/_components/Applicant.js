@@ -4,12 +4,11 @@ import { useState } from "react";
 import toast, { CheckmarkIcon, ErrorIcon } from "react-hot-toast";
 import { approveApplicant } from "../_lib/data-services";
 
-export default function Applicant({ email, fullName, approved }) {
+export default function Applicant({ email, fullName, approved, id }) {
   const [approve, setApprove] = useState(approved);
   async function handleApproved() {
     setApprove(true);
-    console.log(email);
-    const { userHasNotLoggedIn } = await approveApplicant(email);
+    const { userHasNotLoggedIn } = await approveApplicant(id);
     userHasNotLoggedIn && toast.error("User has not logged in");
   }
   return (

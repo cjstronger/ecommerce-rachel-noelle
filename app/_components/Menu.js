@@ -41,7 +41,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
       title: `${
         user?.user_metadata?.full_name
           ? user.user_metadata.full_name.split(" ")[0]
-          : "User"
+          : "Login"
       }`,
       href: "/login",
     },
@@ -100,7 +100,7 @@ export default function Menu({ openMenu, setOpenMenu }) {
             )
         )}
       </div>
-      <SignOutButton setOpenMenu={setOpenMenu} setUser={setUser} />
+      {user && <SignOutButton setOpenMenu={setOpenMenu} setUser={setUser} />}
       <hr className="w-[80%] border-bg mx-auto mt-4 opacity-50"></hr>
       <motion.div className="flex justify-center mt-5 gap-4">
         <a

@@ -55,7 +55,7 @@ export default function Page() {
         <p className="text-center">currently only supporting Google logins</p>
         <div className="flex items-center flex-col mt-5 gap-5 text-2xl font-satoshi">
           <SignInButton provider="google" />
-          <SignOutButton type="page" setUser={setUser} />
+          {user && <SignOutButton type="page" setUser={setUser} />}
         </div>
       </div>
     </div>

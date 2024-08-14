@@ -12,13 +12,15 @@ export default async function submitApplication(formData) {
   const firstName = formData.first;
   const lastName = formData.last;
   const appEmail = formData.email;
+  const appId = formData.id;
+
   const { data } = await checkApplicantByEmail(appEmail);
   if (data.length) {
     applied = true;
     return { applied };
   }
   const appFullName = `${firstName} ${lastName}`;
-  const user = { appFullName, appEmail };
+  const user = { appFullName, appEmail, appId };
   const { error } = await addApplicant(user);
   if (error) throw new Error("The submit failed");
   await sendApplication(formData);

@@ -23,36 +23,39 @@ export async function addApplicant(user) {
   return { data, error };
 }
 
-export async function approveApplicant(email) {
+export async function approveApplicant(id) {
   let userHasNotLoggedIn = false;
-  const {
-    data: { users },
-    error: userError,
-  } = await supabaseAdmin.auth.admin.listUsers();
 
-  if (userError) console.error("User Error", userError);
+  const { data: userData, error: userError } =
+    await supabaseAdmin.auth.admin.getUserById(`${id}`);
 
-  const [userToUpdate] = users.filter((user) => {
-    return user.email === email;
-  });
+  const { user } = userData;
 
-  if (!userToUpdate?.id) {
+  if (userError) {
+    throw new Error("Error getting the user with that id");
+  }
+
+  if (!user?.id) {
     userHasNotLoggedIn = true;
     return { userHasNotLoggedIn };
   }
 
-  const userId = userToUpdate.id;
+  const userId = user.id;
 
   const { data: roleData, error: roleError } =
     await supabaseAdmin.auth.admin.updateUserById(userId, {
       app_metadata: { role: "approved" },
     });
-  if (roleError) throw new Error("Error in the role add", roleError);
+  if (roleError)
+    throw new Error(
+      "Error when adding the role approved to the user",
+      roleError
+    );
 
   const { data, error } = await supabaseAdmin
     .from("applicants")
     .update({ approved: true })
-    .eq("appEmail", email);
+    .eq("appId", id);
   if (error) console.error(error);
 
   return { userHasNotLoggedIn, data, roleData };

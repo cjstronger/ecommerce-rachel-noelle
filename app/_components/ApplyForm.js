@@ -10,11 +10,13 @@ import SpinnerMini from "./SpinnerMini";
 import ApplicationSuccess from "./ApplicationSuccess";
 import ApplicationReceived from "./ApplicationReceived";
 import toast from "react-hot-toast";
+import { useUser } from "../_contexts/UsersContext";
 
 export default function ApplyForm() {
   const { formState, register, handleSubmit, watch } = useForm();
   const { errors, isSubmitting, isSubmitSuccessful } = formState;
   const [alreadyApplied, setAlreadyApplied] = useState(false);
+  const { user } = useUser();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -63,6 +65,7 @@ export default function ApplyForm() {
                   errorType={"name"}
                   id="first"
                   autoComplete="given-name"
+                  defaultValue={user?.user_metadata?.name?.split(" ")[0]}
                 />
                 <Input
                   label={formData[0].inputs[1].label}
@@ -72,6 +75,7 @@ export default function ApplyForm() {
                   errors={errors}
                   errorType={"name"}
                   id="family-name"
+                  defaultValue={user?.user_metadata?.name?.split(" ")[1]}
                 />
                 <Input
                   label={formData[0].inputs[2].label}
@@ -82,6 +86,7 @@ export default function ApplyForm() {
                   errorType={"email"}
                   id="email"
                   autoComplete="email"
+                  defaultValue={user?.email}
                 />
                 <div className="mt-6 flex flex-col gap-2">
                   <TextArea
@@ -91,7 +96,6 @@ export default function ApplyForm() {
                     placeholder={formData[1].textAreas[0].placeholder}
                     name="textArea1"
                     watch={watch}
-                    hidden
                     id="textArea1"
                   />
                   <TextArea
@@ -101,7 +105,6 @@ export default function ApplyForm() {
                     placeholder={formData[1].textAreas[1].placeholder}
                     name="textArea2"
                     watch={watch}
-                    hidden
                     id="textArea2"
                   />
                   <TextArea
@@ -111,7 +114,6 @@ export default function ApplyForm() {
                     placeholder={formData[2].textAreas[0].placeholder}
                     name="textArea3"
                     watch={watch}
-                    hidden
                     id="textArea3"
                   />
                   <TextArea
@@ -121,7 +123,6 @@ export default function ApplyForm() {
                     placeholder={formData[2].textAreas[1].placeholder}
                     name="textArea4"
                     watch={watch}
-                    hidden
                     id="textArea4"
                   />
                   <TextArea
@@ -131,7 +132,6 @@ export default function ApplyForm() {
                     placeholder={formData[3].textAreas[0].placeholder}
                     name="textArea5"
                     watch={watch}
-                    hidden
                     id="textArea5"
                   />
                   <TextArea
@@ -141,8 +141,14 @@ export default function ApplyForm() {
                     placeholder={formData[3].textAreas[1].placeholder}
                     name="textArea6"
                     watch={watch}
-                    hidden
                     id="textArea6"
+                  />
+                  <input
+                    hidden
+                    value={user?.id}
+                    name="id"
+                    id="id"
+                    {...register("id")}
                   />
                 </div>
                 <div className="flex justify-end p-2">
