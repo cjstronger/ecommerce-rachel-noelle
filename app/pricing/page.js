@@ -12,20 +12,19 @@ export default async function Page() {
     <>
       <div className="aspect-[4/3] md:aspect-[2/1] xl:aspect-[3/1] relative flex justify-end p-5">
         <Image
-          src="/images/painting.jpg"
+          src="/images/beach3.jpg"
           fill
           blur="true"
           alt="theactofpainting"
-          className="object-cover object-top"
+          className="object-cover object-center"
           quality={100}
         />
       </div>
       <div className="mt-5">
-        <h1 className="text-center text-xl lg:text-2xl">Benefits</h1>
-        <p className="text-center text-xs lg:text-md">
+        <h1 className="text-center text-xs lg:text-lg">
           Benefits of working with me
-        </p>
-        <div className="flex justify-center">
+        </h1>
+        <div className="flex justify-center bg">
           <Benefit src="footprint.png" alt="steps">
             Practical Steps
           </Benefit>
@@ -65,17 +64,17 @@ function CoachingProduct({ imageSrc, name, metadata, price, priceId }) {
   const includesFields = includesKeys.map((key) => metadata[key]);
   return (
     <>
-      <hr className="bg-fadedBlack px-2 text-[.6px] border-neutral-400 mx-5 my-5" />
+      <hr className="bg-fadedBlack px-2 text-[.6px] border-neutral-400 mx-5 mt-5" />
       <div className="mx-5">
-        <div className="grid lg:grid-cols-2 max-w-[1000px] mx-auto">
-          <div className="col-span-1 h-[55vh] aspect-auto lg:aspect-square relative flex p-5 py-8">
+        <div className="grid lg:grid-cols-2 max-w-[1500px] mx-auto">
+          <div className="col-span-1 flex px-5 py-8">
             {imageSrc ? (
               <Image
-                fill
+                width="500"
+                height="800"
                 quality={100}
                 src={imageSrc}
                 alt="pricing"
-                className="object-cover"
               />
             ) : (
               <p className="text-red-600">
@@ -104,9 +103,8 @@ function CoachingProduct({ imageSrc, name, metadata, price, priceId }) {
       <div className=" flex flex-col gap-1 lg:justify-items-center mx-2 mt-5">
         {includesFields.map((field, i) => (
           <CoachingFeature
-            i={i}
             title={includesKeys[i]}
-            desandimage={field}
+            description={field}
             key={i}
           />
         ))}
@@ -122,13 +120,11 @@ function CoachingProduct({ imageSrc, name, metadata, price, priceId }) {
   );
 }
 
-function CoachingFeature({ title, desandimage, i }) {
-  const [image, ...descriptionParts] = desandimage.split("-");
-  const description = descriptionParts.join("-");
-
+function CoachingFeature({ title, description }) {
+  const [alpha, ...adjustedTitle] = title.split(" ").join(" ");
   return (
     <div className="flex flex-col mx-auto">
-      <h1 className="mt-5 text-xl lg:text-3xl text-center">{title}</h1>
+      <h1 className="mt-5 text-xl lg:text-3xl text-center">{adjustedTitle}</h1>
       <p className="text-base lg:text-lg text-center">{description}</p>
     </div>
   );

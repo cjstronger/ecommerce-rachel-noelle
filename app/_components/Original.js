@@ -14,8 +14,7 @@ export default function Original({ original, imageUrls }) {
       onClick={() => {
         router.push(`/artwork/${id}`);
       }}
-      className={`p-2 hover:cursor-pointer lg:size-[20rem] sm:size-[12rem] size-[10rem] flex flex-col justify-between relative shadow-md ${
-        metadata.sold === "true" && "bg-bgDark"
+      className={`p-2 hover:cursor-pointer lg:size-[20rem] sm:size-[12rem] size-[10rem] flex flex-col justify-between relative
       }`}
     >
       {metadata.sold === "true" && (

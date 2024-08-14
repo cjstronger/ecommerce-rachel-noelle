@@ -114,7 +114,7 @@ export default function ImageSlide({ name = "art", params }) {
                         imageLoading ? "animate-pulse bg-accent" : ""
                       }`}
                       onLoad={(e) => {
-                        setImageLoading(false), console.log("image loaded");
+                        setImageLoading(false);
                       }}
                     />
                   </motion.div>

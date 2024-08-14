@@ -24,9 +24,7 @@ export default function CartItems({ session }) {
       },
       body: JSON.stringify({ lineItems }),
     });
-    console.log(res);
     const data = await res.json();
-    console.log(data.session.url);
     router.push(data.session.url);
   }
   return (

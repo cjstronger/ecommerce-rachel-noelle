@@ -83,19 +83,25 @@ export default function CoachingDetails({ id }) {
           </CoachingPhase>
         </div>
       </div>
-      <div className="flex flex-col mx-2">
-        <h1 className="mt-5 text-2xl lg:text-4xl lg:mx-[10vw]">
+      <div className="flex flex-col mx-2 gap-5">
+        <h1 className="mt-5 text-2xl lg:text-4xl text-center mb-5">
           What It Includes
         </h1>
         <h1 className="text-lg lg:text-2xl text-center">
-          12 one-hour phone calls with me
+          12 One-hour phone calls with me
         </h1>
-        <h1 className="text-lg lg:text-2xl text-center">
-          Human design/Astrology birth chart explanation
-        </h1>
+        <div>
+          <h1 className="text-lg lg:text-2xl text-center">
+            Human Design and Astrology
+          </h1>
+          <h1 className="text-lg lg:text-2xl text-center">
+            birth chart analysis
+          </h1>
+        </div>
         <h1 className="text-lg lg:text-2xl text-center">
           Weekly journal prompts
         </h1>
+        <h1 className="text-lg lg:text-2xl text-center">Unlimited texts</h1>
         <h1 className="text-lg lg:text-2xl text-center">
           Personalized homework
         </h1>
