@@ -23,17 +23,17 @@ export default async function submitApplication(formData) {
   const user = { appFullName, appEmail, appId };
   const { error } = await addApplicant(user);
   if (error) throw new Error("The submit failed");
-  await sendApplication(formData);
-  await sendApplyNotif(appEmail, appFullName);
+  // await sendApplication(formData);
+  await sendApplyNotif(appEmail, firstName);
   return { applied };
 }
 
-async function sendApplyNotif(appEmail, appFullName) {
+async function sendApplyNotif(appEmail, firstName) {
   const { data, error } = await resend.emails.send({
     from: "Rachel Noelle <rachel@rachelnoelle.net>",
     to: [`${appEmail}`],
     subject: "Thank you for your application!",
-    react: <NoelleApply appFullName={appFullName} />,
+    react: <NoelleApply appFullName={firstName} />,
   });
   if (error)
     throw new Error(

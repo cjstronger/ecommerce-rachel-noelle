@@ -9,11 +9,11 @@ export default function SignOutButton({ setOpenMenu, type, setUser }) {
       setOpenMenu(false);
       setUser(null);
       await supaLogout();
-      toast.success("Signed out");
+      toast("Signed out");
     } else {
       setUser(null);
       await supaLogout();
-      toast.success("Signed out");
+      toast("Signed out");
     }
   }
 

@@ -8,6 +8,7 @@ import { addSubscriber } from "./data-services";
 import { supabase } from "./supabase";
 
 const resend = new Resend(process.env.RESEND_KEY);
+
 let sent = false;
 
 export default async function sendGuide(formData) {
@@ -16,9 +17,9 @@ export default async function sendGuide(formData) {
   const subFullName = formData.first;
   const subEmail = formData.email;
   const user = { subFullName, subEmail };
+  const { check } = await addSubscriber(user);
+  if (check?.length) return;
   const { sent } = await sendGuideEmail(appEmail, firstName);
-  const { error } = await addSubscriber(user);
-  if (error) console.error(error);
   return { sent };
 }
 

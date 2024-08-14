@@ -125,23 +125,11 @@ function CoachingProduct({ imageSrc, name, metadata, price, priceId }) {
 function CoachingFeature({ title, desandimage, i }) {
   const [image, ...descriptionParts] = desandimage.split("-");
   const description = descriptionParts.join("-");
-  const position = ["top", "center", "bottom", "left", "right"];
 
   return (
-    <div
-      className={`relative flex flex-col w-full max-w-[1200px] h-[110px] text-white mx-auto`}
-      style={{ backgroundPosition: position[i] }}
-    >
-      <div
-        className="absolute inset-0 bg-[url('/images/beach.jpg')] bg-fill"
-        style={{ backgroundPosition: position[i], filter: "blur(2px)" }}
-      ></div>
-      <div className="relative z-10">
-        <h1 className="mt-5 text-3xl lg:text-5xl text-center">{title}</h1>
-        <p className="text-neutral-300 text-base lg:text-lg text-center">
-          {description}
-        </p>
-      </div>
+    <div className="flex flex-col mx-auto">
+      <h1 className="mt-5 text-xl lg:text-3xl text-center">{title}</h1>
+      <p className="text-base lg:text-lg text-center">{description}</p>
     </div>
   );
 }

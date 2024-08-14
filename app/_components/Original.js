@@ -35,7 +35,7 @@ export default function Original({ original, imageUrls }) {
           />
         )}
       </div>
-      <h1 className="text-2xl text-center">{name}</h1>
+      <h1 className="lg:text-2xl text-lg text-center">{name}</h1>
     </div>
   );
 }

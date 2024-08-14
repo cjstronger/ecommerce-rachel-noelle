@@ -62,6 +62,13 @@ export async function approveApplicant(id) {
 }
 
 export async function addSubscriber(user) {
+  const { data: check, error: errorChecking } = await supabaseAdmin
+    .from("subscribers")
+    .select("subEmail")
+    .eq("subEmail", user.subEmail);
+  if (check?.length) {
+    return { check };
+  }
   const { data, error } = await supabaseAdmin
     .from("subscribers")
     .insert([user]);
@@ -80,28 +87,48 @@ export async function getImages(id) {
 }
 
 export async function addImages(formData) {
-  const file = formData.get("image");
+  const files = Array.from(formData.entries())
+    .filter(([key, value]) => {
+      return key.startsWith("image");
+    })
+    .map(([key, value]) => value);
   const id = formData.get("id");
-  const fileName = file.name.split(" ").join("").replace("/", "");
-  const folderPath = `${id}/${fileName}`;
-  const { data, error } = await supabaseAdmin.storage
-    .from("product_images")
-    .upload(`${folderPath}`, file);
-  if (error) {
+
+  try {
+    const uploadPromises = files.map(async (file) => {
+      const fileName = file.name.split(" ").join("").replace("/", "");
+      const folderPath = `${id}/${fileName}${Date.now()}`;
+      const { data, error } = await supabaseAdmin.storage
+        .from("product_images")
+        .upload(`${folderPath}`, file);
+      if (error) {
+        throw new Error(
+          "There was an error uploading the files to the storage bucket",
+          error
+        );
+      }
+
+      const { data: imageData, error: imageError } = await supabaseAdmin
+        .from("images")
+        .insert({
+          productId: id,
+          imageUrl: `${supabaseUrl}/storage/v1/object/public/product_images/${data.path}`,
+        });
+      if (imageError) {
+        throw new Error(
+          "There was an error adding the URLs to the table",
+          imageError
+        );
+      }
+      return imageData;
+    });
+
+    const results = await Promise.all(uploadPromises);
+    return results;
+  } catch (error) {
     console.error(error);
     return { error };
   }
-  const { data: imageData, error: imageError } = await supabaseAdmin
-    .from("images")
-    .insert({
-      productId: id,
-      imageUrl: `${supabaseUrl}/storage/v1/object/public/product_images/${data.path}`,
-    });
-  if (imageError) {
-    console.error(imageError);
-    return { imageError };
-  }
-  return { imageError: undefined, error: undefined };
 }
 
 export async function getAllImages() {
