@@ -64,17 +64,17 @@ function CoachingProduct({ imageSrc, name, metadata, price, priceId }) {
   const includesFields = includesKeys.map((key) => metadata[key]);
   return (
     <>
-      <hr className="bg-fadedBlack px-2 text-[.6px] border-neutral-400 mx-5 mt-5" />
+      <hr className="bg-fadedBlack px-2 text-[.6px] border-neutral-400 mx-5 my-5" />
       <div className="mx-5">
-        <div className="grid lg:grid-cols-2 max-w-[1500px] mx-auto">
-          <div className="col-span-1 flex px-5 py-8">
+        <div className="grid lg:grid-cols-2 max-w-[1000px] mx-auto">
+          <div className="col-span-1 flex px-5 py-8 relative aspect-auto">
             {imageSrc ? (
               <Image
-                width="500"
-                height="800"
+                fill
                 quality={100}
                 src={imageSrc}
                 alt="pricing"
+                className="object-contain"
               />
             ) : (
               <p className="text-red-600">

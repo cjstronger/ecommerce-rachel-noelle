@@ -48,7 +48,7 @@ export default function Header() {
           <div className="absolute inset-x-1/2 whitespace-nowrap flex justify-center z-10 text-fadedBlack">
             <Link
               href="/"
-              className="text-3xl hover:translate-y-[2px] transition-all duration-150"
+              className="text-3xl active:translate-y-[2px] hover:translate-y-[-1px] transition-all duration-150"
             >
               Rachel Noelle
             </Link>

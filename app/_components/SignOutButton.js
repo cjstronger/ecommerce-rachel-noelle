@@ -21,7 +21,7 @@ export default function SignOutButton({ setOpenMenu, type, setUser }) {
     return (
       <button
         onClick={handleSignout}
-        className="text-bg text-5xl font-satoshi px-8 hover:border-bg border-b-2 border-b-transparent transition-all duration-150 w-full text-left "
+        className="text-bg text-4xl font-satoshi px-8 hover:border-bg border-b-2 border-b-transparent transition-all duration-150 w-full text-left py-2"
       >
         Logout
       </button>
