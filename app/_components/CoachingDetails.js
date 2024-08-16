@@ -114,6 +114,19 @@ export default function CoachingDetails({ id }) {
           In depth game plan for your future goals
         </h1>
       </div>
+      <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50" />
+      <h1 className="text-center text-lg lg:text-2xl">
+        Looking to test the water before diving deep?
+      </h1>
+      <Link
+        href="/startingout"
+        className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto"
+      >
+        Free Consulting or Call
+      </Link>
+      <h1 className="text-center text-lg lg:text-2xl">
+        Otherwise lets go head first!
+      </h1>
       <Link
         className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
         href="/apply"
