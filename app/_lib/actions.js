@@ -42,3 +42,7 @@ export async function getStripeProducts() {
   const data = res.data;
   return data;
 }
+
+export async function handleAddToCart(formData) {
+  console.log(formData);
+}

@@ -1,14 +1,10 @@
-"use client";
+"use server";
 
 import Image from "next/image";
 import AddToCart from "./AddToCart";
-import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
-import { isToday, startOfToday } from "date-fns";
-import { getTodayDate } from "@mui/x-date-pickers/internals";
-import CustomSlots from "./DayTimeCustom";
+import CoachingProductForm from "./DayTimeCustom";
 
-export default function CoachingProduct({
+export default async function CoachingProduct({
   imageSrc,
   name,
   metadata,
@@ -21,7 +17,7 @@ export default function CoachingProduct({
   });
   const description = descriptionKeys.map((key) => metadata[key]);
   const includesKeys = Object.keys(metadata).filter((key) => {
-    return !key.includes("description");
+    return !key.includes("description") && key !== "date";
   });
   const includesFields = includesKeys.map((key) => metadata[key]);
   return (
@@ -47,7 +43,7 @@ export default function CoachingProduct({
                 )}
               </div>
               <div className="col-span-1 mt-3 lg:mt-0 ml-0 lg:ml-5 h-[300px] md:h-[700px] overflow-scroll">
-                <h1 className="uppercase text-lg lg:text-4xl">{name}</h1>
+                <h1 className="uppercase text-xl lg:text-4xl">{name}</h1>
                 {description.length ? (
                   <p className="text-sm lg:text-xl">{description.join(" ")}</p>
                 ) : (
@@ -66,7 +62,7 @@ export default function CoachingProduct({
           ) : (
             <>
               <div className="col-span-1 mt-3 lg:mt-0 ml-0 lg:ml-5 h-[300px] md:h-[700px] overflow-scroll">
-                <h1 className="uppercase text-lg lg:text-4xl">{name}</h1>
+                <h1 className="uppercase text-xl lg:text-4xl">{name}</h1>
                 {description.length ? (
                   <p className="text-sm lg:text-xl">{description.join(" ")}</p>
                 ) : (
@@ -100,7 +96,7 @@ export default function CoachingProduct({
           )}
         </div>
       </div>
-      <div className=" flex flex-col gap-1 lg:justify-items-center mx-2 mt-5">
+      <div className=" flex flex-col gap-1 lg:justify-items-center mx-2">
         {includesFields.map((field, i) => (
           <CoachingFeature
             title={includesKeys[i]}
@@ -109,13 +105,17 @@ export default function CoachingProduct({
           />
         ))}
       </div>
-      <form className="mt-5">
-        <div className="flex justify-center"></div>
-        <div className="flex justify-center items-center lg:flex-row flex-col text-center my-2 lg:gap-5">
-          <p className="mb-2 lg:text-lg text-base">Price: ${price * 0.01}</p>
-          <AddToCart id={priceId}>Lets Get Started</AddToCart>
+      {Object.keys(metadata).includes("date") ? (
+        <CoachingProductForm price={price} priceId={priceId} />
+      ) : (
+        <div className="mt-2">
+          <div className="flex justify-center"></div>
+          <div className="flex justify-center items-center lg:flex-row flex-col text-center my-2 lg:gap-5">
+            <p className="mb-2 lg:text-lg text-base">Price: ${price * 0.01}</p>
+            <AddToCart id={priceId}>Lets Get Started</AddToCart>
+          </div>
         </div>
-      </form>
+      )}
       {price > 25 && (
         <p className="text-xs text-center">
           We support payment plans with Klarna&copy;

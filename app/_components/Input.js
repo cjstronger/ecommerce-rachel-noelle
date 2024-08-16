@@ -47,7 +47,7 @@ export default function Input({
             message: errorPattern[1]?.message,
           },
         })}
-        className="min-w-[50%] max-w-[30rem] text-lg p-2 font-satoshi bg-transparent border border-bg text-bg focus:outline-none placeholder-neutral-500 autofill:text-bg"
+        className="min-w-[50%] max-w-[30rem] text-lg p-2 font-satoshi bg-transparent border border-bg text-bg focus:outline-none placeholder-neutral-500 autofill:text-bg autofill-white"
         placeholder={placeholder}
         disabled={pending}
         hidden={hidden}

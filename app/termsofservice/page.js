@@ -1,4 +1,5 @@
 export default function Page() {
+  export const metadata = { title: "Terms Of Service" };
   return (
     <div className="mx-5 mt-5">
       <h1 className="text-4xl">Terms of Service</h1>

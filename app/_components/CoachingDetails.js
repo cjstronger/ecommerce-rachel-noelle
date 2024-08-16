@@ -46,7 +46,7 @@ export default function CoachingDetails({ id }) {
   }, [pageX, clicked, pageXX, walk, scrollLeft]);
 
   return (
-    <div id={id} className="flex flex-col gap-8">
+    <div id={id} className="flex flex-col">
       <div
         id="horizontal"
         className="shadow-xl lg:mx-[10rem] bg-[url(/images/beach2.jpg)] bg-center md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden"
@@ -115,12 +115,12 @@ export default function CoachingDetails({ id }) {
         </h1>
       </div>
       <hr className="border-fadedBlack mx-auto w-[80vw] h-2 mt-5 opacity-50" />
-      <h1 className="text-center text-lg lg:text-2xl">
+      <h1 className="text-center text-lg lg:text-2xl mt-4">
         Looking to test the water before diving deep?
       </h1>
       <Link
         href="/startingout"
-        className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto"
+        className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mt-2 mb-5"
       >
         Book a call
       </Link>
@@ -128,7 +128,7 @@ export default function CoachingDetails({ id }) {
         Otherwise lets dive deep!
       </h1>
       <Link
-        className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
+        className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10 mt-2"
         href="/apply"
       >
         Apply

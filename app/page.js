@@ -10,10 +10,7 @@ export const metadata = { title: "Rachel Noelle - Coaching" };
 export default function Page() {
   return (
     <>
-      <div
-        data-scroll-container
-        className="flex lg:aspect-[3/1] aspect-[200/201] relative justify-center"
-      >
+      <div className="flex lg:aspect-[3/1] aspect-[200/201] relative justify-center">
         <Image
           fill
           quality={100}
