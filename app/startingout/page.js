@@ -14,8 +14,9 @@ export default async function Page() {
       <h1 className="lg:ml-[8rem] ml-5 text-lg lg:text-2xl">
         Check my more affordable options out
       </h1>
-      {consultingProducts.map((product) => (
+      {consultingProducts.map((product, i) => (
         <CoachingProduct
+          key={i}
           imageSrc={product.product.images[0]}
           name={product.product.name}
           metadata={product.product.metadata}
