@@ -31,8 +31,10 @@ function CustomSlots({ onChange }) {
 export default function CoachingProductForm({ price, priceId }) {
   const [customSlotValue, setCustomSlotValue] = useState(null);
   const [email, setEmail] = useState(null);
+  const [name, setName] = useState(null);
   const [error, setError] = useState(null);
   const [emailError, setEmailError] = useState(null);
+  const [nameError, setNameError] = useState(null);
   const { addCartItem, itemAdding } = useCart();
 
   const handleSubmit = async (event) => {
@@ -42,6 +44,8 @@ export default function CoachingProductForm({ price, priceId }) {
       return;
     } else if (!email) {
       setEmailError("Please enter an email.");
+    } else if (!name) {
+      setNameError("Please enter your full name.");
     } else {
       setError(null);
       setEmailError(null);
@@ -59,6 +63,11 @@ export default function CoachingProductForm({ price, priceId }) {
     setEmailError(null);
   }
 
+  function handleNameChange(value) {
+    setName(value);
+    setNameError(null);
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -67,13 +76,23 @@ export default function CoachingProductForm({ price, priceId }) {
       <CustomSlots onChange={handleChange} />
       {error && <p className="text-red-600 text-center">{error}</p>}
       <input
+        id="email"
         className="w-[50%] md:w-[20rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack text-fadedBlack focus:outline-none placeholder-neutral-500 autofill-black autofill:bg-bg"
         type="email"
-        placeholder="email"
+        placeholder="Email"
         autoComplete="email"
         onChange={handleEmailChange}
       />
-      {emailError && <p className="text-red-600">{emailError}</p>}
+      {emailError && <p className="text-red-600 text-center">{emailError}</p>}
+      <input
+        id="fullname"
+        className="w-[50%] md:w-[20rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack text-fadedBlack focus:outline-none placeholder-neutral-500 autofill-black autofill:bg-bg"
+        type="text"
+        placeholder="Full name"
+        autoComplete="name"
+        onChange={handleNameChange}
+      />
+      {nameError && <p className="text-red-600">{nameError}</p>}
       <div className="flex justify-center items-center lg:flex-row flex-col text-center my-2 lg:gap-5">
         <p className="mb-2 lg:text-lg text-base">Price: ${price * 0.01}</p>
         <button className="font-satoshi lowercase border-fadedBlack border hover:bg-accent hover:text-white p-2 transition-all duration-400 text-lg lg:text-xl min-h-[50px] min-w-[125px] flex justify-center items-center">
