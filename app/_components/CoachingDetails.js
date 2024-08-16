@@ -52,7 +52,7 @@ export default function CoachingDetails({ id }) {
         className="shadow-xl lg:mx-[10rem] bg-[url(/images/beach2.jpg)] bg-center md:h-[55vh] h-[45vh] overflow-scroll active:cursor-grabbing cursor-grab overflow-y-hidden"
         style={{ backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
       >
-        <div className="flex gap-6 lg:gap-10 items-center mt-[4rem] md:mx-[5rem] mx-[2rem]">
+        <div className="flex gap-6 lg:gap-10 items-center mt-[5vh] md:mx-[5rem] mx-[2rem]">
           <CoachingPhase phase="1" title="Clarity">
             I will help you understand your purpose and bring awareness to the
             unseen power within you. Together we gain clarity around your
