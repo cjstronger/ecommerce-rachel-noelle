@@ -14,6 +14,7 @@ export default function CoachingProduct({
   metadata,
   price,
   priceId,
+  index,
 }) {
   const descriptionKeys = Object.keys(metadata).filter((key) => {
     return key.includes("description");
@@ -28,37 +29,75 @@ export default function CoachingProduct({
       <hr className="bg-fadedBlack px-2 text-[.6px] border-neutral-400 mx-5 my-3" />
       <div className="mx-5">
         <div className="grid grid-cols-2 max-w-[1000px] mx-auto gap-3">
-          <div className="col-span-1 flex py-8 relative aspect-auto h-[300px] md:h-[700px]">
-            {imageSrc ? (
-              <Image
-                fill
-                quality={100}
-                src={imageSrc}
-                alt="pricing"
-                className="object-cover"
-              />
-            ) : (
-              <p className="text-red-600">
-                Upload image to the product on stripe
-              </p>
-            )}
-          </div>
-          <div className="col-span-1 mt-3 lg:mt-0 ml-0 lg:ml-5 h-[300px] md:h-[700px] overflow-scroll">
-            <h1 className="uppercase text-lg lg:text-4xl">{name}</h1>
-            {description.length ? (
-              <p className="text-sm lg:text-xl">{description.join(" ")}</p>
-            ) : (
-              <p className="text-red-600 lg:text-xl text-sm">
-                To add a description, go to the products metadata on stripe.
-                Specifying a key &#40;the key needs to have
-                &apos;description&apos; in the key name&#41; and a value with
-                the text you want in the description. You can split the
-                description into different metadatas if you surpass the 500
-                character limit by adding a number to the end of each
-                description key.
-              </p>
-            )}
-          </div>
+          {(index + 1) % 2 !== 0 ? (
+            <>
+              <div className="col-span-1 flex py-8 relative aspect-auto h-[300px] md:h-[700px]">
+                {imageSrc ? (
+                  <Image
+                    fill
+                    quality={100}
+                    src={imageSrc}
+                    alt="pricing"
+                    className="object-cover"
+                  />
+                ) : (
+                  <p className="text-red-600">
+                    Upload image to the product on stripe
+                  </p>
+                )}
+              </div>
+              <div className="col-span-1 mt-3 lg:mt-0 ml-0 lg:ml-5 h-[300px] md:h-[700px] overflow-scroll">
+                <h1 className="uppercase text-lg lg:text-4xl">{name}</h1>
+                {description.length ? (
+                  <p className="text-sm lg:text-xl">{description.join(" ")}</p>
+                ) : (
+                  <p className="text-red-600 lg:text-xl text-sm">
+                    To add a description, go to the products metadata on stripe.
+                    Specifying a key &#40;the key needs to have
+                    &apos;description&apos; in the key name&#41; and a value
+                    with the text you want in the description. You can split the
+                    description into different metadatas if you surpass the 500
+                    character limit by adding a number to the end of each
+                    description key.
+                  </p>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="col-span-1 mt-3 lg:mt-0 ml-0 lg:ml-5 h-[300px] md:h-[700px] overflow-scroll">
+                <h1 className="uppercase text-lg lg:text-4xl">{name}</h1>
+                {description.length ? (
+                  <p className="text-sm lg:text-xl">{description.join(" ")}</p>
+                ) : (
+                  <p className="text-red-600 lg:text-xl text-sm">
+                    To add a description, go to the products metadata on stripe.
+                    Specifying a key &#40;the key needs to have
+                    &apos;description&apos; in the key name&#41; and a value
+                    with the text you want in the description. You can split the
+                    description into different metadatas if you surpass the 500
+                    character limit by adding a number to the end of each
+                    description key.
+                  </p>
+                )}
+              </div>
+              <div className="col-span-1 flex py-8 relative aspect-auto h-[300px] md:h-[700px]">
+                {imageSrc ? (
+                  <Image
+                    fill
+                    quality={100}
+                    src={imageSrc}
+                    alt="pricing"
+                    className="object-cover"
+                  />
+                ) : (
+                  <p className="text-red-600">
+                    Upload image to the product on stripe
+                  </p>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className=" flex flex-col gap-1 lg:justify-items-center mx-2 mt-5">
@@ -77,9 +116,11 @@ export default function CoachingProduct({
           <AddToCart id={priceId}>Lets Get Started</AddToCart>
         </div>
       </form>
-      <p className="text-xs text-center">
-        We support payment plans with Klarna&copy;
-      </p>
+      {price > 25 && (
+        <p className="text-xs text-center">
+          We support payment plans with Klarna&copy;
+        </p>
+      )}
     </>
   );
 }

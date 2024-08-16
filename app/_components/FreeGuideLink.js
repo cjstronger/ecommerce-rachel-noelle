@@ -36,7 +36,7 @@ export default function FreeGuideLink() {
         <Link
           onClick={() => setClicked(true)}
           href="/foodguide"
-          className="w-full h-[100%] p-2"
+          className="w-full h-[100%] p-2 items-center flex"
         >
           <h1 className="text-lg lg:text-2xl">Get my free e-book!</h1>
         </Link>

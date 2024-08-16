@@ -122,10 +122,10 @@ export default function CoachingDetails({ id }) {
         href="/startingout"
         className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto"
       >
-        Free Consulting or Call
+        Book a call
       </Link>
       <h1 className="text-center text-lg lg:text-2xl">
-        Otherwise lets go head first!
+        Otherwise lets dive deep!
       </h1>
       <Link
         className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"

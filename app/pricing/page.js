@@ -3,6 +3,8 @@ import Benefit from "../_components/Benefit";
 import { getStripeProducts } from "../_lib/actions";
 import CoachingProduct from "../_components/CoachingProduct";
 
+export const revalidate = 0;
+
 export default async function Page() {
   const products = await getStripeProducts();
   const coachingProducts = products.filter(
@@ -47,6 +49,7 @@ export default async function Page() {
           metadata={product.product.metadata}
           price={product.unit_amount}
           priceId={product.id}
+          index={i}
         />
       ))}
     </>
