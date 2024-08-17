@@ -16,6 +16,16 @@ export default async function Page() {
       <h1 className="lg:ml-[8rem] ml-5 text-lg lg:text-2xl">
         Check out my more affordable options
       </h1>
+      <CoachingProduct
+        imageSrc="/images/coaching.jpg"
+        name="Free Consultation"
+        metadata={{
+          description:
+            "You've seen my content and are hopeful that I can help you move past your limiting beliefs to achieve your desired outcome but you want to make sure I can really be the Feminine Life Coach you need and want. Let's see if we are a good fit!",
+          date: true,
+        }}
+        price={"free"}
+      />
       {consultingProducts.map((product, i) => (
         <CoachingProduct
           key={i}

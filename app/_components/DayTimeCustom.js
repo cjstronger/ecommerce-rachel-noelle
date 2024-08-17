@@ -8,6 +8,9 @@ import { useState } from "react";
 import { isSaturday } from "date-fns";
 import { toDate } from "date-fns-tz";
 import { useCart } from "../_contexts/CartContext";
+import { addClient } from "../_lib/data-services";
+import Button from "./Button";
+import SpinnerMini from "./SpinnerMini";
 
 function CustomSlots({ onChange }) {
   const [value, setValue] = useState(null);
@@ -29,42 +32,48 @@ function CustomSlots({ onChange }) {
 }
 
 export default function CoachingProductForm({ price, priceId }) {
-  const [customSlotValue, setCustomSlotValue] = useState(null);
+  const [userDate, setUserDate] = useState(null);
   const [email, setEmail] = useState(null);
-  const [name, setName] = useState(null);
+  const [fullName, setFullName] = useState(null);
   const [error, setError] = useState(null);
   const [emailError, setEmailError] = useState(null);
   const [nameError, setNameError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [added, setAdded] = useState(false);
   const { addCartItem, itemAdding } = useCart();
+  const user = { fullName, email, userDate };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!customSlotValue) {
+    if (!userDate) {
       setError("Please select a date and time.");
       return;
     } else if (!email) {
       setEmailError("Please enter an email.");
-    } else if (!name) {
+    } else if (!fullName) {
       setNameError("Please enter your full name.");
     } else {
       setError(null);
       setEmailError(null);
-      await addCartItem(priceId);
+      priceId ? await addCartItem(priceId) : setLoading(true);
+      const { added } = await addClient(user);
+      setLoading(false);
+      added && setAdded(true);
     }
   };
 
   function handleChange(value) {
-    setCustomSlotValue(value);
+    setUserDate(value);
     setError(null);
   }
 
-  function handleEmailChange(value) {
-    setEmail(value);
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
     setEmailError(null);
   }
 
-  function handleNameChange(value) {
-    setName(value);
+  function handleNameChange(e) {
+    setFullName(e.target.value);
     setNameError(null);
   }
 
@@ -94,10 +103,27 @@ export default function CoachingProductForm({ price, priceId }) {
       />
       {nameError && <p className="text-red-600">{nameError}</p>}
       <div className="flex justify-center items-center lg:flex-row flex-col text-center my-2 lg:gap-5">
-        <p className="mb-2 lg:text-lg text-base">Price: ${price * 0.01}</p>
-        <button className="font-satoshi lowercase border-fadedBlack border hover:bg-accent hover:text-white p-2 transition-all duration-400 text-lg lg:text-xl min-h-[50px] min-w-[125px] flex justify-center items-center">
-          {itemAdding ? "added to cart" : "Lets get started"}
-        </button>
+        {price === "free" ? (
+          <>
+            <p className="mb-2 lg:text-lg text-base">Free</p>
+            <Button>
+              {loading ? (
+                <SpinnerMini />
+              ) : added ? (
+                "Talk soon!"
+              ) : (
+                "Lets get started"
+              )}
+            </Button>
+          </>
+        ) : (
+          <>
+            <p className="mb-2 lg:text-lg text-base">Price: ${price * 0.01}</p>
+            <button className="font-satoshi lowercase border-fadedBlack border hover:bg-accent hover:text-white p-2 transition-all duration-400 text-lg lg:text-xl min-h-[50px] min-w-[125px] flex justify-center items-center">
+              {itemAdding ? "added to cart" : "Lets get started"}
+            </button>
+          </>
+        )}
       </div>
     </form>
   );

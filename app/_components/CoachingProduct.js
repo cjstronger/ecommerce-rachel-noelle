@@ -3,6 +3,7 @@
 import Image from "next/image";
 import AddToCart from "./AddToCart";
 import CoachingProductForm from "./DayTimeCustom";
+import Button from "./Button";
 
 export default async function CoachingProduct({
   imageSrc,

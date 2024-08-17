@@ -76,6 +76,21 @@ export async function addSubscriber(user) {
   return { data, error };
 }
 
+export async function addClient(user) {
+  let added = false;
+  const { data: check, error: errorChecking } = await supabaseAdmin
+    .from("clients")
+    .select("email")
+    .eq("email", user.email);
+  if (check?.length) {
+    return { check };
+  }
+  const { data, error } = await supabaseAdmin.from("clients").insert([user]);
+  if (error) console.error("User could not be added to the clients");
+  added = true;
+  return { data, error, added };
+}
+
 export async function getImages(id) {
   const { data, error } = await supabase
     .from("images")

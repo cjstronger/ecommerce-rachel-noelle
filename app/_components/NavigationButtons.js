@@ -52,7 +52,7 @@ export default function NavigationButtons({
         <ActiveLink href="/login">
           {user?.user_metadata?.full_name
             ? user.user_metadata.full_name.split(" ")[0]
-            : "user"}
+            : "login"}
         </ActiveLink>
       </li>
       {user?.role === "service_role" && (
