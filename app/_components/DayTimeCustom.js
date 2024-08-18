@@ -46,16 +46,29 @@ export default function CoachingProductForm({ price, priceId }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!userDate) {
-      setError("Please select a date and time.");
-      return;
+      if (!email) {
+        setEmailError("Please enter your email");
+      }
+      if (!fullName) {
+        setNameError("Please enter your full name");
+      }
+      return setError("Please select a date and time for the consultation");
     } else if (!email) {
-      setEmailError("Please enter an email.");
+      if (!userDate) {
+        setError("Please select a date and time for the consultation");
+      }
+      if (!fullName) {
+        setNameError("Please enter your full name");
+      }
+      setEmailError("Please enter your email.");
     } else if (!fullName) {
       setNameError("Please enter your full name.");
+    } else if (priceId) {
+      console.log("here at the priceId");
+      await addCartItem(priceId);
+      localStorage.setItem(priceId, [fullName, email, userDate]);
     } else {
-      setError(null);
-      setEmailError(null);
-      priceId ? await addCartItem(priceId) : setLoading(true);
+      setLoading(true);
       const { added } = await addClient(user);
       setLoading(false);
       added && setAdded(true);
@@ -83,16 +96,9 @@ export default function CoachingProductForm({ price, priceId }) {
       className="mt-2 flex flex-col items-center gap-2"
     >
       <CustomSlots onChange={handleChange} />
-      {error && <p className="text-red-600 text-center">{error}</p>}
-      <input
-        id="email"
-        className="w-[50%] md:w-[20rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack text-fadedBlack focus:outline-none placeholder-neutral-500 autofill-black autofill:bg-bg"
-        type="email"
-        placeholder="Email"
-        autoComplete="email"
-        onChange={handleEmailChange}
-      />
-      {emailError && <p className="text-red-600 text-center">{emailError}</p>}
+      {error && (
+        <p className="text-red-600 text-sm lg:text-base text-center">{error}</p>
+      )}
       <input
         id="fullname"
         className="w-[50%] md:w-[20rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack text-fadedBlack focus:outline-none placeholder-neutral-500 autofill-black autofill:bg-bg"
@@ -101,7 +107,22 @@ export default function CoachingProductForm({ price, priceId }) {
         autoComplete="name"
         onChange={handleNameChange}
       />
-      {nameError && <p className="text-red-600">{nameError}</p>}
+      {nameError && (
+        <p className="text-red-600 text-sm lg:text-base">{nameError}</p>
+      )}
+      <input
+        id="email"
+        className="w-[50%] md:w-[20rem] text-lg p-2 font-satoshi bg-transparent border border-fadedBlack text-fadedBlack focus:outline-none placeholder-neutral-500 autofill-black autofill:bg-bg"
+        type="email"
+        placeholder="Email"
+        autoComplete="email"
+        onChange={handleEmailChange}
+      />
+      {emailError && (
+        <p className="text-red-600 text-sm lg:text-base text-center">
+          {emailError}
+        </p>
+      )}
       <div className="flex justify-center items-center lg:flex-row flex-col text-center my-2 lg:gap-5">
         {price === "free" ? (
           <>

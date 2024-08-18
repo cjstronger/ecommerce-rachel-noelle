@@ -77,6 +77,8 @@ export async function addSubscriber(user) {
 }
 
 export async function addClient(user) {
+  console.log(user);
+  if (!user.fullName) return;
   let added = false;
   const { data: check, error: errorChecking } = await supabaseAdmin
     .from("clients")
@@ -86,7 +88,7 @@ export async function addClient(user) {
     return { check };
   }
   const { data, error } = await supabaseAdmin.from("clients").insert([user]);
-  if (error) console.error("User could not be added to the clients");
+  if (error) console.error("User could not be added to the clients", error);
   added = true;
   return { data, error, added };
 }

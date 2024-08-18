@@ -2,8 +2,6 @@
 
 import { NextResponse } from "next/server";
 import { createClient } from "./app/utils/supabase/server";
-import { cookies } from "next/headers";
-import { setLoginCookies } from "./app/_lib/actions";
 
 export const config = {
   matcher: ["/pricing", "/artwork/:path*", "/apply/applicants", "/apply"],

@@ -38,7 +38,17 @@ export async function getStripeProducts() {
   const res = await stripe.prices.list({
     expand: ["data.product"],
     limit: 100,
+    active: true,
   });
+  const data = res.data;
+  return data;
+}
+
+export async function getStripeProductById(id) {
+  const stripe = new Stripe(process.env.STRIPE_KEY ?? "", {
+    apiVersion: "2020-08-27",
+  });
+  const res = await stripe.prices.retrieve(id);
   const data = res.data;
   return data;
 }

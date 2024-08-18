@@ -46,10 +46,7 @@ export default function Header() {
         <div className="flex justify-between items-center overflow-hidden h-full">
           <Navigation />
           <div className="absolute inset-x-1/2 whitespace-nowrap flex justify-center z-10 text-fadedBlack">
-            <Link
-              href="/"
-              className="text-3xl active:translate-y-[2px] hover:translate-y-[-1px] transition-all duration-150"
-            >
+            <Link href="/" className="text-3xl transition-all duration-150">
               Rachel Noelle
             </Link>
           </div>

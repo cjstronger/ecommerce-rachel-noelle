@@ -12,6 +12,17 @@ export default function CartItems({ session }) {
 
   async function checkout() {
     const lineItems = cartItems.map((cartItem) => {
+      if (localStorage.getItem(cartItem[0].id)) {
+        const [fullName, email, userDate] = localStorage
+          .getItem(cartItem[0].id)
+          .split(",");
+        let description = `Name;${fullName}, Email;${email}, Date;${userDate}`;
+        return {
+          price: cartItem[0].id,
+          quantity: 1,
+          description,
+        };
+      }
       return {
         price: cartItem[0].id,
         quantity: 1,
