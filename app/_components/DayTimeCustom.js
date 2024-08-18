@@ -32,7 +32,7 @@ function CustomSlots({ onChange }) {
 }
 
 export default function CoachingProductForm({ price, priceId }) {
-  const [userDate, setUserDate] = useState(null);
+  const [userdate, setUserDate] = useState(null);
   const [email, setEmail] = useState(null);
   const [fullName, setFullName] = useState(null);
   const [error, setError] = useState(null);
@@ -41,11 +41,11 @@ export default function CoachingProductForm({ price, priceId }) {
   const [loading, setLoading] = useState(false);
   const [added, setAdded] = useState(false);
   const { addCartItem, itemAdding } = useCart();
-  const user = { fullName, email, userDate };
+  const user = { fullName, email, userdate };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!userDate) {
+    if (!userdate) {
       if (!email) {
         setEmailError("Please enter your email");
       }
@@ -54,7 +54,7 @@ export default function CoachingProductForm({ price, priceId }) {
       }
       return setError("Please select a date and time for the consultation");
     } else if (!email) {
-      if (!userDate) {
+      if (!userdate) {
         setError("Please select a date and time for the consultation");
       }
       if (!fullName) {
@@ -64,9 +64,8 @@ export default function CoachingProductForm({ price, priceId }) {
     } else if (!fullName) {
       setNameError("Please enter your full name.");
     } else if (priceId) {
-      console.log("here at the priceId");
       await addCartItem(priceId);
-      localStorage.setItem(priceId, [fullName, email, userDate]);
+      localStorage.setItem(priceId, [fullName, email, userdate]);
     } else {
       setLoading(true);
       const { added } = await addClient(user);

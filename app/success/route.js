@@ -41,9 +41,8 @@ export async function POST(req) {
       const [fullName, email, date] = coachingItem.description
         .split(", ")
         .map((part) => part.split(";")[1]);
-      const userDate = new Date(date);
-      console.log(fullName, email, userDate);
-      const user = { fullName, email, userDate };
+      const userdate = new Date(date);
+      const user = { fullName, email, userdate };
       await addClient(user);
     });
     await Promise.all(promises);

@@ -77,7 +77,6 @@ export async function addSubscriber(user) {
 }
 
 export async function addClient(user) {
-  console.log(user);
   if (!user.fullName) return;
   let added = false;
   const { data: check, error: errorChecking } = await supabaseAdmin

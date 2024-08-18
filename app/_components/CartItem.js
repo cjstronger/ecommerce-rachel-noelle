@@ -4,9 +4,9 @@ import { useCart } from "../_contexts/CartContext";
 export default function CartItem({ item }) {
   const { deleteCartItem } = useCart();
   const description = item[0]?.product?.description
-    .split(" ")
-    .slice(0, 10)
-    .join(" ");
+    ?.split(" ")
+    ?.slice(0, 10)
+    ?.join(" ");
   return (
     <div className="border-[1px] border-bg w-full h-[6rem] text-lg flex justify-between items-center p-5 mb-3 text-bg">
       <div className="flex flex-col">
