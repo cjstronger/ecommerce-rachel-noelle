@@ -111,8 +111,13 @@ export async function addImages(formData) {
   const id = formData.get("id");
   try {
     const uploadPromises = files.map(async (file) => {
-      const adjustedFileName = file.name.split(" ").join("").replace("/", "");
-      const [fileName, fileExtension] = adjustedFileName.split(".");
+      const fileExtension = file.type.split("/")[1];
+      const fileName = file.name
+        .split(" ")
+        .join("")
+        .replace("/", "")
+        .replace(/\.(png|jpe?g)$/i, "")
+        .replace(/\./g, "");
       const folderPath = `${id}/${fileName}-${Date.now()}.${fileExtension}`;
       const { data, error } = await supabaseAdmin.storage
         .from("product_images")
