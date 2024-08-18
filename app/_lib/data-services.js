@@ -109,11 +109,11 @@ export async function addImages(formData) {
     })
     .map(([key, value]) => value);
   const id = formData.get("id");
-
   try {
     const uploadPromises = files.map(async (file) => {
-      const fileName = file.name.split(" ").join("").replace("/", "");
-      const folderPath = `${id}/${fileName}${Date.now()}`;
+      const adjustedFileName = file.name.split(" ").join("").replace("/", "");
+      const [fileName, fileExtension] = adjustedFileName.split(".");
+      const folderPath = `${id}/${fileName}-${Date.now()}.${fileExtension}`;
       const { data, error } = await supabaseAdmin.storage
         .from("product_images")
         .upload(`${folderPath}`, file);

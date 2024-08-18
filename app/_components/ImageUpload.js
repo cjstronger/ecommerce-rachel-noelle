@@ -5,7 +5,7 @@ import { addImages } from "../_lib/data-services";
 import toast from "react-hot-toast";
 import { useImages } from "../_contexts/ImageContext";
 import SpinnerMini from "./SpinnerMini";
-import { CameraIcon } from "@heroicons/react/24/solid";
+import { CameraIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 export default function ImageUpload({ params }) {
@@ -21,7 +21,7 @@ export default function ImageUpload({ params }) {
         formData.append(`image${i}`, file);
       });
       formData.append("id", params.id);
-      const { imageError, error } = await addImages(formData);
+      const { error, imageError } = await addImages(formData);
       if (imageError !== undefined) {
         toast.error(imageError?.message);
         return;
@@ -31,6 +31,8 @@ export default function ImageUpload({ params }) {
         return;
       }
       toast("Images Uploaded!");
+      setPreviews([]);
+      setFiles([]);
       getImagesById(params.id);
     });
   }
@@ -57,7 +59,7 @@ export default function ImageUpload({ params }) {
             onChange={handleFileChange}
           />
           {previews.length > 0 ? (
-            <div className="flex gap-2">
+            <div className="flex gap-2 relative">
               {previews.map((src, i) => (
                 <Image
                   width="40"
