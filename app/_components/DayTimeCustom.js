@@ -3,31 +3,65 @@
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
-import { DateTimePicker } from "@mui/x-date-pickers";
+import { MobileDateTimePicker } from "@mui/x-date-pickers";
 import { useState } from "react";
-import { isSaturday } from "date-fns";
+import { isSaturday, isSunday, isThisYear } from "date-fns";
 import { toDate } from "date-fns-tz";
 import { useCart } from "../_contexts/CartContext";
 import { addClient } from "../_lib/data-services";
 import Button from "./Button";
 import SpinnerMini from "./SpinnerMini";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function CustomSlots({ onChange }) {
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    background: {
+      default: "#ffffff",
+      paper: "#1d1d1d",
+    },
+    text: {
+      primary: "#ffffff",
+      secondary: "#737373",
+    },
+  },
+});
+
+function CustomSlots({ onChange, onError }) {
   const [value, setValue] = useState(null);
+
+  const shouldDisableTime = (timeValue, clockType) => {
+    const date = new Date(timeValue);
+    if (clockType === "hours") {
+      if (isSunday(date)) {
+        return date.getHours() < 13 || date.getHours() > 16;
+      } else {
+        return date.getHours() < 6 || date.getHours() > 10;
+      }
+    }
+    return false;
+  };
+
   return (
-    <div className="mx-auto max-w-[200px] md:max-w-[250px]">
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DemoContainer components={["DatePicker"]}>
-          <DateTimePicker
-            label="Pick a time"
-            onChange={onChange}
-            disablePast
-            shouldDisableDate={isSaturday}
-            value={value ? toDate(value) : null}
-          />
-        </DemoContainer>
-      </LocalizationProvider>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <div className="mx-auto max-w-[200px] md:max-w-[250px]">
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DemoContainer components={["DatePicker"]}>
+            <MobileDateTimePicker
+              label="Pick a time"
+              onChange={onChange}
+              className="bg-accent rounded-md"
+              disablePast
+              shouldDisableDate={isSaturday}
+              shouldDisableTime={shouldDisableTime}
+              value={value ? toDate(value) : null}
+              views={["year", "month", "day", "hours"]}
+              onError={onError}
+            />
+          </DemoContainer>
+        </LocalizationProvider>
+      </div>
+    </ThemeProvider>
   );
 }
 
@@ -60,9 +94,11 @@ export default function CoachingProductForm({ price, priceId }) {
       if (!fullName) {
         setNameError("Please enter your full name");
       }
-      setEmailError("Please enter your email.");
+      return setEmailError("Please enter your email.");
     } else if (!fullName) {
-      setNameError("Please enter your full name.");
+      return setNameError("Please enter your full name.");
+    } else if (error) {
+      return;
     } else if (priceId) {
       await addCartItem(priceId);
       localStorage.setItem(priceId, [fullName, email, userdate]);
@@ -89,14 +125,28 @@ export default function CoachingProductForm({ price, priceId }) {
     setNameError(null);
   }
 
+  function onError(newError) {
+    if (newError === "disablePast")
+      return setError("Time must be sometime in the future");
+    if (newError === "shouldDisableTime-hours")
+      return setError(
+        "Rachel's time range is Monday through Friday 6am-10am and on Sundays 1pm-4pm"
+      );
+    if (newError === "shouldDisableDate")
+      return setError("Rachel is available Mon-Fri and Sundays");
+    setError(newError);
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
       className="mt-2 flex flex-col items-center gap-2"
     >
-      <CustomSlots onChange={handleChange} />
+      <CustomSlots onChange={handleChange} onError={onError} />
       {error && (
-        <p className="text-red-600 text-sm lg:text-base text-center">{error}</p>
+        <p className="text-red-600 text-sm lg:text-base text-center px-11">
+          {error}
+        </p>
       )}
       <input
         id="fullname"
