@@ -5,7 +5,7 @@ import { addImages } from "../_lib/data-services";
 import toast from "react-hot-toast";
 import { useImages } from "../_contexts/ImageContext";
 import SpinnerMini from "./SpinnerMini";
-import { CameraIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { CameraIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 export default function ImageUpload({ params }) {

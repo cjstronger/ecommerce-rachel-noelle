@@ -1,9 +1,9 @@
 "use server";
 
 import { Resend } from "resend";
-import { NoelleGuide } from "@/react-email-starter/emails/noelle-sendGuide";
 import { addSubscriber } from "./data-services";
 import { supabase } from "./supabase";
+import NoelleGuide from "@/react-email-starter/emails/noelle-sendGuide";
 
 const resend = new Resend(process.env.RESEND_KEY);
 
@@ -21,7 +21,7 @@ export default async function sendGuide(formData) {
   return { sent };
 }
 
-async function sendGuideEmail(appEmail, appFullName) {
+async function sendGuideEmail(appEmail, firstName) {
   const { data: fileContent, fileError } = await supabase.storage
     .from("PDFs")
     .download("/Uplevel Using My Food Guide.pdf");
@@ -30,8 +30,6 @@ async function sendGuideEmail(appEmail, appFullName) {
   const base64FileContent = await fileContent.arrayBuffer().then((buffer) => {
     return Buffer.from(buffer).toString("base64");
   });
-
-  const downloadLink = `data:application/pdf;base64,${base64FileContent}`;
 
   const { data, error } = await resend.emails.send({
     from: "Rachel Noelle <rachel@rachelnoelle.net>",
@@ -44,7 +42,7 @@ async function sendGuideEmail(appEmail, appFullName) {
         type: "application/pdf",
       },
     ],
-    react: <NoelleGuide appFullName={appFullName} file={downloadLink} />,
+    react: <NoelleGuide firstName={firstName} />,
   });
   if (error)
     throw new Error("There was an error when sending the guide.", error);

@@ -14,7 +14,7 @@ import {
 } from "@react-email/components";
 import React from "react";
 
-export default function NoelleGuide({ appFullName, file }) {
+export const NoelleGuide = ({ firstName }) => {
   return (
     <Html>
       <Head />
@@ -23,16 +23,13 @@ export default function NoelleGuide({ appFullName, file }) {
         <Body className="bg-neutral-900 text-neutral-100 overflow-x-hidden">
           <Container>
             <Section className="absolute bg-neutral-900 h-[12rem] w-[15rem] md:size-full mt-[5rem] p-5">
-              <Heading className="text-4xl">Hello, {appFullName}</Heading>
+              <Heading className="text-4xl">Hello, {firstName}</Heading>
               <Text className="text-2xl text-center">
                 Is is time to get serious about your health?
               </Text>
               <Text className="text-2xl text-center">
                 This is where the journey begins in improving your life.
               </Text>
-              <Link download="Uplevel_Using_My_Food_Guide.pdf" href={file}>
-                File here
-              </Link>
             </Section>
           </Container>
           <Img
@@ -46,4 +43,5 @@ export default function NoelleGuide({ appFullName, file }) {
       </Tailwind>
     </Html>
   );
-}
+};
+export default NoelleGuide;
