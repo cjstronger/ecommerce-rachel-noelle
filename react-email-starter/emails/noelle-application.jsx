@@ -15,12 +15,7 @@ import {
 } from "@react-email/components";
 import React from "react";
 
-export default function NoelleApplication() {
-  const data = {
-    first: "Clint",
-    last: "Clint",
-    email: "irsent",
-  };
+export default function NoelleApplication({ data }) {
   let inputIndex = 1;
   const adjustedData = Object.keys(data).filter((key) => {
     return key !== "first" && key !== "last" && key !== "email";
@@ -40,7 +35,11 @@ export default function NoelleApplication() {
       <Body style={main}>
         <Container style={container}>
           <Section style={box}>
-            <Img src={`/static/RN.png`} fill="true" alt="RN" />
+            <Img
+              src="https://nzszzpxpduixjugtfdla.supabase.co/storage/v1/object/public/email_images/RN.png"
+              fill="true"
+              alt="RN"
+            />
             <Hr style={hr} />
             <Heading style={h1} as="h2">
               Your new applicants application is here!
