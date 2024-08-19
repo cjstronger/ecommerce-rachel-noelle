@@ -15,6 +15,12 @@ export default function ImageUpload({ params }) {
   const [previews, setPreviews] = useState([]);
 
   function handleUpload() {
+    const fileSize = files.reduce((acc, curr) => acc + curr.size, 0);
+    if (fileSize > 4000000) {
+      toast.error("The max file size is 4MB total, for now...");
+      setPreviews([]);
+      return setFiles([]);
+    }
     startTransition(async () => {
       const formData = new FormData();
       files.forEach((file, i) => {
