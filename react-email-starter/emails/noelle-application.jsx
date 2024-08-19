@@ -11,18 +11,31 @@ import {
   Section,
   Text,
   Heading,
+  Font,
 } from "@react-email/components";
 import React from "react";
 
-export default function NoelleApplication({ data }) {
+export default function NoelleApplication() {
+  const data = {
+    first: "Clint",
+    last: "Clint",
+    email: "irsent",
+  };
   let inputIndex = 1;
   const adjustedData = Object.keys(data).filter((key) => {
     return key !== "first" && key !== "last" && key !== "email";
   });
   const adjustedForm = formData.slice(1);
   return (
-    <Html>
-      <Head />
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <Preview>You have a new Application for Coaching!</Preview>
       <Body style={main}>
         <Container style={container}>
@@ -50,15 +63,14 @@ export default function NoelleApplication({ data }) {
           </Section>
         </Container>
       </Body>
-    </Html>
+    </html>
   );
 }
 
 const main = {
   color: "#e7e1d7",
   backgroundColor: "#28282b",
-  fontFamily:
-    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+  fontFamily: "'Cormorant Garamond' serif",
 };
 
 const container = {
@@ -79,6 +91,7 @@ const hr = {
 
 const h1 = {
   fontWeight: "540",
+  fontFamily: "'Cormorant Garamond', serif",
 };
 
 const paragraph = {

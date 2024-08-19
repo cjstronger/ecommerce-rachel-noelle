@@ -1,8 +1,6 @@
 "use server";
 
 import { Resend } from "resend";
-import fs from "fs";
-import path from "path";
 import { NoelleGuide } from "@/react-email-starter/emails/noelle-sendGuide";
 import { addSubscriber } from "./data-services";
 import { supabase } from "./supabase";
@@ -33,6 +31,8 @@ async function sendGuideEmail(appEmail, appFullName) {
     return Buffer.from(buffer).toString("base64");
   });
 
+  const downloadLink = `data:application/pdf;base64,${base64FileContent}`;
+
   const { data, error } = await resend.emails.send({
     from: "Rachel Noelle <rachel@rachelnoelle.net>",
     to: [`${appEmail}`],
@@ -44,7 +44,7 @@ async function sendGuideEmail(appEmail, appFullName) {
         type: "application/pdf",
       },
     ],
-    react: <NoelleGuide appFullName={appFullName} />,
+    react: <NoelleGuide appFullName={appFullName} file={downloadLink} />,
   });
   if (error)
     throw new Error("There was an error when sending the guide.", error);

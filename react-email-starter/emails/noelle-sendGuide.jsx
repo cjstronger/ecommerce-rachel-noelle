@@ -9,68 +9,41 @@ import {
   Section,
   Text,
   Heading,
+  Tailwind,
+  Link,
 } from "@react-email/components";
 import React from "react";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
-
-export const NoelleGuide = ({ appFullName }) => (
-  <Html>
-    <Head />
-    <Preview>Rachel's Free Ebook</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Section style={box}>
-          <Img src={`/static/RN.png`} fill="true" alt="RN" />
-          <Hr style={hr} />
-          <Heading style={h1} as="h2">
-            Hello, {appFullName}
-          </Heading>
-          <Text style={paragraph}>
-            Is is time to get serious about your health?
-          </Text>
-          <Text style={paragraph}>
-            This is where the journey begins in improving your life.
-          </Text>
-        </Section>
-      </Container>
-    </Body>
-  </Html>
-);
-
-const main = {
-  color: "#e7e1d7",
-  backgroundColor: "#28282b",
-  fontFamily:
-    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
-};
-
-const container = {
-  backgroundColor: "#28282b",
-  margin: "0 auto",
-  padding: "20px 0 48px",
-  marginBottom: "64px",
-};
-
-const box = {
-  padding: "0 48px",
-};
-
-const hr = {
-  borderColor: "#e7e1d7",
-  margin: "20px 0",
-};
-
-const h1 = {
-  fontWeight: "540",
-};
-
-const paragraph = {
-  color: "#e7e1d7",
-
-  fontSize: "16px",
-  lineHeight: "24px",
-  textAlign: "left",
-};
+export default function NoelleGuide({ appFullName, file }) {
+  return (
+    <Html>
+      <Head />
+      <Tailwind>
+        <Preview>Rachel's Free Ebook</Preview>
+        <Body className="bg-neutral-900 text-neutral-100 overflow-x-hidden">
+          <Container>
+            <Section className="absolute bg-neutral-900 h-[12rem] w-[15rem] md:size-full mt-[5rem] p-5">
+              <Heading className="text-4xl">Hello, {appFullName}</Heading>
+              <Text className="text-2xl text-center">
+                Is is time to get serious about your health?
+              </Text>
+              <Text className="text-2xl text-center">
+                This is where the journey begins in improving your life.
+              </Text>
+              <Link download="Uplevel_Using_My_Food_Guide.pdf" href={file}>
+                File here
+              </Link>
+            </Section>
+          </Container>
+          <Img
+            src="https://nzszzpxpduixjugtfdla.supabase.co/storage/v1/object/public/email_images/IMG_2759%20(1).jpg"
+            alt="beach"
+            width="auto"
+            height="800"
+            className="mx-auto"
+          />
+        </Body>
+      </Tailwind>
+    </Html>
+  );
+}
