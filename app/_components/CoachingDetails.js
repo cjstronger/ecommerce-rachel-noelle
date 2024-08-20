@@ -120,7 +120,7 @@ export default function CoachingDetails({ id }) {
       </h1>
       <TransitionLink
         href="/startingout"
-        className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mt-2 mb-5"
+        className="text-center lg:text-lg text-md font-satoshi border flex justify-center items-center md:w-[250px] w-[190px] h-[45px] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mt-2 mb-5"
       >
         Book a call
       </TransitionLink>
@@ -128,7 +128,7 @@ export default function CoachingDetails({ id }) {
         Otherwise lets dive deep!
       </h1>
       <TransitionLink
-        className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10 mt-2"
+        className="text-center lg:text-lg text-md font-satoshi border flex justify-center items-center md:w-[250px] w-[190px] h-[45px] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10 mt-2"
         href="/apply"
       >
         Apply

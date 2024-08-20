@@ -58,25 +58,27 @@ export default function CartItems({ session }) {
           </Reorder.Item>
         ))
       )}
-      {!session && (
-        <Link
-          onClick={() => setOpenCart(false)}
-          href="/login"
-          className="border-[1px] border-bg text-bg font-satoshi p-2 text-xl hover:bg-accentFaded hover:text-white transition-all duration-200"
-        >
-          sign in
-        </Link>
-      )}
-      {stateCart.length ? (
-        <button
-          className="font-satoshi border-[1px] text-bg border-bg hover:bg-bg hover:text-fadedBlack transition-all duration-200 lowercase p-[6px] text-xl ml-8"
-          onClick={checkout}
-        >
-          Checkout
-        </button>
-      ) : (
-        ""
-      )}
+      <div className="flex gap-2">
+        {!session && (
+          <Link
+            onClick={() => setOpenCart(false)}
+            href="/login"
+            className="border-[1px] border-bg text-bg font-satoshi md:w-[125px] w-[110px] h-[45px] flex justify-center items-center text-xl hover:bg-bg hover:text-fadedBlack transition-all duration-200"
+          >
+            Sign In
+          </Link>
+        )}
+        {stateCart.length ? (
+          <button
+            className="font-satoshi border-[1px] text-bg border-bg hover:bg-bg hover:text-fadedBlack transition-all duration-200 md:w-[125px] w-[110px] h-[45px] flex justify-center items-center text-xl"
+            onClick={checkout}
+          >
+            Checkout
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
     </Reorder.Group>
   );
 }

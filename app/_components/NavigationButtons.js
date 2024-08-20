@@ -12,13 +12,22 @@ export default function NavigationButtons({
   const { user } = useUser();
   const router = useRouter();
 
-  function handleScroll(e) {
+  const sleep = (ms) =>
+    new Promise((resolve) => {
+      return setTimeout(resolve, ms);
+    });
+
+  async function handleScroll(e) {
+    setOpenMenu(false);
     e.preventDefault();
     const id = e.target.getAttribute("href").replace("#", "");
-    const element = document.getElementById(id);
     if (window.location.pathname !== "/") {
       router.push("/");
+      await sleep(500);
+      const element = document.getElementById(id);
+      element.scrollIntoView({ behavior: "smooth" });
     } else {
+      const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
@@ -26,14 +35,14 @@ export default function NavigationButtons({
   }
 
   return !burger ? (
-    <ul className="flex text-lg text-fadedBlack h-full font-satoshi lowercase">
+    <ul className="flex text-lg text-fadedBlack h-full font-satoshi">
       <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
         <a
           className="px-6 h-full items-center flex border-b-transparent border-b-2"
           onClick={handleScroll}
           href="#about"
         >
-          about
+          About
         </a>
       </li>
       <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
@@ -42,7 +51,7 @@ export default function NavigationButtons({
           onClick={handleScroll}
           href="#coaching"
         >
-          coaching
+          Coaching
         </a>
       </li>
       <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
@@ -52,7 +61,7 @@ export default function NavigationButtons({
         <ActiveLink href="/login">
           {user?.user_metadata?.full_name
             ? user.user_metadata.full_name.split(" ")[0]
-            : "login"}
+            : "Login"}
         </ActiveLink>
       </li>
       {user?.role === "service_role" && (

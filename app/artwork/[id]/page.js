@@ -26,6 +26,7 @@ export default async function Page({ params }) {
   const { unit_amount } = product;
   let { name, images, description, metadata } = product.product;
   images = [...images, ...imageUrls];
+
   return (
     <div className="lg:mt-[2rem] mt-[1rem] m-2 mb-10">
       <BackButton />
@@ -39,15 +40,17 @@ export default async function Page({ params }) {
           <p className="text-xl">${unit_amount * 0.01}.00</p>
           {metadata.sold === "true" ? (
             <p className="border-[1px] border-fadedBlack py-2 px-5 text-xl cursor-default">
-              sold
+              Sold
             </p>
           ) : (
             <AddToCart id={params.id}>Add to Cart</AddToCart>
           )}
         </div>
-        <p className="text-xs mt-2">
-          We support payment plans with Klarna&copy;
-        </p>
+        {!metadata.sold && (
+          <p className="text-xs mt-2">
+            We support payment plans with Klarna&copy;
+          </p>
+        )}
       </div>
     </div>
   );

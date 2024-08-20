@@ -1,9 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import Head from "next/head";
-import Lenis from "lenis";
-import { useLayoutEffect } from "react";
 import { easeIn, motion } from "framer-motion";
 import Navigation from "./Navigation";
 import Cart from "./Cart";
@@ -11,23 +8,6 @@ import FreeGuideLink from "./FreeGuideLink";
 import TransitionLink from "./TransitionLink";
 
 export default function Header() {
-  useLayoutEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
   return (
     <>
       <Head>

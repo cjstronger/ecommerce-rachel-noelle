@@ -51,12 +51,20 @@ export default function Menu({ openMenu, setOpenMenu }) {
     },
   ];
 
-  function handleScroll(e) {
+  const sleep = (ms) =>
+    new Promise((resolve) => {
+      return setTimeout(resolve, ms);
+    });
+
+  async function handleScroll(e) {
     setOpenMenu(false);
     e.preventDefault();
     const id = e.target.getAttribute("href").replace("#", "");
     if (window.location.pathname !== "/") {
       router.push("/");
+      await sleep(500);
+      const element = document.getElementById(id);
+      element.scrollIntoView({ behavior: "smooth" });
     } else {
       const element = document.getElementById(id);
       if (element) {

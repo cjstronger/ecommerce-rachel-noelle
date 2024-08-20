@@ -182,15 +182,15 @@ export default function CoachingProductForm({ price, priceId }) {
               ) : added ? (
                 "Talk soon!"
               ) : (
-                "Lets get started"
+                "Lets Get Started"
               )}
             </Button>
           </>
         ) : (
           <>
             <p className="mb-2 lg:text-lg text-base">Price: ${price * 0.01}</p>
-            <button className="font-satoshi lowercase border-fadedBlack border hover:bg-accent hover:text-white p-2 transition-all duration-400 text-lg lg:text-xl min-h-[50px] min-w-[125px] flex justify-center items-center">
-              {itemAdding ? "added to cart" : "Lets get started"}
+            <button className="font-satoshi border-fadedBlack border hover:bg-accent hover:text-white p-2 transition-all duration-400 text-lg lg:text-xl min-h-[50px] min-w-[125px] flex justify-center items-center">
+              {itemAdding ? "Added to Cart" : "Lets Get Started"}
             </button>
           </>
         )}

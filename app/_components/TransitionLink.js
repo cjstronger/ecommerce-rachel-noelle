@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 export default function TransitionLink({ children, href, className, onClick }) {
   const router = useRouter();
-  const [pathName, setPathName] = useState("");
+  const pathName = useRef("");
 
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   async function handleTransition(e) {
-    if (pathName === href) {
+    pathName.current = window.location.pathname;
+    if (pathName.current === href) {
       return window.scrollTo({ top: 0, behavior: "smooth" });
     }
     e.preventDefault();
@@ -22,8 +23,11 @@ export default function TransitionLink({ children, href, className, onClick }) {
     const footer = document.querySelector("footer");
     body.classList.add("transition");
     footer.classList.add("transition");
-    await sleep(100);
+    await sleep(400);
     router.push(href);
+    await sleep(200);
+    window.scrollTo({ top: 0 });
+    pathName.current = window.location.pathname;
   }
 
   useEffect(() => {
@@ -35,8 +39,6 @@ export default function TransitionLink({ children, href, className, onClick }) {
       body.classList.remove("transition");
       footer.classList.remove("transition");
     });
-
-    setPathName(window.location.pathname);
 
     observer.observe(document, { childList: true, subtree: true });
 

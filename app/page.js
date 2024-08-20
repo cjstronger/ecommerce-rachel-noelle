@@ -89,7 +89,7 @@ export default function Page() {
       </div>
       <div className="flex items-center mt-5">
         <TransitionLink
-          className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
+          className="text-center lg:text-lg text-md font-satoshi border flex justify-center items-center md:w-[250px] w-[190px] h-[45px] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
           href="/apply"
         >
           Apply

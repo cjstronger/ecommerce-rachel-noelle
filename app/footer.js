@@ -5,26 +5,26 @@ export default function Footer() {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <footer className="bg-bgDark w-full h-[15rem] flex flex-col justify-evenly items-center gap-5 text-xl shadow-md mt-[5rem]">
-      <div className="flex gap-5">
+    <footer className="bg-bgDark w-full h-[15rem] flex flex-col justify-evenly items-center text-xl shadow-md mt-[5rem]">
+      <div className="flex gap-5 font-satoshi">
         <Link
           target="_blank"
           href="https://www.youtube.com/@rachelnoelleschannel"
-          className="border-[1px] border-fadedBlack p-2 hover:bg-accentFaded transition-all duration-150"
+          className="border-[1px] border-fadedBlack md:w-[125px] w-[110px] h-[45px] flex justify-center items-center hover:bg-accentFaded transition-all duration-150"
         >
           Youtube
         </Link>
         <Link
           target="_blank"
           href="https://www.instagram.com/rachelnoelles/"
-          className="border-[1px] border-fadedBlack p-2 hover:bg-accentFaded transition-all duration-150"
+          className="border-[1px] border-fadedBlack md:w-[125px] w-[110px] h-[45px] flex justify-center items-center hover:bg-accentFaded transition-all duration-150"
         >
           Instagram
         </Link>
         <Link
           target="_blank"
           href="mailto:rachelnoellesart@gmail.com"
-          className="border-[1px] border-fadedBlack p-2 hover:bg-accentFaded transition-all duration-150"
+          className="border-[1px] border-fadedBlack md:w-[125px] w-[110px] h-[45px] flex justify-center items-center hover:bg-accentFaded transition-all duration-150"
         >
           Email
         </Link>

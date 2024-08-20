@@ -2,9 +2,13 @@
 
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function BackButton() {
   const router = useRouter();
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  });
   return (
     <button
       onClick={() => router.push("/artwork")}

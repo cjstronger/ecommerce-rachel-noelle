@@ -26,7 +26,7 @@ export default function SignInButton({ provider }) {
     >
       {isPending
         ? "redirecting"
-        : `login with ${provider.split("")[0].toUpperCase()}${provider
+        : `Login with ${provider.split("")[0].toUpperCase()}${provider
             .split("")
             .slice(1)
             .join("")}`}
