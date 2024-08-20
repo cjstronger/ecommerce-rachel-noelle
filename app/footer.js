@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TransitionLink from "./_components/TransitionLink";
 
 export default function Footer() {
   const date = new Date();
@@ -29,35 +30,35 @@ export default function Footer() {
         </Link>
       </div>
       <div>
-        <Link
+        <TransitionLink
           href="/privacy-policy"
           className="text-lg border-x-[1px] border-fadedBlack px-2 lg:inline hidden"
         >
           Privacy Policy
-        </Link>
-        <Link
+        </TransitionLink>
+        <TransitionLink
           href="/termsofservice"
           className="text-lg border-r-[1px] border-fadedBlack px-2 lg:inline hidden"
         >
           Terms of Service
-        </Link>
+        </TransitionLink>
       </div>
       <div className="w-full">
         <div className="flex flex-col items-center lg:flex-row justify-between mx-10">
           <h1>Rachel Noelle &copy; {year}</h1>
           <div>
-            <Link
+            <TransitionLink
               href="/privacy-policy"
               className="text-base border-x-[1px] border-fadedBlack px-2 lg:hidden"
             >
               Privacy Policy
-            </Link>
-            <Link
+            </TransitionLink>
+            <TransitionLink
               className="text-base border-r-[1px] border-fadedBlack px-2 lg:hidden"
               href="/termsofservice"
             >
               Terms of Service
-            </Link>
+            </TransitionLink>
           </div>
           <Link
             target="_blank"

@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import TransitionLink from "./TransitionLink";
 
 export default function Original({ original, imageUrls }) {
   const router = useRouter();
@@ -10,10 +12,8 @@ export default function Original({ original, imageUrls }) {
   let { images, name, metadata } = original.product;
   if (!images.length) images = imageArray;
   return (
-    <div
-      onClick={() => {
-        router.push(`/artwork/${id}`);
-      }}
+    <TransitionLink
+      href={`/artwork/${id}`}
       className={`p-2 hover:cursor-pointer lg:size-[20rem] sm:size-[12rem] size-[10rem] flex flex-col justify-between relative
       }`}
     >
@@ -35,6 +35,6 @@ export default function Original({ original, imageUrls }) {
         )}
       </div>
       <h1 className="lg:text-2xl text-lg text-center">{name}</h1>
-    </div>
+    </TransitionLink>
   );
 }

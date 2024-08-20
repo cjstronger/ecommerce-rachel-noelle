@@ -8,6 +8,7 @@ import { easeIn, motion } from "framer-motion";
 import Navigation from "./Navigation";
 import Cart from "./Cart";
 import FreeGuideLink from "./FreeGuideLink";
+import TransitionLink from "./TransitionLink";
 
 export default function Header() {
   useLayoutEffect(() => {
@@ -46,9 +47,12 @@ export default function Header() {
         <div className="flex justify-between items-center overflow-hidden h-full">
           <Navigation />
           <div className="absolute inset-x-1/2 whitespace-nowrap flex justify-center z-10 text-fadedBlack">
-            <Link href="/" className="text-3xl transition-all duration-150">
+            <TransitionLink
+              href="/"
+              className="text-3xl transition-all duration-150"
+            >
               Rachel Noelle
-            </Link>
+            </TransitionLink>
           </div>
           <Cart />
         </div>

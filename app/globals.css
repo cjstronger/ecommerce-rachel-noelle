@@ -190,3 +190,17 @@ p[data-email]:hover + .content-email {
 .reviews::-webkit-scrollbar-thumb:hover {
   background: transparent; /* Color of the thumb when hovered */
 }
+
+#body {
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+
+footer {
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+
+.transition {
+  opacity: 0;
+}

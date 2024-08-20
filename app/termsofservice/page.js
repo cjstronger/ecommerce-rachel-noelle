@@ -1,5 +1,5 @@
 export const metadata = { title: "Terms Of Service" };
-export default function Page() {
+function Page() {
   return (
     <div className="mx-5 mt-5">
       <h1 className="text-4xl">Terms of Service</h1>
@@ -48,3 +48,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default Page;

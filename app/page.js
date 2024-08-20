@@ -3,7 +3,7 @@ import CoachingIntro from "./_components/CoachingIntro";
 import TitleSeparator from "./_components/TitleSeparator";
 import ReviewsAll from "./_components/ReviewsAll";
 import Image from "next/image";
-import Link from "next/link";
+import TransitionLink from "./_components/TransitionLink";
 
 export const metadata = { title: "Rachel Noelle - Coaching" };
 
@@ -88,12 +88,12 @@ export default function Page() {
         </div>
       </div>
       <div className="flex items-center mt-5">
-        <Link
+        <TransitionLink
           className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10"
           href="/apply"
         >
           Apply
-        </Link>
+        </TransitionLink>
       </div>
 
       {/*Second section - coaching */}

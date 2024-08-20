@@ -30,7 +30,9 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <UserProvider>
             <Header />
-            <div className="flex-1 mt-[3.15rem]">{children}</div>
+            <div id="body" className="flex-1 mt-[3.15rem]">
+              {children}
+            </div>
           </UserProvider>
         </CartProvider>
         <Toaster />

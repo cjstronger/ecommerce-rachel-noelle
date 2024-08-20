@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useReducer, useState } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import { getStripeProducts } from "../_lib/actions";
 import toast from "react-hot-toast";
 

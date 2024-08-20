@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import TransitionLink from "./TransitionLink";
 
 export default function ActiveLink({ href, children, type, setOpenMenu }) {
   const pathname = usePathname();
@@ -13,7 +14,7 @@ export default function ActiveLink({ href, children, type, setOpenMenu }) {
   }, [urlFragment, params]);
   if (!type)
     return (
-      <Link
+      <TransitionLink
         href={href}
         className={
           pathname === href || urlFragment === href
@@ -22,11 +23,11 @@ export default function ActiveLink({ href, children, type, setOpenMenu }) {
         }
       >
         {children}
-      </Link>
+      </TransitionLink>
     );
   if (type === "mobile")
     return (
-      <Link
+      <TransitionLink
         href={href}
         className={
           pathname === href || urlFragment === href
@@ -38,6 +39,6 @@ export default function ActiveLink({ href, children, type, setOpenMenu }) {
         }}
       >
         {children}
-      </Link>
+      </TransitionLink>
     );
 }

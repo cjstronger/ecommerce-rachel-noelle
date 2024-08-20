@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from "react";
 import CoachingPhase from "./CoachingPhase";
-import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 
 export default function CoachingDetails({ id }) {
   const [pageX, setPageX] = useState(null);
@@ -118,21 +118,21 @@ export default function CoachingDetails({ id }) {
       <h1 className="text-center text-lg lg:text-2xl mt-4">
         Looking to test the water before diving deep?
       </h1>
-      <Link
+      <TransitionLink
         href="/startingout"
         className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mt-2 mb-5"
       >
         Book a call
-      </Link>
+      </TransitionLink>
       <h1 className="text-center text-lg lg:text-2xl">
         Otherwise lets dive deep!
       </h1>
-      <Link
+      <TransitionLink
         className="text-center lg:text-lg text-md font-satoshi border p-2 px-[12vw] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mb-10 mt-2"
         href="/apply"
       >
         Apply
-      </Link>
+      </TransitionLink>
     </div>
   );
 }
