@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div className="mt-[2rem] lg:flex flex-column">
       <Image
-        src="/images/foodguide-1.jpg"
+        src="/images/foodguide-1.png"
         alt="free-guide"
         quality={80}
         width="300"

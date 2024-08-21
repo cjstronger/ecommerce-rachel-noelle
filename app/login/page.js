@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import SignInButton from "../_components/SignInButton";
 import SignOutButton from "../_components/SignOutButton";
 import { useUser } from "../_contexts/UsersContext";
+import TransitionLink from "../_components/TransitionLink";
 
 export default function Page() {
   const { user, setUser } = useUser();
@@ -14,12 +14,12 @@ export default function Page() {
           <p className="mt-6 text-center text-sm md:text-xl">
             You have been approved by Rachel! Look at what she has to offer
           </p>
-          <Link
+          <TransitionLink
             className="font-satoshi border-[1px] border-bg p-2 hover:bg-accentFaded hover:text-white duration-150 transition-all"
             href="/pricing"
           >
             Fulfill your dreams
-          </Link>
+          </TransitionLink>
         </div>
       )}
       <div className="bg-bg w-[80vw] max-w-[40rem] h-[35rem] mt-[7rem] mx-auto px-12 py-5 shadow-md relative">

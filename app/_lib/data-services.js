@@ -76,16 +76,22 @@ export async function addSubscriber(user) {
   return { data, error };
 }
 
-export async function addClient(user) {
-  if (!user.fullName) return;
-  let added = false;
+export async function checkClient(user) {
+  if (!user?.fullName) throw new Error("User not specified");
+  const userDateString = new Date(user.userdate).toISOString();
   const { data: check, error: errorChecking } = await supabaseAdmin
     .from("clients")
-    .select("email")
-    .eq("email", user.email);
+    .select("email, userdate")
+    .eq("email", user.email)
+    .gte("userdate", userDateString);
   if (check?.length) {
     return { check };
   }
+  return { check };
+}
+
+export async function addClient(user) {
+  let added = false;
   const { data, error } = await supabaseAdmin.from("clients").insert([user]);
   if (error) console.error("User could not be added to the clients", error);
   added = true;

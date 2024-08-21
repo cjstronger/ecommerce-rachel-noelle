@@ -23,7 +23,7 @@ export default async function submitApplication(formData) {
   const user = { appFullName, appEmail, appId };
   const { error } = await addApplicant(user);
   if (error) throw new Error("The submit failed");
-  // await sendApplication(formData);
+  await sendApplication(formData);
   await sendApplyNotif(appEmail, firstName);
   return { applied };
 }

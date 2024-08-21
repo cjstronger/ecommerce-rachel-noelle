@@ -8,10 +8,11 @@ import { useState } from "react";
 import { isSaturday, isSunday, isThisYear } from "date-fns";
 import { toDate } from "date-fns-tz";
 import { useCart } from "../_contexts/CartContext";
-import { addClient } from "../_lib/data-services";
+import { addClient, checkClient } from "../_lib/data-services";
 import Button from "./Button";
 import SpinnerMini from "./SpinnerMini";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import toast from "react-hot-toast";
 
 const darkTheme = createTheme({
   palette: {
@@ -100,12 +101,42 @@ export default function CoachingProductForm({ price, priceId }) {
     } else if (error) {
       return;
     } else if (priceId) {
+      const { check } = await checkClient(user);
+      if (check?.length) {
+        const consultationDate = new Date(check[0].userdate);
+        return toast(
+          `You already have an upcoming consultation on ${consultationDate.toLocaleString(
+            "en-us",
+            {
+              day: "numeric",
+              month: "long",
+              hour: "numeric",
+            }
+          )}`,
+          { className: "text-center" }
+        );
+      }
       await addCartItem(priceId);
       localStorage.setItem(priceId, [fullName, email, userdate]);
     } else {
       setLoading(true);
-      const { added } = await addClient(user);
+      const { check } = await checkClient(user);
       setLoading(false);
+      if (check?.length) {
+        const consultationDate = new Date(check[0].userdate);
+        return toast(
+          `You already have an upcoming consultation on ${consultationDate.toLocaleString(
+            "en-us",
+            {
+              day: "numeric",
+              month: "long",
+              hour: "numeric",
+            }
+          )}`,
+          { className: "text-center" }
+        );
+      }
+      const { added } = await addClient(user);
       added && setAdded(true);
     }
   };

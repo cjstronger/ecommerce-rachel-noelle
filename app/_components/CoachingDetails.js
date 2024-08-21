@@ -122,7 +122,7 @@ export default function CoachingDetails({ id }) {
         href="/startingout"
         className="text-center lg:text-lg text-md font-satoshi border flex justify-center items-center md:w-[250px] w-[190px] h-[45px] border-fadedBlack hover:bg-accentFaded bg-bg transition-all mx-auto mt-2 mb-5"
       >
-        Book a call
+        Book a Call
       </TransitionLink>
       <h1 className="text-center text-lg lg:text-2xl">
         Otherwise lets dive deep!

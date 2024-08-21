@@ -35,10 +35,18 @@ export async function POST(req) {
       })
     );
 
+    // TO DO: Add email send for the hour call consultation
+
+    // coachingProducts.map((product) => {
+    //   if (product.id === "price_1Pp2M4EcxLgVB18aWx2saU1A") return await;
+    // });
+
+    const redirectUrl = new URL("/thankyou", req.nextUrl.origin);
+    if (!coachingProducts) return NextResponse.redirect(redirectUrl);
+
     const coachingItems = lineItems.data.filter((lineItem, i) => {
       return lineItem.price.id !== coachingProducts[i]?.id;
     });
-    console.log("Coaching Items:", coachingItems);
 
     const promises = coachingItems.map(async (coachingItem) => {
       const [fullName, email, date] = coachingItem.description
