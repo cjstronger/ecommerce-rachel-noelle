@@ -45,7 +45,7 @@ export const NoelleApply = ({ appFullName }) => (
           <Section className="relative">
             <Img
               src="https://nzszzpxpduixjugtfdla.supabase.co/storage/v1/object/public/email_images/beach.jpg"
-              alt="RN"
+              alt="beach"
               height="auto"
               width="100%"
             />

@@ -2,6 +2,7 @@ import Stripe from "stripe";
 import { addClient } from "../_lib/data-services";
 import { NextResponse } from "next/server";
 import { getStripeProductById } from "../_lib/actions";
+import sendConsultingEmail from "../_lib/sendConsultingEmails";
 
 const stripe = new Stripe(process.env.STRIPE_KEY);
 
@@ -37,9 +38,11 @@ export async function POST(req) {
 
     // TO DO: Add email send for the hour call consultation
 
-    // coachingProducts.map((product) => {
-    //   if (product.id === "price_1Pp2M4EcxLgVB18aWx2saU1A") return await;
-    // });
+    coachingProducts.map(async (product) => {
+      if (product.id === "price_1Pp2M4EcxLgVB18aWx2saU1A") {
+        await sendConsultingEmail(user, (type = "one-hour"));
+      } else return;
+    });
 
     const redirectUrl = new URL("/thankyou", req.nextUrl.origin);
     if (!coachingProducts) return NextResponse.redirect(redirectUrl);
