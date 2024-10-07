@@ -1,5 +1,6 @@
 "use server";
 
+import NoelleGuide from "@/react-email-starter/emails/noelle-sendGuide";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_KEY);
