@@ -5,9 +5,9 @@ export default function Page() {
   return (
     <div className="mt-[2rem] lg:flex flex-column">
       <Image
-        src="/images/foodguide-1.png"
+        src="/images/rachel-guide-cover.jpg"
         alt="free-guide"
-        quality={80}
+        quality={100}
         width="300"
         height="300"
         className="mx-auto mb-5"
