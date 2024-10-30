@@ -232,3 +232,11 @@ export async function updateImages(images, id) {
 
   return { errors: null };
 }
+
+export async function getFiles() {
+  const { data, error } = await supabaseAdmin.storage.from("PDFs").list();
+
+  if (error) throw new Error("An error occured server side");
+
+  return { data };
+}
