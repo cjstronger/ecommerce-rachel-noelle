@@ -11,8 +11,11 @@ export default async function page() {
     <div className="mt-11">
       <h1 className="text-center text-3xl">Resources</h1>
       <div className="grid grid-cols-4 justify-center place-items-center">
-        {data.map((file) => (
-          <div className="bg-accent text-neutral-300 w-[200px] h-[300px]">
+        {data.map((file, i) => (
+          <div
+            key={i}
+            className="bg-accent text-neutral-300 w-[200px] h-[300px]"
+          >
             <Link
               href={`${supabaseUrl}/storage/v1/object/public/PDFs/${file.name}`}
             />
