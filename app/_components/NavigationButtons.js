@@ -35,7 +35,7 @@ export default function NavigationButtons({
   }
 
   return !burger ? (
-    <ul className="flex text-lg text-fadedBlack h-full font-satoshi">
+    <ul className="flex text-md text-fadedBlack h-full font-satoshi">
       <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
         <a
           className="px-6 h-full items-center flex border-b-transparent border-b-2"
@@ -58,11 +58,7 @@ export default function NavigationButtons({
         <ActiveLink href="/artwork">Artwork</ActiveLink>
       </li>
       <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">
-        <ActiveLink href="/login">
-          {user?.user_metadata?.full_name
-            ? user.user_metadata.full_name.split(" ")[0]
-            : "Login"}
-        </ActiveLink>
+        <ActiveLink href="/resources">Resources</ActiveLink>
       </li>
       {user?.role === "service_role" && (
         <li className="transition-all duration-100 border-b-2 border-b-transparent hover:border-b-blackTrans">

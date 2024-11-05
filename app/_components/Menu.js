@@ -38,6 +38,10 @@ export default function Menu({ openMenu, setOpenMenu }) {
       href: "/artwork",
     },
     {
+      title: "Resources",
+      href: "/resources",
+    },
+    {
       title: `${
         user?.user_metadata?.full_name
           ? user.user_metadata.full_name.split(" ")[0]

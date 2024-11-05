@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import Cart from "./Cart";
 import FreeGuideLink from "./FreeGuideLink";
 import TransitionLink from "./TransitionLink";
+import Login from "./Login";
 
 export default function Header() {
   return (
@@ -34,7 +35,10 @@ export default function Header() {
               Rachel Noelle
             </TransitionLink>
           </div>
-          <Cart />
+          <div className="flex items-center h-full">
+            <Login />
+            <Cart />
+          </div>
         </div>
       </motion.header>
       <FreeGuideLink />

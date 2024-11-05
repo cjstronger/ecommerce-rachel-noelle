@@ -11,6 +11,7 @@ import { ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import CartModal from "./CartModal";
 import useModalClose from "../_hooks/useModalClose";
 import { useCart } from "../_contexts/CartContext";
+import { useUser } from "../_contexts/UsersContext";
 
 const variants = {
   close: { scale: 0 },
