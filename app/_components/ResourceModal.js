@@ -6,12 +6,25 @@ import Input from "./Input";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { addSubscriber } from "../_lib/data-services";
+import useModalClose from "../_hooks/useModalClose";
+import { useUser } from "../_contexts/UsersContext";
 
 export default function ResourceModal({ data, supabaseUrl }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [applied, setApplied] = useState(false);
   const { formState, register, handleSubmit } = useForm();
   const { errors } = formState;
+  const { user } = useUser();
+
+  if (user) {
+    setApplied(true);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+  }
+
+  const { ref } = useModalClose(closeModal, "oneRef");
 
   async function submitEmail(e) {
     const { email } = e;
@@ -53,11 +66,12 @@ export default function ResourceModal({ data, supabaseUrl }) {
       ))}
       {modalOpen && (
         <form
+          ref={ref}
           onSubmit={handleSubmit(submitEmail)}
           className="bg-fadedBlack opacity-95 rounded-md h-[300px] w-[80vw] max-w-[600px] absolute translate-x-[-50%] translate-y-[-50%] top-[40%] left-[50%] backdrop-blur-xl flex flex-col items-center justify-center"
         >
           <h2 className="text-bg mb-8 text-center">
-            Please enter your email to get access to my free resources!
+            Please enter your email to gain access to my free resources!
           </h2>
           <Input
             label="Email"
