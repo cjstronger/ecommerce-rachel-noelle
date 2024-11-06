@@ -15,6 +15,7 @@ function UserProvider({ children }) {
         data: { user },
       } = await supabase.auth.getUser();
       setUser(user);
+      console.log(user);
     }
     getSession();
   }, [user]);

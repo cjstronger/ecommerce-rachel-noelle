@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowDownCircleIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "./Input";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -16,9 +16,11 @@ export default function ResourceModal({ data, supabaseUrl }) {
   const { errors } = formState;
   const { user } = useUser();
 
-  if (user) {
-    setApplied(true);
-  }
+  useEffect(() => {
+    if (user) {
+      setApplied(true);
+    }
+  }, [user]);
 
   function closeModal() {
     setModalOpen(false);
