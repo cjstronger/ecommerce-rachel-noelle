@@ -4,6 +4,8 @@ import { getFiles } from "../_lib/data-services";
 import { supabaseUrl } from "../_lib/supabase";
 import ResourceModal from "../_components/ResourceModal";
 
+export const revalidate = 0;
+
 export default async function page() {
   const { data } = await getFiles();
 
