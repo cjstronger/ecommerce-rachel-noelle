@@ -3,10 +3,10 @@
 import { getFiles } from "../_lib/data-services";
 import { supabaseUrl } from "../_lib/supabase";
 import ResourceModal from "../_components/ResourceModal";
-
-export const revalidate = 0;
+import { unstable_noStore } from "next/cache";
 
 export default async function page() {
+  unstable_noStore();
   const { data } = await getFiles();
 
   return (
